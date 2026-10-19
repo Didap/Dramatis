@@ -1,0 +1,55 @@
+{
+  "trash": {
+    "description": "Quello che elimini resta qui: torna al suo posto con tutto quello che era andato via con lui.",
+    "emptyState": "Il cestino è vuoto. Quello che elimini resta qui finché non decidi tu.",
+    "loadError": "Non riesco ad aprire il cestino.",
+    "restore": "Ripristina",
+    "restoreItem": "Ripristina «{name}»",
+    "purge": "Elimina definitivamente",
+    "purgeItem": "Elimina definitivamente «{name}»",
+    "actionsFor": "Azioni per «{name}»",
+    "purgeAsk": "Eliminare per sempre «{name}»? Non si potrà recuperare.",
+    "purgeAskWith": "Eliminare per sempre «{name}», {with}? Non si potrà recuperare.",
+    "purgeAskChoices": "Eliminare per sempre «{name}» e la scelta che porta qui da un'altra scena? Non si potrà recuperare. | Eliminare per sempre «{name}» e le {n} scelte che portano qui da altre scene? Non si potrà recuperare.",
+    "purgeAskWithChoices": "Eliminare per sempre «{name}», {with}, e la scelta che porta qui da un'altra scena? Non si potrà recuperare. | Eliminare per sempre «{name}», {with}, e le {n} scelte che portano qui da altre scene? Non si potrà recuperare.",
+    "purgeConfirm": "Elimina per sempre",
+    "purged": "Hai eliminato per sempre «{name}».",
+    "restored": "Hai ripristinato «{name}».",
+    "restoredIn": "Ora si trova nel capitolo «{name}».",
+    "restoreSceneFirst": "Prima ripristina la scena «{name}»: la revisione torna con lei.",
+    "empty": "Svuota il cestino",
+    "emptyAsk": "Eliminare per sempre l'unico elemento del cestino? Non si potrà recuperare. | Eliminare per sempre i {n} elementi del cestino? Non si potranno recuperare.",
+    "emptyChoices": "Sparirà anche la scelta di un'altra scena che porta a una scena del cestino. | Spariranno anche le {n} scelte di altre scene che portano alle scene del cestino.",
+    "emptyConfirm": "Svuota il cestino",
+    "emptied": "Cestino svuotato: {n} elemento eliminato per sempre | Cestino svuotato: {n} elementi eliminati per sempre",
+    "with": "con {list}",
+    "inside": "in «{name}»",
+    "ofScene": "della scena «{name}»",
+    "fromTo": "da «{from}» a «{to}»",
+    "labels": {
+      "relation": "Relazione tra {name}",
+      "image": "Immagine di {name}"
+    },
+    "units": {
+      "chapters": "{n} capitolo | {n} capitoli",
+      "scenes": "{n} scena | {n} scene",
+      "images": "{n} immagine | {n} immagini",
+      "entries": "{n} voce | {n} voci"
+    },
+    "types": {
+      "codexEntries": "Voci del compendio",
+      "codexCategories": "Categorie del compendio",
+      "relations": "Relazioni",
+      "maps": "Mappe delle relazioni",
+      "links": "Scelte",
+      "images": "Immagini"
+    },
+    "untitled": {
+      "image": "Immagine senza didascalia",
+      "relation": "Relazione senza etichetta",
+      "link": "Scelta senza testo",
+      "revision": "Revisione senza nome",
+      "item": "Senza titolo"
+    }
+  }
+}

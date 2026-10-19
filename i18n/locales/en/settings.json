@@ -1,0 +1,113 @@
+{
+  "settings": {
+    "description": "What the project is and how it behaves. Every change is saved at once, except the type, which first tells you what changes; switching something off hides it, it does not delete it.",
+    "sections": "Settings sections",
+    "general": {
+      "title": "General",
+      "projectTitle": "Title",
+      "subtitle": "Subtitle",
+      "subtitleHelp": "Optional: it appears under the title and on the title page.",
+      "author": "Author name",
+      "authorHelp": "How you sign the work in exports.",
+      "language": "Language of the text",
+      "languageHelp": "For spell checking, typography and exports. The interface language is chosen in your account."
+    },
+    "type": {
+      "title": "Type and modules",
+      "description": "The type sets the vocabulary and the modules you start with; modules can be switched on and off one by one.",
+      "label": "Project type",
+      "novel": "Parts, chapters and scenes, Manuscript, Groups. Game modules start off.",
+      "game": "Acts, chapters and scenes, Script, Factions. Branching, variables, quests, codex, dialogue lines and scene kinds start on.",
+      "changed": {
+        "novel": "It is a novel now.",
+        "game": "It is a video game now."
+      }
+    },
+    "modules": {
+      "label": "Modules",
+      "novelHint": "Switch them on for a gamebook or a non-linear story.",
+      "gameHint": "Switch off the ones you do not need: what they hold stays.",
+      "branching": "Player choices between scenes, the start scene, endings, the flow view and its checks.",
+      "variables": "Conditions and effects of choices. Also switches on branching.",
+      "quests": "Main and side quests, with a quest giver, objectives and rewards.",
+      "codex": "The codex of the world, in categories: history, peoples, religions, magic, bestiary, languages, politics.",
+      "script": "Dialogue lines in the script, with the speaker and the direction, and the voice-over script.",
+      "scene_kinds": "The kind of every scene: cutscene, dialogue, gameplay, exploration, combat, puzzle.",
+      "branchingCascade": "Switching it off also switches off the state variables.",
+      "variablesOff": "The state variables are off too."
+    },
+    "writing": {
+      "title": "Writing",
+      "description": "How the editor writes dialogue and punctuation, and how chapters come out.",
+      "dialogue": "Dialogue punctuation",
+      "dialogueHelp": "What the dialogue buttons of the editor insert.",
+      "dialogueSample": {
+        "guillemets": "«Come», she said. «It's late.»",
+        "double_quotes": "“Come,” she said. “It's late.”",
+        "dash": "— Come — she said. — It's late."
+      },
+      "smart": "Smart typography",
+      "smartHelp": "Quotes in the chosen style, two hyphens become a dash, three dots become an ellipsis.",
+      "numberingLabel": "Numbering of {chapters}",
+      "numberingHelp": "In the manuscript and in exports.",
+      "numbering": {
+        "arabic": "{chapter} 1, {chapter} 2",
+        "roman": "{chapter} I, {chapter} II",
+        "words": "{chapter} One, {chapter} Two",
+        "none": "The title only, no number"
+      },
+      "separator": "Scene separator",
+      "separatorHelp": "Printed between two scenes of the same chapter in exports."
+    },
+    "structure": {
+      "title": "Structure",
+      "novel": {
+        "label": "Divide into parts",
+        "helpOn": "Every chapter sits in a part. Switching off keeps the chapters in their current order and moves the parts to the trash together.",
+        "helpOff": "The chapters are in a single row, without parts. Switching on puts them all in the first part; if there were parts before, each chapter goes back to its own.",
+        "on": "The manuscript is now divided into parts.",
+        "off": "The parts are in the trash, the chapters keep their order."
+      },
+      "game": {
+        "label": "Divide into acts",
+        "helpOn": "Every chapter sits in an act. Switching off keeps the chapters in their current order and moves the acts to the trash together.",
+        "helpOff": "The chapters are in a single row, without acts. Switching on puts them all in the first act; if there were acts before, each chapter goes back to its own.",
+        "on": "The script is now divided into acts.",
+        "off": "The acts are in the trash, the chapters keep their order."
+      }
+    },
+    "guidance": {
+      "title": "Guidance",
+      "label": "Show the path and the guidance",
+      "help": "The path on the overview, explanations such as “What is the fabula?”, the hints under interview questions and the lines that explain empty pages. It never blocks anything."
+    },
+    "delete": {
+      "title": "Delete the project",
+      "description": "The project moves to the deleted ones, in the projects list: from there you can restore it, or delete it forever.",
+      "action": "Move to deleted projects",
+      "ask": "Move “{name}” to the deleted projects? You can restore it from the projects list.",
+      "confirm": "Move to deleted projects",
+      "done": "“{name}” is in the deleted projects."
+    },
+    "kindChange": {
+      "title": {
+        "game": "From novel to video game",
+        "novel": "From video game to novel"
+      },
+      "vocabulary": "These names change:",
+      "becomes": "becomes",
+      "modules": {
+        "game": "The game modules, already on: switch off the ones you do not need.",
+        "novel": "The game modules switch off: switch on the ones to keep, for a gamebook or a non-linear story."
+      },
+      "safe": {
+        "game": "Nothing is deleted: parts, chapters and scenes stay where they are, only their names change. A module that is off hides what it holds, and you find it again when you switch it back on.",
+        "novel": "Nothing is deleted: acts, chapters and scenes stay where they are, only their names change. A module that is off hides what it holds, and you find it again when you switch it back on."
+      },
+      "confirm": {
+        "game": "Make it a video game",
+        "novel": "Make it a novel"
+      }
+    }
+  }
+}

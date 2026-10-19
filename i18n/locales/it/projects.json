@@ -1,0 +1,106 @@
+{
+  "projects": {
+    "title": "I tuoi progetti",
+    "home": "Dramatis, i tuoi progetti",
+    "metaTitle": "I tuoi progetti · Dramatis",
+    "count": "{n} progetto | {n} progetti",
+    "summary": "{projects}, {words} in tutto.",
+    "actions": {
+      "importHint": "Importa un backup di Dramatis (.zip) o un manoscritto (.docx, Markdown o testo)",
+      "demo": "Apri un esempio"
+    },
+    "demo": {
+      "novel": "Romanzo di esempio",
+      "novelHint": "Una storia breve con personaggi, luoghi e scene già scritte.",
+      "game": "Videogioco di esempio",
+      "gameHint": "Una storia a bivi con missioni, variabili e finali."
+    },
+    "filter": {
+      "label": "Mostra",
+      "active": "Progetti",
+      "deleted": "Eliminati"
+    },
+    "deleted": {
+      "note": "I progetti eliminati restano qui finché non li elimini definitivamente.",
+      "empty": "Nessun progetto eliminato.",
+      "back": "Torna ai progetti"
+    },
+    "row": {
+      "edited": {
+        "label": "Ultima modifica",
+        "today": "oggi, {time}",
+        "yesterday": "ieri, {time}",
+        "date": "{date}"
+      },
+      "opened": {
+        "today": "aperto oggi, {time}",
+        "yesterday": "aperto ieri, {time}",
+        "date": "aperto il {date}"
+      },
+      "deleted": {
+        "today": "Eliminato oggi, {time}",
+        "yesterday": "Eliminato ieri, {time}",
+        "date": "Eliminato il {date}"
+      },
+      "pathStage": "{stage}, passo {n} di {total}",
+      "pathDone": "Percorso completato",
+      "pathHidden": "Percorso nascosto",
+      "menu": "Azioni per «{title}»",
+      "titleLabel": "Titolo del progetto",
+      "backup": "Scarica il backup",
+      "purge": "Elimina definitivamente",
+      "copyTitle": "{title} (copia)",
+      "duplicating": "Duplicazione in corso",
+      "downloading": "Download del backup in corso"
+    },
+    "toast": {
+      "deleted": "«{title}» spostato tra gli eliminati.",
+      "restored": "«{title}» è di nuovo tra i tuoi progetti.",
+      "purged": "«{title}» eliminato definitivamente.",
+      "duplicated": "Copia creata: «{title}»."
+    },
+    "confirm": {
+      "purgeTitle": "Eliminare definitivamente «{title}»?",
+      "purgeBody": "Il progetto sparisce per sempre, con tutto quello che contiene: scene, personaggi, immagini e revisioni. Non si può annullare.",
+      "purgeLabel": "Elimina definitivamente"
+    },
+    "empty": {
+      "title": "Ogni storia comincia da un’idea: crea il tuo primo progetto, o apri un esempio per vedere come funziona.",
+      "newHint": "Un romanzo o un videogioco, da una pagina bianca o da una struttura.",
+      "demoHint": "Una storia già avviata, con tutto collegato, da esplorare e poi eliminare.",
+      "import": "Importa un file",
+      "importHint": "Un backup di Dramatis con le sue immagini, o un manoscritto in Word, Markdown o testo: i titoli diventano parti, capitoli e scene."
+    },
+    "create": {
+      "title": "Nuovo progetto",
+      "description": "Si crea in un passo: titolo, tipo e da dove partire.",
+      "titleLabel": "Titolo",
+      "titlePlaceholder": "Senza titolo",
+      "titleHelp": "Puoi lasciarlo vuoto e sceglierlo più avanti.",
+      "demoTitleHelp": "Il progetto di esempio ha già un titolo: potrai cambiarlo quando vuoi.",
+      "kind": "Tipo",
+      "kinds": {
+        "novel": "Una storia da leggere: parti, capitoli e scene, fino al manoscritto.",
+        "game": "La storia di un gioco: atti, missioni, scelte e finali, fino al copione per il team."
+      },
+      "start": "Parti da",
+      "starts": {
+        "blank": "Vuoto",
+        "blankHint": "Una pagina bianca: capitoli e scene li aggiungi quando vuoi.",
+        "structure": "Da una struttura",
+        "structureHint": {
+          "novel": "Parti, capitoli e linee narrative già impostati, da riempire.",
+          "game": "Atti, capitoli e missioni già impostati, da riempire."
+        },
+        "demo": "Progetto di esempio",
+        "demoHint": "Una storia breve già scritta, per vedere come si collega tutto."
+      },
+      "structure": "Struttura"
+    },
+    "shape": {
+      "count": "{n} {term}",
+      "storylines": "{n} trama | {n} trame",
+      "quests": "{n} missione | {n} missioni"
+    }
+  }
+}

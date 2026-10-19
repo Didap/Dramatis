@@ -1,0 +1,100 @@
+{
+  "analysis": {
+    "description": "Come personaggi, luoghi e linee narrative si distribuiscono nei capitoli: chi c'è, dove, e quanto pesa ogni capitolo.",
+    "descriptionGame": "Come personaggi, luoghi, trame e missioni si distribuiscono nei capitoli del copione.",
+    "meta": "{chapters}, {scenes}, {words}",
+    "tabs": {
+      "lengths": "Lunghezze",
+      "pov": "Punti di vista",
+      "status": "Stato",
+      "game": "Gioco",
+      "label": "Sezione dell'analisi"
+    },
+    "empty": {
+      "title": "L'analisi mostra come personaggi, luoghi e linee narrative si distribuiscono nei capitoli: servono almeno un capitolo e una scena.",
+      "titleGame": "L'analisi mostra come personaggi, luoghi e missioni si distribuiscono nei capitoli: servono almeno un capitolo e una scena.",
+      "guide": "Quando la storia prende forma, qui vedi chi compare in ogni capitolo, dove si svolge, da quale punto di vista è raccontato e quanto è lungo: il modo più rapido per accorgersi di un personaggio dimenticato o di un capitolo che pesa troppo.",
+      "toManuscript": "Vai al {manuscript}",
+      "characters": "Nessun personaggio ancora: quando ne crei uno e lo citi in una scena, qui vedi dove compare.",
+      "locations": "Nessun luogo ancora: quando ne crei uno e lo usi in una scena, qui vedi in quali capitoli torna.",
+      "objects": "Nessun oggetto ancora: quando ne crei uno e lo citi in una scena, qui vedi dove compare.",
+      "objectsGame": "Nessun oggetto ancora: quando ne crei uno e lo citi in una scena, qui vedi dove compare.",
+      "strands": "Nessuna linea narrativa ancora: quando ne crei una e la assegni alle scene, qui vedi come attraversa i capitoli.",
+      "strandsGame": "Nessuna trama o missione ancora: quando ne crei una e la assegni alle scene, qui vedi come attraversa i capitoli."
+    },
+    "lengths": {
+      "average": "In media {chapter} per capitolo e {scene} per scena.",
+      "chapterRange": "Il capitolo più lungo è «{longest}», {longestWords}; il più corto è «{shortest}», {shortestWords}.",
+      "longestScene": "La scena più lunga è «{title}», {words}.",
+      "byChapter": "Capitolo per capitolo",
+      "showScenes": "Mostra le {scenes}",
+      "partTotals": "{scenes}, {words}",
+      "longest": "il più lungo",
+      "shortest": "il più corto"
+    },
+    "matrix": {
+      "total": "Totale",
+      "cell": "{row} in {chapter}: {n} scena | {row} in {chapter}: {n} scene",
+      "chapterScenes": "Scene del capitolo",
+      "legend": "Capitoli",
+      "legendParts": "{parts} e {chapters}",
+      "caption": "{what} per capitolo, in numero di scene",
+      "presence": "{present} su {total} compare in almeno una scena. | {present} su {total} compaiono in almeno una scena.",
+      "absent": "Non ancora in scena: {names}.",
+      "more": "un altro | altri {n}",
+      "moreFeminine": "un'altra | altre {n}",
+      "column": "{term} {n}, {title}"
+    },
+    "characters": {
+      "showMinor": "Mostra la comparsa | Mostra le {n} comparse"
+    },
+    "pov": {
+      "unset": "Non indicato",
+      "nobody": "Nessuno",
+      "most": "Il punto di vista più usato: {pov}, {n} su {total}.",
+      "values": "Punto di vista per capitolo",
+      "value": "Punto di vista",
+      "characters": "Personaggio punto di vista per capitolo"
+    },
+    "status": {
+      "count": {
+        "planned": "{n} pianificata | {n} pianificate",
+        "draft": "{n} bozza | {n} bozze",
+        "revised": "{n} rivista | {n} riviste",
+        "final": "{n} definitiva | {n} definitive"
+      },
+      "final": "Scene definitive: {n}%.",
+      "header": "Stato",
+      "caption": "Stato delle scene per capitolo"
+    },
+    "game": {
+      "noAct": "Senza atto",
+      "kindsByAct": "Tipi di scena per {act}",
+      "kindsByChapter": "Tipi di scena per capitolo",
+      "kindsHint": "Il ritmo del gioco: quante scene si guardano, quante si giocano, quante si parlano.",
+      "kind": "Tipo di scena",
+      "actScenes": "Scene per {act}",
+      "choices": "Scelte e bivi",
+      "choicesSummary": "{choices} tra {scenes}.",
+      "choiceCount": "{n} scelta | {n} scelte",
+      "branchPoints": "Nessuna scena apre più strade. | {n} scena apre più strade. | {n} scene aprono più strade.",
+      "start": "Inizio",
+      "continues": "Continuazione",
+      "unreachable": "Scena irraggiungibile",
+      "deadEnd": "Vicolo cieco",
+      "incoming": "{n} in arrivo | {n} in arrivo",
+      "noEndings": "Nessuna scena è ancora un finale: indica dove può finire il gioco nei dettagli della scena.",
+      "reachable": "Raggiungibile",
+      "unreachableEnding": "Irraggiungibile",
+      "speakers": "Battute e parole per personaggio",
+      "reading": "Leggo le battute.",
+      "speakersSummary": "Parlano {speakers}, in {lines}.",
+      "speakerCount": "{n} personaggio | {n} personaggi",
+      "lineCount": "{n} battuta | {n} battute",
+      "noLines": "Ancora nessuna battuta: scrivile nelle scene con il blocco Battuta, e qui vedi chi parla e quanto.",
+      "unattributed": "{n} battuta non dice chi parla. | {n} battute non dicono chi parla.",
+      "readFailed": "Non riesco a leggere le battute.",
+      "inScenes": "in {scenes}"
+    }
+  }
+}

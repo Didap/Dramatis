@@ -1,0 +1,159 @@
+{
+  "landing": {
+    "meta": {
+      "title": "Dramatis, per scrivere romanzi e storie di videogiochi",
+      "description": "Lo scrittoio di chi scrive un romanzo o la storia di un videogioco: personaggi, mondo, trama, scene e bivi in un posto solo, dal primo spunto al manoscritto o al copione finito."
+    },
+    "home": "Dramatis, pagina iniziale",
+    "signIn": "Accedi",
+    "language": "Lingua",
+    "hero": {
+      "title": "Dal primo spunto al manoscritto o al copione finito, con tutto il mondo della storia in ordine.",
+      "lead": "Dramatis è lo scrittoio di chi scrive un romanzo e di chi scrive la storia di un videogioco. Personaggi, luoghi, trame, scene e bivi stanno in un posto solo, legati tra loro, alla scrivania come in treno.",
+      "cta": "Crea un account",
+      "ctaSignedIn": "Vai ai tuoi progetti"
+    },
+    "media": {
+      "title": "Un solo mestiere, due forme",
+      "lead": "La bibbia della storia e la pagina sono le stesse. Con il tipo di progetto cambiano la struttura, le parole e le esportazioni, senza fare rumore.",
+      "novel": {
+        "title": "Un romanzo",
+        "points": {
+          "structure": "Parti, capitoli e scene, da riordinare quando vuoi.",
+          "pov": "Il punto di vista e il personaggio punto di vista di ogni scena.",
+          "analysis": "L’analisi di chi compare, dove e quando, capitolo per capitolo.",
+          "export": "Il manoscritto pulito, in DOCX, EPUB o PDF."
+        }
+      },
+      "game": {
+        "title": "Un videogioco",
+        "points": {
+          "quests": "Atti e missioni, principali e secondarie, con obiettivi e ricompense.",
+          "choices": "Le scelte del giocatore, con condizioni ed effetti sulle variabili di stato, e un flusso che mostra l’inizio, i finali e i vicoli ciechi.",
+          "lines": "Le battute, con chi parla, le indicazioni e un ID che non cambia.",
+          "export": "Per il team: JSON, Twine, Ink, il copione per il doppiaggio e il documento di narrative design."
+        }
+      }
+    },
+    "method": {
+      "title": "Il metodo, in tre tempi",
+      "bible": {
+        "title": "La bibbia della storia",
+        "body": "Premessa, fabula e ambientazione. I personaggi, costruiti rispondendo a un’intervista, poi gruppi e fazioni, luoghi, oggetti, relazioni, linee narrative e linea del tempo. Ogni cosa esiste una volta sola, e il resto la richiama."
+      },
+      "manuscript": {
+        "title": "Il manoscritto, o il copione",
+        "body": "Scrivi una scena alla volta, in un editor che si fa da parte. Con {at} chiami in scena un personaggio o un luogo, e la scena sa chi c’è, dove e quando. Ogni scena conserva le sue revisioni."
+      },
+      "delivery": {
+        "title": "La consegna",
+        "body": "Il manoscritto pulito per un editore, in DOCX, EPUB o PDF. Per chi sviluppa il gioco, il documento di narrative design, i dati in JSON, Twine e Ink e il copione per il doppiaggio."
+      }
+    },
+    "interview": {
+      "title": "Le domande le fa Dramatis, le risposte sono tue",
+      "body": "Ogni personaggio principale ha un’intervista in nove sezioni (undici in un videogioco, con il ruolo nel gioco e la voce). Chi è, cosa vuole, cosa lo frena: rispondi quando vuoi, o scrivi a testo libero."
+    },
+    "path": {
+      "title": "Un percorso, finché ti serve",
+      "body": "Il percorso ti dice a che punto sei, dalla premessa alla consegna, e ti propone il passo successivo. Non blocca niente: ogni sezione è aperta dal primo minuto, e quando non ti serve più lo nascondi."
+    },
+    "devices": {
+      "title": "Alla scrivania e in tasca",
+      "lead": "È lo stesso progetto, ovunque lo apri.",
+      "desk": {
+        "title": "Alla scrivania",
+        "body": "Le sessioni lunghe si fanno al computer: la scena al centro, la scaletta a un tasto di distanza, i dettagli in un pannello che si chiude."
+      },
+      "phone": {
+        "title": "Sul telefono",
+        "body": "Un’idea si annota in due tocchi. Controlli il colore degli occhi di un personaggio a metà scena, scrivi in treno, rileggi l’ultimo capitolo."
+      }
+    },
+    "trust": {
+      "title": "Non si perde una parola",
+      "autosave": {
+        "title": "Salvataggio automatico",
+        "body": "Il testo si salva da solo un secondo dopo l’ultimo tasto, e lo stato del salvataggio è sempre in vista."
+      },
+      "revisions": {
+        "title": "Revisioni e cronologia",
+        "body": "Ogni scena può avere più versioni, e una cronologia per tornare indietro."
+      },
+      "devices": {
+        "title": "Due dispositivi, nessuna sovrascrittura",
+        "body": "Se la stessa scena cambia su due dispositivi, si tengono entrambe le versioni."
+      },
+      "trash": {
+        "title": "Un cestino che restituisce",
+        "body": "Quello che elimini resta nel cestino e torna al suo posto quando lo ripristini."
+      },
+      "backup": {
+        "title": "Backup ed esportazioni",
+        "body": "Il progetto intero in un file, il testo in ogni formato: sempre a un passo."
+      }
+    },
+    "statement": {
+      "title": "Nessuna intelligenza artificiale scrive al posto tuo.",
+      "body": "La storia la scrivi tu. Dramatis la tiene in ordine, coerente e al sicuro."
+    },
+    "closing": {
+      "title": "Comincia dalla premessa: bastano poche righe.",
+      "signIn": "Hai già un account? {link}"
+    },
+    "footer": "Per scrivere romanzi e storie di videogiochi.",
+    "specimen": {
+      "saved": "Salvato",
+      "today": "oggi {n}",
+      "novel": {
+        "caption": "L’editor in un romanzo: una scena di «Le parole prestate», il progetto di esempio.",
+        "chapter": "La stanza sul vico",
+        "position": "Parte 1 · Capitolo 1 · Scena 1",
+        "title": "Dettatura",
+        "p1": "«Devo scrivere a Vito» disse, come ogni mese, e si sedette senza aspettare l’invito. Mimmo andò dritto sotto il tavolo, dove sapeva di trovare un rocchetto e due tappi di sughero.",
+        "p2": "{teresa} svitò il cappuccio della {pen}, provò il pennino su un foglio di brutta e scrisse in alto a destra: Mola di Bari, 12 marzo 1956. Poi aspettò. Con Nunzia non c’era mai da aspettare molto.",
+        "teresa": "Teresa",
+        "pen": "stilografica",
+        "p3": "«Caro Vito. Stiamo bene. Mimmo è cresciuto e non gli entrano più le scarpe. Tua madre ha la tosse ma il medico non lo vuole. I soldi di febbraio sono arrivati.»",
+        "p4": "«Basta così?» chiese."
+      },
+      "game": {
+        "caption": "L’editor in un videogioco: una scena di «Il Respiro di Velmara», con le battute e le scelte del giocatore.",
+        "chapter": "Il Campo delle Ore",
+        "position": "Atto I · Capitolo 2 · Scena 5",
+        "title": "La Gazza",
+        "action": "Esterno, canale grande. La Gazza, una barca stretta dipinta di nero e di bianco, è carica di lanterne spente.",
+        "tullia": "Tullia",
+        "mira": "Mira",
+        "line1": "Se cerchi un passaggio per l’Alta, la scala è là. Per salire non serve la barca.",
+        "line1Direction": "senza guardarla",
+        "line2": "Devo andare nel Basso. A casa di Agata Valdesca.",
+        "line3": "Sei la figlia. Quella della Terraferma.",
+        "choices": "Scelte",
+        "choice1": "Aiuta Tullia a issare le lanterne",
+        "choice2": "«Andiamo subito da mia madre.»",
+        "effect": "fiducia_tullia +1",
+        "lines": "3 battute"
+      },
+      "interview": {
+        "caption": "L’intervista a un personaggio principale: la sezione Conflitto di Teresa Ladisa.",
+        "name": "Teresa Ladisa",
+        "tagline": "Scrive le lettere di chi non sa scrivere, e da marzo ci mette dentro anche le sue.",
+        "progress": "3 di 12 risposte",
+        "interview": "Intervista",
+        "free": "Testo libero",
+        "answer1": "Essere ascoltata da qualcuno, anche per interposta persona. In Vito ha trovato il solo lettore che risponde davvero a quello che scrive.",
+        "answer2": "Vito torna a Natale, e Nunzia ha cominciato la scuola serale: presto saprà leggere da sola le sue lettere.",
+        "placeholder": "Scrivi la risposta"
+      },
+      "path": {
+        "caption": "Il percorso di un videogioco: cinque passi fatti su otto, ora la prima stesura del copione."
+      },
+      "phone": {
+        "caption": "Sul telefono, sul treno del ritorno: l’idea per una battuta, annotata in due tocchi.",
+        "project": "Il Respiro di Velmara",
+        "note": "Quando Tullia si fida, chiama Mira per nome: aggiungere una battuta alla Gazza."
+      }
+    }
+  }
+}

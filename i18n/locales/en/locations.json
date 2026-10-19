@@ -1,0 +1,38 @@
+{
+  "locations": {
+    "city": "City",
+    "region": "Region",
+    "nation": "Nation",
+    "ask": {
+      "city": "Which city?",
+      "region": "Which region?",
+      "nation": "Which nation?"
+    },
+    "kind": "Kind",
+    "description": "Description",
+    "descriptionPlaceholder": "What it looks like, how it smells, who passes through and what usually happens there.",
+    "scenes": "Scenes set here",
+    "events": "Significant events",
+    "relations": "Relationships",
+    "images": "Images",
+    "notes": "Notes",
+    "groupByPlace": "Group by nation and region",
+    "noPlace": "No nation or region",
+    "novel": {
+      "add": "Add a location",
+      "namePlaceholder": "Location name",
+      "intro": "Open a location to describe it and see the scenes set there; change the order from each row's menu.",
+      "empty": "Locations give the story a body: from the nation down to the room where the scene happens.",
+      "emptyQuestion": "Where does the story begin?",
+      "kindPlaceholder": "house, harbour, district"
+    },
+    "game": {
+      "add": "Add a location",
+      "namePlaceholder": "Location name",
+      "intro": "Open a location to describe it and see the scenes set there; change the order from each row's menu.",
+      "empty": "Locations give the game a body: from the continent down to the room where the scene plays out.",
+      "emptyQuestion": "Where does the game begin?",
+      "kindPlaceholder": "city, hub, dungeon"
+    }
+  }
+}

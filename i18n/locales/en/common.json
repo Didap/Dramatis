@@ -1,0 +1,469 @@
+{
+  "common": {
+    "appName": "Dramatis",
+    "actions": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "remove": "Remove",
+      "add": "Add",
+      "create": "Create",
+      "edit": "Edit",
+      "rename": "Rename",
+      "duplicate": "Duplicate",
+      "close": "Close",
+      "back": "Back",
+      "next": "Next",
+      "previous": "Previous",
+      "undo": "Undo",
+      "redo": "Redo",
+      "restore": "Restore",
+      "confirm": "Confirm",
+      "search": "Search",
+      "filter": "Filter",
+      "clear": "Clear",
+      "done": "Done",
+      "open": "Open",
+      "more": "More",
+      "upload": "Upload",
+      "change": "Change",
+      "choose": "Choose",
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "moveTo": "Move to",
+      "showAll": "Show all",
+      "showLess": "Show less",
+      "retry": "Try again",
+      "copy": "Copy",
+      "export": "Export",
+      "import": "Import",
+      "signOut": "Sign out",
+      "settings": "Settings",
+      "write": "Write",
+      "keepMine": "Keep my version",
+      "keepTheirs": "Use the saved one"
+    },
+    "status": {
+      "saving": "Saving",
+      "saved": "Saved",
+      "savedAt": "Saved at {time}",
+      "unsaved": "Changes waiting to be saved",
+      "failed": "Not saved, retrying as soon as possible",
+      "offline": "You are offline: changes will go through when you reconnect",
+      "loading": "Loading",
+      "refused": "Not saved: the server refused the change"
+    },
+    "trash": {
+      "moved": "Moved to the trash",
+      "restored": "Restored"
+    },
+    "errors": {
+      "network": "No connection: the change did not reach the server.",
+      "invalid": "Some of the data is not valid.",
+      "signedOut": "Your session has expired: please sign in again.",
+      "notFound": "Not found. It may have been deleted.",
+      "conflict": "Someone, or another device, changed this in the meantime.",
+      "tooLarge": "The file is too large (10 MB at most).",
+      "unsupported": "Unsupported format: use JPEG, PNG or WebP.",
+      "tooMany": "Too many attempts. Try again in a minute.",
+      "generic": "Something went wrong. Please try again.",
+      "loadProject": "This project could not be opened."
+    },
+    "untitled": {
+      "scene": "Untitled scene",
+      "chapter": "Untitled chapter",
+      "part": "Untitled part",
+      "note": "Untitled note",
+      "project": "Untitled project",
+      "map": "Unnamed map",
+      "event": "New event",
+      "entry": "New entry",
+      "character": "New character",
+      "location": "New location",
+      "object": "New object",
+      "item": "New item",
+      "group": "New group",
+      "faction": "New faction"
+    },
+    "fields": {
+      "name": "Name",
+      "title": "Title",
+      "description": "Description",
+      "notes": "Notes",
+      "tags": "Tags",
+      "color": "Colour",
+      "status": "Status",
+      "kind": "Kind",
+      "image": "Image",
+      "aliases": "Other names",
+      "role": "Role",
+      "importance": "Importance",
+      "tagline": "In one line",
+      "synopsis": "Synopsis",
+      "date": "Date",
+      "time": "Time",
+      "position": "Position"
+    },
+    "confirm": {
+      "deleteTitle": "Delete “{name}”?",
+      "deleteBody": "It goes to the trash: you can restore it whenever you like.",
+      "purgeBody": "It will be deleted for good and cannot be recovered.",
+      "typeToConfirm": "To confirm, type: {phrase}"
+    },
+    "time": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "justNow": "Just now"
+    },
+    "empty": {
+      "noResults": "No results",
+      "none": "None"
+    },
+    "units": {
+      "words": "{n} word | {n} words",
+      "scenes": "{n} scene | {n} scenes",
+      "chapters": "{n} chapter | {n} chapters",
+      "characters": "{n} character | {n} characters",
+      "minutes": "{n} minute | {n} minutes",
+      "days": "{n} day | {n} days"
+    },
+    "theme": {
+      "label": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "Match system"
+    },
+    "language": {
+      "label": "Interface language"
+    },
+    "a11y": {
+      "skipToContent": "Skip to content",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "toggleSidebar": "Show or hide the sidebar",
+      "dragHandle": "Drag to reorder"
+    },
+    "nav": {
+      "story": "Story",
+      "world": "World",
+      "work": "Work",
+      "review": "Review",
+      "add": "Add",
+      "more": "More",
+      "search": "Search",
+      "searchHint": "Search and commands",
+      "projects": "All projects",
+      "newProject": "New project",
+      "account": "Account",
+      "flowProblems": "{n} problem in the flow | {n} problems in the flow",
+      "trashCount": "{n} item in the trash | {n} items in the trash"
+    },
+    "enums": {
+      "sceneStatus": {
+        "planned": "Planned",
+        "draft": "Draft",
+        "revised": "Revised",
+        "final": "Final"
+      },
+      "planningStatus": {
+        "todo": "To do",
+        "progress": "In progress",
+        "done": "Done"
+      },
+      "importance": {
+        "main": "Main",
+        "secondary": "Secondary",
+        "minor": "Minor"
+      },
+      "role": {
+        "protagonist": "Protagonist",
+        "antagonist": "Antagonist",
+        "deuteragonist": "Deuteragonist",
+        "mentor": "Mentor",
+        "ally": "Ally",
+        "love_interest": "Love interest",
+        "confidant": "Confidant",
+        "foil": "Foil",
+        "trickster": "Trickster",
+        "narrator": "Narrator",
+        "player_character": "Player character",
+        "companion": "Companion",
+        "boss": "Boss",
+        "quest_giver": "Quest giver",
+        "merchant": "Merchant",
+        "npc": "Non-player character",
+        "other": "Other"
+      },
+      "pov": {
+        "first": "First person",
+        "second": "Second person",
+        "third_limited": "Third person limited",
+        "third_omniscient": "Third person omniscient",
+        "third_objective": "Third person objective",
+        "multiple": "Multiple points of view"
+      },
+      "strandKind": {
+        "plot": "Main plot",
+        "subplot": "Subplot",
+        "arc": "Character arc",
+        "quest": "Main quest",
+        "side_quest": "Side quest"
+      },
+      "relationKind": {
+        "family": "Family",
+        "romance": "Romance",
+        "friendship": "Friendship",
+        "alliance": "Alliance",
+        "rivalry": "Rivalry",
+        "enmity": "Enmity",
+        "mentorship": "Mentorship",
+        "professional": "Professional",
+        "ownership": "Ownership",
+        "place": "Place",
+        "membership": "Membership",
+        "other": "Other"
+      },
+      "groupKind": {
+        "family": "Family",
+        "faction": "Faction",
+        "organization": "Organization",
+        "culture": "People and culture",
+        "other": "Other"
+      },
+      "sceneKind": {
+        "scene": "Scene",
+        "cutscene": "Cutscene",
+        "dialogue": "Dialogue",
+        "gameplay": "Gameplay",
+        "exploration": "Exploration",
+        "combat": "Combat",
+        "puzzle": "Puzzle"
+      },
+      "variableType": {
+        "boolean": "Yes or no",
+        "number": "Number",
+        "string": "Text"
+      },
+      "eventKind": {
+        "story": "Story event",
+        "historical": "Historical event"
+      },
+      "projectKind": {
+        "novel": "Novel",
+        "game": "Video game"
+      },
+      "color": {
+        "brick": "Brick",
+        "amber": "Amber",
+        "ochre": "Ochre",
+        "olive": "Olive",
+        "green": "Green",
+        "teal": "Teal",
+        "blue": "Blue",
+        "indigo": "Indigo",
+        "plum": "Plum",
+        "slate": "Slate"
+      },
+      "refType": {
+        "character": "Character",
+        "group": "Group",
+        "location": "Location",
+        "object": "Object",
+        "strand": "Narrative strand",
+        "chapter": "Chapter",
+        "scene": "Scene",
+        "event": "Event",
+        "note": "Note",
+        "codex": "Codex entry"
+      },
+      "importancePlural": {
+        "main": "Main",
+        "secondary": "Secondary",
+        "minor": "Minor"
+      },
+      "module": {
+        "branching": "Branching and flow",
+        "variables": "State variables",
+        "quests": "Quests",
+        "codex": "Codex",
+        "script": "Dialogue lines",
+        "scene_kinds": "Scene kinds"
+      },
+      "dialogueStyle": {
+        "guillemets": "Guillemets « »",
+        "double_quotes": "Double quotes “ ”",
+        "dash": "Dash —"
+      },
+      "durationUnit": {
+        "minutes": "minutes",
+        "hours": "hours",
+        "days": "days",
+        "weeks": "weeks",
+        "months": "months",
+        "years": "years"
+      },
+      "conditionOp": {
+        "eq": "equals",
+        "neq": "is not",
+        "gt": "is more than",
+        "gte": "is at least",
+        "lt": "is less than",
+        "lte": "is at most",
+        "is_true": "is true",
+        "is_false": "is false"
+      },
+      "effectOp": {
+        "set": "becomes",
+        "add": "increases by",
+        "subtract": "decreases by",
+        "toggle": "flips"
+      }
+    },
+    "image": {
+      "upload": "Upload an image",
+      "change": "Change image",
+      "remove": "Remove image",
+      "open": "Open image {n}",
+      "primary": "Primary image",
+      "caption": "Caption",
+      "alt": "Alternative text",
+      "altHint": "Describes the image to people who cannot see it; when empty, the caption is used.",
+      "makePrimary": "Make primary",
+      "add": "Add images"
+    },
+    "tags": {
+      "placeholder": "Add a tag"
+    },
+    "guide": {
+      "show": "What is it: {topic}",
+      "hide": "Hide the guide"
+    },
+    "conflict": {
+      "title": "Conflict",
+      "longText": "This text had been changed from another device. Yours is safe in the note “{note}”.",
+      "openNote": "Open the note"
+    },
+    "vocab": {
+      "novel": {
+        "projectType": "Novel",
+        "overview": "Overview",
+        "goals": "Goals",
+        "architecture": "Architecture",
+        "premise": "Premise",
+        "fabula": "Fabula",
+        "setting": "Setting",
+        "strands": "Narrative strands",
+        "strand": "Narrative strand | Narrative strands",
+        "notes": "Notes",
+        "world": "World",
+        "characters": "Characters",
+        "character": "Character | Characters",
+        "groups": "Groups",
+        "group": "Group | Groups",
+        "locations": "Locations",
+        "location": "Location | Locations",
+        "objects": "Objects",
+        "object": "Object | Objects",
+        "relations": "Relationships",
+        "relationMap": "Relationship map",
+        "codex": "Codex",
+        "codexEntry": "Entry | Entries",
+        "manuscript": "Manuscript",
+        "part": "Part | Parts",
+        "chapter": "Chapter | Chapters",
+        "scene": "Scene | Scenes",
+        "synopsis": "Synopsis",
+        "chapterPurpose": "Purpose of the chapter",
+        "revision": "Revision | Revisions",
+        "history": "History",
+        "timeline": "Timeline",
+        "event": "Event | Events",
+        "analysis": "Analysis",
+        "export": "Export",
+        "trash": "Trash",
+        "settings": "Settings",
+        "audience": "reader",
+        "firstDraft": "First draft",
+        "projectDocument": "Story bible",
+        "flow": "Flow",
+        "variables": "State variables",
+        "variable": "Variable | Variables",
+        "ending": "Ending | Endings"
+      },
+      "game": {
+        "projectType": "Video game",
+        "overview": "Overview",
+        "goals": "Goals",
+        "architecture": "Architecture",
+        "premise": "Premise",
+        "fabula": "Fabula",
+        "setting": "Setting",
+        "strands": "Storylines and quests",
+        "strand": "Storyline or quest | Storylines and quests",
+        "notes": "Notes",
+        "world": "World",
+        "characters": "Characters",
+        "character": "Character | Characters",
+        "groups": "Factions",
+        "group": "Faction | Factions",
+        "locations": "Locations",
+        "location": "Location | Locations",
+        "objects": "Items",
+        "object": "Item | Items",
+        "relations": "Relationships",
+        "relationMap": "Relationship map",
+        "codex": "Codex",
+        "codexEntry": "Entry | Entries",
+        "manuscript": "Script",
+        "part": "Act | Acts",
+        "chapter": "Chapter | Chapters",
+        "scene": "Scene | Scenes",
+        "synopsis": "Synopsis",
+        "chapterPurpose": "Purpose of the chapter",
+        "revision": "Revision | Revisions",
+        "history": "History",
+        "timeline": "Timeline",
+        "event": "Event | Events",
+        "analysis": "Analysis",
+        "export": "Export",
+        "trash": "Trash",
+        "settings": "Settings",
+        "audience": "player",
+        "firstDraft": "First draft of the script",
+        "projectDocument": "Narrative design document",
+        "flow": "Flow",
+        "variables": "State variables",
+        "variable": "Variable | Variables",
+        "ending": "Ending | Endings"
+      }
+    },
+    "capture": {
+      "quickNote": "Quick note",
+      "placeholder": "An idea, a line, a name to remember.",
+      "saveNote": "Save the note",
+      "noteSaved": "Note saved"
+    },
+    "shortcuts": {
+      "title": "Keyboard shortcuts",
+      "palette": "Search and commands",
+      "find": "Find and replace in the scene",
+      "search": "Search the project",
+      "details": "Scene details",
+      "focus": "Focus mode",
+      "sidebar": "Show or hide the sidebar",
+      "moveUp": "Move the selected item up",
+      "moveDown": "Move the selected item down",
+      "escape": "Close the topmost panel or leave focus mode",
+      "sheet": "This list",
+      "rename": "Rename the selected item"
+    },
+    "format": {
+      "bold": "Bold",
+      "italic": "Italic",
+      "underline": "Underline",
+      "strike": "Strikethrough",
+      "bulletList": "List",
+      "quote": "Quote"
+    }
+  }
+}

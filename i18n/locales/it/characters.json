@@ -1,0 +1,176 @@
+{
+  "characters": {
+    "list": {
+      "new": "Nuovo personaggio",
+      "intro": {
+        "novel": "I principali hanno un profilo a intervista; secondari e comparse una scheda più breve.",
+        "game": "I principali hanno un profilo a intervista, con il ruolo nel gioco e la voce; secondari e comparse una scheda più breve, con la voce.",
+        "hide": "Nascondi"
+      },
+      "search": "Cerca per nome",
+      "searchLabel": "Cerca tra i personaggi, per nome o per altro nome",
+      "clearSearch": "Svuota la ricerca",
+      "filter": "Filtra",
+      "filterActive": "Filtra, {n} filtro attivo | Filtra, {n} filtri attivi",
+      "filters": {
+        "role": "Ruolo",
+        "tags": "Etichetta",
+        "remove": "Togli il filtro {filter}",
+        "clear": "Togli i filtri"
+      },
+      "sort": {
+        "label": "Ordina",
+        "manual": "Ordine manuale",
+        "name": "Nome",
+        "appearances": "Presenze nelle scene"
+      },
+      "noMatch": "Nessun personaggio corrisponde alla ricerca.",
+      "empty": {
+        "title": "I personaggi sono il cuore della storia: comincia dal protagonista, le domande giuste arrivano dopo.",
+        "body": {
+          "novel": "Il protagonista avrà un profilo a intervista: chi è, cosa vuole, cosa glielo impedisce. Per secondari e comparse basta una descrizione.",
+          "game": "Il protagonista, o il personaggio che il giocatore guida, avrà un profilo a intervista, con il ruolo nel gioco e la voce. Per secondari e comparse basta una descrizione."
+        },
+        "action": "Aggiungi il protagonista",
+        "write": "Oppure scrivi prima una scena"
+      },
+      "moved": "{name}, posizione {n} di {total}",
+      "movedTo": "Importanza di {name}: {importance}",
+      "moveTo": {
+        "main": "Sposta tra i principali",
+        "secondary": "Sposta tra i secondari",
+        "minor": "Sposta tra le comparse"
+      },
+      "trash": "Sposta nel cestino",
+      "rowActions": "Azioni per {name}",
+      "moveHint": "Solo in ordine manuale, senza filtri"
+    },
+    "create": {
+      "name": "Nome del personaggio",
+      "importance": "Importanza",
+      "submit": "Crea",
+      "duplicate": "Esiste già un personaggio di nome {name}."
+    },
+    "sheet": {
+      "name": "Nome",
+      "duplicate": "C'è un altro personaggio di nome {name}.",
+      "tagline": "In una riga",
+      "taglinePlaceholder": "In una riga: chi è, per chi lo incontra",
+      "taglineCount": "{n} di {max}",
+      "importance": "Importanza",
+      "role": "Ruolo",
+      "noRole": "Nessun ruolo",
+      "status": "Stato",
+      "color": "Colore",
+      "playable": "Giocabile",
+      "aliases": "Altri nomi",
+      "aliasesPlaceholder": "Aggiungi un nome",
+      "tags": "Etichette",
+      "menu": "Altre azioni",
+      "trash": "Sposta nel cestino",
+      "notFound": "Questo personaggio non c'è più: forse è nel cestino.",
+      "backToList": "Torna ai personaggi",
+      "openTrash": "Apri il cestino",
+      "taglineLeft": "Nessun carattere rimasto | Resta {n} carattere | Restano {n} caratteri"
+    },
+    "description": {
+      "title": "Descrizione",
+      "placeholder": "Chi è, come appare, che cosa vuole: quanto basta per riconoscerlo in scena."
+    },
+    "profile": {
+      "title": "Profilo",
+      "start": "Comincia l'intervista",
+      "continue": "Continua l'intervista",
+      "progress": "{n} di {total} risposte",
+      "free": "Testo libero, {words}",
+      "freeEmpty": "Testo libero, ancora vuoto",
+      "answered": "Sezione con risposta",
+      "kept": "Le risposte del profilo sono conservate: tornano se lo rendi di nuovo principale."
+    },
+    "traits": {
+      "title": "Qualità, difetti, contraddizioni",
+      "qualities": "Qualità",
+      "flaws": "Difetti",
+      "contradictions": "Contraddizioni",
+      "add": {
+        "qualities": "Aggiungi una qualità",
+        "flaws": "Aggiungi un difetto",
+        "contradictions": "Aggiungi una contraddizione"
+      },
+      "addShort": "Aggiungi",
+      "help": "Invio per modificare, Alt e le frecce per spostare, Canc per togliere. Le stesse azioni sono nel menu.",
+      "removed": "Tolto: «{text}»",
+      "moved": "«{text}», posizione {n} di {total}",
+      "editLabel": "Modifica «{text}»",
+      "remove": "Togli «{text}»",
+      "edit": "Modifica",
+      "actions": "Azioni per «{text}»"
+    },
+    "groups": {
+      "rolePlaceholder": {
+        "novel": "Ruolo nel gruppo",
+        "game": "Ruolo nella fazione"
+      },
+      "role": "Ruolo in {group}",
+      "remove": "Togli da {group}",
+      "empty": {
+        "novel": "Non appartiene ancora a nessun gruppo: una famiglia, una gilda, un popolo.",
+        "game": "Non fa ancora parte di nessuna fazione: una gilda, un clan, un esercito."
+      },
+      "add": {
+        "novel": "Aggiungi a un gruppo",
+        "game": "Aggiungi a una fazione"
+      },
+      "create": {
+        "novel": "Crea il gruppo «{name}»",
+        "game": "Crea la fazione «{name}»"
+      }
+    },
+    "appearances": {
+      "title": "Dove compare"
+    },
+    "images": {
+      "title": "Immagini",
+      "drop": "Oppure trascina qui le immagini.",
+      "uploading": "Caricamento delle immagini in corso"
+    },
+    "notes": {
+      "title": "Note",
+      "placeholder": "Appunti su questo personaggio: idee, dubbi, cose da non dimenticare."
+    },
+    "lines": {
+      "title": "Battute",
+      "count": "{n} battuta | {n} battute",
+      "failed": "Non riesco a leggere le battute.",
+      "empty": "Non ha ancora battute: dagli la parola con una battuta di dialogo, in una scena.",
+      "more": "Mostra l'altra battuta | Mostra le altre {n} battute",
+      "summary": "{lines}, {words}"
+    },
+    "section": {
+      "interview": "Intervista",
+      "free": "Testo libero",
+      "mode": "Come riempire la sezione",
+      "alsoFree": "C'è anche un testo libero.",
+      "alsoAnswers": "Ci sono anche risposte nell'intervista.",
+      "useAsOutline": "Usa le risposte come traccia",
+      "showFree": "Mostra il testo libero",
+      "showInterview": "Torna all'intervista",
+      "outlineDone": "Domande e risposte sono nel testo libero: riscrivile come vuoi.",
+      "freePlaceholder": "Scrivi liberamente, oppure torna all'intervista.",
+      "nav": "Sezioni del profilo",
+      "previous": "Sezione precedente",
+      "next": "Sezione successiva",
+      "backToSheet": "Torna alla scheda",
+      "notFound": "Questa sezione del profilo non c'è per questo personaggio.",
+      "otherAnswers": "Altre risposte",
+      "otherAnswersHint": "Risposte a domande che l'intervista non fa più: restano qui.",
+      "eyebrow": "{name}, sezione {n} di {total}",
+      "formerQuestion": "Domanda non più presente"
+    },
+    "trashed": {
+      "body": "Questo personaggio è nel cestino, forse spostato da un altro dispositivo: quello che scrivi qui non viene salvato finché non torna.",
+      "restore": "Ripristina",
+      "openTrash": "Apri il cestino"
+    }
+  }
+}

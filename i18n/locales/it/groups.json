@@ -1,0 +1,41 @@
+{
+  "groups": {
+    "members": "Membri",
+    "membersCount": "{n} membro | {n} membri",
+    "addMember": "Aggiungi un membro",
+    "description": "Descrizione",
+    "descriptionPlaceholder": "Chi sono, da dove vengono, che cosa vogliono.",
+    "language": "Lingua",
+    "languagePlaceholder": "Come parlano: parole, accenti, modi di dire che li fanno riconoscere.",
+    "traditions": "Tradizioni",
+    "traditionsPlaceholder": "Riti, feste, regole non scritte, che cosa si tramandano.",
+    "powers": "Poteri",
+    "relations": "Relazioni",
+    "images": "Immagini",
+    "scenes": "Scene dei membri",
+    "events": "Eventi",
+    "notes": "Note",
+    "novel": {
+      "add": "Aggiungi un gruppo",
+      "namePlaceholder": "Nome del gruppo",
+      "intro": "Apri un gruppo per descriverlo e dire chi ne fa parte; l'ordine si cambia dal menu di ogni riga.",
+      "empty": "Un gruppo riunisce personaggi, luoghi e oggetti: una famiglia, una gilda, un popolo.",
+      "emptyQuestion": "Chi sta insieme, nella tua storia?",
+      "noMembers": "Nessun membro: aggiungi personaggi, luoghi o oggetti che appartengono a questo gruppo.",
+      "role": "ruolo nel gruppo",
+      "removeMember": "Togli {name} dal gruppo",
+      "powersPlaceholder": "Che cosa possono ottenere, imporre o impedire."
+    },
+    "game": {
+      "add": "Aggiungi una fazione",
+      "namePlaceholder": "Nome della fazione",
+      "intro": "Apri una fazione per descriverla e dire chi ne fa parte; l'ordine si cambia dal menu di ogni riga.",
+      "empty": "Una fazione riunisce personaggi, luoghi e oggetti: una gilda, un clan, un esercito.",
+      "emptyQuestion": "Chi si contende il mondo del gioco?",
+      "noMembers": "Nessun membro: aggiungi personaggi, luoghi o oggetti che appartengono a questa fazione.",
+      "role": "ruolo nella fazione",
+      "removeMember": "Togli {name} dalla fazione",
+      "powersPlaceholder": "Che cosa sanno fare, che cosa controllano, che cosa possono dare o togliere al giocatore."
+    }
+  }
+}

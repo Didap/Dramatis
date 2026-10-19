@@ -1,0 +1,404 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+/*
+ * Dramatis, "Il Libretto". The tokens are specified and verified in DESIGN.md
+ * (every pair checked by scripts/check-contrast.mjs). Neutral: grafite (hue 212). Accent: petrolio (218).
+ */
+
+/*
+ * Tabular digits without tabular punctuation. Schibsted Grotesk's tabular feature also gives "." ","
+ * and ":" a digit's width ("12 . 345", "23 : 18"), so the feature is baked into a digits-only copy of
+ * the face (public/fonts, SIL OFL 1.1) that sits in front of it wherever numbers line up.
+ */
+@font-face {
+  font-family: 'Dramatis Figures';
+  src: url('/fonts/dramatis-figures.woff2') format('woff2');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0030-0039;
+}
+
+@theme static {
+  --font-sans: 'Schibsted Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Literata', ui-serif, Georgia, serif;
+  --font-readable: 'Atkinson Hyperlegible Next', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  --color-grafite-50: #f2f5f6;
+  --color-grafite-100: #eaeff0;
+  --color-grafite-200: #d4dadc;
+  --color-grafite-300: #bdc4c5;
+  --color-grafite-400: #8a9294;
+  --color-grafite-500: #6d7576;
+  --color-grafite-600: #606869;
+  --color-grafite-700: #3e4547;
+  --color-grafite-800: #212829;
+  --color-grafite-900: #151b1d;
+  --color-grafite-950: #0e1314;
+
+  --color-petrolio-50: #edf7fb;
+  --color-petrolio-100: #daf0f6;
+  --color-petrolio-200: #b9e1ed;
+  --color-petrolio-300: #88c6d8;
+  --color-petrolio-400: #5eabc0;
+  --color-petrolio-500: #37899f;
+  --color-petrolio-600: #216b7d;
+  --color-petrolio-700: #135666;
+  --color-petrolio-800: #0c4350;
+  --color-petrolio-900: #07313b;
+  --color-petrolio-950: #031e26;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --ui-radius: 0.1875rem;
+
+  --ui-bg: #f9fcfc;
+  --ui-bg-muted: #f2f5f6;
+  --ui-bg-elevated: #eaeff0;
+  --ui-bg-accented: #d2dbdd;
+  --ui-bg-inverted: #151b1d;
+  /* Floating layers (popovers, menus, drawers): the page colour in light, a step up in dark. */
+  --ui-bg-floating: #f9fcfc;
+
+  --ui-text-dimmed: #666d6f;
+  --ui-text-muted: #4d5456;
+  --ui-text-toned: #3e4547;
+  --ui-text: #212829;
+  --ui-text-highlighted: #151b1d;
+  --ui-text-inverted: #f9fcfc;
+
+  --ui-border: #d2dbdd;
+  --ui-border-muted: #eaeff0;
+  --ui-border-accented: #6d7576;
+  --ui-border-inverted: #151b1d;
+
+  --ui-primary: #216b7d;
+  --ui-primary-hover: #135666;
+  --ui-selection: #b9e1ed;
+  --ui-success: #2d7546;
+  --ui-warning: #935a0f;
+  --ui-error: #b63731;
+  --ui-info: #2d6bab;
+
+  --shadow-floating: 0 1px 2px oklch(0.2 0.01 212 / 0.06), 0 8px 24px -4px oklch(0.2 0.01 212 / 0.12);
+
+  /* Entity palette (ENTITY_COLORS): a colour for edges and dots, a tint and an ink for initials and chips. */
+  --entity-brick: #b65446;
+  --entity-brick-tint: #ffe0da;
+  --entity-brick-ink: #7a3b31;
+  --entity-amber: #c2722c;
+  --entity-amber-tint: #fbe3d2;
+  --entity-amber-ink: #744214;
+  --entity-ochre: #926b00;
+  --entity-ochre-tint: #f3e6ce;
+  --entity-ochre-ink: #674b00;
+  --entity-olive: #8a8e1a;
+  --entity-olive-tint: #e8ebd0;
+  --entity-olive-ink: #51540a;
+  --entity-green: #408031;
+  --entity-green-tint: #dceed8;
+  --entity-green-ink: #335c2a;
+  --entity-teal: #1e8068;
+  --entity-teal-tint: #d2f0e5;
+  --entity-teal-ink: #005f4a;
+  --entity-blue: #3389cc;
+  --entity-blue-tint: #d6ebfe;
+  --entity-blue-ink: #1e537e;
+  --entity-indigo: #5a6cbf;
+  --entity-indigo-tint: #dfe7ff;
+  --entity-indigo-ink: #3f4b81;
+  --entity-plum: #a15698;
+  --entity-plum-tint: #f7e0f2;
+  --entity-plum-ink: #6c3c66;
+  --entity-slate: #6d7576;
+  --entity-slate-tint: #eaeff0;
+  --entity-slate-ink: #3e4547;
+
+  /* Scene statuses gain colour as they mature; planning statuses are quieter rings. */
+  --status-planned: var(--ui-text-dimmed);
+  --status-draft: var(--ui-text-toned);
+  --status-revised: var(--ui-info);
+  --status-final: var(--ui-success);
+  --status-todo: var(--ui-text-dimmed);
+  --status-progress: var(--ui-text-toned);
+  --status-done: var(--ui-success);
+
+  /* The manuscript: Literata, measure in real characters (CSS ch is the zero, 1.26 average characters). */
+  --manuscript-font: var(--font-serif);
+  --manuscript-size: 1.1875rem;
+  --manuscript-leading: 1.6;
+  --manuscript-weight: 400;
+  --manuscript-measure: 70;
+  --manuscript-avg-char: 0.462em;
+}
+
+.dark {
+  --ui-bg: #151b1d;
+  --ui-bg-muted: #0e1314;
+  --ui-bg-elevated: #212829;
+  --ui-bg-accented: #3e4547;
+  --ui-bg-inverted: #eaeff0;
+  --ui-bg-floating: #1b2123;
+
+  --ui-text-dimmed: #8a9294;
+  --ui-text-muted: #9fa8aa;
+  --ui-text-toned: #bcc4c6;
+  --ui-text: #d2dbdd;
+  --ui-text-highlighted: #f2f5f6;
+  --ui-text-inverted: #151b1d;
+
+  --ui-border: #303738;
+  --ui-border-muted: #212829;
+  --ui-border-accented: #6d7576;
+  --ui-border-inverted: #eaeff0;
+
+  --ui-primary: #5eabc0;
+  --ui-primary-hover: #88c6d8;
+  --ui-selection: #0c4350;
+  --ui-success: #77c88e;
+  --ui-warning: #ebb466;
+  --ui-error: #f07f77;
+  --ui-info: #81b2e9;
+
+  --shadow-floating: 0 0 0 1px var(--ui-border), 0 8px 24px -4px oklch(0.1 0.01 212 / 0.5);
+
+  --entity-brick: #ea9687;
+  --entity-brick-tint: #452b27;
+  --entity-brick-ink: #f9c6bd;
+  --entity-amber: #bb7b47;
+  --entity-amber-tint: #422e1e;
+  --entity-amber-ink: #f3cbae;
+  --entity-ochre: #cba65a;
+  --entity-ochre-tint: #3c311a;
+  --entity-ochre-ink: #e7d2a8;
+  --entity-olive: #8a8e3d;
+  --entity-olive-tint: #33351c;
+  --entity-olive-ink: #d5d9ac;
+  --entity-green: #84b879;
+  --entity-green-tint: #283824;
+  --entity-green-ink: #c0dfb9;
+  --entity-teal: #57bd9f;
+  --entity-teal-tint: #1b3a30;
+  --entity-teal-ink: #ade2d0;
+  --entity-blue: #4f8fc4;
+  --entity-blue-tint: #213546;
+  --entity-blue-ink: #b5d9fa;
+  --entity-indigo: #95a9f0;
+  --entity-indigo-tint: #2c3247;
+  --entity-indigo-ink: #c6d3fd;
+  --entity-plum: #d797cd;
+  --entity-plum-tint: #3f2b3c;
+  --entity-plum-ink: #edc6e6;
+  --entity-slate: #8a9294;
+  --entity-slate-tint: #303738;
+  --entity-slate-ink: #d2dbdd;
+
+  /* The manuscript loses a little weight to cancel the glow of light text on dark. */
+  --manuscript-weight: 370;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--ui-bg);
+    color: var(--ui-text);
+    font-family: var(--font-sans);
+    font-feature-settings: 'case' 0;
+  }
+
+  ::selection {
+    background: var(--ui-selection);
+    color: var(--ui-text-highlighted);
+  }
+
+  /*
+   * On phones, plain fields at 16px: iOS zooms into anything smaller. In the base layer, so a field's
+   * own size (a title at text-2xl) wins; Nuxt UI fields get max-sm:text-base in app.config.
+   */
+  @media (max-width: 639px) {
+    input:not([type='checkbox'], [type='radio'], [type='range']),
+    textarea,
+    select {
+      font-size: 16px;
+    }
+  }
+
+  /* Tabular figures for computed counts (DESIGN.md, Numerals): equal-width digits, natural separators. */
+  .tabular,
+  [data-numbers] {
+    font-family: 'Dramatis Figures', var(--font-sans);
+  }
+}
+
+/*
+ * Focus: one 2px ring in the accent on every control. Unlayered on purpose, so it wins over
+ * Nuxt UI's 25% outline (1.4:1) on buttons. Text fields and editors keep their own ring or frame:
+ * an outline around the page while writing would be noise.
+ */
+:focus-visible:not(input, textarea, select, [contenteditable], .ProseMirror) {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 2px;
+}
+
+@layer components {
+/* ---------------------------------------------------------------- the two voices */
+  
+  /** The author's voice: everything the author wrote (names, titles, texts). */
+  .voice-author {
+    font-family: var(--manuscript-font);
+    font-weight: var(--manuscript-weight);
+    font-optical-sizing: auto;
+  }
+  
+  /** The position line (PARTE 1 · CAPITOLO 3 · SCENA 2): the only uppercase with the speaker labels. */
+  .position-line {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-feature-settings: 'case' 1;
+    color: var(--ui-text-muted);
+  }
+  
+  /* ---------------------------------------------------------------- the leader */
+  
+  /** The dotted leader joining a name to its number. aria-hidden, never typed periods. */
+  .leader {
+    flex: 1 1 auto;
+    min-width: 2rem;
+    height: 0.25rem;
+    align-self: baseline;
+    background-image: radial-gradient(circle, var(--ui-border-accented) 0.75px, transparent 1px);
+    background-size: 4px 4px;
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    opacity: 0.55;
+    transition: opacity 150ms var(--ease-out-expo);
+  }
+  .group:hover .leader,
+  .group:focus-visible .leader,
+  .group:focus-within .leader {
+    opacity: 1;
+  }
+  .leader--done {
+    background-image: linear-gradient(var(--ui-primary), var(--ui-primary));
+    background-size: 100% 1px;
+    opacity: 1;
+  }
+  
+  /* ---------------------------------------------------------------- entity avatars and chips */
+  
+  .d-entity-avatar {
+    background-color: var(--d-avatar-tint-bg, var(--ui-bg-elevated));
+    color: var(--d-avatar-ink, var(--ui-text-toned));
+    font-family: var(--manuscript-font);
+  }
+}
+
+/* ---------------------------------------------------------------- rich text
+ * Unlayered on purpose: these override Nuxt UI's editor utilities (accent mentions, wide spacing). */
+
+.d-rich-text .tiptap {
+  outline: none;
+  color: var(--ui-text);
+}
+.d-rich-text--prose .tiptap {
+  font-family: var(--manuscript-font);
+  font-weight: var(--manuscript-weight);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+.d-rich-text--sm .tiptap {
+  font-size: 0.9375rem;
+}
+.d-rich-text--lg .tiptap {
+  font-size: 1.125rem;
+}
+.d-rich-text .tiptap p.is-editor-empty:first-child {
+  position: relative;
+}
+/* A long placeholder wraps inside the field instead of running over the next line. */
+.d-rich-text .tiptap p.is-editor-empty:first-child::before {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  float: none;
+  height: auto;
+  color: var(--ui-text-dimmed);
+  white-space: normal;
+}
+
+/* Mentions are plain text with a dotted underline, never a pill; the entity's ink on hover. */
+.tiptap .mention,
+.mention {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: underline dotted var(--ui-border-accented);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  border-radius: 1px;
+  transition: text-decoration-color 150ms var(--ease-out-expo);
+}
+.tiptap .mention:hover,
+.mention:hover {
+  text-decoration-color: var(--ui-primary);
+}
+
+/* Script lines: speaker in tracked capitals, direction in italic, line in roman, hanging wrap. */
+.tiptap .dialogue-line {
+  padding-inline-start: 2em;
+  text-indent: -2em;
+  margin-block: 0.25em;
+}
+.tiptap .dialogue-line[data-speaker]:not([data-speaker=''])::before {
+  content: attr(data-speaker);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8125em;
+  font-weight: 600;
+  color: var(--ui-text-toned);
+  margin-inline-end: 0.5em;
+}
+.tiptap .dialogue-line[data-direction]:not([data-direction=''])::after {
+  content: '(' attr(data-direction) ')';
+  font-style: italic;
+  color: var(--ui-text-muted);
+  margin-inline-start: 0.4em;
+}
+
+/* A break between sections of a scene, printed as * * * in exports. */
+.tiptap hr.scene-break {
+  border: 0;
+  margin-block: 1.5em;
+  text-align: center;
+  overflow: visible;
+}
+.tiptap hr.scene-break::after {
+  content: '*  *  *';
+  white-space: pre;
+  color: var(--ui-text-muted);
+  letter-spacing: 0.3em;
+}
+
+/* ---------------------------------------------------------------- motion */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

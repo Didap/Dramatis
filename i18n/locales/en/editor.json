@@ -1,0 +1,328 @@
+{
+  "editor": {
+    "surface": {
+      "label": "Text of the scene",
+      "title": "Title of the scene",
+      "placeholder": "Start writing. Type {at} to mention a character.",
+      "placeholderScript": "Start writing. Type {at} to mention a character, / to add a line."
+    },
+    "format": {
+      "bold": "Bold",
+      "italic": "Italic",
+      "underline": "Underline",
+      "strike": "Strikethrough",
+      "bulletList": "Bulleted list",
+      "orderedList": "Numbered list",
+      "quote": "Quote",
+      "align": "Alignment",
+      "alignLeft": "Left",
+      "alignCenter": "Centre",
+      "alignRight": "Right"
+    },
+    "slash": {
+      "title": "Insert",
+      "line": "Line",
+      "lineHint": "Who speaks, how, what they say",
+      "break": "Section break",
+      "breakHint": "A pause inside the scene",
+      "quote": "Quote",
+      "quoteHint": "A letter, an epigraph, a quoted passage",
+      "bulletList": "Bulleted list",
+      "orderedList": "Numbered list",
+      "paragraph": "Plain text"
+    },
+    "writingBar": {
+      "label": "Dialogue punctuation",
+      "quotes": "Quotes {quotes}",
+      "quotesHint": "Opens the dialogue quotes, and closes them",
+      "dash": "Dash",
+      "dashHint": "Inserts a dash",
+      "dialogueDashHint": "Opens the line, or closes the aside",
+      "ellipsis": "Ellipsis",
+      "ellipsisHint": "Inserts an ellipsis",
+      "line": "Line",
+      "lineHint": "A line of dialogue: who speaks, how, what they say",
+      "linesOnly": "Lines only",
+      "linesOnlyHint": "Only the lines, as in a script"
+    },
+    "keyboard": {
+      "label": "Writing tools",
+      "mention": "Mention",
+      "choice": "Choice"
+    },
+    "bar": {
+      "back": "Back to the {where}",
+      "breadcrumb": "Where the scene is",
+      "find": "Find and replace",
+      "details": "Scene details",
+      "focus": "Focus mode",
+      "more": "More actions",
+      "typography": "Type and measure",
+      "status": "Status: {status}"
+    },
+    "save": {
+      "saved": "Saved",
+      "savedAt": "Saved at {time}",
+      "saving": "Saving",
+      "offline": "Offline",
+      "offlineHint": "The text stays on this device and goes out as soon as the connection is back.",
+      "failed": "Not saved, retrying",
+      "keptHere": "The text stays on this device until it reaches the server.",
+      "conflict": "Conflict: saved as a new revision",
+      "conflictHint": "Another device had changed this scene: your text is in a revision of its own.",
+      "signedOut": "Signed out",
+      "gone": "Scene in the trash",
+      "updatedElsewhere": "Text updated from another device.",
+      "sentLater": "The text of “{title}” left on this device has been saved.",
+      "sentLaterConflict": "The text of “{title}” left on this device is safe in the revision “{revision}”.",
+      "keptTrashed": "The text of a scene in the trash stays on this device: it comes back with the scene when you restore it."
+    },
+    "banner": {
+      "failing": "The text has not reached the server for a while",
+      "failingBody": "It stays on this device and I keep trying. You can go on writing.",
+      "signedOut": "Your session has expired: sign in again to save.",
+      "keptHere": "What you write stays on this device until it reaches the server.",
+      "signIn": "Sign in",
+      "gone": "Another device moved this scene to the trash.",
+      "invalid": "The server does not accept this text as it is.",
+      "recovered": "I put back the changes that had not reached the server."
+    },
+    "conflict": {
+      "title": "This scene was changed on another device",
+      "body": "Your text is safe in the revision “{revision}”. Below is the text from the other device.",
+      "useMine": "Use my version",
+      "usingMine": "You are now using your version.",
+      "compare": "Compare"
+    },
+    "counts": {
+      "title": "Counts",
+      "words": "Words",
+      "selection": "Selected",
+      "chars": "Characters, with spaces",
+      "charsNoSpaces": "Characters without spaces",
+      "session": "This session",
+      "today": "Today in the project",
+      "todayShort": "today {n}",
+      "selectedOf": "{n} selected of {total} | {n} selected of {total}",
+      "open": "{words}: show every count"
+    },
+    "details": {
+      "title": "Scene details",
+      "status": "Status",
+      "pov": "Point of view",
+      "povNone": "Not set",
+      "povCharacter": "POV character",
+      "povCharacterNone": "None",
+      "inThisScene": "In this scene",
+      "otherCharacters": "Other characters",
+      "counts": "{words}, {chars} characters",
+      "synopsisPlaceholder": "What happens in this scene, in a few lines.",
+      "kind": "Kind of scene",
+      "code": "Scene code",
+      "copyCode": "Copy the code {code}",
+      "codeCopied": "Code {code} copied",
+      "start": "Start scene",
+      "startHint": "The game starts here.",
+      "startElsewhere": "The game now starts at “{title}”.",
+      "endingHint": "The story ends here.",
+      "endingLabel": "Name of the ending",
+      "endingPlaceholder": "For example: The ending of the tide",
+      "removeStrand": "Remove {name}",
+      "strandsEmpty": "Not part of any {what} yet.",
+      "storyTime": "Story time",
+      "storyDate": "Story date",
+      "storyLabel": "Date as written in the story",
+      "storyLabelPlaceholder": "For example: Third moon of the year 312",
+      "duration": "Duration",
+      "durationValue": "Duration, how long",
+      "durationUnit": "Duration, in which unit",
+      "durationNone": "None",
+      "notes": "Notes",
+      "notesPlaceholder": "Notes on this scene: doubts, things to check.",
+      "sceneTitle": "Title"
+    },
+    "tags": {
+      "mentioned": "Mentioned {n} time in the text | Mentioned {n} times in the text",
+      "speaks": "Speaks in {n} line | Speaks in {n} lines",
+      "manual": "Added by hand",
+      "findInText": "Find in the text",
+      "openSheet": "Open sheet",
+      "remove": "Remove from the scene",
+      "removeNamed": "Remove {name}",
+      "empty": "Mention with {at} in the text, or add from here.",
+      "add": "Add",
+      "addTo": "Add to {what}"
+    },
+    "time": {
+      "precisionLabel": "How precise the date is",
+      "precision": {
+        "none": "No date",
+        "year": "Year only",
+        "month": "Month and year",
+        "day": "Day",
+        "minute": "Day and time"
+      },
+      "day": "Day",
+      "month": "Month",
+      "year": "Year",
+      "time": "Time",
+      "invalid": "This date does not exist: check the day, month and year."
+    },
+    "revisions": {
+      "intro": "A revision is a copy of the text to work on without losing the one before.",
+      "create": "New revision",
+      "created": "“{name}” created: you are writing in it now.",
+      "numbered": "Revision {n}",
+      "inUse": "In use",
+      "inUseNow": "“{name}” is now in use.",
+      "edited": "edited {when}",
+      "history": "History, {n} version | History, {n} versions",
+      "historyEmpty": "None yet: while you write, one is kept every ten minutes.",
+      "use": "Use this revision",
+      "read": "Read",
+      "trash": "Move to the trash",
+      "trashed": "“{name}” is in the trash.",
+      "actions": "Actions for “{name}”",
+      "preview": "Read the version of {when}",
+      "restore": "Restore the version of {when} as a new revision",
+      "restored": "Version restored in “{name}”.",
+      "reason": {
+        "beforeBulk": "before Replace all",
+        "conflict": "conflict",
+        "restore": "restore"
+      }
+    },
+    "preview": {
+      "label": "Preview of “{title}”",
+      "snapshot": "Version of",
+      "revision": "Revision",
+      "restore": "Restore as a new revision",
+      "restored": "Restored as a new revision: it is now in use.",
+      "error": "I cannot read this version."
+    },
+    "find": {
+      "title": "Find and replace",
+      "label": "Find",
+      "placeholder": "Find in the scene",
+      "count": "{current} of {total}",
+      "none": "No results",
+      "previous": "Previous result",
+      "next": "Next result",
+      "toggleReplace": "Replace",
+      "matchCase": "Match case",
+      "wholeWord": "Whole word",
+      "replaceLabel": "Replace with",
+      "replacePlaceholder": "Replace with",
+      "replace": "Replace",
+      "replaceAll": "Replace all ({n})",
+      "results": "Results",
+      "more": "{n} more results not shown",
+      "mentionsOf": "Mentions of",
+      "searchText": "Search for a word",
+      "replaced": "{n} replacement | {n} replacements",
+      "replaceAllWaits": "Replace all waits until the text is saved."
+    },
+    "focus": {
+      "exit": "Leave focus mode",
+      "done": "Done",
+      "showWords": "Words",
+      "showSave": "Save state",
+      "fullscreen": "Full screen",
+      "leaveFullscreen": "Leave full screen"
+    },
+    "menu": {
+      "moveTo": "Move to another chapter",
+      "moved": "Moved to “{chapter}”.",
+      "previous": "Previous scene",
+      "next": "Next scene",
+      "trash": "Move to the trash"
+    },
+    "nav": {
+      "label": "Nearby scenes",
+      "previous": "Previous scene",
+      "next": "Next scene"
+    },
+    "mention": {
+      "createTitle": "Create",
+      "createAs": "Create “{name}” as a new {what}",
+      "createdMinor": "“{name}” created as a minor character",
+      "createdAs": "“{name}” created as a new {what}",
+      "openSheet": "Open sheet",
+      "aliases": "Also known as:"
+    },
+    "line": {
+      "speaker": "Speaker",
+      "speakers": "Who can speak",
+      "speakerPlaceholder": "Who speaks?",
+      "direction": "Direction",
+      "directionPlaceholder": "how they say it",
+      "freeLabel": "“{name}”, without a sheet",
+      "createAs": "Create “{name}” as a minor character",
+      "createMinor": "Create as minor character",
+      "createMinorAria": "Create {name} as a minor character",
+      "createdMinor": "{name} created as a minor character",
+      "copyId": "Copy the ID {id}",
+      "copied": "ID {id} copied",
+      "idPending": "ID on its way",
+      "editDirection": "Edit the direction: {direction}"
+    },
+    "typography": {
+      "font": "Typeface",
+      "serif": "Literata",
+      "sans": "High legibility",
+      "size": "Size",
+      "px": "{n} px",
+      "lineHeight": "Line height",
+      "widthLabel": "Line width",
+      "width": {
+        "narrow": "Narrow",
+        "medium": "Medium",
+        "wide": "Wide"
+      },
+      "focusParagraph": "Highlight the paragraph",
+      "focusParagraphHint": "In focus mode, the other paragraphs fade.",
+      "typewriter": "Typewriter scrolling",
+      "typewriterHint": "In focus mode, the line you write stays in the middle of the screen.",
+      "savedToAccount": "These choices follow you on every device you sign in from."
+    },
+    "peek": {
+      "playable": "Playable",
+      "qualities": "Qualities",
+      "flaws": "Flaws",
+      "gone": "It no longer exists, or it is in the trash.",
+      "openFull": "Open the full sheet"
+    },
+    "load": {
+      "error": "I cannot open the text of this scene.",
+      "offline": "You are offline: this page will be available again as soon as you are back online."
+    },
+    "missing": {
+      "title": "This scene is no longer here",
+      "body": "It may have been moved to the trash: you can restore it from there."
+    },
+    "compare": {
+      "start": "Compare with the current text",
+      "stop": "Show this version only",
+      "direction": "From this version to the current text:",
+      "addedLegend": "added",
+      "removedLegend": "removed",
+      "same": "No differences with the current text.",
+      "addedStart": "Added: ",
+      "removedStart": "Removed: ",
+      "end": " End."
+    },
+    "lines": {
+      "title": "Lines only",
+      "count": "{n} line | {n} lines",
+      "showAll": "Show the whole text",
+      "bySpeaker": "Lines per character",
+      "speakerCount": "{n} line, {words} | {n} lines, {words}",
+      "open": "Open the line of {speaker}: {text}",
+      "empty": "No lines in this scene: add one with / or with Line."
+    },
+    "script": {
+      "addDirection": "Add a direction",
+      "mentions": "Who or what to mention"
+    }
+  }
+}

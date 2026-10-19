@@ -1,0 +1,469 @@
+{
+  "common": {
+    "appName": "Dramatis",
+    "actions": {
+      "save": "Salva",
+      "cancel": "Annulla",
+      "delete": "Elimina",
+      "remove": "Rimuovi",
+      "add": "Aggiungi",
+      "create": "Crea",
+      "edit": "Modifica",
+      "rename": "Rinomina",
+      "duplicate": "Duplica",
+      "close": "Chiudi",
+      "back": "Indietro",
+      "next": "Avanti",
+      "previous": "Precedente",
+      "undo": "Annulla",
+      "redo": "Ripeti",
+      "restore": "Ripristina",
+      "confirm": "Conferma",
+      "search": "Cerca",
+      "filter": "Filtra",
+      "clear": "Svuota",
+      "done": "Fatto",
+      "open": "Apri",
+      "more": "Altro",
+      "upload": "Carica",
+      "change": "Cambia",
+      "choose": "Scegli",
+      "moveUp": "Sposta su",
+      "moveDown": "Sposta giù",
+      "moveTo": "Sposta in",
+      "showAll": "Mostra tutto",
+      "showLess": "Mostra meno",
+      "retry": "Riprova",
+      "copy": "Copia",
+      "export": "Esporta",
+      "import": "Importa",
+      "signOut": "Esci",
+      "settings": "Impostazioni",
+      "write": "Scrivi",
+      "keepMine": "Tieni la mia versione",
+      "keepTheirs": "Usa quella salvata"
+    },
+    "status": {
+      "saving": "Salvataggio in corso",
+      "saved": "Salvato",
+      "savedAt": "Salvato alle {time}",
+      "unsaved": "Modifiche da salvare",
+      "failed": "Non salvato, riprovo appena possibile",
+      "offline": "Sei offline: le modifiche partono quando torna la rete",
+      "loading": "Caricamento",
+      "refused": "Non salvato: il server ha rifiutato la modifica"
+    },
+    "trash": {
+      "moved": "Spostato nel cestino",
+      "restored": "Ripristinato"
+    },
+    "errors": {
+      "network": "Connessione assente: la modifica non è arrivata al server.",
+      "invalid": "Alcuni dati non sono validi.",
+      "signedOut": "La sessione è scaduta: accedi di nuovo.",
+      "notFound": "Non trovato. Forse è stato eliminato.",
+      "conflict": "Qualcun altro, o un altro dispositivo, ha cambiato questo elemento nel frattempo.",
+      "tooLarge": "Il file è troppo grande (massimo 10 MB).",
+      "unsupported": "Formato non supportato: usa JPEG, PNG o WebP.",
+      "tooMany": "Troppi tentativi. Riprova tra un minuto.",
+      "generic": "Qualcosa non ha funzionato. Riprova.",
+      "loadProject": "Non riesco ad aprire il progetto."
+    },
+    "untitled": {
+      "scene": "Scena senza titolo",
+      "chapter": "Capitolo senza titolo",
+      "part": "Parte senza titolo",
+      "note": "Nota senza titolo",
+      "project": "Progetto senza titolo",
+      "map": "Mappa senza nome",
+      "event": "Nuovo evento",
+      "entry": "Nuova voce",
+      "character": "Nuovo personaggio",
+      "location": "Nuovo luogo",
+      "object": "Nuovo oggetto",
+      "item": "Nuovo oggetto",
+      "group": "Nuovo gruppo",
+      "faction": "Nuova fazione"
+    },
+    "fields": {
+      "name": "Nome",
+      "title": "Titolo",
+      "description": "Descrizione",
+      "notes": "Note",
+      "tags": "Etichette",
+      "color": "Colore",
+      "status": "Stato",
+      "kind": "Tipo",
+      "image": "Immagine",
+      "aliases": "Altri nomi",
+      "role": "Ruolo",
+      "importance": "Importanza",
+      "tagline": "In una riga",
+      "synopsis": "Sinossi",
+      "date": "Data",
+      "time": "Ora",
+      "position": "Posizione"
+    },
+    "confirm": {
+      "deleteTitle": "Eliminare «{name}»?",
+      "deleteBody": "Finisce nel cestino: potrai ripristinarlo quando vuoi.",
+      "purgeBody": "Verrà eliminato per sempre, senza possibilità di recupero.",
+      "typeToConfirm": "Per confermare scrivi: {phrase}"
+    },
+    "time": {
+      "today": "Oggi",
+      "yesterday": "Ieri",
+      "justNow": "Adesso"
+    },
+    "empty": {
+      "noResults": "Nessun risultato",
+      "none": "Nessuno"
+    },
+    "units": {
+      "words": "{n} parola | {n} parole",
+      "scenes": "{n} scena | {n} scene",
+      "chapters": "{n} capitolo | {n} capitoli",
+      "characters": "{n} personaggio | {n} personaggi",
+      "minutes": "{n} minuto | {n} minuti",
+      "days": "{n} giorno | {n} giorni"
+    },
+    "theme": {
+      "label": "Tema",
+      "light": "Chiaro",
+      "dark": "Scuro",
+      "system": "Come il sistema"
+    },
+    "language": {
+      "label": "Lingua dell'interfaccia"
+    },
+    "a11y": {
+      "skipToContent": "Vai al contenuto",
+      "openMenu": "Apri il menu",
+      "closeMenu": "Chiudi il menu",
+      "toggleSidebar": "Mostra o nascondi la barra laterale",
+      "dragHandle": "Trascina per riordinare"
+    },
+    "nav": {
+      "story": "Storia",
+      "world": "Mondo",
+      "work": "Scrittura",
+      "review": "Revisione",
+      "add": "Aggiungi",
+      "more": "Altro",
+      "search": "Cerca",
+      "searchHint": "Cerca e comandi",
+      "projects": "Tutti i progetti",
+      "newProject": "Nuovo progetto",
+      "account": "Account",
+      "flowProblems": "{n} problema nel flusso | {n} problemi nel flusso",
+      "trashCount": "{n} elemento nel cestino | {n} elementi nel cestino"
+    },
+    "enums": {
+      "sceneStatus": {
+        "planned": "Pianificata",
+        "draft": "Bozza",
+        "revised": "Rivista",
+        "final": "Definitiva"
+      },
+      "planningStatus": {
+        "todo": "Da fare",
+        "progress": "In corso",
+        "done": "Fatto"
+      },
+      "importance": {
+        "main": "Principale",
+        "secondary": "Secondario",
+        "minor": "Comparsa"
+      },
+      "role": {
+        "protagonist": "Protagonista",
+        "antagonist": "Antagonista",
+        "deuteragonist": "Deuteragonista",
+        "mentor": "Mentore",
+        "ally": "Alleato",
+        "love_interest": "Interesse amoroso",
+        "confidant": "Confidente",
+        "foil": "Contraltare",
+        "trickster": "Imbroglione",
+        "narrator": "Narratore",
+        "player_character": "Personaggio giocante",
+        "companion": "Compagno di viaggio",
+        "boss": "Boss",
+        "quest_giver": "Committente",
+        "merchant": "Mercante",
+        "npc": "Personaggio non giocante",
+        "other": "Altro"
+      },
+      "pov": {
+        "first": "Prima persona",
+        "second": "Seconda persona",
+        "third_limited": "Terza persona limitata",
+        "third_omniscient": "Terza persona onnisciente",
+        "third_objective": "Terza persona oggettiva",
+        "multiple": "Punti di vista multipli"
+      },
+      "strandKind": {
+        "plot": "Trama principale",
+        "subplot": "Sottotrama",
+        "arc": "Arco di un personaggio",
+        "quest": "Missione principale",
+        "side_quest": "Missione secondaria"
+      },
+      "relationKind": {
+        "family": "Famiglia",
+        "romance": "Amore",
+        "friendship": "Amicizia",
+        "alliance": "Alleanza",
+        "rivalry": "Rivalità",
+        "enmity": "Inimicizia",
+        "mentorship": "Guida",
+        "professional": "Lavoro",
+        "ownership": "Possesso",
+        "place": "Luogo",
+        "membership": "Appartenenza",
+        "other": "Altro"
+      },
+      "groupKind": {
+        "family": "Famiglia",
+        "faction": "Fazione",
+        "organization": "Organizzazione",
+        "culture": "Popolo e cultura",
+        "other": "Altro"
+      },
+      "sceneKind": {
+        "scene": "Scena",
+        "cutscene": "Cinematica",
+        "dialogue": "Dialogo",
+        "gameplay": "Fase di gioco",
+        "exploration": "Esplorazione",
+        "combat": "Combattimento",
+        "puzzle": "Enigma"
+      },
+      "variableType": {
+        "boolean": "Sì o no",
+        "number": "Numero",
+        "string": "Testo"
+      },
+      "eventKind": {
+        "story": "Evento della storia",
+        "historical": "Evento storico"
+      },
+      "projectKind": {
+        "novel": "Romanzo",
+        "game": "Videogioco"
+      },
+      "color": {
+        "brick": "Mattone",
+        "amber": "Ambra",
+        "ochre": "Ocra",
+        "olive": "Oliva",
+        "green": "Verde",
+        "teal": "Verde acqua",
+        "blue": "Blu",
+        "indigo": "Indaco",
+        "plum": "Prugna",
+        "slate": "Ardesia"
+      },
+      "refType": {
+        "character": "Personaggio",
+        "group": "Gruppo",
+        "location": "Luogo",
+        "object": "Oggetto",
+        "strand": "Linea narrativa",
+        "chapter": "Capitolo",
+        "scene": "Scena",
+        "event": "Evento",
+        "note": "Nota",
+        "codex": "Voce del compendio"
+      },
+      "importancePlural": {
+        "main": "Principali",
+        "secondary": "Secondari",
+        "minor": "Comparse"
+      },
+      "module": {
+        "branching": "Bivi e flusso",
+        "variables": "Variabili di stato",
+        "quests": "Missioni",
+        "codex": "Compendio",
+        "script": "Battute di dialogo",
+        "scene_kinds": "Tipi di scena"
+      },
+      "dialogueStyle": {
+        "guillemets": "Caporali « »",
+        "double_quotes": "Virgolette alte “ ”",
+        "dash": "Lineetta —"
+      },
+      "durationUnit": {
+        "minutes": "minuti",
+        "hours": "ore",
+        "days": "giorni",
+        "weeks": "settimane",
+        "months": "mesi",
+        "years": "anni"
+      },
+      "conditionOp": {
+        "eq": "è uguale a",
+        "neq": "è diverso da",
+        "gt": "è maggiore di",
+        "gte": "è almeno",
+        "lt": "è minore di",
+        "lte": "è al massimo",
+        "is_true": "è vero",
+        "is_false": "è falso"
+      },
+      "effectOp": {
+        "set": "diventa",
+        "add": "aumenta di",
+        "subtract": "diminuisce di",
+        "toggle": "si inverte"
+      }
+    },
+    "image": {
+      "upload": "Carica un'immagine",
+      "change": "Cambia immagine",
+      "remove": "Rimuovi immagine",
+      "open": "Apri l'immagine {n}",
+      "primary": "Immagine principale",
+      "caption": "Didascalia",
+      "alt": "Testo alternativo",
+      "altHint": "Descrive l'immagine a chi non la vede; se resta vuoto vale la didascalia.",
+      "makePrimary": "Rendi principale",
+      "add": "Aggiungi immagini"
+    },
+    "tags": {
+      "placeholder": "Aggiungi etichetta"
+    },
+    "guide": {
+      "show": "Che cos'è: {topic}",
+      "hide": "Nascondi la guida"
+    },
+    "conflict": {
+      "title": "Conflitto",
+      "longText": "Questo testo era stato modificato da un altro dispositivo. Il tuo è salvo nella nota «{note}».",
+      "openNote": "Apri la nota"
+    },
+    "vocab": {
+      "novel": {
+        "projectType": "Romanzo",
+        "overview": "Panoramica",
+        "goals": "Obiettivi",
+        "architecture": "Architettura",
+        "premise": "Premessa",
+        "fabula": "Fabula",
+        "setting": "Ambientazione",
+        "strands": "Linee narrative",
+        "strand": "Linea narrativa | Linee narrative",
+        "notes": "Note",
+        "world": "Mondo",
+        "characters": "Personaggi",
+        "character": "Personaggio | Personaggi",
+        "groups": "Gruppi",
+        "group": "Gruppo | Gruppi",
+        "locations": "Luoghi",
+        "location": "Luogo | Luoghi",
+        "objects": "Oggetti",
+        "object": "Oggetto | Oggetti",
+        "relations": "Relazioni",
+        "relationMap": "Mappa delle relazioni",
+        "codex": "Compendio",
+        "codexEntry": "Voce | Voci",
+        "manuscript": "Manoscritto",
+        "part": "Parte | Parti",
+        "chapter": "Capitolo | Capitoli",
+        "scene": "Scena | Scene",
+        "synopsis": "Sinossi",
+        "chapterPurpose": "Scopo del capitolo",
+        "revision": "Revisione | Revisioni",
+        "history": "Cronologia",
+        "timeline": "Linea del tempo",
+        "event": "Evento | Eventi",
+        "analysis": "Analisi",
+        "export": "Esporta",
+        "trash": "Cestino",
+        "settings": "Impostazioni",
+        "audience": "lettore",
+        "firstDraft": "Prima stesura",
+        "projectDocument": "Bibbia della storia",
+        "flow": "Flusso",
+        "variables": "Variabili di stato",
+        "variable": "Variabile | Variabili",
+        "ending": "Finale | Finali"
+      },
+      "game": {
+        "projectType": "Videogioco",
+        "overview": "Panoramica",
+        "goals": "Obiettivi",
+        "architecture": "Architettura",
+        "premise": "Premessa",
+        "fabula": "Fabula",
+        "setting": "Ambientazione",
+        "strands": "Trame e missioni",
+        "strand": "Trama o missione | Trame e missioni",
+        "notes": "Note",
+        "world": "Mondo",
+        "characters": "Personaggi",
+        "character": "Personaggio | Personaggi",
+        "groups": "Fazioni",
+        "group": "Fazione | Fazioni",
+        "locations": "Luoghi",
+        "location": "Luogo | Luoghi",
+        "objects": "Oggetti",
+        "object": "Oggetto | Oggetti",
+        "relations": "Relazioni",
+        "relationMap": "Mappa delle relazioni",
+        "codex": "Compendio",
+        "codexEntry": "Voce | Voci",
+        "manuscript": "Copione",
+        "part": "Atto | Atti",
+        "chapter": "Capitolo | Capitoli",
+        "scene": "Scena | Scene",
+        "synopsis": "Sinossi",
+        "chapterPurpose": "Scopo del capitolo",
+        "revision": "Revisione | Revisioni",
+        "history": "Cronologia",
+        "timeline": "Linea del tempo",
+        "event": "Evento | Eventi",
+        "analysis": "Analisi",
+        "export": "Esporta",
+        "trash": "Cestino",
+        "settings": "Impostazioni",
+        "audience": "giocatore",
+        "firstDraft": "Prima stesura del copione",
+        "projectDocument": "Documento di narrative design",
+        "flow": "Flusso",
+        "variables": "Variabili di stato",
+        "variable": "Variabile | Variabili",
+        "ending": "Finale | Finali"
+      }
+    },
+    "capture": {
+      "quickNote": "Nota veloce",
+      "placeholder": "Un'idea, una battuta, un nome da ricordare.",
+      "saveNote": "Salva la nota",
+      "noteSaved": "Nota salvata"
+    },
+    "shortcuts": {
+      "title": "Scorciatoie da tastiera",
+      "palette": "Cerca e comandi",
+      "find": "Trova e sostituisci nella scena",
+      "search": "Cerca nel progetto",
+      "details": "Dettagli della scena",
+      "focus": "Modalità concentrazione",
+      "sidebar": "Mostra o nasconde la barra laterale",
+      "moveUp": "Sposta su l'elemento selezionato",
+      "moveDown": "Sposta giù l'elemento selezionato",
+      "escape": "Chiude il pannello in primo piano o esce dalla concentrazione",
+      "sheet": "Questo elenco",
+      "rename": "Rinomina l'elemento selezionato"
+    },
+    "format": {
+      "bold": "Grassetto",
+      "italic": "Corsivo",
+      "underline": "Sottolineato",
+      "strike": "Barrato",
+      "bulletList": "Elenco",
+      "quote": "Citazione"
+    }
+  }
+}

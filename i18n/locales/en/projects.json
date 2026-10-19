@@ -1,0 +1,106 @@
+{
+  "projects": {
+    "title": "Your projects",
+    "home": "Dramatis, your projects",
+    "metaTitle": "Your projects · Dramatis",
+    "count": "{n} project | {n} projects",
+    "summary": "{projects}, {words} in all.",
+    "actions": {
+      "importHint": "Import a Dramatis backup (.zip) or a manuscript (.docx, Markdown or text)",
+      "demo": "Open an example"
+    },
+    "demo": {
+      "novel": "Example novel",
+      "novelHint": "A short story with characters, places and scenes already written.",
+      "game": "Example video game",
+      "gameHint": "A branching story with quests, variables and endings."
+    },
+    "filter": {
+      "label": "Show",
+      "active": "Projects",
+      "deleted": "Deleted"
+    },
+    "deleted": {
+      "note": "Deleted projects stay here until you delete them forever.",
+      "empty": "No deleted projects.",
+      "back": "Back to your projects"
+    },
+    "row": {
+      "edited": {
+        "label": "Last edited",
+        "today": "today, {time}",
+        "yesterday": "yesterday, {time}",
+        "date": "{date}"
+      },
+      "opened": {
+        "today": "opened today, {time}",
+        "yesterday": "opened yesterday, {time}",
+        "date": "opened on {date}"
+      },
+      "deleted": {
+        "today": "Deleted today, {time}",
+        "yesterday": "Deleted yesterday, {time}",
+        "date": "Deleted on {date}"
+      },
+      "pathStage": "{stage}, step {n} of {total}",
+      "pathDone": "Path complete",
+      "pathHidden": "Path hidden",
+      "menu": "Actions for “{title}”",
+      "titleLabel": "Project title",
+      "backup": "Download backup",
+      "purge": "Delete forever",
+      "copyTitle": "{title} (copy)",
+      "duplicating": "Duplicating",
+      "downloading": "Downloading the backup"
+    },
+    "toast": {
+      "deleted": "“{title}” moved to Deleted.",
+      "restored": "“{title}” is back in your projects.",
+      "purged": "“{title}” deleted forever.",
+      "duplicated": "Copy created: “{title}”."
+    },
+    "confirm": {
+      "purgeTitle": "Delete “{title}” forever?",
+      "purgeBody": "The project disappears for good, with everything in it: scenes, characters, images and revisions. This cannot be undone.",
+      "purgeLabel": "Delete forever"
+    },
+    "empty": {
+      "title": "Every story starts with an idea: create your first project, or open an example to see how it works.",
+      "newHint": "A novel or a video game, from a blank page or from a structure.",
+      "demoHint": "A story already under way, with everything connected, to explore and then delete.",
+      "import": "Import a file",
+      "importHint": "A Dramatis backup with its images, or a manuscript in Word, Markdown or plain text: its headings become parts, chapters and scenes."
+    },
+    "create": {
+      "title": "New project",
+      "description": "One step: a title, a type and where to start.",
+      "titleLabel": "Title",
+      "titlePlaceholder": "Untitled",
+      "titleHelp": "You can leave it empty and choose it later.",
+      "demoTitleHelp": "The example project already has a title: you can change it whenever you like.",
+      "kind": "Type",
+      "kinds": {
+        "novel": "A story to be read: parts, chapters and scenes, up to the manuscript.",
+        "game": "The story of a game: acts, quests, choices and endings, up to the script for the team."
+      },
+      "start": "Start from",
+      "starts": {
+        "blank": "Blank",
+        "blankHint": "A blank page: add chapters and scenes whenever you like.",
+        "structure": "A structure",
+        "structureHint": {
+          "novel": "Parts, chapters and narrative strands already laid out, ready to fill.",
+          "game": "Acts, chapters and quests already laid out, ready to fill."
+        },
+        "demo": "Example project",
+        "demoHint": "A short story already written, to see how everything connects."
+      },
+      "structure": "Structure"
+    },
+    "shape": {
+      "count": "{n} {term}",
+      "storylines": "{n} storyline | {n} storylines",
+      "quests": "{n} quest | {n} quests"
+    }
+  }
+}

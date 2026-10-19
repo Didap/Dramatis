@@ -1,0 +1,62 @@
+{
+  "codex": {
+    "intro": {
+      "novel": "The knowledge of the world, entry by entry: what the reader never reads but you need to know.",
+      "game": "The knowledge of the world, entry by entry: what the team needs to know, and what the player may discover."
+    },
+    "newEntry": "New entry",
+    "newEntryIn": "New entry in {category}",
+    "newCategory": "New category",
+    "moreActions": "More codex actions",
+    "categories": "Codex categories",
+    "category": "Category",
+    "categoryName": "Name of the category",
+    "categoryPlaceholder": "For example: Legends, Trade routes",
+    "categoryActions": "Actions for the category {category}",
+    "count": "no entries | {n} entry | {n} entries",
+    "showOnly": "Show only {category}",
+    "showAll": "Show every category",
+    "filter": "Filter by category",
+    "all": "All",
+    "allCategories": "All categories",
+    "deleteCategoryWith": "Delete, with its entry | Delete, with its {n} entries",
+    "moveTo": "Move to",
+    "movedTo": "Moved to {category}",
+    "entryActions": "Actions for {name}",
+    "entryPageActions": "Entry actions",
+    "entryTitle": "Title of the entry",
+    "entryBody": "Text of the entry",
+    "edited": "Edited {when}",
+    "images": "Images",
+    "bodyPlaceholder": {
+      "novel": "Tell this part of the world: what is true, what people believe, what remains a mystery. Type the at sign to mention a character or a place.",
+      "game": "Tell this part of the world: what the team needs to know, what the player will discover, what remains a mystery. Type the at sign to mention a character or a place."
+    },
+    "notFound": "This entry is gone. It may be in the trash.",
+    "moduleOff": "The codex is off in this project: its entries stay saved and come back as soon as you turn it on again in the settings.",
+    "openSettings": "Open the settings",
+    "createSuggested": "Create the suggested categories",
+    "empty": {
+      "title": {
+        "novel": "The codex gathers the knowledge of the world: history, peoples, religions, magic, everything the reader never reads but you need to know.",
+        "game": "The codex gathers the knowledge of the world: history, peoples, religions, magic, everything the team needs to know."
+      },
+      "body": {
+        "novel": "What must stay consistent from the first chapter to the last? A date, a law, a legend. Write it here once and mention it with the at sign.",
+        "game": "What does everyone working on the game need to know? A date, a law, a creature. Write it here once: the team finds it in the narrative design document."
+      },
+      "noCategories": "Entries are grouped in categories: start from the suggested ones (history, peoples, religions, magic and technology, bestiary, languages, politics) or create your own.",
+      "action": "Write the first entry",
+      "wayOut": "Or create a category of your own first"
+    },
+    "defaults": {
+      "history": "History",
+      "peoples": "Peoples",
+      "religions": "Religions",
+      "magic": "Magic and technology",
+      "bestiary": "Bestiary",
+      "languages": "Languages",
+      "politics": "Politics"
+    }
+  }
+}

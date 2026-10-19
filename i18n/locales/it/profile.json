@@ -1,0 +1,652 @@
+{
+  "profile": {
+    "sections": {
+      "personal": {
+        "title": "Dati personali",
+        "summary": "I fatti essenziali, quelli di un documento d'identità, e i dettagli che li rendono veri.",
+        "questions": {
+          "full_name": {
+            "label": "Come ti chiami, per intero?",
+            "hint": "Nome, secondo nome, cognome. E il nome che non usi più, se ce n'è uno."
+          },
+          "nickname": {
+            "label": "Come ti chiamano gli altri?",
+            "hint": "Soprannomi, diminutivi, nomi d'arte. Chi può usarli, e chi no?"
+          },
+          "name_origin": {
+            "label": "Chi ha scelto il tuo nome, e perché?",
+            "hint": "Una nonna, un santo, una canzone, una promessa."
+          },
+          "gender": {
+            "label": "Come ti identifichi?",
+            "hint": "Il genere, e i pronomi da usare nel testo."
+          },
+          "age": {
+            "label": "Quanti anni hai quando la storia comincia?",
+            "hint": "E quanti alla fine, se la storia copre molti anni."
+          },
+          "birth_date": {
+            "label": "Qual è la tua data di nascita?",
+            "hint": "Anche solo l'anno o la stagione: aiuta a tenere in ordine la cronologia."
+          },
+          "birthplace": {
+            "label": "Qual è la tua città natale?",
+            "hint": "O il villaggio, la nave, il pianeta."
+          },
+          "nationality": {
+            "label": "Di che nazionalità sei?",
+            "hint": "O il popolo, il regno, la specie a cui appartieni."
+          },
+          "home": {
+            "label": "Dove vivi adesso, e con chi?",
+            "hint": "Una casa, una stanza in affitto, una caserma, la strada."
+          },
+          "occupation": {
+            "label": "Come ti guadagni da vivere?",
+            "hint": "Il lavoro vero, e quello che racconti alle feste."
+          },
+          "education": {
+            "label": "Che studi hai fatto?",
+            "hint": "Scuole, maestri, botteghe, o quello che hai imparato per conto tuo."
+          },
+          "family_status": {
+            "label": "Hai un partner, dei figli?",
+            "hint": "Una relazione, un matrimonio, una separazione, un lutto."
+          },
+          "languages": {
+            "label": "Che lingue parli?",
+            "hint": "E quale ti esce quando ti arrabbi."
+          },
+          "money": {
+            "label": "Come te la cavi con i soldi?",
+            "hint": "Ne hai, ne vuoi, ne devi? E a chi?"
+          }
+        }
+      },
+      "physical": {
+        "title": "Aspetto fisico",
+        "summary": "Come appare e come abita il proprio corpo, fino ai dettagli che restano in mente.",
+        "questions": {
+          "first_impression": {
+            "label": "Cosa nota per prima cosa chi ti incontra?",
+            "hint": "Un solo dettaglio, quello che resta in mente."
+          },
+          "apparent_age": {
+            "label": "Dimostri gli anni che hai?",
+            "hint": "Ne dimostri di più, di meno? E perché?"
+          },
+          "height_build": {
+            "label": "Che corporatura hai?",
+            "hint": "Altezza, peso, spalle, mani. Quanto spazio occupi in una stanza."
+          },
+          "face": {
+            "label": "Com'è il tuo viso?",
+            "hint": "Forma, lineamenti, l'espressione che hai quando non ci pensi."
+          },
+          "eyes": {
+            "label": "Come sono i tuoi occhi?",
+            "hint": "Il colore, certo, ma anche lo sguardo: diretto, sfuggente, stanco."
+          },
+          "hair": {
+            "label": "Come porti i capelli?",
+            "hint": "Colore, taglio, quanta cura ci metti. E la barba, se c'è."
+          },
+          "skin": {
+            "label": "Com'è la tua pelle?",
+            "hint": "Carnagione, lentiggini, rughe, i segni del sole o del freddo."
+          },
+          "distinguishing_marks": {
+            "label": "Hai cicatrici, tatuaggi o segni particolari?",
+            "hint": "E la storia dietro ciascuno."
+          },
+          "clothing": {
+            "label": "Come ti vesti di solito?",
+            "hint": "E cosa indossi quando vuoi fare colpo, o sparire."
+          },
+          "speaking_voice": {
+            "label": "Come suona la tua voce?",
+            "hint": "Bassa, roca, squillante. Come cambia quando sussurri o quando gridi."
+          },
+          "smell": {
+            "label": "Che odore hai?",
+            "hint": "Sapone, tabacco, olio di motore, terra bagnata."
+          },
+          "health": {
+            "label": "Come stai di salute?",
+            "hint": "Malattie, vecchie ferite, disabilità, come dormi e come mangi."
+          },
+          "fitness": {
+            "label": "Cosa sa fare il tuo corpo, e cosa no?",
+            "hint": "Forza, resistenza, agilità, riflessi. Quando ti manca il fiato?"
+          },
+          "self_image": {
+            "label": "Che rapporto hai con il tuo aspetto?",
+            "hint": "Ti piaci, ti nascondi, ti curi troppo o per niente?"
+          }
+        }
+      },
+      "behavior": {
+        "title": "Comportamenti e atteggiamenti",
+        "summary": "Come si muove, parla e reagisce: tutto ciò che si vede da fuori, prima ancora di sapere chi è.",
+        "questions": {
+          "posture": {
+            "label": "Come stai in piedi, come ti siedi?",
+            "hint": "Con la schiena dritta, con le spalle curve, sempre appoggiandoti a qualcosa."
+          },
+          "gait": {
+            "label": "Come cammini?",
+            "hint": "Di fretta, strascicando i piedi, come se la strada fosse tua."
+          },
+          "gestures": {
+            "label": "Cosa fanno le tue mani mentre parli?",
+            "hint": "Gesticolano, restano in tasca, cercano qualcosa da stringere."
+          },
+          "tics": {
+            "label": "Hai tic o gesti nervosi?",
+            "hint": "Ti tocchi i capelli, fai scrocchiare le dita, controlli la porta."
+          },
+          "way_of_speaking": {
+            "label": "Come parli?",
+            "hint": "Veloce o lento, tante parole o poche, un dialetto, le parole che usi troppo."
+          },
+          "pet_phrases": {
+            "label": "C'è una frase che ripeti spesso?",
+            "hint": "Un intercalare, un modo di dire, una battuta che fai sempre."
+          },
+          "laugh": {
+            "label": "Come ridi, e di cosa?",
+            "hint": "Una risata che si sente da lontano, o un sorriso che si vede appena."
+          },
+          "with_strangers": {
+            "label": "Come ti comporti con chi non conosci?",
+            "hint": "Cordialità, diffidenza, una maschera che togli solo più tardi."
+          },
+          "under_pressure": {
+            "label": "Cosa fai quando sei sotto pressione?",
+            "hint": "Ti blocchi, prendi il comando, scherzi, scappi."
+          },
+          "when_angry": {
+            "label": "Cosa succede quando ti arrabbi?",
+            "hint": "Alzi la voce, sorridi troppo, smetti di parlare."
+          },
+          "when_lying": {
+            "label": "Cosa ti tradisce quando menti?",
+            "hint": "Un gesto, una pausa, troppi dettagli."
+          },
+          "habits": {
+            "label": "Quali abitudini non riesci a lasciare?",
+            "hint": "Il caffè, le sigarette, un rito prima di dormire, il telefono."
+          },
+          "typical_day": {
+            "label": "Com'è una tua giornata qualunque?",
+            "hint": "Dalla sveglia alla sera: il mondo ordinario che la storia verrà a scuotere."
+          },
+          "when_alone": {
+            "label": "Cosa fai quando nessuno ti guarda?",
+            "hint": "Le abitudini e le debolezze che in pubblico nascondi."
+          }
+        }
+      },
+      "psychology": {
+        "title": "Psicologia",
+        "summary": "Il mondo interiore: qualità e difetti, contraddizioni, paure, desideri e la bugia in cui crede.",
+        "questions": {
+          "temperament": {
+            "label": "Come descriverebbe il tuo carattere chi ti conosce bene?",
+            "hint": "Tre parole, possibilmente non tutte lusinghiere."
+          },
+          "qualities": {
+            "label": "Quali sono le tue qualità migliori?",
+            "hint": "Coraggio, lealtà, ironia, pazienza. E come si vedono nei fatti."
+          },
+          "flaws": {
+            "label": "E i tuoi difetti?",
+            "hint": "Quelli che ammetti e quelli che non vedi. I secondi sono più utili alla storia."
+          },
+          "contradictions": {
+            "label": "Dove ti contraddici?",
+            "hint": "Un pacifista che perde la pazienza al volante, una persona generosa che non sa chiedere aiuto."
+          },
+          "self_perception": {
+            "label": "Come ti vedi, e quanto è diverso da come ti vedono gli altri?",
+            "hint": "La distanza tra le due immagini è spesso già una storia."
+          },
+          "emotions": {
+            "label": "Cosa fai con le tue emozioni?",
+            "hint": "Le mostri, le nascondi, le trasformi in altro. Quale non riesci a controllare?"
+          },
+          "decisions": {
+            "label": "Come prendi le decisioni importanti?",
+            "hint": "D'istinto o ragionando, per conto tuo o chiedendo consiglio."
+          },
+          "fears": {
+            "label": "Di cosa hai paura?",
+            "hint": "Una paura concreta (il buio, il mare aperto) e una più profonda (l'abbandono, non contare niente)."
+          },
+          "desires": {
+            "label": "Cosa desideri davvero, anche se non lo diresti mai?",
+            "hint": "Il desiderio segreto, diverso dall'obiettivo che dichiari."
+          },
+          "defenses": {
+            "label": "Come ti proteggi dal dolore?",
+            "hint": "Ironia, controllo, fuga, lavoro: le difese che usi senza accorgertene."
+          },
+          "shame": {
+            "label": "Di cosa ti vergogni?",
+            "hint": "Anche una cosa piccola. La vergogna spiega molti silenzi."
+          },
+          "secret": {
+            "label": "Qual è il tuo segreto?",
+            "hint": "E cosa succederebbe se venisse fuori."
+          },
+          "the_lie": {
+            "label": "Quale bugia, su di te o sul mondo, credi vera?",
+            "hint": "Per esempio: «Se mostro un punto debole, mi lasceranno». È ciò che la storia metterà alla prova."
+          }
+        }
+      },
+      "ideas": {
+        "title": "Idee e passioni",
+        "summary": "Cosa pensa, in cosa crede e cosa ama: le convinzioni che orientano le sue scelte.",
+        "questions": {
+          "beliefs": {
+            "label": "In cosa credi?",
+            "hint": "Le idee su cui non accetti compromessi."
+          },
+          "faith": {
+            "label": "Che rapporto hai con la fede?",
+            "hint": "Religione, spiritualità, superstizione, o nessuna di queste."
+          },
+          "politics": {
+            "label": "Come la pensi sul potere e sulla politica?",
+            "hint": "Da che parte stai, e quanto ti costa dirlo ad alta voce."
+          },
+          "red_line": {
+            "label": "Cosa non faresti mai, nemmeno per salvarti?",
+            "hint": "Il limite che la storia potrebbe costringerti a superare."
+          },
+          "role_models": {
+            "label": "Chi ammiri?",
+            "hint": "Una persona vera, una figura di un libro, un antenato. E chi disprezzi."
+          },
+          "passions": {
+            "label": "Cosa ti appassiona?",
+            "hint": "Ciò di cui potresti parlare per ore."
+          },
+          "talents": {
+            "label": "Qual è il tuo talento?",
+            "hint": "Una capacità, un mestiere, un trucco che conosci solo tu."
+          },
+          "hobbies": {
+            "label": "Come passi il tempo libero?",
+            "hint": "Se ne hai. E cosa dice di te il modo in cui lo usi."
+          },
+          "favorites": {
+            "label": "Quali sono le tue cose preferite?",
+            "hint": "Un libro, una canzone, un piatto, un posto, un'ora del giorno."
+          },
+          "dislikes": {
+            "label": "Cosa non sopporti?",
+            "hint": "Dalle ingiustizie a chi mastica a bocca aperta."
+          },
+          "strong_opinions": {
+            "label": "Su cosa hai un'opinione che nessuno ti ha chiesto?",
+            "hint": "Le piccole battaglie che rivelano un carattere."
+          },
+          "treasured_possession": {
+            "label": "Cosa salveresti da un incendio?",
+            "hint": "Un oggetto solo, e il motivo."
+          },
+          "dreams": {
+            "label": "Cosa sogni di fare, un giorno?",
+            "hint": "Il sogno che hai messo da parte, o quello che stai ancora inseguendo."
+          }
+        }
+      },
+      "sociology": {
+        "title": "Sociologia",
+        "summary": "Da dove viene e tra chi vive: famiglia, ceto, amicizie, i gruppi a cui appartiene.",
+        "questions": {
+          "social_background": {
+            "label": "Da che ambiente vieni?",
+            "hint": "Ceto, quartiere, il mestiere dei tuoi, quanti libri c'erano in casa."
+          },
+          "social_position": {
+            "label": "E oggi, dove ti trovi?",
+            "hint": "Più in alto, più in basso o al punto di partenza. E cosa ti è costato."
+          },
+          "parents": {
+            "label": "Chi sono i tuoi genitori, e che rapporto hai con loro?",
+            "hint": "O chi ne ha fatto le veci. Presenti, assenti, idealizzati."
+          },
+          "siblings": {
+            "label": "Hai fratelli o sorelle?",
+            "hint": "Il tuo posto tra loro, le alleanze, le gelosie."
+          },
+          "family_role": {
+            "label": "Che ruolo hai in famiglia?",
+            "hint": "Chi tiene tutto insieme, la pecora nera, chi media, chi se n'è andato."
+          },
+          "love_life": {
+            "label": "Chi ami, o chi hai amato?",
+            "hint": "Relazioni, amori non corrisposti, quello finito male."
+          },
+          "friends": {
+            "label": "Chi sono i tuoi amici più stretti?",
+            "hint": "E cosa sanno di te che gli altri non sanno."
+          },
+          "enemies": {
+            "label": "Hai dei nemici?",
+            "hint": "Dichiarati o nascosti, e da dove nasce l'inimicizia."
+          },
+          "work_relationships": {
+            "label": "Come vai d'accordo con colleghi e superiori?",
+            "hint": "Chi comanda, chi obbedisce, chi ti fa ombra."
+          },
+          "communities": {
+            "label": "A quali gruppi o comunità appartieni?",
+            "hint": "Una famiglia, una gilda, una chiesa, una squadra, una banda."
+          },
+          "reputation": {
+            "label": "Cosa dicono di te quando non ci sei?",
+            "hint": "La tua reputazione, meritata o no."
+          },
+          "trust": {
+            "label": "Di chi ti fidi, e perché?",
+            "hint": "E chi potrebbe tradirti senza che tu lo veda arrivare."
+          },
+          "out_of_place": {
+            "label": "Dove ti senti fuori posto?",
+            "hint": "L'ambiente in cui non sai mai come comportarti."
+          }
+        }
+      },
+      "backstory": {
+        "title": "Vita prima della storia",
+        "summary": "Gli anni che la storia non mostra, ma che spiegano chi è quando comincia.",
+        "questions": {
+          "upbringing": {
+            "label": "Dove hai passato l'infanzia, e in che casa?",
+            "hint": "Il luogo, le persone, l'aria che si respirava."
+          },
+          "earliest_memory": {
+            "label": "Qual è il tuo primo ricordo?",
+            "hint": "Un'immagine, un odore, una voce."
+          },
+          "childhood": {
+            "label": "Com'era la tua infanzia?",
+            "hint": "Cosa ti divertiva, cosa ti spaventava, cosa ti era proibito."
+          },
+          "formative_people": {
+            "label": "Chi ti ha cresciuto, e chi ti ha segnato?",
+            "hint": "Un genitore, un maestro, un amico, un nemico."
+          },
+          "adolescence": {
+            "label": "Com'è stata la tua adolescenza?",
+            "hint": "Ribellioni, prime scelte, la persona che volevi diventare."
+          },
+          "first_love": {
+            "label": "Chi è stato il tuo primo amore?",
+            "hint": "E cosa ti ha insegnato, nel bene o nel male."
+          },
+          "defining_moment": {
+            "label": "Quale momento ha cambiato la direzione della tua vita?",
+            "hint": "Una scelta, un incidente, un incontro, una notizia."
+          },
+          "losses": {
+            "label": "Chi o cosa hai perso?",
+            "hint": "Persone, luoghi, occasioni, una versione di te."
+          },
+          "wound": {
+            "label": "Quale ferita porti ancora con te?",
+            "hint": "L'evento del passato che spiega le tue paure e la bugia in cui credi."
+          },
+          "proudest_moment": {
+            "label": "Qual è la cosa che ti dà più orgoglio?",
+            "hint": "Anche se nessuno lo sa."
+          },
+          "regret": {
+            "label": "Cosa rimpiangi?",
+            "hint": "Qualcosa che hai fatto, o che non hai avuto il coraggio di fare."
+          },
+          "unfinished_business": {
+            "label": "Cosa hai lasciato in sospeso?",
+            "hint": "Un debito, una promessa, una lettera mai spedita."
+          },
+          "day_before": {
+            "label": "Cosa facevi il giorno prima che la storia cominciasse?",
+            "hint": "La tua ultima giornata normale."
+          }
+        }
+      },
+      "conflict": {
+        "title": "Conflitto",
+        "summary": "Cosa vuole, di cosa ha bisogno e cosa si mette in mezzo: il motore della sua storia.",
+        "questions": {
+          "want": {
+            "label": "Cosa vuoi ottenere in questa storia?",
+            "hint": "Un obiettivo concreto e visibile: vincere la gara, ritrovare tua sorella, lasciare l'isola."
+          },
+          "why_now": {
+            "label": "Perché proprio adesso?",
+            "hint": "Cosa rende impossibile aspettare ancora."
+          },
+          "need": {
+            "label": "Di cosa hai davvero bisogno, anche se ancora non lo sai?",
+            "hint": "Spesso è l'opposto della bugia in cui credi: perdonare, chiedere aiuto, lasciare andare."
+          },
+          "obstacle": {
+            "label": "Cosa ti impedisce di ottenerlo?",
+            "hint": "Persone, luoghi, leggi, il tempo che manca."
+          },
+          "antagonist": {
+            "label": "Chi si oppone a te, e con quali ragioni?",
+            "hint": "Anche chi ti ostacola vuole qualcosa."
+          },
+          "inner_obstacle": {
+            "label": "Cosa, dentro di te, ti frena?",
+            "hint": "Una paura, un difetto, una lealtà sbagliata."
+          },
+          "stakes": {
+            "label": "Cosa perdi se fallisci?",
+            "hint": "Più è personale, più pesa."
+          },
+          "worst_case": {
+            "label": "Qual è la cosa peggiore che potrebbe succederti?",
+            "hint": "Prima o poi la storia dovrebbe portarti molto vicino a quel punto."
+          },
+          "plan": {
+            "label": "Come pensi di farcela?",
+            "hint": "Il piano di partenza, che probabilmente non funzionerà."
+          },
+          "sacrifice": {
+            "label": "Cosa accetteresti di sacrificare?",
+            "hint": "E cosa non lasceresti andare per niente al mondo."
+          },
+          "dilemma": {
+            "label": "Quale scelta impossibile dovrai affrontare?",
+            "hint": "Due cose a cui tieni, e che non possono salvarsi entrambe."
+          },
+          "victory": {
+            "label": "Come sarebbe, per te, vincere?",
+            "hint": "E se ottenere ciò che vuoi non bastasse?"
+          }
+        }
+      },
+      "evolution": {
+        "title": "Evoluzione nella storia",
+        "summary": "Come cambia dalla prima all'ultima scena, e a quale prezzo.",
+        "questions": {
+          "arc_type": {
+            "label": "Che tipo di arco segui?",
+            "hint": "Positivo se cambi in meglio, negativo se cadi, piatto se le tue convinzioni reggono e a cambiare è il mondo intorno a te."
+          },
+          "arc_start": {
+            "label": "Chi sei all'inizio della storia?",
+            "hint": "Cosa credi, cosa ti manca, cosa ti rifiuti di vedere."
+          },
+          "catalyst": {
+            "label": "Cosa ti spinge fuori dalla vita di sempre?",
+            "hint": "L'evento che rende impossibile restare come prima."
+          },
+          "resistance": {
+            "label": "Come resisti al cambiamento?",
+            "hint": "Le scuse, le fughe, i passi indietro."
+          },
+          "first_doubt": {
+            "label": "Quando cominci a dubitare della bugia in cui credi?",
+            "hint": "Un'incrinatura, non ancora una svolta."
+          },
+          "turning_point": {
+            "label": "In quale momento cambi direzione?",
+            "hint": "La scena in cui scegli diversamente da come avresti fatto all'inizio."
+          },
+          "darkest_moment": {
+            "label": "Qual è il tuo momento più buio?",
+            "hint": "Quando tutto sembra perduto e la vecchia bugia torna a sembrare vera."
+          },
+          "decisive_choice": {
+            "label": "Quale scelta dimostra il tuo cambiamento?",
+            "hint": "Un gesto, non una dichiarazione."
+          },
+          "cost_of_change": {
+            "label": "Quanto ti è costato cambiare?",
+            "hint": "Un rapporto, una certezza, una parte di te."
+          },
+          "arc_end": {
+            "label": "Chi sei alla fine?",
+            "hint": "La distanza dall'inizio è il tuo arco."
+          },
+          "what_remains": {
+            "label": "Cosa resta uguale, nonostante tutto?",
+            "hint": "Il nucleo che ti rende riconoscibile fino alla fine."
+          },
+          "seen_by_others": {
+            "label": "Come si accorgono gli altri del tuo cambiamento?",
+            "hint": "Uno sguardo, una frase, qualcuno che non ti riconosce più."
+          },
+          "final_image": {
+            "label": "Qual è l'ultima immagine che resta di te?",
+            "hint": "Spesso fa da specchio alla prima."
+          }
+        }
+      },
+      "gameplay": {
+        "title": "Ruolo nel gioco",
+        "summary": "Cosa fa nel gioco: ruolo, abilità e crescita, e come le meccaniche raccontano chi è.",
+        "questions": {
+          "playable": {
+            "label": "Sei un personaggio giocabile?",
+            "hint": "O un compagno, un personaggio non giocante, un antagonista, un boss."
+          },
+          "game_role": {
+            "label": "Che funzione hai nel gioco?",
+            "hint": "Guida, mercante, rivale, chi affida le missioni, compagno di squadra, nemico ricorrente."
+          },
+          "first_encounter": {
+            "label": "Dove e quando ti incontra il giocatore la prima volta?",
+            "hint": "La scena, il livello, il momento. La prima impressione conta doppio."
+          },
+          "presence": {
+            "label": "In quali parti del gioco ci sei?",
+            "hint": "Atti, capitoli, missioni. E se puoi uscire di scena prima della fine."
+          },
+          "party_role": {
+            "label": "Che ruolo hai nel gruppo?",
+            "hint": "Tank, guaritore, supporto, danni, esplorazione. Solo se combatti al fianco del giocatore."
+          },
+          "abilities": {
+            "label": "Cosa sai fare?",
+            "hint": "Abilità, poteri, talenti che il giocatore vedrà in azione."
+          },
+          "combat_style": {
+            "label": "Come combatti?",
+            "hint": "Corpo a corpo, a distanza, nell'ombra, con la magia, con le parole. O non combatti affatto."
+          },
+          "signature_move": {
+            "label": "Hai una mossa che ti rappresenta?",
+            "hint": "Un colpo, un trucco, un gesto che il giocatore riconoscerà al volo."
+          },
+          "weaknesses": {
+            "label": "Quali sono i tuoi punti deboli?",
+            "hint": "In combattimento e fuori: un elemento, un'arma, una persona, un ricordo."
+          },
+          "equipment": {
+            "label": "Cosa porti con te?",
+            "hint": "Armi, strumenti, oggetti chiave, e quello che non lasceresti mai indietro."
+          },
+          "progression": {
+            "label": "Come cresci nel corso del gioco?",
+            "hint": "Livelli, abilità sbloccate, equipaggiamento. Meglio se la crescita nelle meccaniche segue quella nella storia."
+          },
+          "player_bond": {
+            "label": "Come cambia il tuo rapporto con il giocatore?",
+            "hint": "Fiducia, affinità, romance, tradimento: cosa lo rafforza e cosa lo incrina."
+          },
+          "player_choices": {
+            "label": "Quali scelte del giocatore ti riguardano?",
+            "hint": "Se puoi morire, andartene, cambiare fazione. Le variabili di stato legate a te."
+          },
+          "mechanics_and_character": {
+            "label": "Le tue meccaniche raccontano chi sei?",
+            "hint": "Un personaggio prudente che si gioca in modo spericolato stona."
+          }
+        }
+      },
+      "voice": {
+        "title": "Voce e recitazione",
+        "summary": "Come deve suonare: note per chi scrive le battute, per il casting e per la regia delle voci.",
+        "questions": {
+          "voice_type": {
+            "label": "Che tipo di voce cerchiamo per te?",
+            "hint": "Registro e timbro: grave e roca, chiara e veloce, calda, metallica."
+          },
+          "vocal_age": {
+            "label": "Quanti anni dimostra la tua voce?",
+            "hint": "Non sempre coincide con l'età del personaggio, e va bene così."
+          },
+          "accent": {
+            "label": "Hai un accento o una cadenza?",
+            "hint": "Regionale, straniero, inventato per il mondo del gioco. E se va mantenuto nelle altre lingue."
+          },
+          "delivery": {
+            "label": "Come dici le tue battute?",
+            "hint": "Ritmo, pause, volume: misurato, travolgente, asciutto, a scatti."
+          },
+          "vocabulary": {
+            "label": "Che parole usi?",
+            "hint": "Formali o gergali, arcaiche, tecniche. Parolacce sì o no."
+          },
+          "catchphrase": {
+            "label": "Hai una frase che ti rappresenta?",
+            "hint": "Una battuta ricorrente che i giocatori finiranno per citare."
+          },
+          "emotional_range": {
+            "label": "Quali emozioni deve saper rendere la tua voce?",
+            "hint": "Dal sussurro al grido: gli estremi che il ruolo richiede."
+          },
+          "sample_barks": {
+            "label": "Quali bark ti sentiremo dire?",
+            "hint": "Le battute brevi del gameplay: un attacco, una ferita, un oggetto trovato, il giocatore fermo troppo a lungo."
+          },
+          "efforts": {
+            "label": "Che suoni fai, oltre alle parole?",
+            "hint": "Respiri, risate, sforzi, grida, sospiri: gli effort da registrare in sala."
+          },
+          "voice_references": {
+            "label": "A chi somiglia la tua voce?",
+            "hint": "Attori, personaggi, interpretazioni di riferimento per il casting."
+          },
+          "localization_notes": {
+            "label": "Cosa deve sapere chi ti tradurrà?",
+            "hint": "Giochi di parole, nomi da non tradurre, accenti da adattare."
+          },
+          "direction_notes": {
+            "label": "Cosa deve sapere chi ti darà la voce?",
+            "hint": "Intenzione, sottotesto, l'errore da non fare."
+          }
+        }
+      }
+    }
+  }
+}

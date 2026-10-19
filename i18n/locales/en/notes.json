@@ -1,0 +1,28 @@
+{
+  "notes": {
+    "intro": "Your notebook: ideas, research, things to remember. On the phone, the quick note of the Add button lands here.",
+    "new": "New note",
+    "pin": "Pin to the top",
+    "unpin": "Unpin",
+    "pinned": "Pinned to the top",
+    "pinnedGroup": "Pinned",
+    "othersGroup": "Other notes",
+    "actions": "Actions for {name}",
+    "pageActions": "Note actions",
+    "titleLabel": "Title of the note",
+    "titlePlaceholder": "Title of the note",
+    "bodyLabel": "Text of the note",
+    "bodyPlaceholder": "Write here: an idea, some research, something to remember. Type the at sign to mention a character.",
+    "edited": "Edited {when}",
+    "notFound": "This note is gone. It may be in the trash.",
+    "empty": {
+      "title": "Notes are your notebook: ideas, research, things to remember.",
+      "body": "What do you not want to forget? A sentence overheard on the train, a date to check, a name for a character who does not exist yet. Mention them with the at sign and they stay tied to the story.",
+      "action": "Write the first note",
+      "wayOut": {
+        "novel": "Or start from the premise",
+        "game": "Or start from the premise of the game"
+      }
+    }
+  }
+}

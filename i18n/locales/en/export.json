@@ -1,0 +1,311 @@
+{
+  "export": {
+    "page": {
+      "intro": {
+        "novel": "The manuscript for an editor or an e-reader, the story bible, a backup of everything.",
+        "game": "The script and the document for the team, the formats for Twine, Ink and developers, a backup of everything."
+      },
+      "empty": "There is nothing to export yet: write a scene and come back.",
+      "write": "Open the {manuscript}",
+      "backupNote": "A backup opens again as a new project, next to the ones you have: nothing is overwritten.",
+      "pdfHint": "It opens in a new tab: in the print dialog choose Save as PDF.",
+      "done": "Exported at {time}:"
+    },
+    "groups": {
+      "document": "Project document",
+      "team": "Formats for the team",
+      "backup": "Project backup"
+    },
+    "formats": {
+      "docx": {
+        "label": "DOCX",
+        "short": "DOCX",
+        "hint": "For Word and LibreOffice, with real styles: whoever receives it can restyle it."
+      },
+      "pdf": {
+        "label": "PDF",
+        "short": "PDF",
+        "hint": "Laid out and ready to print or to send."
+      },
+      "epub": {
+        "label": "EPUB",
+        "short": "EPUB",
+        "hint": "To read it on an e-reader, a tablet or a phone."
+      },
+      "txt": {
+        "label": "TXT",
+        "short": "TXT",
+        "hint": "Just the text, without formatting."
+      },
+      "document": {
+        "label": "{name}, DOCX",
+        "hint": {
+          "novel": "Premise, fabula, setting, characters, world, events and structure in one document.",
+          "game": "The whole story bible, with scene codes, quests, variables, the branch table and the characters' voices."
+        }
+      },
+      "json": {
+        "label": "JSON for developers",
+        "short": "JSON",
+        "hint": "Scenes, lines, choices, conditions and effects in a documented format, with its schema."
+      },
+      "twee": {
+        "label": "Twee 3, for Twine",
+        "short": "Twee",
+        "hint": "For Twine 2.6 and Tweego, in Harlowe 3 or SugarCube 2: it plays from the start scene to the endings."
+      },
+      "ink": {
+        "label": "Ink",
+        "short": "Ink",
+        "hint": "For Inky and the ink engine in Unity, Unreal or on the web."
+      },
+      "csv": {
+        "label": "Voice-over script, CSV",
+        "short": "CSV",
+        "hint": "One row per line, with ids that never change, for Excel and Google Sheets."
+      },
+      "backup": {
+        "label": "Full backup, ZIP",
+        "hint": "The whole project, with the trash, the revisions and the images."
+      },
+      "documentPdf": {
+        "label": "{name}, PDF",
+        "short": "PDF",
+        "hint": "The same document, laid out and ready to print or to send."
+      }
+    },
+    "options": {
+      "titles": "Titles",
+      "titlePage": "Title page",
+      "titlePageHint": "Title, author and words, rounded to the hundred.",
+      "partTitles": {
+        "novel": "Part titles",
+        "game": "Act titles"
+      },
+      "chapterTitles": "Chapter titles",
+      "sceneTitles": "Scene titles",
+      "sceneCodes": "With the scene code (S001)",
+      "numbering": "Chapter numbering",
+      "numberings": {
+        "arabic": "1, 2, 3",
+        "roman": "I, II, III",
+        "words": "One, two, three",
+        "none": "None"
+      },
+      "which": "Which scenes",
+      "scenes": {
+        "text": "Every scene with text",
+        "revised": "Only revised and final",
+        "final": "Only final"
+      },
+      "separator": "Between one scene and the next",
+      "separators": {
+        "blank": "Blank line",
+        "custom": "{text}, from the settings"
+      },
+      "layout": "Layout",
+      "layouts": {
+        "manuscript": {
+          "label": "Standard manuscript",
+          "docx": "A4, Courier New 12, 30 lines of 60 characters, numbered pages: the Italian publishers' standard page.",
+          "pdf": "A4, Courier New 12, 30 lines of 60 characters, numbered pages: the Italian publishers' standard page."
+        },
+        "book": {
+          "label": "Book",
+          "docx": "The manuscript typeface at 11 points, justified, with first-line indents, on A5 pages.",
+          "pdf": "The manuscript typeface at 11 points, justified, with first-line indents, on A5 pages."
+        }
+      },
+      "images": "With the primary images",
+      "imagesHint": "Each character's portrait and the first image of groups, locations and objects.",
+      "delimiter": "Field delimiter",
+      "delimiters": {
+        "comma": "Comma",
+        "semicolon": "Semicolon, for spreadsheets set to Italian or other European languages"
+      },
+      "allParts": {
+        "novel": "Every part",
+        "game": "Every act"
+      },
+      "allChapters": "Every chapter",
+      "allSpeakers": "Everyone",
+      "noSpeaker": "No speaker",
+      "speaker": "Speaker",
+      "onlyRevised": "Only revised and final scenes",
+      "voiceFailed": "I cannot count the lines.",
+      "storyFormat": "Story format",
+      "storyFormats": {
+        "harlowe": "Harlowe 3, Twine's default format",
+        "sugarcube": "SugarCube 2"
+      },
+      "cover": "Cover",
+      "coverHint": "Optional: a JPEG, PNG or WebP image, best upright and at least 1,600 pixels tall.",
+      "coverChoose": "Choose an image",
+      "coverRemove": "Remove the cover",
+      "coverPreview": "Cover preview",
+      "coverFailed": "I cannot read this image."
+    },
+    "summary": {
+      "label": "In the file",
+      "lines": "{n} line | {n} lines",
+      "characters": "{n} character | {n} characters",
+      "images": "{n} image | {n} images",
+      "trash": "{n} in the trash",
+      "empty": "No scene with text matches these options.",
+      "emptyLines": "No line matches these filters.",
+      "locations": "{n} location | {n} locations",
+      "noScenes": "No scenes yet: the flow is empty."
+    },
+    "actions": {
+      "export": "Export as {format}",
+      "document": "Export the document",
+      "backup": "Download the backup",
+      "busy": "Exporting",
+      "images": "Preparing the images, {n} of {total}",
+      "schema": "Download the JSON schema of the format"
+    },
+    "flow": {
+      "start": "It starts from",
+      "noStart": "No start scene: it starts from the first scene of the {manuscript}.",
+      "problems": "The flow has {n} problem: the file is exported anyway. | The flow has {n} problems: the file is exported anyway.",
+      "checks": "See the checks"
+    },
+    "errors": {
+      "title": "The export did not work.",
+      "backup": "Download a backup"
+    },
+    "history": {
+      "title": "Last exports",
+      "empty": "No exports yet: every file you export will appear here, with its date.",
+      "what": {
+        "json": "JSON for developers",
+        "twee": "Twee 3, Harlowe",
+        "ink": "Ink",
+        "vo_csv": "Voice-over script, CSV",
+        "backup": "Project backup",
+        "tweeSugarcube": "Twee 3, SugarCube"
+      },
+      "allFinal": "All final",
+      "flowClean": "Flow in order"
+    },
+    "import": {
+      "label": "Import",
+      "labelBackup": "Import a backup",
+      "untitled": "Imported manuscript",
+      "done": "Project imported: {title}",
+      "errors": {
+        "notBackup": "This file cannot be imported: it takes a Dramatis backup (.dramatis.zip), a Word document (.docx) or a Markdown or text file.",
+        "version": "This backup comes from a newer version of Dramatis.",
+        "invalid": "The backup is damaged: some of its data cannot be read.",
+        "tooLarge": "The file is too large to import.",
+        "empty": "The manuscript is empty: there is no text to import.",
+        "encoding": "I cannot read the text of this file: save it again as UTF-8 text and try again.",
+        "busy": "Another import is still running: wait for it to finish and try again."
+      }
+    },
+    "print": {
+      "title": "Print preview",
+      "back": "Back to Export",
+      "print": "Print or save as PDF",
+      "hint": "In the print dialog choose Save as PDF: the pages are already set up.",
+      "layout": {
+        "manuscript": "Standard manuscript, A4",
+        "book": "Book, A5"
+      },
+      "loading": "Preparing the pages",
+      "failed": "I cannot prepare the pages."
+    },
+    "out": {
+      "words": "{n} word | {n} words",
+      "aboutWords": "about {n} word | about {n} words",
+      "chapterNumber": "Chapter {n}",
+      "contents": "Contents",
+      "continue": "Continue"
+    },
+    "file": {
+      "voice": "voice-over",
+      "backup": "backup",
+      "document": {
+        "novel": "story-bible",
+        "game": "narrative-design"
+      }
+    },
+    "doc": {
+      "updated": "Updated {date}",
+      "sceneCount": "{n} scene | {n} scenes",
+      "notWritten": "Not written yet.",
+      "none": "Nothing yet.",
+      "undated": "Undated",
+      "playable": "Playable",
+      "aliases": "Also known as",
+      "traits": {
+        "qualities": "Qualities",
+        "flaws": "Flaws",
+        "contradictions": "Contradictions"
+      },
+      "relationships": "Relationships",
+      "members": "Members",
+      "owners": "Owned by",
+      "scenesIn": "In the scenes: {list}",
+      "spoken": "Lines: {lines}, words: {words}",
+      "noLines": "No lines",
+      "group": {
+        "language": "Language",
+        "traditions": "Traditions",
+        "powers": "Powers"
+      },
+      "arcOf": "Arc of",
+      "questGiver": "Quest giver",
+      "objectives": "Objectives",
+      "rewards": "Rewards",
+      "optional": "optional",
+      "completedIn": "completed in {scene}",
+      "rewardObject": "{object}: {name}",
+      "structure": "Structure",
+      "untitledScene": "Untitled scene",
+      "start": "Start",
+      "branches": "Branches",
+      "implicit": "Implicit continuation",
+      "continuation": "Continue",
+      "always": "Always",
+      "true": "true",
+      "false": "false",
+      "and": "and",
+      "or": "or",
+      "usage": "Conditions: {read}, effects: {written}",
+      "table": {
+        "name": "Name",
+        "type": "Type",
+        "default": "Starting value",
+        "description": "Description",
+        "usage": "Where it is used",
+        "scene": "Scene",
+        "choice": "Choice",
+        "target": "Leads to",
+        "condition": "Condition",
+        "effects": "Effects"
+      },
+      "checks": "Flow checks",
+      "startScene": "Start scene",
+      "noStart": "None: the story starts from the first scene of the {manuscript}",
+      "noEndings": "None",
+      "unreachable": "Unreachable scenes",
+      "unreachableEndings": "Unreachable endings",
+      "deadEnds": "Dead ends",
+      "unusedVariables": "Variables never used",
+      "unchangedVariables": "Variables never changed",
+      "clean": "No problems: every scene can be reached from the start and every path leads to an ending.",
+      "brokenTargets": "Choices to scenes in the trash",
+      "trashedVariables": "Choices with variables in the trash",
+      "badRules": "Conditions or effects to fix",
+      "emptyChoices": "Choices without text",
+      "trashedTarget": "scene in the trash",
+      "choiceIn": "{scene}: “{choice}”"
+    },
+    "pageNumbers": {
+      "missing": "In this browser the pages of the PDF come out without numbers. To have them, open the preview in Chrome or Edge, or export as DOCX.",
+      "missingBook": "In this browser the pages of the PDF come out without numbers: in the print dialog, check that the paper is A5. For the exact layout, open the preview in Chrome or Edge, or export as DOCX.",
+      "useDocx": "Export as DOCX"
+    }
+  }
+}

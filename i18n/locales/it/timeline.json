@@ -1,0 +1,138 @@
+{
+  "timeline": {
+    "description": "Le scene e gli eventi nell'ordine in cui accadono nella storia, che non è sempre quello in cui li racconti.",
+    "newEvent": "Nuovo evento",
+    "summary": {
+      "both": "{scenes} e {events}",
+      "single": "nel {year}",
+      "span": "dal {from} al {to}",
+      "undated": "{n} senza data | {n} senza data",
+      "line": "{items}, {span}"
+    },
+    "units": {
+      "events": "{n} evento | {n} eventi"
+    },
+    "kinds": {
+      "scene": "Scene",
+      "story": "Eventi della storia",
+      "historical": "Eventi storici"
+    },
+    "filters": {
+      "label": "Filtri della linea del tempo",
+      "any": "Tutti",
+      "by": "Filtra per {what}",
+      "kind": "Tipo",
+      "clear": "Azzera i filtri",
+      "title": "Filtri",
+      "titleCount": "Filtri ({n})",
+      "show": "Mostra {n} elemento | Mostra {n} elementi"
+    },
+    "order": {
+      "label": "Ordine del racconto",
+      "description": "Mostra dove sta ogni scena nel manoscritto e segna quelle che tornano indietro nel tempo.",
+      "position": "{chapter} {number}, {scene} {index}",
+      "flashback": "Flashback"
+    },
+    "checks": {
+      "overlap": "{names} è anche altrove nello stesso momento: «{title}». | {names} sono anche altrove nello stesso momento: «{title}».",
+      "count": "{n} sovrapposizione da controllare | {n} sovrapposizioni da controllare",
+      "outside": "(fuori dai filtri)"
+    },
+    "row": {
+      "openScene": "Apri la scena",
+      "changeDate": "Cambia la data",
+      "clearDate": "Togli la data",
+      "actions": "Azioni per «{title}»",
+      "pov": "Punto di vista",
+      "more": "+{n}",
+      "start": "Inizio",
+      "ending": "Finale: {label}"
+    },
+    "undated": {
+      "title": "Senza data",
+      "none": "Ogni scena ha la sua data.",
+      "nothing": "Qui aspettano le scene e gli eventi che non hanno ancora una data.",
+      "hint": "Non sono ancora sulla linea del tempo: basta una data, anche solo l'anno.",
+      "give": "Dai una data",
+      "giveTo": "Dai una data a «{title}»",
+      "showAll": "Mostra tutti ({n})",
+      "noneFiltered": "Con questi filtri non resta niente senza data."
+    },
+    "dating": {
+      "formLabel": "Data di «{title}»",
+      "save": "Salva la data",
+      "moved": "«{title}» è sulla linea del tempo: {date}.",
+      "cleared": "«{title}» ora è in Senza data."
+    },
+    "when": {
+      "date": "Data nella storia",
+      "precision": {
+        "label": "Precisione della data",
+        "none": "Senza data",
+        "year": "Solo l'anno",
+        "month": "Mese e anno",
+        "day": "Giorno",
+        "minute": "Giorno e ora"
+      },
+      "day": "Giorno",
+      "dayPlaceholder": "gg",
+      "month": "Mese",
+      "year": "Anno",
+      "yearPlaceholder": "aaaa",
+      "time": "Ora",
+      "errors": {
+        "year": "Manca l'anno.",
+        "yearRange": "L'anno va da -9999 a 9999.",
+        "month": "Manca il mese.",
+        "day": "Manca il giorno.",
+        "dayRange": "Questo giorno non esiste nel mese scelto.",
+        "time": "Manca l'ora."
+      },
+      "label": "Data come appare nella storia",
+      "labelHelp": "Si legge al posto della data: utile per i calendari inventati.",
+      "labelPlaceholder": "Per esempio: Terza luna dell'anno 312",
+      "duration": "Durata",
+      "durationPlaceholder": "nessuna",
+      "durationUnit": "Unità della durata"
+    },
+    "duration": {
+      "minutes": "{n} minuto | {n} minuti",
+      "hours": "{n} ora | {n} ore",
+      "days": "{n} giorno | {n} giorni",
+      "weeks": "{n} settimana | {n} settimane",
+      "months": "{n} mese | {n} mesi",
+      "years": "{n} anno | {n} anni"
+    },
+    "date": {
+      "bc": "{year} a.C.",
+      "withTime": "{date}, {time}"
+    },
+    "event": {
+      "new": "Nuovo evento",
+      "panelDescription": "Un fatto della storia, o della Storia, con la sua data e chi ne fa parte.",
+      "missing": "Questo evento non c'è più: forse è nel cestino.",
+      "titlePlaceholder": "Che cosa succede?",
+      "title": "Titolo dell'evento",
+      "kind": "Tipo di evento",
+      "links": "Chi e che cosa riguarda",
+      "pick": "Scegli o scrivi un nome",
+      "descriptionPlaceholder": "Racconta l'evento: che cosa succede e perché conta per la storia.",
+      "trash": "Sposta nel cestino",
+      "discard": "Lascia perdere",
+      "showInTimeline": "Mostra nella linea del tempo"
+    },
+    "empty": {
+      "title": "La linea del tempo mette in ordine scene ed eventi: dai una data a una scena e la vedrai qui.",
+      "guide": "Una data può essere un anno, un mese, un giorno o un momento preciso: «1953» e «14 novembre 1953, 22:10» si mettono in fila da sole. Per un calendario inventato scrivi anche la data come appare nella storia.",
+      "dateFirst": "Dai una data alla prima scena",
+      "toManuscript": "Vai al {manuscript}",
+      "filtered": "Nessuna scena e nessun evento corrispondono ai filtri."
+    },
+    "entity": {
+      "empty": "Nessun evento collegato a {name}.",
+      "emptyHint": "Un evento è un fatto prima delle scene o fuori da loro: una nascita, una guerra, un incontro. Compare anche sulla linea del tempo.",
+      "add": "Aggiungi un evento",
+      "undated": "Senza data"
+    }
+  }
+}

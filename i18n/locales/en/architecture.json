@@ -1,0 +1,44 @@
+{
+  "architecture": {
+    "intro": {
+      "novel": "The three pillars of the story: what it tells, how it really unfolds, where and when it happens.",
+      "game": "The three pillars of the game: what it tells, how it really unfolds, which world the player moves through."
+    },
+    "definitions": {
+      "premise": "The premise is the story in a few lines: who wants what, what stands in the way, what is at stake.",
+      "fabula": "The fabula is the story in chronological order, from beginning to end, as it really happened.",
+      "setting": "The setting tells where and when the story happens, and by which rules."
+    },
+    "questions": {
+      "novel": {
+        "premise": "Who wants what, and what stands in the way?",
+        "fabula": "What happens, from beginning to end?",
+        "setting": "Where and when does it happen?"
+      },
+      "game": {
+        "premise": "Who is the player, what do they want, what stops them?",
+        "fabula": "What happens in the world, from beginning to end, whichever way the player goes?",
+        "setting": "What does the team need to know about the world?"
+      }
+    },
+    "related": {
+      "novel": "Narrative strands and notes",
+      "game": "Storylines, quests and notes"
+    },
+    "statusOf": "Status: {pillar}",
+    "notFound": "This page of the architecture does not exist.",
+    "backToIndex": "Back to the architecture",
+    "sortable": {
+      "moved": "{name}: position {n} of {total}",
+      "handle": "Drag to reorder, or use Alt and the arrow keys"
+    },
+    "keyboard": {
+      "label": "Formatting",
+      "bold": "Bold",
+      "italic": "Italic",
+      "list": "Bulleted list",
+      "mention": "Mention a character, a place or an object",
+      "done": "Done"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "objects": {
+    "kind": "Kind",
+    "description": "Description",
+    "descriptionPlaceholder": "What it is made of, where it comes from, why it matters.",
+    "owners": "Owners",
+    "addOwner": "Add an owner",
+    "noOwners": "No owner yet: who has it, or who keeps it?",
+    "ownerLabel": "owner, keeper, heir",
+    "removeOwner": "Remove {name} from the owners",
+    "scenes": "Scenes where it appears",
+    "events": "Events",
+    "relations": "Other relationships",
+    "noOtherRelations": "No other relationships: where it is kept, what it is tied to.",
+    "images": "Images",
+    "notes": "Notes",
+    "novel": {
+      "add": "Add an object",
+      "namePlaceholder": "Object name",
+      "intro": "Open an object to say who owns it and see where it appears; change the order from each row's menu.",
+      "empty": "The objects that matter: a letter, a weapon, a key that opens more than one door.",
+      "emptyQuestion": "What passes from hand to hand?",
+      "kindPlaceholder": "letter, weapon, key"
+    },
+    "game": {
+      "add": "Add an item",
+      "namePlaceholder": "Item name",
+      "intro": "Open an item to say who owns it and see where it appears; change the order from each row's menu.",
+      "empty": "The items that matter: a key, a weapon, a relic to bring home.",
+      "emptyQuestion": "What will the player find?",
+      "kindPlaceholder": "key item, weapon, document"
+    }
+  }
+}

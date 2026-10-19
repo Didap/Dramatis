@@ -1,0 +1,82 @@
+{
+  "goals": {
+    "description": "Un ritmo da tenere, e i numeri per vedere se lo tieni.",
+    "empty": "Un obiettivo dà un ritmo: scegli quante parole scrivere in tutto, ogni giorno, o entro una data.",
+    "today": {
+      "loading": "Sto contando le parole di oggi.",
+      "withGoal": "Oggi {words} su {goal}.",
+      "noGoal": "Oggi {words}.",
+      "noneWithGoal": "Oggi ancora nessuna parola: l'obiettivo è {goal}.",
+      "none": "Oggi ancora nessuna parola.",
+      "removed": "({n} tolta) | ({n} tolte)"
+    },
+    "total": {
+      "withGoal": "In tutto {total} su {goal}.",
+      "noGoal": "In tutto {words}.",
+      "reached": "In tutto {total}: obiettivo di {goal} raggiunto."
+    },
+    "targets": {
+      "title": "Traguardi",
+      "hint": "Ognuno è facoltativo: lascia vuoto quello che non ti serve.",
+      "total": "Parole in tutto",
+      "totalHelp": "La lunghezza che vuoi raggiungere.",
+      "daily": "Parole al giorno",
+      "dailyHelp": "Quante ne vuoi scrivere ogni giorno.",
+      "deadline": "Scadenza",
+      "deadlineHelp": "Entro quando vuoi finire.",
+      "none": "Nessuno",
+      "clearDeadline": "Togli la scadenza"
+    },
+    "progress": {
+      "title": "A che punto sei"
+    },
+    "trend": {
+      "title": "Il ritmo",
+      "noData": "Qui vedrai il tuo ritmo, dalla prima sessione di scrittura in poi.",
+      "average": "Negli ultimi 14 giorni di scrittura: in media {words} al giorno.",
+      "averageFew": "Nel primo giorno di scrittura: {words}. | Nei primi {n} giorni di scrittura: in media {words} al giorno.",
+      "finishFull": "Al ritmo attuale, circa {pace} parole in più al giorno, arrivi a {goal} il {date}.",
+      "reachedFull": "Obiettivo raggiunto: {total} parole su {goal}.",
+      "tooEarly": "Servono almeno tre giorni di scrittura per una stima della fine.",
+      "notGrowing": "Negli ultimi giorni il testo non è cresciuto: per ora nessuna stima della fine.",
+      "noGoal": "Scegli quante parole scrivere in tutto per sapere quando ci arrivi.",
+      "needed": "Per finire entro il {date} servono {words} al giorno.",
+      "daysLeft": "Manca {n} giorno alla scadenza. | Mancano {n} giorni alla scadenza.",
+      "dueToday": "La scadenza è oggi.",
+      "overdue": "La scadenza era il {date}.",
+      "reached": "Hai già raggiunto le {goal} parole.",
+      "finish": "Al ritmo attuale finisci il {date}.",
+      "finishLate": "Al ritmo attuale finisci il {date}, oltre la scadenza.",
+      "finishFullLate": "Al ritmo attuale, circa {pace} parole in più al giorno, arrivi a {goal} il {date}: oltre la scadenza."
+    },
+    "history": {
+      "title": "Ogni giorno",
+      "viewLabel": "Come mostrare i giorni",
+      "spanLabel": "Quanti giorni",
+      "bars": "Barre",
+      "table": "Tabella",
+      "days": "{n} giorni",
+      "empty": "Qui vedrai le parole scritte ogni giorno, dalla prima sessione in poi.",
+      "summary": "In {span} giorni: {written} scritte e {removed} tolte, in {days} di scrittura.",
+      "caption": "Parole scritte e tolte negli ultimi {span} giorni",
+      "restDay": "{day}: nessuna parola",
+      "restDays": "Dal {from} al {to}: nessuna parola",
+      "removedShort": "−{n}",
+      "day": "Giorno",
+      "written": "Scritte",
+      "removed": "Tolte",
+      "total": "Totale a fine giornata",
+      "goalMark": "La tacca su ogni riga è l'obiettivo del giorno: {n} parole."
+    },
+    "months": {
+      "title": "Ogni mese",
+      "empty": "Le medie dei mesi arrivano con i primi giorni di scrittura.",
+      "caption": "Giorni di scrittura e parole scritte per mese",
+      "month": "Mese",
+      "days": "Giorni di scrittura",
+      "written": "Parole scritte",
+      "average": "Media per giorno di scrittura"
+    },
+    "loadError": "Non riesco a leggere le parole scritte nei giorni scorsi."
+  }
+}

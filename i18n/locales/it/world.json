@@ -1,0 +1,61 @@
+{
+  "world": {
+    "hub": {
+      "novel": {
+        "intro": "Il mondo della storia: personaggi, gruppi, luoghi e oggetti, tutti collegati tra loro.",
+        "question": "Comincia da chi vuole qualcosa: il protagonista."
+      },
+      "game": {
+        "intro": "Il mondo del gioco: personaggi, fazioni, luoghi e oggetti, tutti collegati tra loro.",
+        "question": "Comincia da chi il giocatore incontra per primo."
+      },
+      "startWithCharacters": "Comincia dai personaggi",
+      "allCharacters": "Tutti i personaggi",
+      "noCharacters": "Non c'è ancora nessuno in scena.",
+      "addCharacter": "Aggiungi un personaggio",
+      "nothingYet": "Ancora niente",
+      "relation": "{from} e {to}"
+    },
+    "list": {
+      "actionsFor": "Azioni per {name}",
+      "moveTop": "Sposta in cima",
+      "moveBottom": "Sposta in fondo",
+      "trash": "Sposta nel cestino",
+      "moved": "{name}: ora è in posizione {position} di {total}.",
+      "filter": "Filtra",
+      "filterByNameOrKind": "Filtra per nome o tipo",
+      "filterByNameKindOrPlace": "Filtra per nome, tipo o luogo",
+      "noMatch": "Niente corrisponde a «{q}».",
+      "clearFilter": "Mostra tutto",
+      "wayOut": "Torna al mondo",
+      "hideIntro": "Non mostrare più"
+    },
+    "sheet": {
+      "more": "Altre azioni",
+      "notFoundTitle": "Qui non c'è niente",
+      "notFound": "Forse è nel cestino: da lì puoi ripristinarlo.",
+      "backToList": "Torna all'elenco",
+      "openTrash": "Apri il cestino",
+      "notesPlaceholder": "Tutto il resto: idee, dubbi, cose da verificare."
+    },
+    "picker": {
+      "search": "Cerca per nome",
+      "nobody": "Non c'è altro da aggiungere.",
+      "noMatch": "Niente corrisponde."
+    },
+    "memberships": {
+      "novel": {
+        "add": "Aggiungi a un gruppo",
+        "empty": "Non fa parte di nessun gruppo.",
+        "role": "ruolo nel gruppo",
+        "remove": "Togli da {name}"
+      },
+      "game": {
+        "add": "Aggiungi a una fazione",
+        "empty": "Non fa parte di nessuna fazione.",
+        "role": "ruolo nella fazione",
+        "remove": "Togli da {name}"
+      }
+    }
+  }
+}

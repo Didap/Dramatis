@@ -1,0 +1,62 @@
+{
+  "codex": {
+    "intro": {
+      "novel": "Il sapere del mondo, voce per voce: quello che il lettore non legge ma tu devi sapere.",
+      "game": "Il sapere del mondo, voce per voce: quello che il team deve sapere, e che forse il giocatore scoprirà."
+    },
+    "newEntry": "Nuova voce",
+    "newEntryIn": "Nuova voce in {category}",
+    "newCategory": "Nuova categoria",
+    "moreActions": "Altre azioni del compendio",
+    "categories": "Categorie del compendio",
+    "category": "Categoria",
+    "categoryName": "Nome della categoria",
+    "categoryPlaceholder": "Per esempio: Leggende, Rotte commerciali",
+    "categoryActions": "Azioni per la categoria {category}",
+    "count": "nessuna voce | {n} voce | {n} voci",
+    "showOnly": "Mostra solo {category}",
+    "showAll": "Mostra tutte le categorie",
+    "filter": "Filtra per categoria",
+    "all": "Tutte",
+    "allCategories": "Tutte le categorie",
+    "deleteCategoryWith": "Elimina, con la sua voce | Elimina, con le sue {n} voci",
+    "moveTo": "Sposta in",
+    "movedTo": "Spostata in {category}",
+    "entryActions": "Azioni per {name}",
+    "entryPageActions": "Azioni sulla voce",
+    "entryTitle": "Titolo della voce",
+    "entryBody": "Testo della voce",
+    "edited": "Modificata {when}",
+    "images": "Immagini",
+    "bodyPlaceholder": {
+      "novel": "Racconta questa parte del mondo: cosa è vero, cosa si crede, cosa resta un mistero. Digita la chiocciola per citare un personaggio o un luogo.",
+      "game": "Racconta questa parte del mondo: cosa deve sapere il team, cosa scoprirà il giocatore, cosa resta un mistero. Digita la chiocciola per citare un personaggio o un luogo."
+    },
+    "notFound": "Questa voce non c'è più. Forse è nel cestino.",
+    "moduleOff": "Il compendio è spento in questo progetto: le voci restano salvate e tornano appena lo riaccendi dalle impostazioni.",
+    "openSettings": "Apri le impostazioni",
+    "createSuggested": "Crea le categorie suggerite",
+    "empty": {
+      "title": {
+        "novel": "Il compendio raccoglie il sapere del mondo: storia, popoli, religioni, magia, tutto ciò che il lettore non legge ma tu devi sapere.",
+        "game": "Il compendio raccoglie il sapere del mondo: storia, popoli, religioni, magia, tutto ciò che il team deve sapere."
+      },
+      "body": {
+        "novel": "Cosa deve restare coerente dal primo all'ultimo capitolo? Una data, una legge, una leggenda. Scrivila una volta qui e citala con la chiocciola.",
+        "game": "Cosa deve sapere chiunque lavori al gioco? Una data, una legge, una creatura. Scrivila una volta qui: il team la ritrova nel documento di narrative design."
+      },
+      "noCategories": "Le voci si dividono in categorie: parti da quelle suggerite (storia, popoli, religioni, magia e tecnologia, bestiario, lingue, politica) o crea le tue.",
+      "action": "Scrivi la prima voce",
+      "wayOut": "Oppure crea prima una categoria tua"
+    },
+    "defaults": {
+      "history": "Storia",
+      "peoples": "Popoli",
+      "religions": "Religioni",
+      "magic": "Magia e tecnologia",
+      "bestiary": "Bestiario",
+      "languages": "Lingue",
+      "politics": "Politica"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "trash": {
+    "description": "What you delete stays here: it goes back to its place with everything that left with it.",
+    "emptyState": "The trash is empty. What you delete stays here until you decide.",
+    "loadError": "I cannot open the trash.",
+    "restore": "Restore",
+    "restoreItem": "Restore “{name}”",
+    "purge": "Delete forever",
+    "purgeItem": "Delete “{name}” forever",
+    "actionsFor": "Actions for “{name}”",
+    "purgeAsk": "Delete “{name}” forever? It cannot be recovered.",
+    "purgeAskWith": "Delete “{name}” forever, {with}? It cannot be recovered.",
+    "purgeAskChoices": "Delete “{name}” forever, together with the choice that leads here from another scene? It cannot be recovered. | Delete “{name}” forever, together with the {n} choices that lead here from other scenes? They cannot be recovered.",
+    "purgeAskWithChoices": "Delete “{name}” forever, {with}, and the choice that leads here from another scene? It cannot be recovered. | Delete “{name}” forever, {with}, and the {n} choices that lead here from other scenes? They cannot be recovered.",
+    "purgeConfirm": "Delete forever",
+    "purged": "You deleted “{name}” forever.",
+    "restored": "You restored “{name}”.",
+    "restoredIn": "It is now in the chapter “{name}”.",
+    "restoreSceneFirst": "Restore the scene “{name}” first: the revision comes back with it.",
+    "empty": "Empty trash",
+    "emptyAsk": "Delete the only item in the trash forever? It cannot be recovered. | Delete the {n} items in the trash forever? They cannot be recovered.",
+    "emptyChoices": "This also deletes the choice of another scene that leads to a scene in the trash. | This also deletes the {n} choices of other scenes that lead to scenes in the trash.",
+    "emptyConfirm": "Empty trash",
+    "emptied": "Trash emptied: {n} item deleted forever | Trash emptied: {n} items deleted forever",
+    "with": "with {list}",
+    "inside": "in “{name}”",
+    "ofScene": "of the scene “{name}”",
+    "fromTo": "from “{from}” to “{to}”",
+    "labels": {
+      "relation": "Relationship between {name}",
+      "image": "Image of {name}"
+    },
+    "units": {
+      "chapters": "{n} chapter | {n} chapters",
+      "scenes": "{n} scene | {n} scenes",
+      "images": "{n} image | {n} images",
+      "entries": "{n} entry | {n} entries"
+    },
+    "types": {
+      "codexEntries": "Codex entries",
+      "codexCategories": "Codex categories",
+      "relations": "Relationships",
+      "maps": "Relationship maps",
+      "links": "Choices",
+      "images": "Images"
+    },
+    "untitled": {
+      "image": "Image without a caption",
+      "relation": "Relationship without a label",
+      "link": "Choice without text",
+      "revision": "Unnamed revision",
+      "item": "Untitled"
+    }
+  }
+}

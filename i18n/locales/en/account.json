@@ -1,0 +1,85 @@
+{
+  "account": {
+    "title": "Account",
+    "description": "Who you are and how Dramatis behaves for you, in every project and on every device.",
+    "sections": "Account sections",
+    "loadError": "I cannot open the account.",
+    "saved": "Saved",
+    "profile": {
+      "title": "Profile",
+      "name": "Name",
+      "nameHelp": "The name Dramatis greets you with; exports are signed with the author name chosen in each project.",
+      "email": "Email"
+    },
+    "password": {
+      "title": "Password",
+      "description": "There is no password reset by email yet: if you forget it, your projects come back only from a backup. Keep one.",
+      "current": "Current password",
+      "next": "New password",
+      "hint": "At least 10 characters.",
+      "show": "Show passwords",
+      "submit": "Change password",
+      "changed": "Password changed.",
+      "wrong": "The current password is not correct.",
+      "currentMissing": "Type your current password.",
+      "tooShort": "It needs at least 10 characters."
+    },
+    "appearance": {
+      "title": "Language and theme"
+    },
+    "timezone": {
+      "title": "Time zone",
+      "description": "Each day's words are counted in this time zone: a session after midnight belongs to the new day.",
+      "search": "Search for a city or a zone",
+      "useDevice": "Use this device's: {zone}"
+    },
+    "editor": {
+      "title": "Writing page",
+      "description": "How the text looks in the editor, in every project. The editor's “Aa” menu changes the same choices.",
+      "font": "Typeface",
+      "serif": "Literata",
+      "serifHelp": "The book face, with serifs.",
+      "sans": "High legibility",
+      "sansHelp": "Atkinson Hyperlegible Next, drawn for readers with low vision.",
+      "size": "Size",
+      "sizeValue": "{n} pixels",
+      "lineHeight": "Line height",
+      "lineHeightValue": "{n} times the size",
+      "width": "Line width",
+      "widths": {
+        "narrow": "Narrow",
+        "medium": "Medium",
+        "wide": "Wide"
+      },
+      "widthHelp": "about {n} characters",
+      "preview": "Preview",
+      "sampleLang": "en",
+      "sample": "The six-twelve train slowed on the bridge, and for a moment the river turned to gold. Elena closed the notebook on her knees: the scene was there, whole, and she did not want to lose it before she got home."
+    },
+    "guidance": {
+      "title": "Guidance",
+      "label": "Guidance in new projects",
+      "help": "The path from premise to delivery, the explanations and the hints, on in every new project. Each project can hide them later."
+    },
+    "backup": {
+      "title": "Backups",
+      "description": "One file per project, with all the text, the world of the story and the images: it imports back as a new project.",
+      "none": "You have no projects yet.",
+      "download": "Download backup",
+      "downloadOf": "Download the backup of “{name}”",
+      "deleted": "in the deleted projects",
+      "restoreFirst": "Restore it to download it"
+    },
+    "delete": {
+      "title": "Delete the account",
+      "description": "Deletes the account forever, with every project, text and image. It cannot be undone.",
+      "start": "Delete account",
+      "warning": "You are about to delete the account. | You are about to delete the account and the only project in it, even if it is among the deleted ones. | You are about to delete the account and the {n} projects in it, including the deleted ones.",
+      "backupFirst": "First download a backup of what you want to keep.",
+      "toBackups": "Go to backups",
+      "typeEmail": "To confirm, type your email: {email}",
+      "confirm": "Delete forever",
+      "done": "The account has been deleted, with all its projects."
+    }
+  }
+}

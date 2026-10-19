@@ -1,0 +1,159 @@
+{
+  "landing": {
+    "meta": {
+      "title": "Dramatis, for writing novels and video game stories",
+      "description": "A writing desk for novels and the stories of video games: characters, world, plot, scenes and branches in one place, from the first spark to the finished manuscript or script."
+    },
+    "home": "Dramatis, home page",
+    "signIn": "Sign in",
+    "language": "Language",
+    "hero": {
+      "title": "From the first spark to the finished manuscript or script, with the whole world of the story in order.",
+      "lead": "Dramatis is a writing desk for people who write novels and for people who write the stories of video games. Characters, places, plots, scenes and branches live in one place, linked to each other, at your desk or on the train.",
+      "cta": "Create an account",
+      "ctaSignedIn": "Go to your projects"
+    },
+    "media": {
+      "title": "One craft, two forms",
+      "lead": "The story bible and the page are the same. With the type of project, the structure, the vocabulary and the exports change, quietly.",
+      "novel": {
+        "title": "A novel",
+        "points": {
+          "structure": "Parts, chapters and scenes, to rearrange whenever you like.",
+          "pov": "The point of view and the point-of-view character of every scene.",
+          "analysis": "Analysis of who appears, where and when, chapter by chapter.",
+          "export": "A clean manuscript, in DOCX, EPUB or PDF."
+        }
+      },
+      "game": {
+        "title": "A video game",
+        "points": {
+          "quests": "Acts and quests, main and side, with objectives and rewards.",
+          "choices": "Player choices with conditions and effects on state variables, and a flow that shows the start, the endings and the dead ends.",
+          "lines": "Dialogue lines with a speaker, a direction and an ID that never changes.",
+          "export": "For the team: JSON, Twine, Ink, the voice-over script and the narrative design document."
+        }
+      }
+    },
+    "method": {
+      "title": "The method, in three movements",
+      "bible": {
+        "title": "The story bible",
+        "body": "Premise, fabula and setting. Characters, built by answering an interview, then groups and factions, places, objects, relationships, narrative strands and a timeline. Everything exists once, and everything else points to it."
+      },
+      "manuscript": {
+        "title": "The manuscript, or the script",
+        "body": "Write one scene at a time, in an editor that steps aside. Type {at} to call a character or a place onto the stage, and the scene knows who is there, where and when. Every scene keeps its revisions."
+      },
+      "delivery": {
+        "title": "Delivery",
+        "body": "A clean manuscript for an editor, in DOCX, EPUB or PDF. For the people building the game, the narrative design document, the data in JSON, Twine and Ink, and the voice-over script."
+      }
+    },
+    "interview": {
+      "title": "Dramatis asks the questions, the answers are yours",
+      "body": "Every main character has an interview in nine sections (eleven in a video game, with their role in play and their voice). Who they are, what they want, what holds them back: answer when you like, or write freely."
+    },
+    "path": {
+      "title": "A path, for as long as you need it",
+      "body": "The path tells you where you are, from the premise to delivery, and suggests the next step. It locks nothing: every section is open from the first minute, and when you no longer need it, you hide it."
+    },
+    "devices": {
+      "title": "At your desk and in your pocket",
+      "lead": "It is the same project wherever you open it.",
+      "desk": {
+        "title": "At the desk",
+        "body": "Long sessions belong to the computer: the scene in the middle, the outline a keystroke away, the details in a panel that closes."
+      },
+      "phone": {
+        "title": "On the phone",
+        "body": "An idea takes two taps to capture. Check a character’s eye colour halfway through a scene, write on the train, read back the last chapter."
+      }
+    },
+    "trust": {
+      "title": "Not a word is lost",
+      "autosave": {
+        "title": "Automatic saving",
+        "body": "Your text is saved a second after your last keystroke, and the save state is always in view."
+      },
+      "revisions": {
+        "title": "Revisions and history",
+        "body": "Every scene can have several versions, and a history to go back to."
+      },
+      "devices": {
+        "title": "Two devices, no overwrites",
+        "body": "If the same scene changes on two devices, both versions are kept."
+      },
+      "trash": {
+        "title": "A trash that gives back",
+        "body": "What you delete stays in the trash, and goes back to its place when you restore it."
+      },
+      "backup": {
+        "title": "Backups and exports",
+        "body": "The whole project in one file, the text in every format: always one step away."
+      }
+    },
+    "statement": {
+      "title": "No artificial intelligence writes in your place.",
+      "body": "You write the story. Dramatis keeps it organised, coherent and safe."
+    },
+    "closing": {
+      "title": "Start with the premise: a few lines are enough.",
+      "signIn": "Already have an account? {link}"
+    },
+    "footer": "For writing novels and video game stories.",
+    "specimen": {
+      "saved": "Saved",
+      "today": "today {n}",
+      "novel": {
+        "caption": "The editor in a novel: a scene from “Borrowed Words”, the example project.",
+        "chapter": "The Room in the Alley",
+        "position": "Part 1 · Chapter 1 · Scene 1",
+        "title": "Dictation",
+        "p1": "“I have to write to Vito,” she said, as every month, and sat down unasked. Mimmo went straight under the table, where a spool and two corks were waiting.",
+        "p2": "{teresa} unscrewed the cap of the {pen}, tried the nib on scrap paper and wrote at the top right: Mola di Bari, March 12, 1956. Then she waited. With Nunzia there was never long to wait.",
+        "teresa": "Teresa",
+        "pen": "schoolmaster’s pen",
+        "p3": "“Dear Vito. We are well. Mimmo has grown out of his shoes. Your mother has a cough but won’t have the doctor. February’s money came.”",
+        "p4": "“Is that all?” she asked."
+      },
+      "game": {
+        "caption": "The editor in a video game: a scene from “The Breath of Velmara”, with dialogue lines and the player’s choices.",
+        "chapter": "The Square of Hours",
+        "position": "Act I · Chapter 2 · Scene 5",
+        "title": "The Magpie",
+        "action": "Exterior, the Grand Canal. The Magpie, a narrow boat painted black and white, is loaded with unlit lanterns.",
+        "tullia": "Tullia",
+        "mira": "Mira",
+        "line1": "If you want a passage to the Upper City, the stair’s over there. You don’t need a boat to go up.",
+        "line1Direction": "without looking at her",
+        "line2": "I need to go to the Lower Quarter. To Agata Valdesca’s house.",
+        "line3": "You’re the daughter. The one from the Mainland.",
+        "choices": "Choices",
+        "choice1": "Help Tullia hoist the lanterns",
+        "choice2": "“Let’s go to my mother’s now.”",
+        "effect": "tullia_trust +1",
+        "lines": "3 lines"
+      },
+      "interview": {
+        "caption": "The interview of a main character: the Conflict section of Teresa Ladisa.",
+        "name": "Teresa Ladisa",
+        "tagline": "She writes letters for people who cannot write, and since March she has been putting her own words in them.",
+        "progress": "3 of 12 answers",
+        "interview": "Interview",
+        "free": "Free text",
+        "answer1": "To be heard by someone, even at one remove. In Vito she has found the only reader who truly answers what she writes.",
+        "answer2": "Vito comes home at Christmas, and Nunzia has started evening classes: soon she will read the letters herself.",
+        "placeholder": "Write the answer"
+      },
+      "path": {
+        "caption": "The path of a video game: five steps done out of eight, now the first draft of the script."
+      },
+      "phone": {
+        "caption": "On the phone, on the train home: the idea for a line, captured in two taps.",
+        "project": "The Breath of Velmara",
+        "note": "When Tullia trusts Mira, she calls her by name: add a line to The Magpie."
+      }
+    }
+  }
+}

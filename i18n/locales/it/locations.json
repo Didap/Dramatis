@@ -1,0 +1,38 @@
+{
+  "locations": {
+    "city": "Città",
+    "region": "Regione",
+    "nation": "Nazione",
+    "ask": {
+      "city": "Quale città?",
+      "region": "Quale regione?",
+      "nation": "Quale nazione?"
+    },
+    "kind": "Tipo",
+    "description": "Descrizione",
+    "descriptionPlaceholder": "Com'è, che odore ha, chi ci passa e che cosa ci succede di solito.",
+    "scenes": "Scene ambientate qui",
+    "events": "Eventi significativi",
+    "relations": "Relazioni",
+    "images": "Immagini",
+    "notes": "Note",
+    "groupByPlace": "Raggruppa per nazione e regione",
+    "noPlace": "Senza nazione né regione",
+    "novel": {
+      "add": "Aggiungi un luogo",
+      "namePlaceholder": "Nome del luogo",
+      "intro": "Apri un luogo per descriverlo e vedere le scene ambientate lì; l'ordine si cambia dal menu di ogni riga.",
+      "empty": "I luoghi danno corpo alla storia: dalla nazione alla stanza in cui succede la scena.",
+      "emptyQuestion": "Dove comincia la storia?",
+      "kindPlaceholder": "casa, porto, quartiere"
+    },
+    "game": {
+      "add": "Aggiungi un luogo",
+      "namePlaceholder": "Nome del luogo",
+      "intro": "Apri un luogo per descriverlo e vedere le scene ambientate lì; l'ordine si cambia dal menu di ogni riga.",
+      "empty": "I luoghi danno corpo al gioco: dal continente alla stanza in cui si svolge la scena.",
+      "emptyQuestion": "Dove comincia il gioco?",
+      "kindPlaceholder": "città, hub, sotterraneo"
+    }
+  }
+}

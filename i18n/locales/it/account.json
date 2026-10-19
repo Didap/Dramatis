@@ -1,0 +1,85 @@
+{
+  "account": {
+    "title": "Account",
+    "description": "Chi sei e come si comporta Dramatis per te, su ogni progetto e su ogni dispositivo.",
+    "sections": "Sezioni dell'account",
+    "loadError": "Non riesco ad aprire l'account.",
+    "saved": "Salvato",
+    "profile": {
+      "title": "Profilo",
+      "name": "Nome",
+      "nameHelp": "Il nome con cui Dramatis ti saluta; nelle esportazioni firma il nome dell'autore scelto in ogni progetto.",
+      "email": "Email"
+    },
+    "password": {
+      "title": "Password",
+      "description": "Il recupero della password per email non c'è ancora: se la dimentichi, i tuoi progetti tornano solo da un backup. Tienine uno.",
+      "current": "Password attuale",
+      "next": "Nuova password",
+      "hint": "Almeno 10 caratteri.",
+      "show": "Mostra le password",
+      "submit": "Cambia la password",
+      "changed": "Password cambiata.",
+      "wrong": "La password attuale non è corretta.",
+      "currentMissing": "Scrivi la password attuale.",
+      "tooShort": "Servono almeno 10 caratteri."
+    },
+    "appearance": {
+      "title": "Lingua e tema"
+    },
+    "timezone": {
+      "title": "Fuso orario",
+      "description": "Le parole di ogni giorno si contano in questo fuso: una sessione dopo mezzanotte va al giorno nuovo.",
+      "search": "Cerca una città o una zona",
+      "useDevice": "Usa quello di questo dispositivo: {zone}"
+    },
+    "editor": {
+      "title": "Pagina di scrittura",
+      "description": "Come appare il testo nell'editor, in ogni progetto. Il menu «Aa» dell'editor cambia le stesse scelte.",
+      "font": "Carattere",
+      "serif": "Literata",
+      "serifHelp": "Il carattere da libro, con le grazie.",
+      "sans": "Alta leggibilità",
+      "sansHelp": "Atkinson Hyperlegible Next, disegnato per chi legge con fatica.",
+      "size": "Dimensione",
+      "sizeValue": "{n} pixel",
+      "lineHeight": "Interlinea",
+      "lineHeightValue": "{n} volte la dimensione",
+      "width": "Larghezza della riga",
+      "widths": {
+        "narrow": "Stretta",
+        "medium": "Media",
+        "wide": "Larga"
+      },
+      "widthHelp": "circa {n} caratteri",
+      "preview": "Anteprima",
+      "sampleLang": "it",
+      "sample": "Il treno delle diciotto e dodici rallentò sul ponte, e per un momento il fiume si fece d'oro. Elena chiuse il taccuino sulle ginocchia: la scena era lì, intera, e non voleva perderla prima di arrivare a casa."
+    },
+    "guidance": {
+      "title": "Guida",
+      "label": "Guida nei nuovi progetti",
+      "help": "Il percorso dalla premessa alla consegna, le spiegazioni e i suggerimenti, accesi in ogni nuovo progetto. In ogni progetto si possono poi nascondere."
+    },
+    "backup": {
+      "title": "Backup",
+      "description": "Un file per progetto, con tutto il testo, il mondo della storia e le immagini: si reimporta come nuovo progetto.",
+      "none": "Non hai ancora nessun progetto.",
+      "download": "Scarica il backup",
+      "downloadOf": "Scarica il backup di «{name}»",
+      "deleted": "tra i progetti eliminati",
+      "restoreFirst": "Ripristinalo per scaricarlo"
+    },
+    "delete": {
+      "title": "Elimina l'account",
+      "description": "Elimina per sempre l'account con tutti i progetti, i testi e le immagini. Non si può annullare.",
+      "start": "Elimina l'account",
+      "warning": "Stai per eliminare l'account. | Stai per eliminare l'account e l'unico progetto che contiene, anche se è tra gli eliminati. | Stai per eliminare l'account e i {n} progetti che contiene, anche quelli tra gli eliminati.",
+      "backupFirst": "Prima scarica un backup di quello che vuoi tenere.",
+      "toBackups": "Vai ai backup",
+      "typeEmail": "Per confermare scrivi la tua email: {email}",
+      "confirm": "Elimina per sempre",
+      "done": "L'account è stato eliminato, con tutti i suoi progetti."
+    }
+  }
+}

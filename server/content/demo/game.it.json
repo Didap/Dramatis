@@ -1,0 +1,1524 @@
+{
+  "kind": "game",
+  "title": "Il Respiro di Velmara",
+  "subtitle": "Un'avventura narrativa nella laguna",
+  "authorName": "Collettivo Bassamarea",
+  "genre": "Avventura narrativa, mistero",
+  "logline": "Quando le campane che regolano le maree di Velmara tacciono e sua madre scompare, una cartografa tornata dopo dodici anni deve scegliere quale metà della città salvare, oppure imparare ad ascoltare quello che la laguna le sta chiedendo.",
+  "premise": [
+    "Velmara respira con la laguna. Da quattro secoli un sistema di paratie e di campane sommerse, il Respiro, lascia entrare l'acqua con l'alta marea e la lascia uscire con la bassa, e i Custodi lo regolano ascoltando i rintocchi sotto la città. Sette giorni fa le campane hanno taciuto tutte insieme, le paratie si sono bloccate a metà e l'acqua ha cominciato a salire, un palmo al giorno.",
+    "@[character:mira] torna dopo dodici anni perché sua madre, l'ultima Custode, è scomparsa la notte del silenzio. Il giocatore la guida tra le due metà della città, l'Alta ancora asciutta e il Quartiere Basso già mezzo sommerso, e decide a chi dare ascolto: alla Confraternita, che vuole chiudere il Basso per salvare il resto, o alla gente delle barche, che vuole aprire tutto e lasciar tornare la laguna.",
+    "La domanda del gioco è semplice e non ha una risposta giusta: che cosa si salva, quando non si può salvare tutto? Esiste una terza via, ma la trova solo chi ha imparato ad ascoltare."
+  ],
+  "fabula": [
+    "Nel 1608 i fonditori della Confraternita delle Chiuse colano nel bronzo tre campane per il Respiro e una quarta, che nessun registro nomina. Per due secoli e mezzo la città respira senza incidenti. Nel novembre del 1866 la Grande Acqua sommerge i pianterreni del Basso; la Confraternita chiude per la prima volta le paratie basse e la gente del quartiere impara a vivere ai piani alti e sulle barche. L'inverno dopo nasce la Compagnia dei Sommersi.",
+    "@[character:agata] diventa Custode nel 1867 e per ventiquattro anni tiene le paratie a metà, contro la volontà della Confraternita. Cresce da sola la figlia Mira e le insegna ad ascoltare le campane. A diciassette anni Mira parte per la Terraferma, dove studia cartografia idraulica, e non torna più.",
+    "La notte del 2 novembre 1891 le campane tacciono. Agata scende nelle cisterne e non risale. @[character:ottavio], il vecchio chiusaio, scrive a Mira. Lei arriva all'alba del 9 novembre, il settimo giorno dell'acqua ferma, e in un giorno e una notte ritrova il diario della madre, accorda le campane e raggiunge il cuore del Respiro, dove deve decidere quali paratie aprire.",
+    "Le conclusioni possibili sono tre. Mira chiude le paratie basse e salva l'Alta, e il Basso torna alla laguna; oppure apre tutto e Velmara diventa una città d'acqua; oppure, se ha sentito la voce nella campana di sale e ha accordato le campane di sopra, trova la quarta campana e, con essa, sua madre."
+  ],
+  "setting": [
+    "Velmara è una città-stato costruita su pali in mezzo alla Laguna di Sale, a mezza giornata di traghetto dalla Terraferma. Un dislivello di quattro metri la divide in due: l'Alta, di pietra, con i palazzi, il @[location:cloister] e i magazzini, e il Quartiere Basso, di legno e mattoni, dove dal 1866 i pianterreni sono sott'acqua e si vive ai piani superiori e in barca.",
+    "L'epoca è l'autunno del 1891, in un mondo che somiglia al nostro senza esserlo: lanterne a olio, battelli a vapore che non osano entrare in laguna, cilindri di cera per registrare la voce. Al centro della città c'è il @[location:hours_square], la piazza del mercato galleggiante, dove la torre dell'orologio è affondata di sbieco e segna da allora le quattro e dieci.",
+    "Sotto tutto c'è il Respiro: cisterne, canali ciechi, paratie e campane che l'acqua fa suonare passando. Quando funziona nessuno ci pensa. Ora che tace, l'intera città tende l'orecchio."
+  ],
+  "wordGoal": 60000,
+  "dailyWordGoal": 800,
+  "characters": [
+    {
+      "key": "mira",
+      "name": "Mira Valdesca",
+      "aliases": [
+        "Mira",
+        "la cartografa"
+      ],
+      "importance": "main",
+      "role": "player_character",
+      "tagline": "Cartografa delle acque, torna a Velmara dopo dodici anni per cercare la madre.",
+      "description": [
+        "Ventinove anni, sguardo da rilevatrice e mani che non stanno mai ferme: misura, annota, conta. Ha lasciato Velmara a diciassette anni promettendosi di non diventare come sua madre, e sulla Terraferma ha fatto carriera disegnando argini e canali.",
+        "È il personaggio del giocatore, ma non una pagina bianca: ha opinioni, un umorismo asciutto e una ferita precisa. Le scelte del giocatore decidono se la chiude o la lascia aperta."
+      ],
+      "profile": {
+        "personal": "Nata a Velmara nel 1862, figlia unica di Agata Valdesca. Vive a Porto Arsa, sulla Terraferma, dove lavora come cartografa per l'Ufficio delle Acque. Non è sposata, ha affidato il gatto a una vicina e viaggia sempre con un baule di strumenti.",
+        "physical": "Alta e magra, capelli scuri tagliati corti per comodità. Porta una giacca impermeabile da rilevatrice con troppe tasche e un taccuino legato al polso con uno spago. L'orecchio sinistro è più fine del destro, e lei lo sa.",
+        "psychology": "Crede in quello che si può misurare. Il silenzio la innervosisce più del rumore, e riempie le pause con i numeri. Sotto la precisione c'è la paura di aver ereditato dalla madre qualcosa che non sa controllare.",
+        "backstory": "Da bambina scendeva con Agata nelle cisterne e imparava gli intervalli delle campane come gli altri bambini imparano le tabelline. A sedici anni sentì una nota che non compariva in nessun registro, e la madre le chiese di non parlarne con nessuno. Un anno dopo partì.",
+        "conflict": "Vuole ritrovare la madre senza diventare come lei. Per salvare Velmara deve fare proprio ciò che ha sempre rifiutato: fidarsi dell'orecchio invece che del metro.",
+        "evolution": "All'inizio tratta la città come un problema di ingegneria. Se il giocatore la lascia ascoltare, scopre che il Respiro è una relazione più che una macchina, e che il dono che temeva è soltanto attenzione.",
+        "gameplay": "Unico personaggio controllabile. Usa il diapason d'ottone negli enigmi delle campane, basati sul confronto di intervalli, e il taccuino per annotare i segni di marea, che aprono rotte e opzioni di dialogo. Le sue scelte modificano fiducia_tullia, favore_confraternita e ha_sentito_la_voce.",
+        "voice": "Contralto chiaro, ritmo rapido che rallenta quando ascolta. Ironia asciutta, mai cattiva. Per il doppiaggio: una professionista stanca che non vuole mostrarsi spaventata."
+      }
+    },
+    {
+      "key": "tullia",
+      "name": "Tullia Rem",
+      "aliases": [
+        "Tullia",
+        "la barcaiola"
+      ],
+      "importance": "main",
+      "role": "Compagna di viaggio, barcaiola del Basso",
+      "tagline": "Barcaiola della Compagnia dei Sommersi: conosce ogni canale del Basso e non prende ordini da nessuno.",
+      "description": [
+        "Ventisei anni, nata in una casa del @[location:lower_quarter] che oggi ha l'acqua al secondo gradino delle scale. Trasporta merci, persone e lanterne, e ogni sera accende le luci che segnano i canali sicuri.",
+        "Per buona parte del gioco è la compagna di Mira. Diffida di chi viene dalla Terraferma e ancora di più di chi viene dall'Alta; si fida dei fatti, e cambia idea quando glieli porti."
+      ],
+      "profile": {
+        "personal": "Figlia di un battelliere morto nella Grande Acqua, è cresciuta con la zia e con il cugino Pio. Possiede una sola cosa di valore, la sua barca, la Gazza, che ha ricostruito da sola due volte.",
+        "physical": "Bassa e robusta, braccia da remo, una cicatrice chiara sul mento. Porta un cappello di tela cerata e stivali spaiati. Ha sempre le mani sporche dell'olio delle lanterne.",
+        "psychology": "Generosa con i suoi, sospettosa con tutti gli altri. Scherza quando ha paura. Non sopporta le promesse: vuole vedere le cose fatte.",
+        "sociology": "Fa parte della Compagnia dei Sommersi non per ideologia ma perché sono i suoi vicini. Agata la pagava per accendere le lanterne del Basso e le ha insegnato i nomi delle maree.",
+        "conflict": "Vuole che il Basso resti abitato, anche con l'acqua in casa. Se il Respiro ripartisse come vuole la Confraternita perderebbe la casa; se si aprisse tutto perderebbe la città che conosce.",
+        "gameplay": "Compagna negli atti I e II: guida la barca nelle esplorazioni e commenta quello che Mira trova. La sua fiducia (fiducia_tullia, da 0 a 3) apre la rotta del canale cieco nell'atto III e cambia le sue ultime battute.",
+        "voice": "Voce bassa e ruvida, forte accento del Basso, frasi corte. Ride di gola. Quando si fida rallenta e chiama Mira per nome."
+      }
+    },
+    {
+      "key": "ottavio",
+      "name": "Ottavio Brina",
+      "aliases": [
+        "Ottavio",
+        "il chiusaio"
+      ],
+      "importance": "main",
+      "role": "Mentore, chiusaio della Confraternita",
+      "tagline": "Il vecchio chiusaio che ha scritto a Mira, l'unico nella Confraternita che non obbedisce alla Priora.",
+      "description": [
+        "Sessantasette anni, cinquanta passati a ungere ingranaggi e a leggere livelli. Vive nella casa delle chiuse sul margine del @[location:hours_square] e tiene un registro delle maree scritto a mano più preciso di quello ufficiale.",
+        "Affida a Mira la missione principale. È stato amico di Agata per trent'anni ed è il padrino di Mira; sa più di quello che dice, e lo dice tardi."
+      ],
+      "profile": {
+        "personal": "Vedovo, senza figli. Membro della Confraternita delle Chiuse dal 1844, con il grado di chiusaio anziano. Vive con un cane vecchio quanto lui, di nome Ferro.",
+        "physical": "Grosso e curvo, barba bianca corta, mani enormi e pazienti. Zoppica dal ginocchio destro quando l'umidità sale, cioè sempre. Porta il grembiule di cuoio della Confraternita anche a cena.",
+        "psychology": "Lento, testardo, gentile. Pensa che le macchine dicano la verità e le persone quasi mai. Ha paura di essere ormai troppo vecchio per scendere nelle cisterne, e non lo ammette.",
+        "backstory": "Lavora al fianco di Agata da quando lei divenne Custode, nel 1867. Era presente quando Mira, a sedici anni, sentì la nota che non esisteva, e fu lui, non Agata, a consigliarle di partire.",
+        "conflict": "È fedele alla Confraternita e fedele ad Agata, e le due fedeltà non stanno più insieme. Ha nascosto alla Priora che Agata è scesa da sola.",
+        "gameplay": "Assegna la missione principale e consegna il diapason d'ottone. Resta nel Campo delle Ore come punto di riferimento: se Mira torna da lui, dà indizi sugli enigmi delle campane. Non entra mai nelle cisterne.",
+        "voice": "Basso profondo, lento, pause lunghe. Usa le parole tecniche delle chiuse senza spiegarle. Quando si commuove, tossisce."
+      }
+    },
+    {
+      "key": "ester",
+      "name": "Ester Calvani",
+      "aliases": [
+        "la Priora"
+      ],
+      "importance": "secondary",
+      "role": "Priora della Confraternita delle Chiuse",
+      "tagline": "Guida la Confraternita e vuole chiudere il Basso per salvare il resto di Velmara.",
+      "description": [
+        "Sessant'anni, priora da quindici. Governa la Confraternita con i registri, le delibere e una calma che nessuno ha mai visto incrinarsi.",
+        "Non è una cattiva: ha fatto i conti, e i conti dicono che non si può salvare tutto. Vuole che Mira finisca il lavoro della madre nel modo che lei ritiene giusto."
+      ],
+      "profile": {
+        "psychology": "Razionale fino alla freddezza, ma non crudele. Ha perso la sorella nella Grande Acqua e da allora ha giurato che non sarebbe successo di nuovo, almeno non all'Alta.",
+        "conflict": "Ha bisogno di Mira, e un poco la detesta per quello che rappresenta: l'orecchio di Agata, che non ha mai capito e non ha mai potuto controllare.",
+        "voice": "Mezzosoprano controllato, dizione perfetta dell'Alta. Non alza mai la voce: quando è arrabbiata parla più piano."
+      }
+    },
+    {
+      "key": "agata",
+      "name": "Agata Valdesca",
+      "aliases": [
+        "la Custode"
+      ],
+      "importance": "secondary",
+      "role": "Custode del Respiro, madre di Mira",
+      "tagline": "L'ultima Custode del Respiro, scomparsa la notte in cui le campane hanno taciuto.",
+      "description": [
+        "Cinquantotto anni. Per ventiquattro ha tenuto il Respiro in equilibrio con il solo orecchio, scendendo ogni notte nelle @[location:cisterns] con una lanterna e un diapason.",
+        "Nel gioco è un'assenza: la si conosce dalle pagine del diario, dai ricordi degli altri e, per chi sa ascoltare, da una voce nell'acqua."
+      ],
+      "profile": {
+        "psychology": "Attenta, silenziosa, difficile da amare da vicino. Ha sempre messo la città prima di tutto, anche prima della figlia, e lo sapeva.",
+        "backstory": "Allieva dell'ultimo Custode, ne prese il posto dopo la Grande Acqua. Fu lei a imporre le paratie a metà contro la Confraternita, e fu lei a scoprire la quarta campana, senza dirlo a nessuno."
+      }
+    },
+    {
+      "key": "pio",
+      "name": "Pio Seravalle",
+      "aliases": [
+        "Pio"
+      ],
+      "importance": "minor",
+      "role": "Ragazzo dei traghetti",
+      "tagline": "Undici anni, vende mappe disegnate da lui e sa tutto di tutti.",
+      "description": [
+        "Cugino di @[character:tullia], aspetta i traghetti al molo per portare bagagli e notizie. Disegna mappe dei canali su carta da pacchi e le vende ai forestieri, a volte sbagliate apposta."
+      ],
+      "profile": {
+        "personal": "Orfano di madre, vive con la zia sopra un'osteria del Basso. Va a scuola quando piove troppo per lavorare.",
+        "gameplay": "Assegna la missione secondaria «La mappa delle maree». Compare al molo e nel Campo delle Ore, e le sue battute riassumono al giocatore quello che si è perso."
+      }
+    }
+  ],
+  "groups": [
+    {
+      "key": "brotherhood",
+      "name": "Confraternita delle Chiuse",
+      "kind": "faction",
+      "description": [
+        "Fondata insieme al Respiro nel 1608, custodisce la parte meccanica della macchina: ingranaggi, paratie, registri dei livelli. Ha sede nel @[location:cloister], nell'Alta, ed è governata da una priora eletta a vita.",
+        "Oggi vuole chiudere per sempre le paratie basse: il Basso tornerebbe alla laguna e l'Alta resterebbe asciutta. Lingua: parla per delibere e numeri di registro. Tradizioni: il grembiule di cuoio, il giuramento sul primo livello inciso nel chiostro. Poteri: le chiavi di tutte le paratie, tranne quella del cuore."
+      ],
+      "members": [
+        "character:ester",
+        "character:ottavio",
+        "location:cloister"
+      ]
+    },
+    {
+      "key": "drowned_company",
+      "name": "Compagnia dei Sommersi",
+      "kind": "faction",
+      "description": [
+        "Nata dopo la Grande Acqua tra le famiglie del Basso che non vollero andarsene. Non ha capi ma un consiglio, che si riunisce sulle barche legate insieme in mezzo al canale grande.",
+        "Chiede che le paratie vengano aperte e che la città impari a vivere con l'acqua, come faceva prima del Respiro. Lingua: il dialetto del Basso e i nomi delle maree. Tradizioni: le lanterne sulle pertiche, accese ogni sera. Poteri: le barche, i canali, e il fatto che senza di loro l'Alta non mangia."
+      ],
+      "members": [
+        "character:tullia",
+        "character:pio",
+        "location:lower_quarter"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "key": "velmara",
+      "name": "Velmara",
+      "kind": "Città",
+      "nation": "Repubblica di Velmara",
+      "region": "Laguna di Sale",
+      "city": "Velmara",
+      "description": [
+        "Città-stato su pali, un'isola di pietra e legno in mezzo alla Laguna di Sale. Diecimila abitanti, metà dei quali vive sopra il livello dell'acqua ormai solo per abitudine.",
+        "Si raggiunge con il traghetto del mattino dalla Terraferma. Dentro la città, tutto il resto lo fanno le barche."
+      ]
+    },
+    {
+      "key": "hours_square",
+      "name": "Campo delle Ore",
+      "kind": "Piazza (hub)",
+      "nation": "Repubblica di Velmara",
+      "region": "Laguna di Sale",
+      "city": "Velmara",
+      "parent": "velmara",
+      "description": [
+        "La piazza centrale e il punto di ritorno del gioco. Le bancarelle galleggiano su zattere legate ai pali, la torre dell'orologio è affondata di sbieco e le lancette segnano le quattro e dieci dal 1866.",
+        "Da qui si raggiungono il molo, la casa delle chiuse di @[character:ottavio], la scala di pietra che sale all'Alta e i canali che scendono nel Basso."
+      ]
+    },
+    {
+      "key": "lower_quarter",
+      "name": "Quartiere Basso",
+      "kind": "Quartiere",
+      "nation": "Repubblica di Velmara",
+      "region": "Laguna di Sale",
+      "city": "Velmara",
+      "parent": "velmara",
+      "description": [
+        "Case di mattoni con i pianterreni sott'acqua, scale che finiscono nel canale, panni stesi tra un piano alto e l'altro. Di sera le lanterne sulle pertiche segnano i passaggi sicuri.",
+        "Qui ci sono la casa di Agata e la Torre del Sale, dove la prima campana del Respiro pende sotto il pelo dell'acqua."
+      ]
+    },
+    {
+      "key": "cloister",
+      "name": "Chiostro delle Chiuse",
+      "kind": "Sede di fazione",
+      "nation": "Repubblica di Velmara",
+      "region": "Laguna di Sale",
+      "city": "Velmara",
+      "parent": "velmara",
+      "description": [
+        "La sede della Confraternita nell'Alta: un chiostro di pietra chiara, un archivio dei livelli lungo quattro secoli e una torre sottile dove pende la campana di vetro.",
+        "È asciutto, ordinato, silenzioso. Da quando il Respiro tace, i confratelli parlano a bassa voce, come in una casa dove c'è un malato."
+      ]
+    },
+    {
+      "key": "cisterns",
+      "name": "Cisterne del Respiro",
+      "kind": "Sotterraneo",
+      "nation": "Repubblica di Velmara",
+      "region": "Laguna di Sale",
+      "city": "Velmara",
+      "parent": "velmara",
+      "description": [
+        "Sotto la città si stende una rete di cisterne a volta, canali ciechi e paratie che converge verso una sala circolare: il cuore del Respiro, dove pende la campana di ferro e dove nessuno, tranne i Custodi, è mai sceso.",
+        "Vi si accede dalla scala della Confraternita, dal pozzo del @[location:hours_square] o, per chi conosce la rotta, dal canale cieco del Basso."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "key": "logbook",
+      "name": "Diario di Agata",
+      "kind": "Documento",
+      "description": [
+        "Un registro rilegato in tela cerata, gonfio d'umidità, con ventiquattro anni di livelli, intervalli e appunti nella grafia minuta della Custode. Le ultime pagine descrivono le tre campane e accennano a una quarta.",
+        "Raccoglierlo imposta ha_diario_di_bordo a vero e apre un'opzione di dialogo con la Priora."
+      ]
+    },
+    {
+      "key": "tuning_fork",
+      "name": "Diapason d'ottone",
+      "kind": "Strumento",
+      "description": [
+        "Il diapason con cui i Custodi accordano le campane, consumato dove lo si stringe. @[character:ottavio] lo consegna a Mira nel primo atto: Agata lo ha lasciato nella casa delle chiuse la notte in cui è scesa.",
+        "È lo strumento di tutti gli enigmi delle campane: si batte sul legno, lo si immerge per metà e si confrontano le note."
+      ]
+    },
+    {
+      "key": "mute_bell",
+      "name": "Campana Muta",
+      "kind": "Reliquia",
+      "description": [
+        "La quarta campana del Respiro, fusa nel 1608 e assente da ogni registro. Pende nella stanza più bassa delle @[location:cisterns] e non suona nell'aria: la si sente soltanto con l'orecchio vicino all'acqua.",
+        "Compare solo nel finale segreto."
+      ]
+    }
+  ],
+  "strands": [
+    {
+      "key": "the_breath",
+      "name": "Il Respiro di Velmara",
+      "kind": "quest",
+      "description": [
+        "La missione principale. Ottavio chiede a Mira di ritrovare Agata e di far ripartire il Respiro prima che l'acqua raggiunga l'Alta. Attraversa tutti e tre gli atti e si chiude con la scelta nel cuore delle cisterne."
+      ],
+      "quest": {
+        "giver": "ottavio",
+        "objectives": [
+          "Ritrova il diario di Agata nella sua casa del Basso",
+          "Accorda la campana di sale nella Torre del Sale",
+          "Accorda la campana di vetro nel Chiostro delle Chiuse",
+          "Scendi nelle Cisterne del Respiro",
+          "Decidi quali paratie aprire"
+        ],
+        "rewards": "Il destino di Velmara e, in un solo finale, il ritorno di Agata."
+      }
+    },
+    {
+      "key": "tide_map",
+      "name": "La mappa delle maree",
+      "kind": "side_quest",
+      "description": [
+        "@[character:pio] ha strappato la sua mappa migliore litigando con un cliente e vuole ricomporla prima che la zia se ne accorga. I pezzi, accostati a caso, non tornano: bisogna leggere i segni di marea incisi sui pali del Campo."
+      ],
+      "quest": {
+        "giver": "pio",
+        "objectives": [
+          "Raccogli i quattro pezzi della mappa di Pio",
+          "Confronta le tacche di marea incise sui pali del Campo delle Ore",
+          "Ricomponi la mappa nell'ordine giusto"
+        ],
+        "rewards": "La rotta del canale cieco, che porta alle cisterne senza passare dall'Alta (mappa_completa = vero)."
+      }
+    },
+    {
+      "key": "lanterns",
+      "name": "Le lanterne del Basso",
+      "kind": "side_quest",
+      "description": [
+        "Senza Agata nessuno ha più pagato l'olio, e metà delle lanterne del Basso è spenta. @[character:tullia] chiede a Mira di aiutarla a issarle prima del tramonto, perché di notte i canali senza luce sono pericolosi."
+      ],
+      "quest": {
+        "giver": "tullia",
+        "objectives": [
+          "Issa le lanterne sulle pertiche del canale grande",
+          "Riaccendi la lanterna davanti alla casa di Agata",
+          "Torna alla Gazza prima che salga la marea"
+        ],
+        "rewards": "La fiducia di Tullia (fiducia_tullia + 1) e il diritto di attracco in ogni casa del Basso."
+      }
+    },
+    {
+      "key": "mira_arc",
+      "name": "Imparare ad ascoltare",
+      "kind": "arc",
+      "description": [
+        "L'arco di @[character:mira]: da cartografa che misura a Custode che ascolta. Le scelte del giocatore lo spingono avanti, come restare ad ascoltare la campana di sale, oppure lo lasciano a metà.",
+        "Il finale segreto ne è il compimento; gli altri due lo chiudono con una perdita."
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "character:agata",
+      "to": "character:mira",
+      "kind": "family",
+      "label": "madre",
+      "description": "Agata ha cresciuto Mira da sola, le ha insegnato ad ascoltare le campane e poi l'ha lasciata partire senza trattenerla.",
+      "directed": true,
+      "reverseLabel": "figlia"
+    },
+    {
+      "from": "character:ottavio",
+      "to": "character:mira",
+      "kind": "mentorship",
+      "label": "padrino",
+      "description": "Le ha insegnato a remare e a leggere le chiuse, ed è l'unico che le abbia scritto in dodici anni.",
+      "directed": true,
+      "reverseLabel": "figlioccia"
+    },
+    {
+      "from": "character:ottavio",
+      "to": "character:agata",
+      "kind": "friendship",
+      "label": "vecchio amico",
+      "description": "Hanno custodito il Respiro insieme per ventiquattro anni, lei con l'orecchio e lui con le mani.",
+      "directed": false
+    },
+    {
+      "from": "character:tullia",
+      "to": "character:mira",
+      "kind": "friendship",
+      "label": "compagna di viaggio",
+      "description": "Diffidente all'inizio, Tullia diventa la guida di Mira nel Basso, se Mira se lo guadagna.",
+      "directed": false
+    },
+    {
+      "from": "character:ester",
+      "to": "character:tullia",
+      "kind": "rivalry",
+      "label": "avversarie",
+      "description": "La Priora vuole chiudere il Basso; Tullia ci è nata e non ha intenzione di andarsene.",
+      "directed": false
+    },
+    {
+      "from": "character:ester",
+      "to": "character:ottavio",
+      "kind": "professional",
+      "label": "superiora",
+      "description": "Ottavio risponde alla Priora, ma non le ha mai obbedito del tutto.",
+      "directed": true,
+      "reverseLabel": "sottoposto"
+    },
+    {
+      "from": "character:ester",
+      "to": "character:agata",
+      "kind": "rivalry",
+      "label": "rivale",
+      "description": "Si contendono da anni la guida del Respiro: la Priora con i registri, Agata con l'orecchio.",
+      "directed": false
+    },
+    {
+      "from": "character:tullia",
+      "to": "character:pio",
+      "kind": "family",
+      "label": "cugina",
+      "description": "Tullia gli ha insegnato a remare e lo tiene d'occhio da lontano, senza farsi vedere.",
+      "directed": true,
+      "reverseLabel": "cugino"
+    },
+    {
+      "from": "character:pio",
+      "to": "character:mira",
+      "kind": "friendship",
+      "label": "guida",
+      "description": "Pio la accoglie al molo e decide subito che una forestiera con un baule di strumenti gli serve.",
+      "directed": true,
+      "reverseLabel": "guidata"
+    },
+    {
+      "from": "character:agata",
+      "to": "character:tullia",
+      "kind": "mentorship",
+      "label": "maestra",
+      "description": "Agata pagava Tullia per accendere le lanterne del Basso e le ha insegnato i nomi delle maree.",
+      "directed": true,
+      "reverseLabel": "allieva"
+    }
+  ],
+  "parts": [
+    {
+      "title": "L'acqua ferma",
+      "chapters": [
+        {
+          "key": "ch_return",
+          "title": "Il ritorno",
+          "reason": "Presentare Mira, la città e il problema: le campane tacciono e Agata è scomparsa. Il giocatore riceve la missione principale e il primo strumento.",
+          "scenes": [
+            {
+              "key": "ferry_dawn",
+              "title": "Il traghetto dell'alba",
+              "synopsis": "Mira arriva a Velmara con il traghetto del mattino. Le campane tacciono, l'acqua lambisce le soglie e al molo l'aspetta Pio con un biglietto di Ottavio.",
+              "status": "final",
+              "kind": "cutscene",
+              "flow": "start",
+              "pov": "third_objective",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "pio"
+              ],
+              "locations": [
+                "velmara",
+                "hours_square"
+              ],
+              "objects": [],
+              "strands": [
+                "the_breath",
+                "mira_arc"
+              ],
+              "storyAt": "1891-11-09T06:40",
+              "storyTimeLabel": "Settimo giorno dell'acqua ferma, alba",
+              "durationMinutes": 8,
+              "text": [
+                {
+                  "p": "Nebbia bassa sulla laguna, un grigio senza orizzonte. Il traghetto avanza piano, la vela floscia, portato dalla corrente, e l'unico suono è l'acqua che batte contro lo scafo. Poi, dal grigio, emergono i pali, le case, una torre storta."
+                },
+                {
+                  "p": "@[character:mira] è a prua, il baule ai piedi, il taccuino legato al polso. Guarda la città come si guarda una carta sbagliata. Conta i gradini sommersi del primo palazzo: tre. Dodici anni fa erano asciutti."
+                },
+                {
+                  "p": "Il traghettatore attracca senza parlare. Sul molo non c'è nessuno, tranne un ragazzino con un berretto troppo grande e un foglio piegato in mano. Le campane del mattino dovrebbero suonare adesso. Non suonano."
+                },
+                {
+                  "p": "Pio le porge il biglietto e resta lì, in attesa della mancia. Quattro parole, nella grafia larga di Ottavio: «Vieni subito. Le chiuse.» Mira alza gli occhi verso il Campo delle Ore, dove l'orologio affondato segna, come sempre, le quattro e dieci."
+                }
+              ]
+            },
+            {
+              "key": "lock_house",
+              "title": "La casa delle chiuse",
+              "synopsis": "Ottavio racconta a Mira la notte del silenzio: Agata è scesa nelle cisterne e non è risalita. Le consegna il diapason della madre e le affida il Respiro.",
+              "status": "final",
+              "kind": "dialogue",
+              "pov": "third_objective",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "ottavio"
+              ],
+              "locations": [
+                "hours_square"
+              ],
+              "objects": [
+                "tuning_fork"
+              ],
+              "strands": [
+                "the_breath"
+              ],
+              "storyAt": "1891-11-09T07:30",
+              "storyTimeLabel": "Settimo giorno, mattina",
+              "durationMinutes": 15,
+              "text": [
+                {
+                  "p": "Interno, casa delle chiuse. Ingranaggi appesi alle pareti, un fuoco basso, il cane Ferro sotto il tavolo. Ottavio versa il caffè senza chiedere."
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "Sei dimagrita. Sulla Terraferma non vi danno da mangiare?",
+                    "direction": "burbero, per non commuoversi"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "Ci danno da mangiare benissimo. Dov'è?",
+                    "direction": "secca"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "La notte del due le campane si sono fermate tutte insieme. Tua madre ha preso la lanterna ed è scesa dal pozzo del Campo. Non è risalita.",
+                    "direction": "lento"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "E la Confraternita? Avete squadre, corde, registri."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "La Priora non lo sa. Le ho detto che Agata è malata, chiusa in casa.",
+                    "direction": "abbassa la voce"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "Ottavio. Sono passati sette giorni."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "So contare anch'io. Se la Priora sapesse che il cuore è senza Custode, domani chiuderebbe le paratie basse, e il Basso finirebbe sotto."
+                  }
+                },
+                {
+                  "p": "Ottavio apre un cassetto e posa sul tavolo il @[object:tuning_fork], consumato dove lo si stringe."
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "L'ha lasciato qui, quella sera. Non l'aveva mai lasciato in vita sua."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "Non sono una Custode. Disegno argini.",
+                    "direction": "senza toccarlo"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "Hai l'orecchio di tua madre. L'ho capito quando avevi sedici anni, e lo sai anche tu."
+                  }
+                },
+                {
+                  "p": "Mira prende il diapason. Lo batte piano sul bordo del tavolo e lo avvicina all'orecchio sinistro. La nota resta nell'aria più a lungo del dovuto."
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "Il diario. Lei scriveva tutto."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "È a casa sua, nel Basso. Per arrivarci ti serve una barca, e qualcuno che sappia dove l'acqua è alta."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "ch_square",
+          "title": "Il Campo delle Ore",
+          "reason": "Aprire il gioco: il Campo è l'hub da cui il giocatore sceglie dove andare. Presenta le due fazioni e le due missioni secondarie, e lascia libero l'ordine.",
+          "scenes": [
+            {
+              "key": "market_rounds",
+              "title": "Il mercato galleggiante",
+              "synopsis": "Mira attraversa il Campo delle Ore tra le bancarelle sulle zattere, le voci sulle campane e i confratelli che misurano il livello. Da qui può cercare una barca per il Basso, aiutare Pio o salire subito al chiostro.",
+              "status": "final",
+              "kind": "exploration",
+              "pov": "second",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "pio",
+                "tullia"
+              ],
+              "locations": [
+                "hours_square"
+              ],
+              "objects": [],
+              "strands": [
+                "the_breath"
+              ],
+              "storyAt": "1891-11-09T09:00",
+              "storyTimeLabel": "Settimo giorno, mattina",
+              "durationMinutes": 30,
+              "text": [
+                {
+                  "p": "Il Campo delle Ore non ha più un pavimento. Le bancarelle galleggiano su zattere legate ai pali e si passa dall'una all'altra su passerelle che ondeggiano. Pesce, olio da lanterne, corde, pane dell'Alta che costa il doppio di una settimana fa."
+                },
+                {
+                  "p": "Ascolti senza volerlo. Una donna dice che le campane le hanno rubate. Un pescatore dice che la Custode è morta e la Confraternita lo nasconde. Due confratelli in grembiule di cuoio calano un'asta graduata nel canale e annotano un numero senza commentarlo."
+                },
+                {
+                  "p": "Dall'altra parte della piazza, sotto la torre affondata, una barca dipinta di nero e di bianco carica lanterne spente. La barcaiola discute con un mercante e vince. @[character:pio] ti tira per la giacca: ha una mappa da venderti, o forse da farsi aggiustare."
+                },
+                {
+                  "p": "Oltre i tetti, la scala di pietra sale verso l'Alta e il chiostro della Confraternita. Il Basso è dall'altra parte, oltre l'acqua. Apri il taccuino e scrivi la data, il livello e l'ora: le quattro e dieci, dice la torre. Non è vero, ma è l'unica ora che la città ricordi."
+                }
+              ]
+            },
+            {
+              "key": "pio_errand",
+              "title": "La mappa di Pio",
+              "synopsis": "Pio ha strappato la sua mappa migliore. Mira ricompone i pezzi leggendo le tacche di marea incise sui pali del Campo e scopre una rotta che nessuno usa più: il canale cieco.",
+              "status": "draft",
+              "kind": "puzzle",
+              "pov": "second",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "pio"
+              ],
+              "locations": [
+                "hours_square"
+              ],
+              "objects": [],
+              "strands": [
+                "tide_map"
+              ],
+              "storyAt": "1891-11-09T10:00",
+              "storyTimeLabel": "Settimo giorno, metà mattina",
+              "durationMinutes": 25,
+              "text": [
+                {
+                  "p": "Pio stende i pezzi su una cassa di pesce rovesciata: quattro strisce di carta da pacchi disegnate a carboncino, i canali in nero e le case in rosso. Messe in fila non tornano. Un canale finisce dentro un palazzo, un altro passa sopra la torre."
+                },
+                {
+                  "p": "«Le ho disegnate io» dice, offeso, come se il problema fossi tu."
+                },
+                {
+                  "p": "Ogni palo del @[location:hours_square] porta incise le tacche delle maree degli ultimi cento anni, ciascuna con la sua data. Le stesse tacche, piccolissime, Pio le ha copiate ai margini dei fogli senza sapere perché: lo faceva sua madre. Confronti i numeri, giri i pezzi, li accosti finché le tacche del 1866 si allineano tutte alla stessa altezza."
+                },
+                {
+                  "p": "Adesso la mappa torna. E nel punto in cui due fogli si incontrano compare un canale sottile che non porta a nessuna casa: scende sotto il Basso, verso le cisterne. Pio lo guarda a lungo. «Quello non c'era» dice. «L'ha disegnato mia madre.» Poi ti trascina verso il canale grande, dove sua cugina tiene la barca."
+                }
+              ]
+            },
+            {
+              "key": "tullia_boat",
+              "title": "La Gazza",
+              "synopsis": "Tullia accetta di portare Mira nel Basso, ma a modo suo. Prima chiede aiuto con le lanterne spente: il giocatore può darle una mano o partire subito.",
+              "status": "revised",
+              "kind": "dialogue",
+              "pov": "third_objective",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "tullia"
+              ],
+              "locations": [
+                "hours_square",
+                "lower_quarter"
+              ],
+              "objects": [],
+              "strands": [
+                "lanterns",
+                "the_breath"
+              ],
+              "storyAt": "1891-11-09T11:30",
+              "storyTimeLabel": "Settimo giorno, tarda mattina",
+              "durationMinutes": 20,
+              "text": [
+                {
+                  "p": "Esterno, canale grande. La Gazza, una barca stretta dipinta di nero e di bianco, è carica di lanterne spente. @[character:tullia] sta legando una cima e non alza la testa."
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "Se cerchi un passaggio per l'Alta, la scala è là. Per salire non serve la barca.",
+                    "direction": "senza guardarla"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "Devo andare nel Basso. A casa di Agata Valdesca."
+                  }
+                },
+                {
+                  "p": "Tullia smette di legare."
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "Sei la figlia. Quella della Terraferma."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "Sono quella che è tornata."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "Tua madre pagava l'olio di queste lanterne. Da sette giorni non lo paga nessuno, e di notte i canali senza luce si mangiano le barche.",
+                    "direction": "dura, ma non cattiva"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "Quanto vuoi per portarmi?"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "Non voglio soldi. Voglio sapere se le campane ripartono, e per chi."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "Non lo so ancora. Te lo dirò quando lo saprò."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "Almeno sei onesta.",
+                    "direction": "un mezzo sorriso"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "Le lanterne vanno issate prima del buio. Puoi darmi una mano, oppure sederti a prua e guardare. Decidi tu, cartografa."
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le campane",
+      "chapters": [
+        {
+          "key": "ch_bells",
+          "title": "Le campane sommerse",
+          "reason": "Il cuore dell'esplorazione: il diario spiega come far ripartire il Respiro, la prima campana mette alla prova l'orecchio di Mira e la Priora chiede un prezzo. Qui il giocatore sceglie tra ascoltare e fidarsi.",
+          "scenes": [
+            {
+              "key": "agata_house",
+              "title": "La casa di Agata",
+              "synopsis": "Mira entra dalla finestra del primo piano nella casa della madre, mezza sommersa. Tra gli strumenti e le carte bagnate trova il diario di Agata, che descrive le tre campane e accenna a una quarta.",
+              "status": "final",
+              "kind": "exploration",
+              "pov": "second",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "tullia",
+                "agata"
+              ],
+              "locations": [
+                "lower_quarter"
+              ],
+              "objects": [
+                "logbook"
+              ],
+              "strands": [
+                "the_breath",
+                "mira_arc"
+              ],
+              "storyAt": "1891-11-09T13:00",
+              "storyTimeLabel": "Settimo giorno, primo pomeriggio",
+              "durationMinutes": 30,
+              "text": [
+                {
+                  "p": "La porta è sott'acqua. @[character:tullia] accosta la Gazza alla finestra del primo piano e tiene ferma la barca con il remo mentre scavalchi il davanzale. Dentro, l'aria sa di ruggine e di cera."
+                },
+                {
+                  "p": "Riconosci tutto e niente. Il tavolo è lo stesso, ma è coperto di strumenti che non hai mai visto: un barometro smontato, file di bottiglie piene dell'acqua di canali diversi, ognuna con un'etichetta e una data. Sul muro c'è la tua altezza a sei, otto e dieci anni, incisa a coltello accanto ai livelli di marea."
+                },
+                {
+                  "p": "Il letto è fatto. La lanterna da cisterna manca dal suo chiodo. Sul davanzale interno c'è una tazza con un dito di caffè diventato inchiostro: tua madre è uscita di fretta, oppure con la calma di chi sa che non tornerà presto."
+                },
+                {
+                  "p": "Il @[object:logbook] è nel cassetto della scrivania, avvolto nella tela cerata. Ventiquattro anni di livelli e di intervalli nella grafia minuta di tua madre. Le ultime pagine parlano delle tre campane, sale, vetro e ferro, e di come vanno accordate dall'alto verso il basso. Nell'ultima riga c'è un'altra frase, scritta premendo forte: «La quarta non è rotta. Aspetta.»"
+                },
+                {
+                  "p": "Fuori, Tullia batte due colpi sul legno. La marea sale. Adesso hai una pista: la Torre del Sale, due canali più in là."
+                }
+              ]
+            },
+            {
+              "key": "salt_bell",
+              "title": "La campana di sale",
+              "synopsis": "Nella Torre del Sale, con il diapason di Agata, Mira accorda la prima campana confrontando le note sotto il pelo dell'acqua. Quando la campana risponde, nell'eco c'è un'altra nota: il giocatore può restare ad ascoltarla o tornare alla barca.",
+              "status": "revised",
+              "kind": "puzzle",
+              "pov": "second",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "tullia"
+              ],
+              "locations": [
+                "lower_quarter"
+              ],
+              "objects": [
+                "tuning_fork",
+                "logbook"
+              ],
+              "strands": [
+                "the_breath",
+                "mira_arc"
+              ],
+              "storyAt": "1891-11-09T15:30",
+              "storyTimeLabel": "Settimo giorno, pomeriggio",
+              "durationMinutes": 25,
+              "text": [
+                {
+                  "p": "La Torre del Sale è un cilindro di mattoni senza tetto, con l'acqua all'altezza del primo ballatoio. La campana pende sotto la superficie, appesa a una trave annerita: la vedi come un'ombra verde, immobile."
+                },
+                {
+                  "p": "Il diario spiega il metodo in tre righe. Batti il @[object:tuning_fork] sul ballatoio, lo immergi per metà e ascolti. Se la campana è accordata risponde; se non lo è tace, e bisogna spostare i contrappesi della trave di una tacca alla volta, finché le due note smettono di litigare."
+                },
+                {
+                  "p": "Ci vogliono sei tentativi. Al settimo la campana risponde: un suono basso che non attraversa l'aria ma il legno, i mattoni, le tue ginocchia. L'acqua della torre si increspa in cerchi regolari. Da qualche parte, sotto la città, una paratia si muove di un dito."
+                },
+                {
+                  "p": "Poi, nell'eco, c'è un'altra nota. Più bassa delle tre del diario, così bassa che potresti averla immaginata. Ha la forma di una melodia che conosci: quella che tua madre canticchiava quando scendevate insieme, e che da allora non hai più sentito."
+                },
+                {
+                  "p": "Dal canale, Tullia ti chiama. L'acqua è salita di due gradini da quando sei entrata."
+                }
+              ]
+            },
+            {
+              "key": "cloister_talk",
+              "title": "La Priora",
+              "synopsis": "Nel Chiostro delle Chiuse la Priora Ester accoglie Mira con cortesia e una richiesta: la lascerà salire alla campana di vetro se promette di chiudere le paratie basse. Se Mira ha il diario, può mostrarle la verità su Agata.",
+              "status": "revised",
+              "kind": "dialogue",
+              "pov": "third_objective",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "ester",
+                "ottavio"
+              ],
+              "locations": [
+                "cloister"
+              ],
+              "objects": [
+                "logbook"
+              ],
+              "strands": [
+                "the_breath"
+              ],
+              "storyAt": "1891-11-09T18:00",
+              "storyTimeLabel": "Settimo giorno, vespro",
+              "durationMinutes": 20,
+              "text": [
+                {
+                  "p": "Interno, archivio del chiostro. Scaffali di registri fino al soffitto, lampade a olio, nessun rumore. La Priora siede a un tavolo sgombro. @[character:ottavio] resta sulla porta, il cappello in mano."
+                },
+                {
+                  "line": {
+                    "speaker": "ester",
+                    "text": "Mira Valdesca. Ho letto i suoi rapporti sugli argini di Porto Arsa. Un ottimo lavoro.",
+                    "direction": "cortese, misurata"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "Non sono qui per gli argini."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ester",
+                    "text": "No. È qui per la campana di vetro, che pende nella nostra torre e che solo un Custode può accordare. O la figlia di un Custode, a quanto pare."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "Mia madre è scomparsa da sette giorni. Lei lo sa?"
+                  }
+                },
+                {
+                  "p": "La Priora guarda Ottavio, un istante. Ottavio guarda il pavimento."
+                },
+                {
+                  "line": {
+                    "speaker": "ester",
+                    "text": "So che Agata è malata. Così mi è stato detto."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ester",
+                    "text": "Le dico quello che so di certo. L'acqua sale di un palmo al giorno; fra nove giorni entrerà nell'Alta. Se il Respiro riparte con le paratie basse chiuse, l'Alta si salva. Il Basso no, ma il Basso è perduto dal sessantasei.",
+                    "direction": "piano, senza crudeltà"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "Ci vivono duemila persone."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ester",
+                    "text": "Sulle barche. Possono vivere altrove. Le darò le chiavi della torre se mi promette una cosa: quando sarà nel cuore, chiuderà le paratie basse."
+                  }
+                }
+              ]
+            },
+            {
+              "key": "glass_bell",
+              "title": "La campana di vetro",
+              "synopsis": "In cima alla torre del chiostro Mira accorda la seconda campana, sospesa nell'aria sopra una vasca di acqua piovana: l'enigma si risolve ascoltando le note riflesse dall'acqua, non quelle dirette.",
+              "status": "planned",
+              "kind": "puzzle",
+              "pov": "second",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "ester"
+              ],
+              "locations": [
+                "cloister"
+              ],
+              "objects": [
+                "tuning_fork"
+              ],
+              "strands": [
+                "the_breath"
+              ],
+              "storyAt": "1891-11-09T20:00",
+              "storyTimeLabel": "Settimo giorno, sera",
+              "durationMinutes": 25,
+              "text": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Il Respiro",
+      "chapters": [
+        {
+          "key": "ch_descent",
+          "title": "La discesa",
+          "reason": "Portare il giocatore alla decisione: Tullia e la Priora chiedono a Mira da che parte sta, la discesa mette alla prova le alleanze e il cuore del Respiro pone la scelta finale.",
+          "scenes": [
+            {
+              "key": "night_council",
+              "title": "Il consiglio di mezzanotte",
+              "synopsis": "Nella casa delle chiuse, a notte, Tullia e la Priora siedono allo stesso tavolo per la prima volta. Ognuna offre a Mira una strada per scendere nelle cisterne, e un'idea di città.",
+              "status": "draft",
+              "kind": "dialogue",
+              "pov": "third_objective",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "tullia",
+                "ester",
+                "ottavio"
+              ],
+              "locations": [
+                "hours_square"
+              ],
+              "objects": [
+                "logbook"
+              ],
+              "strands": [
+                "the_breath",
+                "mira_arc"
+              ],
+              "storyAt": "1891-11-09T23:00",
+              "storyTimeLabel": "Settimo giorno, mezzanotte",
+              "durationMinutes": 20,
+              "text": [
+                {
+                  "p": "Interno, casa delle chiuse, notte. Il fuoco è quasi spento. @[character:tullia] è seduta sul bordo del tavolo, la Priora in piedi vicino alla porta, come se dovesse andarsene da un momento all'altro. Ottavio versa il caffè a tutti, anche a chi non l'ha chiesto."
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "Non pensavo di vederla mai da questa parte della città, Priora.",
+                    "direction": "ironica"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ester",
+                    "text": "Non pensavo di doverci venire."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "Quassù ho fatto quello che potevo. Resta la campana di ferro, nel cuore. Scendo stanotte."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "Il pozzo del Campo è aperto. Ma è la strada più lunga, e la più fredda."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ester",
+                    "text": "La scala della Confraternita arriva quasi al cuore. Le chiavi le ho io.",
+                    "direction": "posa una chiave sul tavolo, senza spingerla verso Mira"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "E c'è il canale cieco. Con la rotta giusta, la Gazza ci arriva in un'ora.",
+                    "direction": "guardando Mira"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ester",
+                    "text": "Il canale cieco è chiuso dal sessantasei."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "Per voi. Noi ci peschiamo le anguille."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "Basta. Qualunque strada prenda, laggiù dovrò decidere da sola."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "Tua madre diceva la stessa cosa. Poi tornava su e ci raccontava che cosa aveva sentito.",
+                    "direction": "piano"
+                  }
+                }
+              ]
+            },
+            {
+              "key": "cisterns_descent",
+              "title": "Le cisterne",
+              "synopsis": "La discesa nelle Cisterne del Respiro cambia con la strada scelta: la scala della Confraternita con la Priora, il canale cieco in barca con Tullia o il pozzo del Campo da sola. Tutte le strade arrivano alla porta del cuore.",
+              "status": "planned",
+              "kind": "exploration",
+              "pov": "second",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "tullia",
+                "ester"
+              ],
+              "locations": [
+                "cisterns"
+              ],
+              "objects": [
+                "tuning_fork"
+              ],
+              "strands": [
+                "the_breath"
+              ],
+              "storyAt": "1891-11-10T00:30",
+              "storyTimeLabel": "Ottavo giorno, notte fonda",
+              "durationMinutes": 45,
+              "text": []
+            },
+            {
+              "key": "heart_of_breath",
+              "title": "Il cuore del Respiro",
+              "synopsis": "Nella sala circolare del cuore Mira accorda la campana di ferro e raggiunge la grande ruota delle paratie. Sul pavimento trova la lanterna e lo scialle di Agata. Deve decidere come far respirare la città.",
+              "status": "revised",
+              "kind": "puzzle",
+              "pov": "second",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "agata"
+              ],
+              "locations": [
+                "cisterns"
+              ],
+              "objects": [
+                "tuning_fork",
+                "logbook"
+              ],
+              "strands": [
+                "the_breath",
+                "mira_arc"
+              ],
+              "storyAt": "1891-11-10T02:00",
+              "storyTimeLabel": "Ottavo giorno, prima dell'alba",
+              "durationMinutes": 35,
+              "text": [
+                {
+                  "p": "La sala del cuore è rotonda come l'interno di una campana. Le pareti sudano. Dodici canali vi entrano da dodici archi e al centro, su un perno grosso come un albero, sta la ruota delle paratie, ferma da otto notti."
+                },
+                {
+                  "p": "La campana di ferro pende sopra la ruota, così grande che potresti starci dentro in piedi. Il diario dice: per ultima, e dall'alto. Sali sul ballatoio di servizio, batti il diapason sul corrimano, lo avvicini al bronzo e ascolti rispondere da lontano, attraverso l'acqua, le campane che hai accordato di sopra. Sposti i contrappesi finché la nota di ferro trova le altre."
+                },
+                {
+                  "p": "La ruota trema. L'acqua dei dodici canali si muove nello stesso verso, per la prima volta in otto giorni, e aspetta. Il Respiro è pronto a ripartire: manca solo la posizione delle paratie, e quella la decide chi tiene la ruota."
+                },
+                {
+                  "p": "Sul pavimento, accanto alla ruota, trovi la lanterna da cisterna di @[character:agata], spenta, e il suo scialle piegato con cura, come lo si lascia quando si conta di tornare. Di lei nessuna traccia."
+                },
+                {
+                  "p": "La leva delle paratie basse è a destra, quella dell'apertura totale a sinistra. Al centro della sala, sotto una grata, l'acqua è più scura e più fredda. Se resti in silenzio abbastanza a lungo, ti sembra che anche lei stia aspettando qualcosa."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "ch_after",
+          "title": "Dopo l'acqua",
+          "reason": "Mostrare le conseguenze della scelta finale. Tre finali brevi chiudono in modo diverso l'arco di Mira e la questione della città; il terzo è segreto e si apre solo a chi ha ascoltato.",
+          "scenes": [
+            {
+              "key": "ending_high_city",
+              "title": "Le paratie chiuse",
+              "synopsis": "Mira chiude le paratie basse. Il Respiro riparte e l'Alta si salva; il Basso torna alla laguna e la Compagnia dei Sommersi se ne va con le barche. Agata non viene ritrovata.",
+              "status": "final",
+              "kind": "cutscene",
+              "flow": "ending",
+              "pov": "third_objective",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "ester",
+                "tullia",
+                "ottavio"
+              ],
+              "locations": [
+                "hours_square",
+                "lower_quarter",
+                "cloister"
+              ],
+              "objects": [],
+              "strands": [
+                "the_breath",
+                "mira_arc"
+              ],
+              "storyAt": "1891-11-10T06:30",
+              "storyTimeLabel": "Ottavo giorno, alba",
+              "durationMinutes": 6,
+              "text": [
+                {
+                  "p": "All'alba le campane suonano, una dopo l'altra, e il suono arriva dal basso, dalle pietre, come un respiro trattenuto troppo a lungo. Nell'Alta la gente esce sui ballatoi in camicia da notte e non dice niente."
+                },
+                {
+                  "p": "Nel Campo delle Ore il livello scende di un palmo in un'ora. I confratelli calano le aste e questa volta sorridono. La Priora firma la delibera che chiude il Basso al Respiro, senza alzare gli occhi dal foglio."
+                },
+                {
+                  "p": "Nel @[location:lower_quarter] l'acqua resta dov'è e poi, piano, comincia a salire. Le famiglie caricano sulle barche quello che possono. Tullia passa sotto il ponte dell'Alta senza guardare in su; la Gazza è piena di lanterne accese, anche se è giorno."
+                },
+                {
+                  "p": "Mira resta a Velmara un mese, il tempo di disegnare la nuova linea della città. Poi riparte con il traghetto del mattino. Di Agata nessuno trova traccia. Ottavio dice che è uscita con la marea, come i vecchi Custodi, e nessuno ha il coraggio di chiedergli che cosa voglia dire."
+                }
+              ]
+            },
+            {
+              "key": "ending_lagoon",
+              "title": "La laguna ritorna",
+              "synopsis": "Mira apre tutte le paratie. Il Respiro si ferma per sempre e la laguna entra nella città; Velmara diventa una città d'acqua, dove anche l'Alta impara a vivere in barca.",
+              "status": "draft",
+              "kind": "cutscene",
+              "flow": "ending",
+              "pov": "third_objective",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "tullia",
+                "ester",
+                "pio"
+              ],
+              "locations": [
+                "velmara",
+                "hours_square",
+                "cloister"
+              ],
+              "objects": [],
+              "strands": [
+                "the_breath",
+                "mira_arc"
+              ],
+              "storyAt": "1891-11-10T06:30",
+              "storyTimeLabel": "Ottavo giorno, alba",
+              "durationMinutes": 6,
+              "text": [
+                {
+                  "p": "Le paratie si aprono tutte insieme con un rumore di tuono lontano. Il Respiro non riparte: smette, semplicemente, come un orologio che qualcuno ha deciso di non caricare più. La laguna entra nella città senza fretta."
+                },
+                {
+                  "p": "In tre giorni l'acqua arriva ai pianterreni dell'Alta. Il chiostro ha i piedi bagnati per la prima volta in quattro secoli. @[character:ester] fa portare i registri ai piani alti, uno scaffale alla volta, e una mattina la si vede seduta su una barca della Compagnia, rigida, le mani strette sulle ginocchia."
+                },
+                {
+                  "p": "Il Campo delle Ore diventa un porto. @[character:pio] vende mappe nuove, questa volta giuste. Tullia fa salire Mira sulla Gazza e le insegna i nomi delle maree, che non servono più a far girare nessuna ruota ma servono ancora a non perdersi."
+                },
+                {
+                  "p": "Agata non torna. Qualcuno giura di averla vista remare verso la laguna aperta. Mira non ci crede, ma la sera, quando l'acqua è ferma, si sorprende ad ascoltarla lo stesso."
+                }
+              ]
+            },
+            {
+              "key": "ending_fourth_bell",
+              "title": "La quarta campana",
+              "synopsis": "Finale segreto. Mira segue la nota sentita nella Torre del Sale fino alla Campana Muta, sotto il cuore, e la accorda con la voce cantando la melodia della madre. Il Respiro riparte come all'origine, le maree tornano a passare per tutta la città e dall'acqua risponde Agata.",
+              "status": "final",
+              "kind": "cutscene",
+              "flow": "ending",
+              "pov": "third_limited",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "agata",
+                "tullia",
+                "ottavio",
+                "ester"
+              ],
+              "locations": [
+                "cisterns",
+                "hours_square"
+              ],
+              "objects": [
+                "mute_bell",
+                "tuning_fork"
+              ],
+              "strands": [
+                "the_breath",
+                "mira_arc"
+              ],
+              "storyAt": "1891-11-10T06:30",
+              "storyTimeLabel": "Ottavo giorno, alba",
+              "durationMinutes": 10,
+              "text": [
+                {
+                  "p": "Mira non tocca le leve. Solleva la grata al centro della sala e scende per una scala di ferro che non compare su nessuna carta, contando i pioli finché smette di contarli. In fondo c'è una stanza piccola, piena a metà d'acqua nera, e nell'acqua, appesa a niente, una campana."
+                },
+                {
+                  "p": "La @[object:mute_bell] non suona nell'aria. Mira lo sa prima ancora di provare. Si inginocchia, avvicina l'orecchio alla superficie e la sente: la nota di sale, la nota di vetro, la nota di ferro, e sotto, incrinata, la quarta. Non è rotta, ha scritto sua madre. Aspetta."
+                },
+                {
+                  "p": "Il diapason non serve. Mira canta. È la melodia delle discese di quando aveva sei anni, quella che da allora non ha più cantato; la voce le trema sulle prime note e poi non trema più. L'acqua prende la nota, la porta lontano, e la campana risponde."
+                },
+                {
+                  "p": "Il Respiro riparte in un modo che nessun registro della Confraternita descrive. Le paratie si aprono e si chiudono tutte, alte e basse, al ritmo della marea, e l'acqua entra ed esce dalla città come l'aria da un petto. Nel Basso il livello scende. Nell'Alta sale un poco, poi ridiscende. Velmara respira, tutta."
+                },
+                {
+                  "p": "Dall'altro lato della stanza, in una nicchia sopra l'acqua, una voce stanca dice il suo nome. @[character:agata] è seduta con la schiena contro la pietra, il viso grigio, le mani ferme sulle ginocchia. «Era la tua parte» dice. «Io non potevo cantarla.»"
+                },
+                {
+                  "p": "Quando risalgono, all'alba, nel Campo delle Ore ci sono tutti: Tullia sulla Gazza, Ottavio con il cane, la Priora con un registro aperto su cui non scrive niente. La torre affondata segna le quattro e dieci. Per la prima volta, a Mira sembra l'ora giusta."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "from": "market_rounds",
+      "to": "tullia_boat",
+      "label": "Cerca una barca per il Quartiere Basso"
+    },
+    {
+      "from": "market_rounds",
+      "to": "pio_errand",
+      "label": "Aiuta Pio a ricomporre la sua mappa",
+      "effect": "mappa_completa = true"
+    },
+    {
+      "from": "market_rounds",
+      "to": "cloister_talk",
+      "label": "Sali subito la scala dell'Alta fino al chiostro"
+    },
+    {
+      "from": "tullia_boat",
+      "to": "agata_house",
+      "label": "Aiuta Tullia a issare le lanterne",
+      "effect": "fiducia_tullia += 1"
+    },
+    {
+      "from": "tullia_boat",
+      "to": "agata_house",
+      "label": "«Andiamo subito da mia madre.»"
+    },
+    {
+      "from": "agata_house",
+      "to": "salt_bell",
+      "label": "Prendi il diario e segui la pista fino alla Torre del Sale",
+      "effect": "ha_diario_di_bordo = true"
+    },
+    {
+      "from": "salt_bell",
+      "to": "cloister_talk",
+      "label": "Resta ad ascoltare l'eco della campana",
+      "effect": "campane_accordate += 1; ha_sentito_la_voce = true"
+    },
+    {
+      "from": "salt_bell",
+      "to": "cloister_talk",
+      "label": "Torna alla barca prima che salga la marea",
+      "effect": "campane_accordate += 1; fiducia_tullia += 1"
+    },
+    {
+      "from": "cloister_talk",
+      "to": "glass_bell",
+      "label": "Prometti alla Priora di chiudere le paratie basse",
+      "effect": "favore_confraternita += 2; campane_accordate += 1"
+    },
+    {
+      "from": "cloister_talk",
+      "to": "glass_bell",
+      "label": "Mostrale il diario: Agata è scesa da sola",
+      "condition": "ha_diario_di_bordo == true",
+      "effect": "favore_confraternita += 1; campane_accordate += 1"
+    },
+    {
+      "from": "night_council",
+      "to": "cisterns_descent",
+      "label": "Scendi con la Priora dalla scala della Confraternita",
+      "condition": "favore_confraternita >= 2"
+    },
+    {
+      "from": "night_council",
+      "to": "cisterns_descent",
+      "label": "Scendi con Tullia per il canale cieco",
+      "condition": "mappa_completa == true and fiducia_tullia >= 1",
+      "effect": "fiducia_tullia += 1"
+    },
+    {
+      "from": "night_council",
+      "to": "cisterns_descent",
+      "label": "Scendi da sola dal pozzo del Campo"
+    },
+    {
+      "from": "heart_of_breath",
+      "to": "ending_high_city",
+      "label": "Chiudi le paratie basse"
+    },
+    {
+      "from": "heart_of_breath",
+      "to": "ending_lagoon",
+      "label": "Apri tutte le paratie"
+    },
+    {
+      "from": "heart_of_breath",
+      "to": "ending_fourth_bell",
+      "label": "Scendi sotto la grata e canta la quarta nota",
+      "condition": "ha_sentito_la_voce == true and campane_accordate >= 2"
+    }
+  ],
+  "variables": [
+    {
+      "name": "fiducia_tullia",
+      "type": "number",
+      "default": "0",
+      "description": "Fiducia di Tullia in Mira, da 0 a 3. Sale aiutandola con le lanterne, tornando alla barca in tempo e scendendo con lei per il canale cieco."
+    },
+    {
+      "name": "favore_confraternita",
+      "type": "number",
+      "default": "0",
+      "description": "Considerazione della Confraternita delle Chiuse. A 2 la Priora accompagna Mira per la scala della Confraternita."
+    },
+    {
+      "name": "campane_accordate",
+      "type": "number",
+      "default": "0",
+      "description": "Campane di sopra accordate prima del cuore (sale e vetro). A 2, insieme a ha_sentito_la_voce, apre il finale segreto."
+    },
+    {
+      "name": "ha_diario_di_bordo",
+      "type": "boolean",
+      "default": "false",
+      "description": "Mira ha preso il diario di Agata. Apre un'opzione di dialogo con la Priora."
+    },
+    {
+      "name": "mappa_completa",
+      "type": "boolean",
+      "default": "false",
+      "description": "La mappa di Pio è ricomposta e mostra la rotta del canale cieco."
+    },
+    {
+      "name": "ha_sentito_la_voce",
+      "type": "boolean",
+      "default": "false",
+      "description": "Mira è rimasta ad ascoltare l'eco della campana di sale e ha sentito la quarta nota."
+    }
+  ],
+  "events": [
+    {
+      "title": "La fusione delle campane",
+      "at": "1608-04-02",
+      "timeLabel": "Primavera del 1608",
+      "kind": "world",
+      "description": "I fonditori della Confraternita delle Chiuse colano nel bronzo le tre campane del Respiro, sale, vetro e ferro, e una quarta che non compare in nessun registro.",
+      "links": [
+        "location:cloister",
+        "location:cisterns"
+      ]
+    },
+    {
+      "title": "La Grande Acqua",
+      "at": "1866-11-04",
+      "timeLabel": "Notte del 4 novembre 1866",
+      "kind": "world",
+      "description": "Una marea mai vista sommerge i pianterreni del Quartiere Basso. La Confraternita chiude per la prima volta le paratie basse e l'orologio del Campo si ferma alle quattro e dieci.",
+      "links": [
+        "location:lower_quarter",
+        "location:hours_square",
+        "character:ester"
+      ]
+    },
+    {
+      "title": "Il patto delle paratie a metà",
+      "at": "1867-03-12",
+      "timeLabel": "Marzo 1867",
+      "kind": "world",
+      "description": "La nuova Custode, Agata Valdesca, impone alla Confraternita di tenere le paratie basse a metà, né aperte né chiuse. Nello stesso inverno le famiglie rimaste nel Basso fondano la Compagnia dei Sommersi.",
+      "links": [
+        "character:agata",
+        "character:ottavio",
+        "location:lower_quarter"
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "title": "Come funziona il Respiro",
+      "category": "technology",
+      "content": [
+        "Il Respiro è un sistema di trentasei paratie, dodici cisterne e tre campane sommerse. Con l'alta marea le paratie si aprono e lasciano entrare l'acqua nei canali; con la bassa la lasciano uscire. Le campane non sono un ornamento: l'acqua che passa le fa vibrare, e la nota dice al Custode quanta ne passa e da dove.",
+        "Il Custode ascolta e regola la grande ruota nel cuore. La Confraternita possiede le chiavi e gli ingranaggi, il Custode possiede l'orecchio, e da quattro secoli l'uno senza l'altro non basta.",
+        "Le campane si accordano dall'alto verso il basso: sale nella Torre del Sale, vetro nella torre del @[location:cloister], ferro nel cuore. Un intervallo sbagliato blocca le paratie, come è successo la notte del 2 novembre."
+      ]
+    },
+    {
+      "title": "La Grande Acqua",
+      "category": "history",
+      "content": [
+        "Il 4 novembre 1866 una marea mai vista, spinta da tre giorni di scirocco, supera gli argini esterni e il Respiro non basta a trattenerla. Il Custode di allora, il vecchio Anselmo, muore nelle cisterne cercando di forzare la ruota.",
+        "Per salvare l'Alta la Confraternita chiude le paratie basse. Il @[location:lower_quarter] perde i pianterreni per sempre e l'orologio del Campo si ferma alle quattro e dieci. Ogni famiglia di Velmara sa dove si trovava quella notte."
+      ]
+    },
+    {
+      "title": "Le due rive",
+      "category": "factions",
+      "content": [
+        "La Confraternita delle Chiuse parla di livelli, delibere e responsabilità. La Compagnia dei Sommersi parla di case, barche e vicini. Entrambe dicono di voler salvare Velmara, e intendono due città diverse.",
+        "Nel gioco nessuna delle due ha torto. Le scelte che fanno salire favore_confraternita o fiducia_tullia non sono buone o cattive: cambiano chi accompagna Mira e che cosa le viene detto."
+      ]
+    },
+    {
+      "title": "Il Campo delle Ore",
+      "category": "places",
+      "content": [
+        "La piazza centrale, oggi un mercato su zattere. La torre dell'orologio è affondata di sbieco nel 1866 e le lancette sono ferme alle quattro e dieci; i velmaresi dicono «alle quattro e dieci» per dire «quando le cose sono andate storte».",
+        "È l'hub del gioco: da qui si raggiungono il molo, la casa delle chiuse di @[character:ottavio], la scala dell'Alta e i canali del Basso. Ogni volta che il giocatore torna, il livello dell'acqua sui pali è un poco più alto."
+      ]
+    },
+    {
+      "title": "L'ascolto",
+      "category": "magic",
+      "content": [
+        "Nessuno a Velmara chiama magia l'orecchio dei Custodi. Lo chiamano ascolto, e lo considerano un mestiere. Eppure i Custodi sentono note che gli strumenti non misurano, e sanno dove salirà l'acqua prima che salga.",
+        "Il gioco non spiega mai se l'ascolto sia un dono o soltanto attenzione portata all'estremo. La quarta campana risponde a una sola voce, quella di chi l'ha sentita da bambino."
+      ]
+    }
+  ]
+}

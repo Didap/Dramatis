@@ -1,0 +1,113 @@
+{
+  "strands": {
+    "intro": {
+      "novel": "The threads that run through the story: the main plot, the subplots, the characters' arcs.",
+      "game": "The threads that run through the game: the main quest, the side quests, the characters' arcs."
+    },
+    "new": {
+      "novel": "New narrative strand",
+      "game": "New storyline or quest"
+    },
+    "create": {
+      "name": "Title",
+      "placeholder": {
+        "novel": "What is this strand called?",
+        "game": "What is this storyline or quest called?"
+      }
+    },
+    "filter": {
+      "label": "Filter by kind",
+      "all": "All",
+      "none": "No strands of this kind.",
+      "showAll": "Show all"
+    },
+    "empty": {
+      "title": {
+        "novel": "A narrative strand is a thread that runs through the story: the main plot, a subplot, a character's arc.",
+        "game": "A storyline or a quest is a thread that runs through the game: the main quest, the side quests, a character's arc."
+      },
+      "body": {
+        "novel": "Start with the main plot: what happens, from beginning to end? Then tie scenes to their strands from the scene details, and you will see which ones move forward and which fall behind.",
+        "game": "Start with the main quest: who gives it to the player, and what must they do to finish it? Then tie scenes to quests from the scene details.",
+        "gameNoQuests": "Start with the main plot: what happens in the game, from beginning to end? Then tie scenes to their threads from the scene details."
+      },
+      "action": {
+        "novel": "Add the main plot",
+        "game": "Add the main quest",
+        "gameNoQuests": "Add the main plot"
+      },
+      "wayOut": "Or write the fabula first"
+    },
+    "row": {
+      "objectives": "{done} of {total} objective written | {done} of {total} objectives written",
+      "actions": "Actions for {name}"
+    },
+    "sheet": {
+      "name": "Title",
+      "actions": "Actions",
+      "kind": "Kind",
+      "color": "Colour",
+      "status": "Status",
+      "arc": "Whose arc it is",
+      "arcPlaceholder": "Choose the character",
+      "arcInTrash": "The character is in the trash",
+      "descriptionPlaceholder": {
+        "plot": "What the main plot is about: how it begins, what changes, how it ends.",
+        "subplot": "What this subplot adds to the story, and where it crosses the main plot.",
+        "arc": "Where the character starts, what tests them, who they become in the end.",
+        "quest": "Why the player takes it on, what they discover along the way, how it ends.",
+        "side_quest": "What this quest tells about the world or a character, and why it is worth the detour."
+      },
+      "questsOff": "The giver, objectives and rewards are still saved, but hidden because the Quests module is off.",
+      "questsOffAction": "Open the settings",
+      "noScenes": {
+        "novel": "No scene belongs to this strand yet: add it from the details of a scene.",
+        "game": "No scene belongs to this storyline or quest yet: add it from the details of a scene."
+      },
+      "notFound": {
+        "novel": "This narrative strand is gone. It may be in the trash.",
+        "game": "This storyline or quest is gone. It may be in the trash."
+      }
+    },
+    "quest": {
+      "giver": "Quest giver",
+      "giverPlaceholder": "Who gives the quest",
+      "giverInTrash": "The quest giver is in the trash",
+      "objectives": "Objectives",
+      "progress": "{done} of {total} written | {done} of {total} written",
+      "optionalCount": "plus {n} optional | plus {n} optional",
+      "objectivePlaceholder": "What the player has to do",
+      "objectiveLabel": "Objective {n}",
+      "objectiveUntitled": "Objective without text",
+      "objectiveActions": "Actions for objective {n}",
+      "objectiveRemoved": "Objective removed",
+      "noObjectives": "No objectives yet: what must the player do, one step at a time?",
+      "addObjective": "Add an objective",
+      "completedIn": "Completed in",
+      "scenePlaceholder": "Choose the scene",
+      "openScene": "Open the scene",
+      "optional": "Optional",
+      "check": {
+        "none": "To do: the scene where it is completed is missing",
+        "noneShort": "No scene yet",
+        "trashed": "To do: the scene where it is completed is in the trash",
+        "trashedShort": "Scene in the trash",
+        "open": "To do: the scene “{scene}” is still planned",
+        "openShort": "To do",
+        "done": "Done: the scene “{scene}” is written ({status})",
+        "doneShort": "Done"
+      },
+      "rewards": "Rewards",
+      "rewardPlaceholder": "What the player gets",
+      "rewardLabel": "Reward {n}",
+      "rewardUntitled": "Reward without text",
+      "rewardObject": "Item given as reward",
+      "rewardObjectPlaceholder": "No item",
+      "objectInTrash": "The item is in the trash",
+      "rewardActions": "Actions for reward {n}",
+      "rewardRemoved": "Reward removed",
+      "noRewards": "No rewards yet: an item, a way through, someone's trust.",
+      "addReward": "Add a reward"
+    }
+  }
+}

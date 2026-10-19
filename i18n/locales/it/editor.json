@@ -1,0 +1,328 @@
+{
+  "editor": {
+    "surface": {
+      "label": "Testo della scena",
+      "title": "Titolo della scena",
+      "placeholder": "Comincia a scrivere. Digita {at} per citare un personaggio.",
+      "placeholderScript": "Comincia a scrivere. Digita {at} per citare un personaggio, / per inserire una battuta."
+    },
+    "format": {
+      "bold": "Grassetto",
+      "italic": "Corsivo",
+      "underline": "Sottolineato",
+      "strike": "Barrato",
+      "bulletList": "Elenco puntato",
+      "orderedList": "Elenco numerato",
+      "quote": "Citazione",
+      "align": "Allineamento",
+      "alignLeft": "A sinistra",
+      "alignCenter": "Al centro",
+      "alignRight": "A destra"
+    },
+    "slash": {
+      "title": "Inserisci",
+      "line": "Battuta",
+      "lineHint": "Chi parla, come, cosa dice",
+      "break": "Cambio di sezione",
+      "breakHint": "Una pausa dentro la scena",
+      "quote": "Citazione",
+      "quoteHint": "Una lettera, un'epigrafe, un brano citato",
+      "bulletList": "Elenco puntato",
+      "orderedList": "Elenco numerato",
+      "paragraph": "Testo normale"
+    },
+    "writingBar": {
+      "label": "Punteggiatura del dialogo",
+      "quotes": "Virgolette {quotes}",
+      "quotesHint": "Apre le virgolette del dialogo, e le chiude",
+      "dash": "Lineetta",
+      "dashHint": "Inserisce una lineetta",
+      "dialogueDashHint": "Apre la battuta, o chiude l'inciso",
+      "ellipsis": "Puntini di sospensione",
+      "ellipsisHint": "Inserisce i puntini di sospensione",
+      "line": "Battuta",
+      "lineHint": "Una battuta di dialogo: chi parla, come, cosa dice",
+      "linesOnly": "Solo dialoghi",
+      "linesOnlyHint": "Solo le battute, come in un copione"
+    },
+    "keyboard": {
+      "label": "Strumenti di scrittura",
+      "mention": "Cita",
+      "choice": "Scelta"
+    },
+    "bar": {
+      "back": "Torna al {where}",
+      "breadcrumb": "Dove si trova la scena",
+      "find": "Trova e sostituisci",
+      "details": "Dettagli della scena",
+      "focus": "Modalità concentrazione",
+      "more": "Altre azioni",
+      "typography": "Carattere e misura",
+      "status": "Stato: {status}"
+    },
+    "save": {
+      "saved": "Salvato",
+      "savedAt": "Salvato alle {time}",
+      "saving": "Salvataggio",
+      "offline": "Senza connessione",
+      "offlineHint": "Il testo resta su questo dispositivo e parte appena torna la rete.",
+      "failed": "Non salvato, riprovo",
+      "keptHere": "Il testo resta su questo dispositivo finché non arriva al server.",
+      "conflict": "Conflitto: salvato come nuova revisione",
+      "conflictHint": "Un altro dispositivo aveva cambiato questa scena: il tuo testo è in una revisione a parte.",
+      "signedOut": "Sessione scaduta",
+      "gone": "Scena nel cestino",
+      "updatedElsewhere": "Testo aggiornato da un altro dispositivo.",
+      "sentLater": "Il testo di «{title}» rimasto su questo dispositivo è stato salvato.",
+      "sentLaterConflict": "Il testo di «{title}» rimasto su questo dispositivo è salvo nella revisione «{revision}».",
+      "keptTrashed": "Il testo di una scena nel cestino resta su questo dispositivo: torna con la scena quando la ripristini."
+    },
+    "banner": {
+      "failing": "Il testo non arriva al server da un po'",
+      "failingBody": "Resta su questo dispositivo e riprovo da solo. Puoi continuare a scrivere.",
+      "signedOut": "La sessione è scaduta: accedi di nuovo per salvare.",
+      "keptHere": "Il testo che scrivi resta su questo dispositivo finché non arriva al server.",
+      "signIn": "Accedi",
+      "gone": "Un altro dispositivo ha spostato questa scena nel cestino.",
+      "invalid": "Il server non accetta questo testo così com'è.",
+      "recovered": "Ho rimesso nel testo le modifiche che non erano arrivate al server."
+    },
+    "conflict": {
+      "title": "Questa scena è stata modificata da un altro dispositivo",
+      "body": "Il tuo testo è salvo nella revisione «{revision}». Qui sotto c'è quello dell'altro dispositivo.",
+      "useMine": "Usa la mia versione",
+      "usingMine": "Ora stai usando la tua versione.",
+      "compare": "Confronta"
+    },
+    "counts": {
+      "title": "Conteggi",
+      "words": "Parole",
+      "selection": "Selezionate",
+      "chars": "Caratteri, spazi inclusi",
+      "charsNoSpaces": "Caratteri senza spazi",
+      "session": "In questa sessione",
+      "today": "Oggi nel progetto",
+      "todayShort": "oggi {n}",
+      "selectedOf": "{n} selezionata su {total} | {n} selezionate su {total}",
+      "open": "{words}: mostra tutti i conteggi"
+    },
+    "details": {
+      "title": "Dettagli della scena",
+      "status": "Stato",
+      "pov": "Punto di vista",
+      "povNone": "Non indicato",
+      "povCharacter": "Personaggio punto di vista",
+      "povCharacterNone": "Nessuno",
+      "inThisScene": "In questa scena",
+      "otherCharacters": "Altri personaggi",
+      "counts": "{words}, {chars} caratteri",
+      "synopsisPlaceholder": "Cosa succede in questa scena, in poche righe.",
+      "kind": "Tipo di scena",
+      "code": "Codice scena",
+      "copyCode": "Copia il codice {code}",
+      "codeCopied": "Codice {code} copiato",
+      "start": "Scena iniziale",
+      "startHint": "Il gioco comincia da qui.",
+      "startElsewhere": "Ora il gioco comincia da «{title}».",
+      "endingHint": "Qui la storia finisce.",
+      "endingLabel": "Nome del finale",
+      "endingPlaceholder": "Per esempio: Il finale della marea",
+      "removeStrand": "Rimuovi {name}",
+      "strandsEmpty": "Non fa ancora parte di nessuna delle {what}.",
+      "storyTime": "Tempo della storia",
+      "storyDate": "Data nella storia",
+      "storyLabel": "Data come appare nella storia",
+      "storyLabelPlaceholder": "Per esempio: Terza luna dell'anno 312",
+      "duration": "Durata",
+      "durationValue": "Durata, quanto",
+      "durationUnit": "Durata, in che unità",
+      "durationNone": "Nessuna",
+      "notes": "Note",
+      "notesPlaceholder": "Appunti su questa scena: dubbi, cose da controllare.",
+      "sceneTitle": "Titolo"
+    },
+    "tags": {
+      "mentioned": "Citato {n} volta nel testo | Citato {n} volte nel testo",
+      "speaks": "Parla in {n} battuta | Parla in {n} battute",
+      "manual": "Aggiunto a mano",
+      "findInText": "Trova nel testo",
+      "openSheet": "Apri scheda",
+      "remove": "Rimuovi dalla scena",
+      "removeNamed": "Rimuovi {name}",
+      "empty": "Cita con {at} nel testo, oppure aggiungi da qui.",
+      "add": "Aggiungi",
+      "addTo": "Aggiungi a {what}"
+    },
+    "time": {
+      "precisionLabel": "Quanto è precisa la data",
+      "precision": {
+        "none": "Senza data",
+        "year": "Solo l'anno",
+        "month": "Mese e anno",
+        "day": "Giorno",
+        "minute": "Giorno e ora"
+      },
+      "day": "Giorno",
+      "month": "Mese",
+      "year": "Anno",
+      "time": "Ora",
+      "invalid": "Questa data non esiste: controlla giorno, mese e anno."
+    },
+    "revisions": {
+      "intro": "Una revisione è una copia del testo su cui lavorare senza perdere quella di prima.",
+      "create": "Nuova revisione",
+      "created": "«{name}» creata: ora scrivi qui.",
+      "numbered": "Revisione {n}",
+      "inUse": "In uso",
+      "inUseNow": "Ora è in uso «{name}».",
+      "edited": "modificata {when}",
+      "history": "Cronologia, {n} versione | Cronologia, {n} versioni",
+      "historyEmpty": "Ancora nessuna: mentre scrivi se ne conserva una ogni dieci minuti.",
+      "use": "Usa questa revisione",
+      "read": "Leggi",
+      "trash": "Sposta nel cestino",
+      "trashed": "«{name}» è nel cestino.",
+      "actions": "Azioni su «{name}»",
+      "preview": "Leggi la versione del {when}",
+      "restore": "Ripristina come nuova revisione la versione del {when}",
+      "restored": "Versione ripristinata in «{name}».",
+      "reason": {
+        "beforeBulk": "prima di Sostituisci tutto",
+        "conflict": "conflitto",
+        "restore": "ripristino"
+      }
+    },
+    "preview": {
+      "label": "Anteprima di «{title}»",
+      "snapshot": "Versione di",
+      "revision": "Revisione",
+      "restore": "Ripristina come nuova revisione",
+      "restored": "Ripristinata come nuova revisione: ora è in uso.",
+      "error": "Non riesco a leggere questa versione."
+    },
+    "find": {
+      "title": "Trova e sostituisci",
+      "label": "Trova",
+      "placeholder": "Trova nella scena",
+      "count": "{current} di {total}",
+      "none": "Nessun risultato",
+      "previous": "Risultato precedente",
+      "next": "Risultato successivo",
+      "toggleReplace": "Sostituisci",
+      "matchCase": "Maiuscole e minuscole",
+      "wholeWord": "Parola intera",
+      "replaceLabel": "Sostituisci con",
+      "replacePlaceholder": "Sostituisci con",
+      "replace": "Sostituisci",
+      "replaceAll": "Sostituisci tutto ({n})",
+      "results": "Risultati",
+      "more": "Altri {n} risultati non mostrati",
+      "mentionsOf": "Citazioni di",
+      "searchText": "Cerca una parola",
+      "replaced": "{n} sostituzione | {n} sostituzioni",
+      "replaceAllWaits": "Sostituisci tutto aspetta che il testo sia salvato."
+    },
+    "focus": {
+      "exit": "Esci dalla concentrazione",
+      "done": "Fine",
+      "showWords": "Parole",
+      "showSave": "Salvataggio",
+      "fullscreen": "Schermo intero",
+      "leaveFullscreen": "Esci dallo schermo intero"
+    },
+    "menu": {
+      "moveTo": "Sposta in un altro capitolo",
+      "moved": "Spostata in «{chapter}».",
+      "previous": "Scena precedente",
+      "next": "Scena successiva",
+      "trash": "Sposta nel cestino"
+    },
+    "nav": {
+      "label": "Scene vicine",
+      "previous": "Scena precedente",
+      "next": "Scena successiva"
+    },
+    "mention": {
+      "createTitle": "Crea",
+      "createAs": "Crea «{name}» come {what}",
+      "createdMinor": "«{name}» creato come comparsa",
+      "createdAs": "«{name}» creato come {what}",
+      "openSheet": "Apri scheda",
+      "aliases": "Altri nomi:"
+    },
+    "line": {
+      "speaker": "Chi parla",
+      "speakers": "Chi può parlare",
+      "speakerPlaceholder": "Chi parla?",
+      "direction": "Indicazione",
+      "directionPlaceholder": "come lo dice",
+      "freeLabel": "«{name}», senza scheda",
+      "createAs": "Crea «{name}» come comparsa",
+      "createMinor": "Crea come comparsa",
+      "createMinorAria": "Crea {name} come comparsa",
+      "createdMinor": "{name} creato come comparsa",
+      "copyId": "Copia l'ID {id}",
+      "copied": "ID {id} copiato",
+      "idPending": "ID in arrivo",
+      "editDirection": "Modifica l'indicazione: {direction}"
+    },
+    "typography": {
+      "font": "Carattere",
+      "serif": "Literata",
+      "sans": "Alta leggibilità",
+      "size": "Dimensione",
+      "px": "{n} px",
+      "lineHeight": "Interlinea",
+      "widthLabel": "Larghezza della riga",
+      "width": {
+        "narrow": "Stretta",
+        "medium": "Media",
+        "wide": "Larga"
+      },
+      "focusParagraph": "Evidenzia il paragrafo",
+      "focusParagraphHint": "In concentrazione, gli altri paragrafi si attenuano.",
+      "typewriter": "Scrittura a macchina",
+      "typewriterHint": "In concentrazione, la riga che scrivi resta a metà schermo.",
+      "savedToAccount": "Le scelte valgono su ogni dispositivo da cui accedi."
+    },
+    "peek": {
+      "playable": "Giocabile",
+      "qualities": "Qualità",
+      "flaws": "Difetti",
+      "gone": "Non c'è più, o è nel cestino.",
+      "openFull": "Apri la scheda completa"
+    },
+    "load": {
+      "error": "Non riesco ad aprire il testo di questa scena.",
+      "offline": "Sei offline: questa pagina tornerà disponibile appena sei di nuovo in linea."
+    },
+    "missing": {
+      "title": "Questa scena non c'è più",
+      "body": "Forse è stata spostata nel cestino: da lì puoi ripristinarla."
+    },
+    "compare": {
+      "start": "Confronta con il testo attuale",
+      "stop": "Mostra solo questa versione",
+      "direction": "Da questa versione al testo attuale:",
+      "addedLegend": "aggiunto",
+      "removedLegend": "tolto",
+      "same": "Nessuna differenza con il testo attuale.",
+      "addedStart": "Aggiunto: ",
+      "removedStart": "Tolto: ",
+      "end": " Fine."
+    },
+    "lines": {
+      "title": "Solo dialoghi",
+      "count": "{n} battuta | {n} battute",
+      "showAll": "Mostra tutto il testo",
+      "bySpeaker": "Battute per personaggio",
+      "speakerCount": "{n} battuta, {words} | {n} battute, {words}",
+      "open": "Apri la battuta di {speaker}: {text}",
+      "empty": "Nessuna battuta in questa scena: inseriscine una con / oppure con Battuta."
+    },
+    "script": {
+      "addDirection": "Aggiungi un'indicazione",
+      "mentions": "Chi o cosa citare"
+    }
+  }
+}

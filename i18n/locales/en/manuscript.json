@@ -1,0 +1,263 @@
+{
+  "manuscript": {
+    "units": {
+      "parts": {
+        "novel": "{n} part | {n} parts",
+        "game": "{n} act | {n} acts"
+      },
+      "choices": "{n} choice | {n} choices"
+    },
+    "statusCount": {
+      "planned": "{n} planned",
+      "draft": "{n} draft | {n} drafts",
+      "revised": "{n} revised",
+      "final": "{n} final"
+    },
+    "defaults": {
+      "chapter": "Chapter {n}",
+      "novelPart": "Part {n}",
+      "novelPartOrdinal": {
+        "1": "Part One",
+        "2": "Part Two",
+        "3": "Part Three",
+        "4": "Part Four",
+        "5": "Part Five",
+        "6": "Part Six",
+        "7": "Part Seven",
+        "8": "Part Eight",
+        "9": "Part Nine",
+        "10": "Part Ten"
+      },
+      "gamePart": "Act {n}"
+    },
+    "untitledPart": {
+      "novel": "Untitled part",
+      "game": "Untitled act"
+    },
+    "position": {
+      "part": {
+        "novel": "Part {n}",
+        "game": "Act {n}"
+      },
+      "chapter": "Chapter {n}",
+      "scene": "Scene {n}"
+    },
+    "outline": {
+      "hint": "Drag scenes and chapters to change their order, or select a row and press {up} and {down}.",
+      "hideHint": "Hide this tip",
+      "synopsis": "Synopsis",
+      "pageMenu": "More manuscript actions",
+      "expandAll": "Expand all",
+      "collapseAll": "Collapse all",
+      "partsOn": {
+        "novel": "Divide into parts",
+        "game": "Divide into acts"
+      },
+      "partsOff": {
+        "novel": "Remove the parts",
+        "game": "Remove the acts"
+      },
+      "partsOnDone": {
+        "novel": "Parts are on: every chapter belongs to a part.",
+        "game": "Acts are on: every chapter belongs to an act."
+      },
+      "partsOffDone": {
+        "novel": "Parts removed: the chapters keep their order, the parts are in the trash.",
+        "game": "Acts removed: the chapters keep their order, the acts are in the trash."
+      },
+      "total": "In all",
+      "loose": {
+        "novel": "Outside the parts",
+        "game": "Outside the acts"
+      },
+      "looseHint": {
+        "novel": "These chapters belong to no part: move them with the Move menu.",
+        "game": "These chapters belong to no act: move them with the Move menu."
+      },
+      "empty": {
+        "novel": "A manuscript is made of chapters and scenes: create the first chapter and start writing.",
+        "game": "A script is made of acts, chapters and scenes: create the first scene, the game starts there."
+      },
+      "emptyExplain": {
+        "novel": "A scene tells one moment: a place, a time, someone who wants something. Chapters gather the scenes, and you can change their order whenever you like.",
+        "game": "Each scene is a moment of the game: a cutscene, a dialogue, a stretch of exploration. The first one becomes the start scene; choices decide where each one leads."
+      },
+      "emptyAction": {
+        "novel": "Create the first chapter",
+        "game": "Create the first scene"
+      },
+      "emptyWayOut": "Start with the premise",
+      "hintTouch": "Press and hold the handle on the left of a row to move it, or open its menu and choose Move."
+    },
+    "part": {
+      "empty": {
+        "novel": "No chapters in this part: add one, or drag one here.",
+        "game": "No chapters in this act: add one, or drag one here."
+      },
+      "new": {
+        "novel": "New part",
+        "game": "New act"
+      },
+      "newAfter": {
+        "novel": "New part after this one",
+        "game": "New act after this one"
+      },
+      "titlePlaceholder": {
+        "novel": "Title of the part",
+        "game": "Title of the act"
+      },
+      "newChapterIn": {
+        "novel": "New chapter in this part",
+        "game": "New chapter in this act"
+      },
+      "trash": {
+        "novel": "Move to the trash, with its chapters and scenes",
+        "game": "Move to the trash, with its chapters and scenes"
+      },
+      "menu": "Actions for “{title}”",
+      "newBefore": {
+        "novel": "New part before this one",
+        "game": "New act before this one"
+      }
+    },
+    "chapter": {
+      "new": "New chapter",
+      "newAfter": "New chapter after this one",
+      "titlePlaceholder": "Title of the chapter",
+      "noPurpose": "no purpose yet",
+      "noPurposeHint": "The purpose of the chapter is still to be written.",
+      "empty": "No scenes: add one, or drag one here.",
+      "collapse": "Collapse “{title}”",
+      "expand": "Expand “{title}”",
+      "open": "Open the chapter",
+      "read": "Read the chapter",
+      "newSceneIn": "New scene in this chapter",
+      "trash": "Move to the trash, with its scenes",
+      "menu": "Actions for “{title}”",
+      "newBefore": "New chapter before this one"
+    },
+    "scene": {
+      "new": "New scene",
+      "newAfter": "New scene after this one",
+      "titlePlaceholder": "Title of the scene",
+      "open": "Open in the editor",
+      "start": "Start",
+      "startHint": "The scene the game starts from",
+      "ending": "Ending",
+      "unreachable": "Unreachable",
+      "unreachableHint": "No choice leads here from the start scene.",
+      "pov": "Point of view: {name}",
+      "code": "Code {code}",
+      "kind": "Kind: {kind}",
+      "statusOf": "Status of “{title}”: {status}",
+      "duplicate": "Duplicate",
+      "duplicated": "Scene duplicated: “{title}”",
+      "copyTitle": "{title} (copy)",
+      "trash": "Move to the trash",
+      "menu": "Actions for “{title}”",
+      "synopsisPlaceholder": "Synopsis: what happens, in a sentence or two.",
+      "synopsisLabel": "Synopsis of “{title}”",
+      "newBefore": "New scene before this one"
+    },
+    "actions": {
+      "rename": "Rename",
+      "status": "Status",
+      "move": "Move",
+      "moveTitle": "Move “{title}”",
+      "moveInto": "Move to",
+      "searchChapter": "Find a chapter",
+      "searchPart": {
+        "novel": "Find a part",
+        "game": "Find an act"
+      },
+      "here": "here now",
+      "createHint": "Enter to create, Esc to close",
+      "select": "Select",
+      "selected": "{n} scene selected | {n} scenes selected",
+      "clearSelection": "Clear the selection",
+      "selectScene": "Select “{title}”",
+      "moveMenu": "Move…",
+      "deselect": "Deselect",
+      "statusMany": "Status of the selected scene | Status of the {n} selected scenes",
+      "trashMany": "Move the selected scene to the trash | Move the {n} selected scenes to the trash"
+    },
+    "live": {
+      "moved": "“{title}”: position {n} of {total} in “{container}”.",
+      "movedTop": "“{title}”: position {n} of {total}.",
+      "atStart": "“{title}” is already at the top.",
+      "atEnd": "“{title}” is already at the bottom.",
+      "movedMany": "{n} scene moved to “{container}”. | {n} scenes moved to “{container}”.",
+      "statusMany": "{n} scene is now “{status}”. | {n} scenes are now “{status}”."
+    },
+    "filters": {
+      "label": "Filter",
+      "status": "Status",
+      "clear": "Clear the filters",
+      "showing": "{n} scene of {total} | {n} scenes of {total}",
+      "none": "No scene matches these filters.",
+      "dragOff": "While filters are on, dragging is paused: use the Move menu.",
+      "kind": "Kind",
+      "done": "Done"
+    },
+    "page": {
+      "notFound": "This chapter is gone: it may be in the trash.",
+      "back": "Back to the manuscript",
+      "structure": "Structure",
+      "reading": "Reading",
+      "views": "Chapter view",
+      "purposePlaceholder": "Why does this chapter exist? What changes between its first scene and its last?",
+      "purposeHint": "The purpose is the chapter's reason in the story: what someone finds out, decides or loses. If you cannot write it, the chapter may belong with another one.",
+      "notesPlaceholder": "Research, doubts, things to fix.",
+      "scenesEmpty": "This chapter has no scenes yet: add one, even with just a synopsis.",
+      "presence": "In this chapter",
+      "presenceEmpty": "No characters or places yet: mention them with {at} in the scenes, or add them from a scene's details.",
+      "previous": "Previous chapter",
+      "next": "Next chapter",
+      "menu": "Chapter actions",
+      "chapterLabel": "{n}, “{title}”",
+      "inPart": "In {title}"
+    },
+    "reading": {
+      "loading": "Loading the text",
+      "error": "I cannot load the text of this scene.",
+      "unwritten": "Scene still to be written.",
+      "open": "Open in the editor",
+      "choices": "Choices",
+      "continue": "Continue",
+      "towards": "to “{title}”",
+      "conditional": "with a condition",
+      "ending": "Ending",
+      "end": "End of the chapter",
+      "nextChapter": "Keep reading: {title}",
+      "empty": "This chapter has no scenes to read yet."
+    },
+    "appearances": {
+      "summary": "{scenes} in {chapters}.",
+      "first": {
+        "character": "First appears in chapter {n}, “{title}”.",
+        "location": "The story first comes here in chapter {n}, “{title}”.",
+        "object": "First appears in chapter {n}, “{title}”.",
+        "group": "A member first appears in chapter {n}, “{title}”.",
+        "strand": "Starts in chapter {n}, “{title}”."
+      },
+      "empty": {
+        "character": "Not in any scene yet: mention them with {at} as you write.",
+        "location": "No scene is set here yet: mention it with {at} as you write, or add it from a scene's details.",
+        "object": "Not in any scene yet: mention it with {at} as you write.",
+        "group": "No member appears in a scene yet.",
+        "strand": {
+          "novel": "No scene belongs to this strand yet: add it from a scene's details.",
+          "game": "No scene belongs to this storyline or quest yet: add it from a scene's details."
+        }
+      },
+      "chapter": "Chapter {n}",
+      "pov": "point of view",
+      "mentions": "{n} mention | {n} mentions",
+      "lines": "{n} line | {n} lines",
+      "manual": "in the details",
+      "showAll": "Show all {n} scenes",
+      "showLess": "Show fewer"
+    },
+    "quoted": "“{text}”"
+  }
+}

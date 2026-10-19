@@ -1,0 +1,1524 @@
+{
+  "kind": "game",
+  "title": "The Breath of Velmara",
+  "subtitle": "A narrative adventure in the lagoon",
+  "authorName": "Bassamarea Collective",
+  "genre": "Narrative adventure, mystery",
+  "logline": "When the bells that keep Velmara's tides fall silent and her mother vanishes, a cartographer back after twelve years must choose which half of the city to save, or learn to hear what the lagoon is asking of her.",
+  "premise": [
+    "Velmara breathes with the lagoon. For four centuries a system of sluice gates and drowned bells, the Breath, has let the water in at high tide and out at low tide, and the Keepers have tuned it by listening to the chimes beneath the city. Seven days ago the bells fell silent all at once, the gates jammed half-open, and the water began to rise, a hand's breadth a day.",
+    "@[character:mira] comes back after twelve years because her mother, the last Keeper, vanished on the night of the silence. The player guides her between the two halves of the city, the Upper City, still dry, and the Lower Quarter, already half drowned, and decides whom to listen to: the Brotherhood, which wants to shut off the Lower Quarter to save the rest, or the boat people, who want to open everything and let the lagoon return.",
+    "The game asks a simple question with no right answer: what do you save when you cannot save everything? There is a third way, but only someone who has learned to listen will find it."
+  ],
+  "fabula": [
+    "In 1608 the bell-founders of the Brotherhood of the Locks cast three bells for the Breath, and a fourth that no register names. For two and a half centuries the city breathes without incident. In November 1866 the Great Water floods the ground floors of the Lower Quarter; the Brotherhood closes the low gates for the first time, and the people of the quarter learn to live on the upper floors and in boats. The following winter the Company of the Drowned is born.",
+    "@[character:agata] becomes Keeper in 1867 and for twenty-four years holds the gates half-open, against the Brotherhood's will. She raises her daughter Mira alone and teaches her to listen to the bells. At seventeen Mira leaves for the Mainland, where she studies hydraulic cartography, and never comes back.",
+    "On the night of 2 November 1891 the bells fall silent. Agata goes down into the cisterns and does not come up. @[character:ottavio], the old lock-keeper, writes to Mira. She arrives at dawn on 9 November, the seventh day of still water, and in one day and one night she finds her mother's logbook, tunes the bells and reaches the heart of the Breath, where she must decide which gates to open.",
+    "There are three possible conclusions. Mira closes the low gates and saves the Upper City, and the Lower Quarter goes back to the lagoon; or she opens everything and Velmara becomes a city of water; or, if she heard the voice in the salt bell and tuned the upper bells, she finds the fourth bell and, with it, her mother."
+  ],
+  "setting": [
+    "Velmara is a city-state built on piles in the middle of the Salt Lagoon, half a day by ferry from the Mainland. A four-metre drop splits it in two: the Upper City, of stone, with its palazzi, the @[location:cloister] and the warehouses, and the Lower Quarter, of wood and brick, where the ground floors have been under water since 1866 and people live upstairs and in boats.",
+    "The time is the autumn of 1891, in a world that resembles ours without being it: oil lanterns, steamboats that dare not enter the lagoon, wax cylinders for recording voices. At the centre of the city lies the @[location:hours_square], the square of the floating market, where the clock tower has sunk at an angle and has shown ten past four ever since.",
+    "Beneath it all is the Breath: cisterns, blind canals, gates and bells that the water rings as it passes. When it works, nobody thinks about it. Now that it is silent, the whole city strains to hear."
+  ],
+  "wordGoal": 60000,
+  "dailyWordGoal": 800,
+  "characters": [
+    {
+      "key": "mira",
+      "name": "Mira Valdesca",
+      "aliases": [
+        "Mira",
+        "the cartographer"
+      ],
+      "importance": "main",
+      "role": "player_character",
+      "tagline": "A water cartographer who returns to Velmara after twelve years to look for her mother.",
+      "description": [
+        "Twenty-nine, a surveyor's eye and hands that are never still: she measures, notes, counts. She left Velmara at seventeen promising herself she would not become her mother, and on the Mainland she made a career drawing embankments and canals.",
+        "She is the player character, but not a blank page: she has opinions, a dry sense of humour and one precise wound. The player's choices decide whether she closes it or leaves it open."
+      ],
+      "profile": {
+        "personal": "Born in Velmara in 1862, the only child of Agata Valdesca. She lives in Porto Arsa, on the Mainland, where she works as a cartographer for the Water Office. Unmarried, she has left her cat with a neighbour and always travels with a trunk of instruments.",
+        "physical": "Tall and thin, dark hair cut short for convenience. She wears a surveyor's waterproof jacket with too many pockets and a notebook tied to her wrist with string. Her left ear is sharper than her right, and she knows it.",
+        "psychology": "She believes in what can be measured. Silence unsettles her more than noise, and she fills pauses with numbers. Under the precision lies the fear of having inherited from her mother something she cannot control.",
+        "backstory": "As a child she went down into the cisterns with Agata and learned the intervals of the bells the way other children learn their times tables. At sixteen she heard a note that appeared in no register, and her mother asked her not to tell anyone. A year later she left.",
+        "conflict": "She wants to find her mother without becoming like her. To save Velmara she has to do exactly what she has always refused: trust her ear instead of her measuring rod.",
+        "evolution": "At first she treats the city as an engineering problem. If the player lets her listen, she discovers that the Breath is a relationship more than a machine, and that the gift she feared is only attention.",
+        "gameplay": "The only playable character. She uses the brass tuning fork in the bell puzzles, which are built on comparing intervals, and her notebook to record tide marks, which open routes and dialogue options. Her choices change tullia_trust, brotherhood_favor and heard_the_voice.",
+        "voice": "Clear contralto, a quick rhythm that slows down when she listens. Dry irony, never cruel. For the voice actor: a tired professional who does not want to look frightened."
+      }
+    },
+    {
+      "key": "tullia",
+      "name": "Tullia Rem",
+      "aliases": [
+        "Tullia",
+        "the boatwoman"
+      ],
+      "importance": "main",
+      "role": "Companion, boatwoman of the Lower Quarter",
+      "tagline": "A boatwoman of the Company of the Drowned: she knows every canal in the Lower Quarter and takes orders from no one.",
+      "description": [
+        "Twenty-six, born in a house in the @[location:lower_quarter] that now has water up to the second stair. She carries goods, people and lanterns, and every evening she lights the lamps that mark the safe canals.",
+        "For much of the game she is Mira's companion. She distrusts anyone from the Mainland and even more anyone from the Upper City; she trusts facts, and changes her mind when you bring them to her."
+      ],
+      "profile": {
+        "personal": "The daughter of a boatman who died in the Great Water, she grew up with her aunt and her cousin Pio. She owns one thing of value, her boat, the Magpie, which she has rebuilt alone twice.",
+        "physical": "Short and sturdy, rower's arms, a pale scar on her chin. She wears an oilcloth hat and mismatched boots. Her hands are always stained with lantern oil.",
+        "psychology": "Generous with her own people, suspicious of everyone else. She jokes when she is afraid. She cannot stand promises: she wants to see things done.",
+        "sociology": "She belongs to the Company of the Drowned not out of ideology but because they are her neighbours. Agata paid her to light the lanterns of the Lower Quarter and taught her the names of the tides.",
+        "conflict": "She wants the Lower Quarter to stay inhabited, even with water in the house. If the Breath restarted the Brotherhood's way she would lose her home; if everything were opened she would lose the city she knows.",
+        "gameplay": "Companion in acts I and II: she steers the boat during exploration and comments on what Mira finds. Her trust (tullia_trust, from 0 to 3) opens the blind canal route in act III and changes her last lines.",
+        "voice": "Low, rough voice, strong Lower Quarter accent, short sentences. Laughs from the throat. When she trusts someone she slows down and calls Mira by name."
+      }
+    },
+    {
+      "key": "ottavio",
+      "name": "Ottavio Brina",
+      "aliases": [
+        "Ottavio",
+        "the lock-keeper"
+      ],
+      "importance": "main",
+      "role": "Mentor, lock-keeper of the Brotherhood",
+      "tagline": "The old lock-keeper who wrote to Mira, and the only one in the Brotherhood who does not obey the Prioress.",
+      "description": [
+        "Sixty-seven, fifty of those years spent greasing gears and reading levels. He lives in the lock house at the edge of the @[location:hours_square] and keeps a handwritten tide register more accurate than the official one.",
+        "He gives Mira the main quest. He has been Agata's friend for thirty years and is Mira's godfather; he knows more than he says, and says it late."
+      ],
+      "profile": {
+        "personal": "A widower with no children. A member of the Brotherhood of the Locks since 1844, with the rank of senior lock-keeper. He lives with a dog as old as he is, called Ferro.",
+        "physical": "Big and stooped, short white beard, huge and patient hands. He limps on his right knee when the damp rises, which is always. He wears the Brotherhood's leather apron even at dinner.",
+        "psychology": "Slow, stubborn, kind. He thinks machines tell the truth and people almost never do. He is afraid he is now too old to go down into the cisterns, and will not admit it.",
+        "backstory": "He has worked beside Agata since she became Keeper in 1867. He was there when Mira, at sixteen, heard the note that did not exist, and it was he, not Agata, who advised her to leave.",
+        "conflict": "He is loyal to the Brotherhood and loyal to Agata, and the two loyalties no longer fit together. He has hidden from the Prioress that Agata went down alone.",
+        "gameplay": "Gives the main quest and hands over the brass tuning fork. He stays in the Square of Hours as a point of reference: if Mira goes back to him, he gives hints on the bell puzzles. He never enters the cisterns.",
+        "voice": "Deep bass, slow, long pauses. Uses the technical words of the locks without explaining them. When he is moved, he coughs."
+      }
+    },
+    {
+      "key": "ester",
+      "name": "Ester Calvani",
+      "aliases": [
+        "the Prioress"
+      ],
+      "importance": "secondary",
+      "role": "Prioress of the Brotherhood of the Locks",
+      "tagline": "She leads the Brotherhood and wants to shut off the Lower Quarter to save the rest of Velmara.",
+      "description": [
+        "Sixty, prioress for fifteen years. She governs the Brotherhood with registers, resolutions and a calm no one has ever seen crack.",
+        "She is not a villain: she has done the sums, and the sums say that not everything can be saved. She wants Mira to finish her mother's work the way she believes is right."
+      ],
+      "profile": {
+        "psychology": "Rational to the point of coldness, but not cruel. She lost her sister in the Great Water and has sworn ever since that it would not happen again, at least not to the Upper City.",
+        "conflict": "She needs Mira, and resents her a little for what she stands for: Agata's ear, which she never understood and never managed to control.",
+        "voice": "Controlled mezzo-soprano, the perfect diction of the Upper City. She never raises her voice: when she is angry she speaks more quietly."
+      }
+    },
+    {
+      "key": "agata",
+      "name": "Agata Valdesca",
+      "aliases": [
+        "the Keeper"
+      ],
+      "importance": "secondary",
+      "role": "Keeper of the Breath, Mira's mother",
+      "tagline": "The last Keeper of the Breath, who vanished on the night the bells fell silent.",
+      "description": [
+        "Fifty-eight. For twenty-four years she kept the Breath in balance by ear alone, going down every night into the @[location:cisterns] with a lantern and a tuning fork.",
+        "In the game she is an absence: you know her through the pages of her logbook, the memories of others and, if you know how to listen, a voice in the water."
+      ],
+      "profile": {
+        "psychology": "Attentive, silent, hard to love up close. She always put the city first, even before her daughter, and she knew it.",
+        "backstory": "A pupil of the last Keeper, she took his place after the Great Water. It was she who imposed the half-open gates on the Brotherhood, and she who discovered the fourth bell, without telling anyone."
+      }
+    },
+    {
+      "key": "pio",
+      "name": "Pio Seravalle",
+      "aliases": [
+        "Pio"
+      ],
+      "importance": "minor",
+      "role": "Ferry boy",
+      "tagline": "Eleven years old, he sells maps he draws himself and knows everything about everyone.",
+      "description": [
+        "A cousin of @[character:tullia], he waits for the ferries at the pier to carry luggage and news. He draws maps of the canals on wrapping paper and sells them to strangers, sometimes wrong on purpose."
+      ],
+      "profile": {
+        "personal": "His mother is dead; he lives with his aunt above a tavern in the Lower Quarter. He goes to school when it rains too hard to work.",
+        "gameplay": "Gives the side quest “The Tide Map”. He appears at the pier and in the Square of Hours, and his lines sum up for the player what they have missed."
+      }
+    }
+  ],
+  "groups": [
+    {
+      "key": "brotherhood",
+      "name": "Brotherhood of the Locks",
+      "kind": "faction",
+      "description": [
+        "Founded together with the Breath in 1608, it looks after the mechanical side of the machine: gears, gates, level registers. Its seat is the @[location:cloister], in the Upper City, and it is governed by a prioress elected for life.",
+        "Today it wants to close the low gates for good: the Lower Quarter would go back to the lagoon and the Upper City would stay dry. Language: it speaks in resolutions and register numbers. Traditions: the leather apron, the oath sworn on the first level mark carved in the cloister. Powers: the keys to every gate except the one at the heart."
+      ],
+      "members": [
+        "character:ester",
+        "character:ottavio",
+        "location:cloister"
+      ]
+    },
+    {
+      "key": "drowned_company",
+      "name": "Company of the Drowned",
+      "kind": "faction",
+      "description": [
+        "Born after the Great Water among the families of the Lower Quarter who refused to leave. It has no leaders but a council, which meets on boats tied together in the middle of the Grand Canal.",
+        "It demands that the gates be opened and that the city learn to live with the water, as it did before the Breath. Language: the dialect of the Lower Quarter and the names of the tides. Traditions: lanterns on poles, lit every evening. Powers: the boats, the canals, and the fact that without them the Upper City does not eat."
+      ],
+      "members": [
+        "character:tullia",
+        "character:pio",
+        "location:lower_quarter"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "key": "velmara",
+      "name": "Velmara",
+      "kind": "City",
+      "nation": "Republic of Velmara",
+      "region": "Salt Lagoon",
+      "city": "Velmara",
+      "description": [
+        "A city-state on piles, an island of stone and wood in the middle of the Salt Lagoon. Ten thousand inhabitants, half of whom live above the waterline now mostly out of habit.",
+        "It is reached by the morning ferry from the Mainland. Inside the city, boats do the rest."
+      ]
+    },
+    {
+      "key": "hours_square",
+      "name": "Square of Hours",
+      "kind": "Square (hub)",
+      "nation": "Republic of Velmara",
+      "region": "Salt Lagoon",
+      "city": "Velmara",
+      "parent": "velmara",
+      "description": [
+        "The central square and the game's point of return. Market stalls float on rafts tied to the piles, the clock tower has sunk at an angle and its hands have shown ten past four since 1866.",
+        "From here you reach the pier, the lock house of @[character:ottavio], the stone stair that climbs to the Upper City and the canals that lead down into the Lower Quarter."
+      ]
+    },
+    {
+      "key": "lower_quarter",
+      "name": "Lower Quarter",
+      "kind": "Quarter",
+      "nation": "Republic of Velmara",
+      "region": "Salt Lagoon",
+      "city": "Velmara",
+      "parent": "velmara",
+      "description": [
+        "Brick houses with flooded ground floors, stairs that end in the canal, washing hung between one upper floor and the next. In the evening the lanterns on poles mark the safe passages.",
+        "Here stand Agata's house and the Salt Tower, where the first bell of the Breath hangs just under the surface."
+      ]
+    },
+    {
+      "key": "cloister",
+      "name": "Cloister of the Locks",
+      "kind": "Faction seat",
+      "nation": "Republic of Velmara",
+      "region": "Salt Lagoon",
+      "city": "Velmara",
+      "parent": "velmara",
+      "description": [
+        "The Brotherhood's seat in the Upper City: a cloister of pale stone, an archive of levels four centuries long and a slender tower where the glass bell hangs.",
+        "It is dry, orderly, silent. Since the Breath fell silent, the brothers speak in low voices, as in a house where someone is ill."
+      ]
+    },
+    {
+      "key": "cisterns",
+      "name": "Cisterns of the Breath",
+      "kind": "Underground",
+      "nation": "Republic of Velmara",
+      "region": "Salt Lagoon",
+      "city": "Velmara",
+      "parent": "velmara",
+      "description": [
+        "Beneath the city stretches a network of vaulted cisterns, blind canals and gates that converges on a circular chamber: the heart of the Breath, where the iron bell hangs and where no one but the Keepers has ever gone down.",
+        "It can be reached by the Brotherhood's stair, by the well in the @[location:hours_square] or, for those who know the route, by the blind canal of the Lower Quarter."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "key": "logbook",
+      "name": "Agata's Logbook",
+      "kind": "Document",
+      "description": [
+        "A register bound in oilcloth, swollen with damp, holding twenty-four years of levels, intervals and notes in the Keeper's small handwriting. The last pages describe the three bells and hint at a fourth.",
+        "Picking it up sets has_logbook to true and opens a dialogue option with the Prioress."
+      ]
+    },
+    {
+      "key": "tuning_fork",
+      "name": "Brass Tuning Fork",
+      "kind": "Instrument",
+      "description": [
+        "The tuning fork the Keepers use to tune the bells, worn where it is gripped. @[character:ottavio] gives it to Mira in the first act: Agata left it in the lock house the night she went down.",
+        "It is the tool for every bell puzzle: strike it on wood, dip it halfway into the water and compare the notes."
+      ]
+    },
+    {
+      "key": "mute_bell",
+      "name": "Mute Bell",
+      "kind": "Relic",
+      "description": [
+        "The fourth bell of the Breath, cast in 1608 and absent from every register. It hangs in the lowest room of the @[location:cisterns] and does not ring in the air: you can only hear it with your ear close to the water.",
+        "It appears only in the secret ending."
+      ]
+    }
+  ],
+  "strands": [
+    {
+      "key": "the_breath",
+      "name": "The Breath of Velmara",
+      "kind": "quest",
+      "description": [
+        "The main quest. Ottavio asks Mira to find Agata and restart the Breath before the water reaches the Upper City. It runs through all three acts and closes with the choice at the heart of the cisterns."
+      ],
+      "quest": {
+        "giver": "ottavio",
+        "objectives": [
+          "Find Agata's logbook in her house in the Lower Quarter",
+          "Tune the salt bell in the Salt Tower",
+          "Tune the glass bell in the Cloister of the Locks",
+          "Go down into the Cisterns of the Breath",
+          "Decide which gates to open"
+        ],
+        "rewards": "The fate of Velmara and, in one ending only, Agata's return."
+      }
+    },
+    {
+      "key": "tide_map",
+      "name": "The Tide Map",
+      "kind": "side_quest",
+      "description": [
+        "@[character:pio] tore his best map in a quarrel with a customer and wants to piece it together before his aunt notices. Laid side by side at random, the pieces do not fit: you have to read the tide marks carved on the piles of the Square."
+      ],
+      "quest": {
+        "giver": "pio",
+        "objectives": [
+          "Collect the four pieces of Pio's map",
+          "Compare the tide notches carved on the piles of the Square of Hours",
+          "Put the map back together in the right order"
+        ],
+        "rewards": "The route of the blind canal, which leads to the cisterns without passing through the Upper City (map_complete = true)."
+      }
+    },
+    {
+      "key": "lanterns",
+      "name": "Lanterns of the Lower Quarter",
+      "kind": "side_quest",
+      "description": [
+        "With Agata gone nobody has paid for the oil, and half the lanterns of the Lower Quarter are dark. @[character:tullia] asks Mira to help her hoist them before sunset, because at night the unlit canals are dangerous."
+      ],
+      "quest": {
+        "giver": "tullia",
+        "objectives": [
+          "Hoist the lanterns on the poles along the Grand Canal",
+          "Relight the lantern in front of Agata's house",
+          "Get back to the Magpie before the tide rises"
+        ],
+        "rewards": "Tullia's trust (tullia_trust + 1) and the right to moor at any house in the Lower Quarter."
+      }
+    },
+    {
+      "key": "mira_arc",
+      "name": "Learning to Listen",
+      "kind": "arc",
+      "description": [
+        "The arc of @[character:mira]: from a cartographer who measures to a Keeper who listens. The player's choices push it forward, like staying to listen to the salt bell, or leave it halfway.",
+        "The secret ending completes it; the other two close it with a loss."
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "character:agata",
+      "to": "character:mira",
+      "kind": "family",
+      "label": "mother",
+      "description": "Agata raised Mira alone, taught her to listen to the bells and then let her go without holding her back.",
+      "directed": true,
+      "reverseLabel": "daughter"
+    },
+    {
+      "from": "character:ottavio",
+      "to": "character:mira",
+      "kind": "mentorship",
+      "label": "godfather",
+      "description": "He taught her to row and to read the locks, and he is the only one who has written to her in twelve years.",
+      "directed": true,
+      "reverseLabel": "goddaughter"
+    },
+    {
+      "from": "character:ottavio",
+      "to": "character:agata",
+      "kind": "friendship",
+      "label": "old friend",
+      "description": "They have kept the Breath together for twenty-four years, she with her ear and he with his hands.",
+      "directed": false
+    },
+    {
+      "from": "character:tullia",
+      "to": "character:mira",
+      "kind": "friendship",
+      "label": "travelling companion",
+      "description": "Wary at first, Tullia becomes Mira's guide in the Lower Quarter, if Mira earns it.",
+      "directed": false
+    },
+    {
+      "from": "character:ester",
+      "to": "character:tullia",
+      "kind": "rivalry",
+      "label": "adversaries",
+      "description": "The Prioress wants to shut off the Lower Quarter; Tullia was born there and has no intention of leaving.",
+      "directed": false
+    },
+    {
+      "from": "character:ester",
+      "to": "character:ottavio",
+      "kind": "professional",
+      "label": "superior",
+      "description": "Ottavio answers to the Prioress, but has never fully obeyed her.",
+      "directed": true,
+      "reverseLabel": "subordinate"
+    },
+    {
+      "from": "character:ester",
+      "to": "character:agata",
+      "kind": "rivalry",
+      "label": "rival",
+      "description": "For years they have contended for the stewardship of the Breath: the Prioress with her registers, Agata with her ear.",
+      "directed": false
+    },
+    {
+      "from": "character:tullia",
+      "to": "character:pio",
+      "kind": "family",
+      "label": "cousin",
+      "description": "Tullia taught him to row and keeps an eye on him from a distance, without letting him see.",
+      "directed": true,
+      "reverseLabel": "cousin"
+    },
+    {
+      "from": "character:pio",
+      "to": "character:mira",
+      "kind": "friendship",
+      "label": "guide",
+      "description": "Pio meets her at the pier and decides at once that a stranger with a trunk of instruments could be useful to him.",
+      "directed": true,
+      "reverseLabel": "guided"
+    },
+    {
+      "from": "character:agata",
+      "to": "character:tullia",
+      "kind": "mentorship",
+      "label": "teacher",
+      "description": "Agata paid Tullia to light the lanterns of the Lower Quarter and taught her the names of the tides.",
+      "directed": true,
+      "reverseLabel": "pupil"
+    }
+  ],
+  "parts": [
+    {
+      "title": "Still Water",
+      "chapters": [
+        {
+          "key": "ch_return",
+          "title": "The Return",
+          "reason": "Introduce Mira, the city and the problem: the bells are silent and Agata has vanished. The player receives the main quest and the first tool.",
+          "scenes": [
+            {
+              "key": "ferry_dawn",
+              "title": "The Dawn Ferry",
+              "synopsis": "Mira arrives in Velmara on the morning ferry. The bells are silent, the water laps at the doorsteps, and Pio is waiting at the pier with a note from Ottavio.",
+              "status": "final",
+              "kind": "cutscene",
+              "flow": "start",
+              "pov": "third_objective",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "pio"
+              ],
+              "locations": [
+                "velmara",
+                "hours_square"
+              ],
+              "objects": [],
+              "strands": [
+                "the_breath",
+                "mira_arc"
+              ],
+              "storyAt": "1891-11-09T06:40",
+              "storyTimeLabel": "Seventh day of still water, dawn",
+              "durationMinutes": 8,
+              "text": [
+                {
+                  "p": "Low fog over the lagoon, a grey with no horizon. The ferry moves slowly, its sail slack, carried by the current, and the only sound is the water slapping the hull. Then, out of the grey, come the piles, the houses, a crooked tower."
+                },
+                {
+                  "p": "@[character:mira] stands at the bow, her trunk at her feet, the notebook tied to her wrist. She looks at the city the way you look at a map with a mistake in it. She counts the drowned steps of the first palazzo: three. Twelve years ago they were dry."
+                },
+                {
+                  "p": "The ferryman moors without a word. There is no one on the pier except a boy in a cap too big for him, holding a folded sheet of paper. The morning bells should be ringing now. They are not."
+                },
+                {
+                  "p": "Pio hands her the note and stays put, waiting for a tip. Four words in Ottavio's broad hand: “Come now. The locks.” Mira looks up towards the Square of Hours, where the sunken clock shows, as always, ten past four."
+                }
+              ]
+            },
+            {
+              "key": "lock_house",
+              "title": "The Lock House",
+              "synopsis": "Ottavio tells Mira about the night of the silence: Agata went down into the cisterns and did not come back up. He hands her her mother's tuning fork and entrusts her with the Breath.",
+              "status": "final",
+              "kind": "dialogue",
+              "pov": "third_objective",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "ottavio"
+              ],
+              "locations": [
+                "hours_square"
+              ],
+              "objects": [
+                "tuning_fork"
+              ],
+              "strands": [
+                "the_breath"
+              ],
+              "storyAt": "1891-11-09T07:30",
+              "storyTimeLabel": "Seventh day, morning",
+              "durationMinutes": 15,
+              "text": [
+                {
+                  "p": "Interior, the lock house. Gears hung on the walls, a low fire, the dog Ferro under the table. Ottavio pours the coffee without asking."
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "You've got thinner. Don't they feed you on the Mainland?",
+                    "direction": "gruff, so as not to get emotional"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "They feed us very well. Where is she?",
+                    "direction": "curt"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "On the night of the second the bells stopped, all together. Your mother took her lantern and went down the well in the Square. She didn't come back up.",
+                    "direction": "slow"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "And the Brotherhood? You have crews, ropes, registers."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "The Prioress doesn't know. I told her Agata is ill, shut up at home.",
+                    "direction": "lowers his voice"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "Ottavio. It's been seven days."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "I can count too. If the Prioress knew the heart has no Keeper, tomorrow she'd close the low gates, and the Lower Quarter would go under."
+                  }
+                },
+                {
+                  "p": "Ottavio opens a drawer and lays the @[object:tuning_fork] on the table, worn where it is gripped."
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "She left it here that night. She'd never left it anywhere in her life."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "I'm not a Keeper. I draw embankments.",
+                    "direction": "without touching it"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "You have your mother's ear. I knew it when you were sixteen, and so do you."
+                  }
+                },
+                {
+                  "p": "Mira picks up the tuning fork. She taps it gently on the edge of the table and holds it to her left ear. The note hangs in the air longer than it should."
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "The logbook. She wrote everything down."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "It's at her house, in the Lower Quarter. To get there you need a boat, and someone who knows where the water runs deep."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "ch_square",
+          "title": "The Square of Hours",
+          "reason": "Open up the game: the Square is the hub from which the player chooses where to go. It introduces the two factions and the two side quests, and leaves the order free.",
+          "scenes": [
+            {
+              "key": "market_rounds",
+              "title": "The Floating Market",
+              "synopsis": "Mira crosses the Square of Hours among stalls on rafts, rumours about the bells and brothers measuring the water level. From here she can look for a boat to the Lower Quarter, help Pio or climb straight up to the cloister.",
+              "status": "final",
+              "kind": "exploration",
+              "pov": "second",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "pio",
+                "tullia"
+              ],
+              "locations": [
+                "hours_square"
+              ],
+              "objects": [],
+              "strands": [
+                "the_breath"
+              ],
+              "storyAt": "1891-11-09T09:00",
+              "storyTimeLabel": "Seventh day, morning",
+              "durationMinutes": 30,
+              "text": [
+                {
+                  "p": "The Square of Hours no longer has a floor. The stalls float on rafts tied to the piles and you cross from one to the next on swaying gangways. Fish, lantern oil, rope, bread from the Upper City that costs twice what it did a week ago."
+                },
+                {
+                  "p": "You listen without meaning to. A woman says the bells have been stolen. A fisherman says the Keeper is dead and the Brotherhood is hiding it. Two brothers in leather aprons lower a graduated pole into the canal and write down a number without comment."
+                },
+                {
+                  "p": "Across the square, under the sunken tower, a boat painted black and white is loading unlit lanterns. The boatwoman argues with a merchant and wins. @[character:pio] tugs at your jacket: he has a map to sell you, or maybe one that needs fixing."
+                },
+                {
+                  "p": "Beyond the roofs, the stone stair climbs towards the Upper City and the Brotherhood's cloister. The Lower Quarter lies the other way, across the water. You open your notebook and write down the date, the level and the time: ten past four, says the tower. It isn't true, but it is the only hour the city remembers."
+                }
+              ]
+            },
+            {
+              "key": "pio_errand",
+              "title": "Pio's Map",
+              "synopsis": "Pio has torn his best map. Mira puts the pieces back together by reading the tide notches carved on the piles of the Square and discovers a route nobody uses anymore: the blind canal.",
+              "status": "draft",
+              "kind": "puzzle",
+              "pov": "second",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "pio"
+              ],
+              "locations": [
+                "hours_square"
+              ],
+              "objects": [],
+              "strands": [
+                "tide_map"
+              ],
+              "storyAt": "1891-11-09T10:00",
+              "storyTimeLabel": "Seventh day, mid-morning",
+              "durationMinutes": 25,
+              "text": [
+                {
+                  "p": "Pio spreads the pieces on an upturned fish crate: four strips of wrapping paper drawn in charcoal, canals in black and houses in red. Laid end to end they don't fit. One canal ends inside a palazzo, another runs straight over the tower."
+                },
+                {
+                  "p": "“I drew them myself,” he says, offended, as if you were the problem."
+                },
+                {
+                  "p": "Every pile in the @[location:hours_square] bears the notches of the last hundred years of tides, each with its date. Pio copied the same notches, tiny, in the margins of his sheets without knowing why: his mother used to do it. You compare the numbers, turn the pieces, set them side by side until the marks of 1866 all line up at the same height."
+                },
+                {
+                  "p": "Now the map works. And where two sheets meet, a thin canal appears that leads to no house: it runs down beneath the Lower Quarter, towards the cisterns. Pio stares at it for a long time. “That wasn't there,” he says. “My mother drew it.” Then he drags you towards the Grand Canal, where his cousin keeps her boat."
+                }
+              ]
+            },
+            {
+              "key": "tullia_boat",
+              "title": "The Magpie",
+              "synopsis": "Tullia agrees to take Mira to the Lower Quarter, but on her own terms. First she asks for help with the unlit lanterns: the player can lend a hand or leave at once.",
+              "status": "revised",
+              "kind": "dialogue",
+              "pov": "third_objective",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "tullia"
+              ],
+              "locations": [
+                "hours_square",
+                "lower_quarter"
+              ],
+              "objects": [],
+              "strands": [
+                "lanterns",
+                "the_breath"
+              ],
+              "storyAt": "1891-11-09T11:30",
+              "storyTimeLabel": "Seventh day, late morning",
+              "durationMinutes": 20,
+              "text": [
+                {
+                  "p": "Exterior, the Grand Canal. The Magpie, a narrow boat painted black and white, is loaded with unlit lanterns. @[character:tullia] is tying off a line and doesn't look up."
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "If you want a passage to the Upper City, the stair's over there. You don't need a boat to go up.",
+                    "direction": "without looking at her"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "I need to go to the Lower Quarter. To Agata Valdesca's house."
+                  }
+                },
+                {
+                  "p": "Tullia stops tying."
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "You're the daughter. The one from the Mainland."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "I'm the one who came back."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "Your mother paid for the oil in these lanterns. For seven days nobody has, and at night the dark canals swallow boats.",
+                    "direction": "hard, but not unkind"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "How much do you want to take me?"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "I don't want money. I want to know if the bells will start again, and for whom."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "I don't know yet. I'll tell you when I do."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "At least you're honest.",
+                    "direction": "half a smile"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "The lanterns have to go up before dark. You can give me a hand, or sit in the bow and watch. Your call, cartographer."
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Bells",
+      "chapters": [
+        {
+          "key": "ch_bells",
+          "title": "The Drowned Bells",
+          "reason": "The heart of the exploration: the logbook explains how to restart the Breath, the first bell tests Mira's ear and the Prioress names her price. Here the player chooses between listening and trusting.",
+          "scenes": [
+            {
+              "key": "agata_house",
+              "title": "Agata's House",
+              "synopsis": "Mira climbs through a first-floor window into her mother's half-drowned house. Among the instruments and the wet papers she finds Agata's logbook, which describes the three bells and hints at a fourth.",
+              "status": "final",
+              "kind": "exploration",
+              "pov": "second",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "tullia",
+                "agata"
+              ],
+              "locations": [
+                "lower_quarter"
+              ],
+              "objects": [
+                "logbook"
+              ],
+              "strands": [
+                "the_breath",
+                "mira_arc"
+              ],
+              "storyAt": "1891-11-09T13:00",
+              "storyTimeLabel": "Seventh day, early afternoon",
+              "durationMinutes": 30,
+              "text": [
+                {
+                  "p": "The door is under water. @[character:tullia] brings the Magpie alongside the first-floor window and holds the boat steady with her oar while you climb over the sill. Inside, the air smells of rust and wax."
+                },
+                {
+                  "p": "You recognise everything and nothing. The table is the same, but it is covered with instruments you have never seen: a dismantled barometer, rows of bottles filled with water from different canals, each with a label and a date. On the wall is your height at six, eight and ten, cut with a knife beside the tide levels."
+                },
+                {
+                  "p": "The bed is made. The cistern lantern is missing from its nail. On the inner sill there is a cup with a finger of coffee turned to ink: your mother left in a hurry, or with the calm of someone who knows she won't be back soon."
+                },
+                {
+                  "p": "@[object:logbook] is in the desk drawer, wrapped in oilcloth. Twenty-four years of levels and intervals in your mother's small handwriting. The last pages talk about the three bells, salt, glass and iron, and how they must be tuned from the top down. On the last line there is another sentence, written pressing hard: “The fourth is not broken. It is waiting.”"
+                },
+                {
+                  "p": "Outside, Tullia knocks twice on the wood. The tide is rising. Now you have a lead: the Salt Tower, two canals away."
+                }
+              ]
+            },
+            {
+              "key": "salt_bell",
+              "title": "The Salt Bell",
+              "synopsis": "In the Salt Tower, with Agata's tuning fork, Mira tunes the first bell by comparing notes beneath the surface. When the bell answers, there is another note in the echo: the player can stay to listen or go back to the boat.",
+              "status": "revised",
+              "kind": "puzzle",
+              "pov": "second",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "tullia"
+              ],
+              "locations": [
+                "lower_quarter"
+              ],
+              "objects": [
+                "tuning_fork",
+                "logbook"
+              ],
+              "strands": [
+                "the_breath",
+                "mira_arc"
+              ],
+              "storyAt": "1891-11-09T15:30",
+              "storyTimeLabel": "Seventh day, afternoon",
+              "durationMinutes": 25,
+              "text": [
+                {
+                  "p": "The Salt Tower is a roofless cylinder of brick, with the water up to the first gallery. The bell hangs below the surface from a blackened beam: you see it as a green shadow, motionless."
+                },
+                {
+                  "p": "The logbook explains the method in three lines. Strike the @[object:tuning_fork] on the gallery, dip it halfway and listen. If the bell is in tune, it answers; if not, it stays silent, and you have to move the beam's counterweights one notch at a time, until the two notes stop quarrelling."
+                },
+                {
+                  "p": "It takes six tries. On the seventh the bell answers: a low sound that travels not through the air but through the wood, the bricks, your knees. The water in the tower ripples in even rings. Somewhere beneath the city, a gate moves a finger's width."
+                },
+                {
+                  "p": "Then, in the echo, there is another note. Lower than the three in the logbook, so low you might have imagined it. It has the shape of a tune you know: the one your mother used to hum when you went down together, and which you have not heard since."
+                },
+                {
+                  "p": "From the canal, Tullia calls you. The water has risen two steps since you came in."
+                }
+              ]
+            },
+            {
+              "key": "cloister_talk",
+              "title": "The Prioress",
+              "synopsis": "In the Cloister of the Locks, Prioress Ester greets Mira with courtesy and a request: she will let her up to the glass bell if she promises to close the low gates. If Mira has the logbook, she can show her the truth about Agata.",
+              "status": "revised",
+              "kind": "dialogue",
+              "pov": "third_objective",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "ester",
+                "ottavio"
+              ],
+              "locations": [
+                "cloister"
+              ],
+              "objects": [
+                "logbook"
+              ],
+              "strands": [
+                "the_breath"
+              ],
+              "storyAt": "1891-11-09T18:00",
+              "storyTimeLabel": "Seventh day, vespers",
+              "durationMinutes": 20,
+              "text": [
+                {
+                  "p": "Interior, the cloister archive. Shelves of registers up to the ceiling, oil lamps, no sound. The Prioress sits at a bare table. @[character:ottavio] stays by the door, hat in hand."
+                },
+                {
+                  "line": {
+                    "speaker": "ester",
+                    "text": "Mira Valdesca. I have read your reports on the Porto Arsa embankments. Excellent work.",
+                    "direction": "courteous, measured"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "I'm not here about embankments."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ester",
+                    "text": "No. You are here for the glass bell, which hangs in our tower and which only a Keeper can tune. Or a Keeper's daughter, it seems."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "My mother has been missing for seven days. Did you know?"
+                  }
+                },
+                {
+                  "p": "The Prioress glances at Ottavio, for an instant. Ottavio looks at the floor."
+                },
+                {
+                  "line": {
+                    "speaker": "ester",
+                    "text": "I know that Agata is ill. So I was told."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ester",
+                    "text": "Let me tell you what I know for certain. The water rises a hand's breadth a day; in nine days it will enter the Upper City. If the Breath restarts with the low gates closed, the Upper City is saved. The Lower Quarter is not, but the Lower Quarter has been lost since sixty-six.",
+                    "direction": "quietly, without cruelty"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "Two thousand people live there."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ester",
+                    "text": "On boats. They can live elsewhere. I will give you the keys to the tower if you promise me one thing: when you reach the heart, you will close the low gates."
+                  }
+                }
+              ]
+            },
+            {
+              "key": "glass_bell",
+              "title": "The Glass Bell",
+              "synopsis": "At the top of the cloister tower Mira tunes the second bell, which hangs in the air above a basin of rainwater: the puzzle is solved by listening to the notes reflected off the water, not the direct ones.",
+              "status": "planned",
+              "kind": "puzzle",
+              "pov": "second",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "ester"
+              ],
+              "locations": [
+                "cloister"
+              ],
+              "objects": [
+                "tuning_fork"
+              ],
+              "strands": [
+                "the_breath"
+              ],
+              "storyAt": "1891-11-09T20:00",
+              "storyTimeLabel": "Seventh day, evening",
+              "durationMinutes": 25,
+              "text": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Breath",
+      "chapters": [
+        {
+          "key": "ch_descent",
+          "title": "The Descent",
+          "reason": "Bring the player to the decision: Tullia and the Prioress ask Mira where she stands, the descent tests her alliances and the heart of the Breath sets the final choice.",
+          "scenes": [
+            {
+              "key": "night_council",
+              "title": "The Midnight Council",
+              "synopsis": "In the lock house, at night, Tullia and the Prioress sit at the same table for the first time. Each offers Mira a way down into the cisterns, and an idea of the city.",
+              "status": "draft",
+              "kind": "dialogue",
+              "pov": "third_objective",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "tullia",
+                "ester",
+                "ottavio"
+              ],
+              "locations": [
+                "hours_square"
+              ],
+              "objects": [
+                "logbook"
+              ],
+              "strands": [
+                "the_breath",
+                "mira_arc"
+              ],
+              "storyAt": "1891-11-09T23:00",
+              "storyTimeLabel": "Seventh day, midnight",
+              "durationMinutes": 20,
+              "text": [
+                {
+                  "p": "Interior, the lock house, night. The fire has almost gone out. @[character:tullia] sits on the edge of the table, the Prioress stands near the door, as if she might leave at any moment. Ottavio pours coffee for everyone, even those who didn't ask."
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "I never thought I'd see you on this side of the city, Prioress.",
+                    "direction": "ironic"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ester",
+                    "text": "I never thought I would have to come."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "I've done what I could up here. The iron bell is left, in the heart. I'm going down tonight."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "The well in the Square is open. But it's the longest way, and the coldest."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ester",
+                    "text": "The Brotherhood's stair goes almost to the heart. I have the keys.",
+                    "direction": "puts a key on the table, without pushing it towards Mira"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "And there's the blind canal. With the right route, the Magpie gets there in an hour.",
+                    "direction": "looking at Mira"
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ester",
+                    "text": "The blind canal has been closed since sixty-six."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "tullia",
+                    "text": "To you. We fish eels in it."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "mira",
+                    "text": "Enough. Whichever way I take, down there I'll have to decide alone."
+                  }
+                },
+                {
+                  "line": {
+                    "speaker": "ottavio",
+                    "text": "Your mother used to say the same thing. Then she'd come back up and tell us what she had heard.",
+                    "direction": "quietly"
+                  }
+                }
+              ]
+            },
+            {
+              "key": "cisterns_descent",
+              "title": "The Cisterns",
+              "synopsis": "The descent into the Cisterns of the Breath changes with the route chosen: the Brotherhood's stair with the Prioress, the blind canal by boat with Tullia, or the well in the Square alone. Every route ends at the door of the heart.",
+              "status": "planned",
+              "kind": "exploration",
+              "pov": "second",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "tullia",
+                "ester"
+              ],
+              "locations": [
+                "cisterns"
+              ],
+              "objects": [
+                "tuning_fork"
+              ],
+              "strands": [
+                "the_breath"
+              ],
+              "storyAt": "1891-11-10T00:30",
+              "storyTimeLabel": "Eighth day, dead of night",
+              "durationMinutes": 45,
+              "text": []
+            },
+            {
+              "key": "heart_of_breath",
+              "title": "The Heart of the Breath",
+              "synopsis": "In the circular chamber of the heart Mira tunes the iron bell and reaches the great wheel of the gates. On the floor she finds Agata's lantern and shawl. She must decide how the city will breathe.",
+              "status": "revised",
+              "kind": "puzzle",
+              "pov": "second",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "agata"
+              ],
+              "locations": [
+                "cisterns"
+              ],
+              "objects": [
+                "tuning_fork",
+                "logbook"
+              ],
+              "strands": [
+                "the_breath",
+                "mira_arc"
+              ],
+              "storyAt": "1891-11-10T02:00",
+              "storyTimeLabel": "Eighth day, before dawn",
+              "durationMinutes": 35,
+              "text": [
+                {
+                  "p": "The chamber of the heart is round like the inside of a bell. The walls sweat. Twelve canals enter it through twelve arches and in the middle, on a pivot as thick as a tree, stands the wheel of the gates, still for eight nights."
+                },
+                {
+                  "p": "The iron bell hangs above the wheel, so large you could stand inside it. The logbook says: last, and from above. You climb to the service gallery, strike the tuning fork on the handrail, bring it close to the bronze and listen to the bells you tuned above answering from far away, through the water. You move the counterweights until the iron note finds the others."
+                },
+                {
+                  "p": "The wheel trembles. The water in the twelve canals moves in the same direction, for the first time in eight days, and waits. The Breath is ready to start again: all that is missing is the position of the gates, and that is decided by whoever holds the wheel."
+                },
+                {
+                  "p": "On the floor beside the wheel you find a cistern lantern, unlit, and a shawl folded with care, the way you leave it when you mean to come back. Both belong to @[character:agata]. Of her, no trace."
+                },
+                {
+                  "p": "The lever for the low gates is on the right, the one that opens everything on the left. In the middle of the chamber, beneath a grate, the water is darker and colder. If you stay silent long enough, it seems to you that it, too, is waiting for something."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "ch_after",
+          "title": "After the Water",
+          "reason": "Show the consequences of the final choice. Three short endings close Mira's arc and the question of the city in different ways; the third is secret and opens only for those who have listened.",
+          "scenes": [
+            {
+              "key": "ending_high_city",
+              "title": "The Closed Gates",
+              "synopsis": "Mira closes the low gates. The Breath restarts and the Upper City is saved; the Lower Quarter returns to the lagoon and the Company of the Drowned leaves with its boats. Agata is never found.",
+              "status": "final",
+              "kind": "cutscene",
+              "flow": "ending",
+              "pov": "third_objective",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "ester",
+                "tullia",
+                "ottavio"
+              ],
+              "locations": [
+                "hours_square",
+                "lower_quarter",
+                "cloister"
+              ],
+              "objects": [],
+              "strands": [
+                "the_breath",
+                "mira_arc"
+              ],
+              "storyAt": "1891-11-10T06:30",
+              "storyTimeLabel": "Eighth day, dawn",
+              "durationMinutes": 6,
+              "text": [
+                {
+                  "p": "At dawn the bells ring, one after another, and the sound comes from below, from the stones, like a breath held too long. In the Upper City people step out onto their balconies in their nightclothes and say nothing."
+                },
+                {
+                  "p": "In the Square of Hours the level drops a hand's breadth in an hour. The brothers lower their poles and this time they smile. The Prioress signs the resolution that shuts the Lower Quarter out of the Breath, without looking up from the page."
+                },
+                {
+                  "p": "In the @[location:lower_quarter] the water stays where it is and then, slowly, begins to rise. Families load what they can onto the boats. Tullia passes under the Upper City bridge without looking up; the Magpie is full of lit lanterns, even though it is day."
+                },
+                {
+                  "p": "Mira stays in Velmara for a month, long enough to draw the city's new line. Then she leaves on the morning ferry. No one finds any trace of Agata. Ottavio says she went out with the tide, like the old Keepers, and nobody has the courage to ask him what that means."
+                }
+              ]
+            },
+            {
+              "key": "ending_lagoon",
+              "title": "The Lagoon Returns",
+              "synopsis": "Mira opens all the gates. The Breath stops for good and the lagoon comes into the city; Velmara becomes a city of water, where even the Upper City learns to live by boat.",
+              "status": "draft",
+              "kind": "cutscene",
+              "flow": "ending",
+              "pov": "third_objective",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "tullia",
+                "ester",
+                "pio"
+              ],
+              "locations": [
+                "velmara",
+                "hours_square",
+                "cloister"
+              ],
+              "objects": [],
+              "strands": [
+                "the_breath",
+                "mira_arc"
+              ],
+              "storyAt": "1891-11-10T06:30",
+              "storyTimeLabel": "Eighth day, dawn",
+              "durationMinutes": 6,
+              "text": [
+                {
+                  "p": "The gates open all at once with a sound like distant thunder. The Breath does not start again: it simply stops, like a clock someone has decided not to wind anymore. The lagoon enters the city without hurry."
+                },
+                {
+                  "p": "In three days the water reaches the ground floors of the Upper City. The cloister has wet feet for the first time in four centuries. @[character:ester] has the registers carried to the upper floors, one shelf at a time, and one morning she is seen sitting in a Company boat, stiff, her hands clasped on her knees."
+                },
+                {
+                  "p": "The Square of Hours becomes a harbour. @[character:pio] sells new maps, correct ones this time. Tullia takes Mira aboard the Magpie and teaches her the names of the tides, which no longer turn any wheel but still keep you from getting lost."
+                },
+                {
+                  "p": "Agata does not come back. Someone swears they saw her rowing towards the open lagoon. Mira does not believe it, but in the evening, when the water is still, she catches herself listening to it all the same."
+                }
+              ]
+            },
+            {
+              "key": "ending_fourth_bell",
+              "title": "The Fourth Bell",
+              "synopsis": "Secret ending. Mira follows the note she heard in the Salt Tower down to the Mute Bell, beneath the heart, and tunes it with her voice by singing her mother's tune. The Breath restarts as it did in the beginning, the tides once again pass through the whole city, and from the water Agata answers.",
+              "status": "final",
+              "kind": "cutscene",
+              "flow": "ending",
+              "pov": "third_limited",
+              "povCharacter": "mira",
+              "characters": [
+                "mira",
+                "agata",
+                "tullia",
+                "ottavio",
+                "ester"
+              ],
+              "locations": [
+                "cisterns",
+                "hours_square"
+              ],
+              "objects": [
+                "mute_bell",
+                "tuning_fork"
+              ],
+              "strands": [
+                "the_breath",
+                "mira_arc"
+              ],
+              "storyAt": "1891-11-10T06:30",
+              "storyTimeLabel": "Eighth day, dawn",
+              "durationMinutes": 10,
+              "text": [
+                {
+                  "p": "Mira doesn't touch the levers. She lifts the grate in the middle of the chamber and climbs down an iron ladder that appears on no map, counting the rungs until she stops counting. At the bottom there is a small room, half full of black water, and in the water, hanging from nothing, a bell."
+                },
+                {
+                  "p": "The @[object:mute_bell] does not ring in the air. Mira knows it before she even tries. She kneels, brings her ear to the surface and hears it: the salt note, the glass note, the iron note, and beneath them, cracked, the fourth. It is not broken, her mother wrote. It is waiting."
+                },
+                {
+                  "p": "The tuning fork is no use here. Mira sings. It is the tune of the descents from when she was six, the one she has not sung since; her voice shakes on the first notes and then it doesn't. The water takes the note, carries it far, and the bell answers."
+                },
+                {
+                  "p": "The Breath starts again in a way no register of the Brotherhood describes. The gates open and close, all of them, high and low, to the rhythm of the tide, and the water flows in and out of the city like air from a chest. In the Lower Quarter the level falls. In the Upper City it rises a little, then falls again. Velmara breathes, all of it."
+                },
+                {
+                  "p": "On the other side of the room, in a niche above the water, a tired voice says her name. @[character:agata] sits with her back against the stone, her face grey, her hands still on her knees. “It was your part,” she says. “I couldn't sing it.”"
+                },
+                {
+                  "p": "When they come up, at dawn, everyone is in the Square of Hours: Tullia in the Magpie, Ottavio with his dog, the Prioress with an open register in which she writes nothing. The sunken tower shows ten past four. For the first time, it seems to Mira the right time."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "from": "market_rounds",
+      "to": "tullia_boat",
+      "label": "Look for a boat to the Lower Quarter"
+    },
+    {
+      "from": "market_rounds",
+      "to": "pio_errand",
+      "label": "Help Pio put his map back together",
+      "effect": "map_complete = true"
+    },
+    {
+      "from": "market_rounds",
+      "to": "cloister_talk",
+      "label": "Climb the Upper City stair straight to the cloister"
+    },
+    {
+      "from": "tullia_boat",
+      "to": "agata_house",
+      "label": "Help Tullia hoist the lanterns",
+      "effect": "tullia_trust += 1"
+    },
+    {
+      "from": "tullia_boat",
+      "to": "agata_house",
+      "label": "“Let's go to my mother's now.”"
+    },
+    {
+      "from": "agata_house",
+      "to": "salt_bell",
+      "label": "Take the logbook and follow the lead to the Salt Tower",
+      "effect": "has_logbook = true"
+    },
+    {
+      "from": "salt_bell",
+      "to": "cloister_talk",
+      "label": "Stay and listen to the echo of the bell",
+      "effect": "bells_tuned += 1; heard_the_voice = true"
+    },
+    {
+      "from": "salt_bell",
+      "to": "cloister_talk",
+      "label": "Go back to the boat before the tide rises",
+      "effect": "bells_tuned += 1; tullia_trust += 1"
+    },
+    {
+      "from": "cloister_talk",
+      "to": "glass_bell",
+      "label": "Promise the Prioress you will close the low gates",
+      "effect": "brotherhood_favor += 2; bells_tuned += 1"
+    },
+    {
+      "from": "cloister_talk",
+      "to": "glass_bell",
+      "label": "Show her the logbook: Agata went down alone",
+      "condition": "has_logbook == true",
+      "effect": "brotherhood_favor += 1; bells_tuned += 1"
+    },
+    {
+      "from": "night_council",
+      "to": "cisterns_descent",
+      "label": "Go down with the Prioress by the Brotherhood's stair",
+      "condition": "brotherhood_favor >= 2"
+    },
+    {
+      "from": "night_council",
+      "to": "cisterns_descent",
+      "label": "Go down with Tullia through the blind canal",
+      "condition": "map_complete == true and tullia_trust >= 1",
+      "effect": "tullia_trust += 1"
+    },
+    {
+      "from": "night_council",
+      "to": "cisterns_descent",
+      "label": "Go down alone by the well in the Square"
+    },
+    {
+      "from": "heart_of_breath",
+      "to": "ending_high_city",
+      "label": "Close the low gates"
+    },
+    {
+      "from": "heart_of_breath",
+      "to": "ending_lagoon",
+      "label": "Open all the gates"
+    },
+    {
+      "from": "heart_of_breath",
+      "to": "ending_fourth_bell",
+      "label": "Go down beneath the grate and sing the fourth note",
+      "condition": "heard_the_voice == true and bells_tuned >= 2"
+    }
+  ],
+  "variables": [
+    {
+      "name": "tullia_trust",
+      "type": "number",
+      "default": "0",
+      "description": "Tullia's trust in Mira, from 0 to 3. It rises when Mira helps with the lanterns, gets back to the boat in time and goes down with her through the blind canal."
+    },
+    {
+      "name": "brotherhood_favor",
+      "type": "number",
+      "default": "0",
+      "description": "The standing of the Brotherhood of the Locks. At 2 the Prioress escorts Mira down the Brotherhood's stair."
+    },
+    {
+      "name": "bells_tuned",
+      "type": "number",
+      "default": "0",
+      "description": "Upper bells tuned before the heart (salt and glass). At 2, together with heard_the_voice, it opens the secret ending."
+    },
+    {
+      "name": "has_logbook",
+      "type": "boolean",
+      "default": "false",
+      "description": "Mira has taken Agata's logbook. It opens a dialogue option with the Prioress."
+    },
+    {
+      "name": "map_complete",
+      "type": "boolean",
+      "default": "false",
+      "description": "Pio's map has been put back together and shows the route of the blind canal."
+    },
+    {
+      "name": "heard_the_voice",
+      "type": "boolean",
+      "default": "false",
+      "description": "Mira stayed to listen to the echo of the salt bell and heard the fourth note."
+    }
+  ],
+  "events": [
+    {
+      "title": "The Casting of the Bells",
+      "at": "1608-04-02",
+      "timeLabel": "Spring 1608",
+      "kind": "world",
+      "description": "The bell-founders of the Brotherhood of the Locks cast in bronze the three bells of the Breath, salt, glass and iron, and a fourth that appears in no register.",
+      "links": [
+        "location:cloister",
+        "location:cisterns"
+      ]
+    },
+    {
+      "title": "The Great Water",
+      "at": "1866-11-04",
+      "timeLabel": "Night of 4 November 1866",
+      "kind": "world",
+      "description": "An unprecedented tide floods the ground floors of the Lower Quarter. The Brotherhood closes the low gates for the first time and the clock in the Square stops at ten past four.",
+      "links": [
+        "location:lower_quarter",
+        "location:hours_square",
+        "character:ester"
+      ]
+    },
+    {
+      "title": "The Pact of the Half-Open Gates",
+      "at": "1867-03-12",
+      "timeLabel": "March 1867",
+      "kind": "world",
+      "description": "The new Keeper, Agata Valdesca, compels the Brotherhood to keep the low gates half-open, neither open nor closed. That same winter the families who stayed in the Lower Quarter found the Company of the Drowned.",
+      "links": [
+        "character:agata",
+        "character:ottavio",
+        "location:lower_quarter"
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "title": "How the Breath Works",
+      "category": "technology",
+      "content": [
+        "The Breath is a system of thirty-six gates, twelve cisterns and three drowned bells. At high tide the gates open and let the water into the canals; at low tide they let it out. The bells are not ornaments: the passing water makes them vibrate, and the note tells the Keeper how much is flowing and from where.",
+        "The Keeper listens and adjusts the great wheel in the heart. The Brotherhood owns the keys and the gears, the Keeper owns the ear, and for four centuries neither has been enough without the other.",
+        "The bells are tuned from the top down: salt in the Salt Tower, glass in the tower of the @[location:cloister], iron in the heart. One wrong interval jams the gates, as happened on the night of 2 November."
+      ]
+    },
+    {
+      "title": "The Great Water",
+      "category": "history",
+      "content": [
+        "On 4 November 1866 an unprecedented tide, driven by three days of sirocco, overtops the outer embankments, and the Breath cannot hold it back. The Keeper of the time, old Anselmo, dies in the cisterns trying to force the wheel.",
+        "To save the Upper City the Brotherhood closes the low gates. The @[location:lower_quarter] loses its ground floors for good and the clock in the Square stops at ten past four. Every family in Velmara knows where it was that night."
+      ]
+    },
+    {
+      "title": "The Two Shores",
+      "category": "factions",
+      "content": [
+        "The Brotherhood of the Locks talks about levels, resolutions and responsibility. The Company of the Drowned talks about houses, boats and neighbours. Both say they want to save Velmara, and they mean two different cities.",
+        "In the game neither is wrong. The choices that raise brotherhood_favor or tullia_trust are not good or bad: they change who goes with Mira and what she is told."
+      ]
+    },
+    {
+      "title": "The Square of Hours",
+      "category": "places",
+      "content": [
+        "The central square, now a market on rafts. The clock tower sank at an angle in 1866 and its hands are stuck at ten past four; people in Velmara say “at ten past four” to mean “when things went wrong”.",
+        "It is the game's hub: from here you reach the pier, the lock house of @[character:ottavio], the Upper City stair and the canals of the Lower Quarter. Every time the player comes back, the water level on the piles is a little higher."
+      ]
+    },
+    {
+      "title": "Listening",
+      "category": "magic",
+      "content": [
+        "Nobody in Velmara calls the Keepers' ear magic. They call it listening, and they consider it a trade. Yet the Keepers hear notes no instrument measures, and they know where the water will rise before it rises.",
+        "The game never explains whether listening is a gift or simply attention taken to its limit. The fourth bell answers to one voice only, that of someone who heard it as a child."
+      ]
+    }
+  ]
+}

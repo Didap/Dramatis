@@ -1,0 +1,237 @@
+{
+  "overview": {
+    "empty": "The project is empty: start with the premise, a few lines are enough.",
+    "today": "Today",
+    "resume": {
+      "action": "Pick up writing",
+      "start": "Start writing",
+      "edited": "edited {when}",
+      "editedNow": "edited just now"
+    },
+    "goals": {
+      "open": "Open goals",
+      "set": "Choose a goal"
+    },
+    "recent": {
+      "title": "Recently edited",
+      "sceneIn": "scene in chapter {n}"
+    },
+    "flow": {
+      "problems": "Flow: {list}.",
+      "clean": "Flow in order: {n} reachable ending. | Flow in order: {n} reachable endings.",
+      "noStart": "no start scene",
+      "noEnding": "no ending",
+      "unreachable": "{n} unreachable scene | {n} unreachable scenes",
+      "deadEnds": "{n} dead end | {n} dead ends",
+      "broken": "{n} choice to a scene that no longer exists | {n} choices to scenes that no longer exist"
+    },
+    "path": {
+      "title": "Path",
+      "menu": "Path options",
+      "hide": "Hide the path",
+      "show": "Show the path",
+      "settings": "Guidance settings",
+      "hidden": "Path hidden",
+      "hiddenHint": "You will find it again in the project settings, or by searching for “Show the path”.",
+      "stepOf": "Step {n} of {total}",
+      "folded": "Path: {stage}, {n} of {total}",
+      "foldedDone": "Path complete, {total} of {total}",
+      "completed": "{stage}: done. {next}",
+      "allDone": "The path is complete.",
+      "state": {
+        "done": "done",
+        "current": "current step",
+        "ahead": "to do"
+      },
+      "stages": {
+        "novel": {
+          "premise": {
+            "label": "Premise",
+            "short": "Premise",
+            "question": "Who wants what, and what stands in the way?",
+            "next": "The next step is the premise."
+          },
+          "protagonist": {
+            "label": "Protagonist",
+            "short": "Protagonist",
+            "question": "Who carries the story on their shoulders?",
+            "next": "The next step is the protagonist."
+          },
+          "world": {
+            "label": "The world",
+            "short": "World",
+            "question": "Where and when does it happen?",
+            "next": "The next step is the world."
+          },
+          "plot": {
+            "label": "The plot",
+            "short": "Plot",
+            "question": "What happens, from beginning to end?",
+            "next": "The next step is the plot."
+          },
+          "structure": {
+            "label": "The structure",
+            "short": "Structure",
+            "question": "Which chapters and scenes does it divide into?",
+            "next": "The next step is the structure."
+          },
+          "draft": {
+            "label": "First draft",
+            "short": "Draft",
+            "question": "Write, one scene at a time.",
+            "next": "The next step is the first draft."
+          },
+          "revision": {
+            "label": "Revision",
+            "short": "Revision",
+            "question": "Does the story hold?",
+            "next": "The next step is the revision."
+          },
+          "delivery": {
+            "label": "Delivery",
+            "short": "Delivery",
+            "question": "Ready for an editor.",
+            "next": "The next step is the delivery."
+          }
+        },
+        "game": {
+          "premise": {
+            "label": "Premise",
+            "short": "Premise",
+            "question": "Who is the player, what do they want, what stops them?",
+            "next": "The next step is the premise."
+          },
+          "protagonist": {
+            "label": "Protagonist",
+            "short": "Protagonist",
+            "question": "Who guides the player through the story?",
+            "next": "The next step is the protagonist."
+          },
+          "world": {
+            "label": "World and lore",
+            "short": "World",
+            "question": "What does the team need to know about the world?",
+            "next": "The next step is the world and its lore."
+          },
+          "quests": {
+            "label": "Plot and quests",
+            "short": "Quests",
+            "question": "What is the main quest?",
+            "next": "The next step is the plot and its quests."
+          },
+          "structure": {
+            "label": "Structure and flow",
+            "short": "Structure",
+            "question": "Where does it start, and where can it end?",
+            "next": "The next step is the structure and the flow."
+          },
+          "draft": {
+            "label": "First draft of the script",
+            "short": "Draft",
+            "question": "Write every scene and every branch.",
+            "next": "The next step is the first draft of the script."
+          },
+          "revision": {
+            "label": "Revision",
+            "short": "Revision",
+            "question": "Does every path lead somewhere?",
+            "next": "The next step is the revision."
+          },
+          "delivery": {
+            "label": "Handoff to the team",
+            "short": "Handoff",
+            "question": "The team can build from here.",
+            "next": "The next step is the handoff to the team."
+          }
+        }
+      },
+      "reasons": {
+        "premiseDone": "The premise has {n} word. | The premise has {n} words.",
+        "premiseEmpty": "The premise is still empty.",
+        "premiseShort": "The premise has {n} word: it needs at least {target}. | The premise has {n} words: it needs at least {target}.",
+        "noMain": "There is no main character yet.",
+        "protagonistDone": "{name} has a profile, conflict included.",
+        "protagonistSections": "{name}: {n} profile section of 3. | {name}: {n} profile sections of 3.",
+        "protagonistNoConflict": "{name}: {n} profile section of 3, the conflict is missing. | {name}: {n} profile sections of 3, the conflict is missing.",
+        "worldDone": "The setting is written and there is {n} location. | The setting is written and there are {n} locations.",
+        "settingEmpty": "The setting is still empty.",
+        "settingShort": "The setting has {n} word: it needs at least {target}. | The setting has {n} words: it needs at least {target}.",
+        "noLocation": "There is no location yet.",
+        "loreDone": "The setting is written and the world has {n} element. | The setting is written and the world has {n} elements.",
+        "loreFew": "The world has {n} element of {target}, among locations, factions, items and codex entries. | The world has {n} elements of {target}, among locations, factions, items and codex entries.",
+        "plotDone": "The fabula has {n} word and there is a main plot. | The fabula has {n} words and there is a main plot.",
+        "questsDone": "The fabula has {n} word and there is a main quest. | The fabula has {n} words and there is a main quest.",
+        "fabulaEmpty": "The fabula is still empty.",
+        "fabulaShort": "The fabula has {n} word: it needs at least {target}. | The fabula has {n} words: it needs at least {target}.",
+        "noPlotStrand": "There is no narrative strand of kind “Main plot” yet.",
+        "noQuest": "There is no main quest with at least one objective yet.",
+        "structureDone": "{chapters} and {scenes}, every chapter with its scenes.",
+        "structureCounts": "It needs at least 3 chapters and 6 scenes: so far {chapters} and {scenes}.",
+        "structureScenes": "It needs at least 6 scenes: so far {scenes}.",
+        "emptyChapter": "The chapter “{chapter}” has no scenes yet.",
+        "noChapters": "There are no chapters yet.",
+        "noStart": "The start scene is missing.",
+        "noEnding": "No scene is an ending yet.",
+        "noScenes": "There are no scenes yet.",
+        "draftDone": "The only scene has its text. | All {n} scenes have text.",
+        "scenesPlanned": "{n} scene still planned. | {n} scenes still planned.",
+        "scenesEmpty": "{n} scene still without text. | {n} scenes still without text.",
+        "unreachable": "{n} unreachable scene in the flow. | {n} unreachable scenes in the flow.",
+        "deadEnds": "{n} dead end in the flow. | {n} dead ends in the flow.",
+        "notRevised": "{n} scene to revise. | {n} scenes to revise.",
+        "noPurpose": "The chapter “{chapter}” has no purpose yet.",
+        "untaggedCharacter": "{name} does not appear in any scene yet.",
+        "untaggedStrand": "The strand “{name}” has no scenes yet.",
+        "untaggedQuest": "The quest “{name}” has no scenes yet.",
+        "unusedVariable": "The variable {name} is not used by any choice.",
+        "unreachableEnding": "The ending “{title}” cannot be reached.",
+        "noSpeaker": "{n} line without a speaker. | {n} lines without a speaker.",
+        "revisionDone": "Every scene is revised and every thread is in place.",
+        "delivered": "Exported on {date}, with every scene final.",
+        "notFinal": "{n} scene not final yet. | {n} scenes not final yet.",
+        "noExport": "A manuscript export (DOCX, EPUB or PDF) made with every scene final is still missing.",
+        "noTeamExport": "A team export made with every scene final and the flow in order is still missing.",
+        "game": {
+          "noPlotStrand": "There is no storyline of kind “Main plot” yet.",
+          "revisionDone": "Every scene is revised and every path leads somewhere."
+        }
+      },
+      "actions": {
+        "writePremise": "Write the premise",
+        "continuePremise": "Open the premise",
+        "createProtagonist": "Create the protagonist",
+        "completeProfile": "Complete {name}'s profile",
+        "openCharacter": "Open {name}",
+        "writeSetting": "Describe the setting",
+        "addLocation": "Add a location",
+        "openWorld": "Open the world",
+        "writeFabula": "Write the fabula",
+        "openStrands": "Open the narrative strands",
+        "addPlotStrand": "Create the main plot",
+        "addQuest": "Create the main quest",
+        "openManuscript": "Open the manuscript",
+        "openFlow": "Open the flow",
+        "writeScene": "Write “{title}”",
+        "openChecks": "Open the flow checks",
+        "reviseScene": "Revise “{title}”",
+        "writePurpose": "Write the purpose of “{chapter}”",
+        "openStrand": "Open “{name}”",
+        "openVariables": "Open the variables",
+        "openAnalysis": "Open the analysis",
+        "finishScene": "Reread “{title}”",
+        "export": "Export",
+        "game": {
+          "openStrands": "Open storylines and quests",
+          "openManuscript": "Open the script"
+        }
+      },
+      "loadError": "The path did not load."
+    },
+    "demo": {
+      "text": "This is an example project: change it as you like, delete it when you no longer need it.",
+      "delete": "Delete the example",
+      "dismiss": "Hide this notice"
+    },
+    "structure": "Structure “{name}” created: {chapters} in {parts} and {strands}."
+  }
+}

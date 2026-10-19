@@ -1,0 +1,61 @@
+{
+  "world": {
+    "hub": {
+      "novel": {
+        "intro": "The world of the story: characters, groups, locations and objects, all connected.",
+        "question": "Start with someone who wants something: the protagonist."
+      },
+      "game": {
+        "intro": "The world of the game: characters, factions, locations and items, all connected.",
+        "question": "Start with whoever the player meets first."
+      },
+      "startWithCharacters": "Start with the characters",
+      "allCharacters": "All characters",
+      "noCharacters": "Nobody is on stage yet.",
+      "addCharacter": "Add a character",
+      "nothingYet": "Nothing yet",
+      "relation": "{from} and {to}"
+    },
+    "list": {
+      "actionsFor": "Actions for {name}",
+      "moveTop": "Move to top",
+      "moveBottom": "Move to bottom",
+      "trash": "Move to trash",
+      "moved": "{name}: now in position {position} of {total}.",
+      "filter": "Filter",
+      "filterByNameOrKind": "Filter by name or kind",
+      "filterByNameKindOrPlace": "Filter by name, kind or place",
+      "noMatch": "Nothing matches “{q}”.",
+      "clearFilter": "Show all",
+      "wayOut": "Back to the world",
+      "hideIntro": "Don't show again"
+    },
+    "sheet": {
+      "more": "More actions",
+      "notFoundTitle": "Nothing here",
+      "notFound": "It may be in the trash: you can restore it from there.",
+      "backToList": "Back to the list",
+      "openTrash": "Open the trash",
+      "notesPlaceholder": "Everything else: ideas, doubts, things to check."
+    },
+    "picker": {
+      "search": "Search by name",
+      "nobody": "There is nothing left to add.",
+      "noMatch": "Nothing matches."
+    },
+    "memberships": {
+      "novel": {
+        "add": "Add to a group",
+        "empty": "Not part of any group.",
+        "role": "role in the group",
+        "remove": "Remove from {name}"
+      },
+      "game": {
+        "add": "Add to a faction",
+        "empty": "Not part of any faction.",
+        "role": "role in the faction",
+        "remove": "Remove from {name}"
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "analysis": {
+    "description": "How characters, places and narrative strands are spread across the chapters: who is there, where, and how much each chapter weighs.",
+    "descriptionGame": "How characters, places, storylines and quests are spread across the chapters of the script.",
+    "meta": "{chapters}, {scenes}, {words}",
+    "tabs": {
+      "lengths": "Lengths",
+      "pov": "Points of view",
+      "status": "Status",
+      "game": "Game",
+      "label": "Analysis section"
+    },
+    "empty": {
+      "title": "Analysis shows how characters, places and narrative strands are spread across the chapters: it needs at least one chapter and one scene.",
+      "titleGame": "Analysis shows how characters, places and quests are spread across the chapters: it needs at least one chapter and one scene.",
+      "guide": "As the story takes shape, here you see who appears in each chapter, where it happens, whose point of view tells it and how long it is: the quickest way to notice a forgotten character or a chapter that weighs too much.",
+      "toManuscript": "Go to the {manuscript}",
+      "characters": "No characters yet: once you create one and mention it in a scene, you will see here where it appears.",
+      "locations": "No locations yet: once you create one and use it in a scene, you will see here which chapters it returns in.",
+      "objects": "No objects yet: once you create one and mention it in a scene, you will see here where it appears.",
+      "objectsGame": "No items yet: once you create one and mention it in a scene, you will see here where it appears.",
+      "strands": "No narrative strands yet: once you create one and assign it to scenes, you will see here how it runs through the chapters.",
+      "strandsGame": "No storylines or quests yet: once you create one and assign it to scenes, you will see here how it runs through the chapters."
+    },
+    "lengths": {
+      "average": "On average {chapter} per chapter and {scene} per scene.",
+      "chapterRange": "The longest chapter is “{longest}”, {longestWords}; the shortest is “{shortest}”, {shortestWords}.",
+      "longestScene": "The longest scene is “{title}”, {words}.",
+      "byChapter": "Chapter by chapter",
+      "showScenes": "Show {scenes}",
+      "partTotals": "{scenes}, {words}",
+      "longest": "the longest",
+      "shortest": "the shortest"
+    },
+    "matrix": {
+      "total": "Total",
+      "cell": "{row} in {chapter}: {n} scene | {row} in {chapter}: {n} scenes",
+      "chapterScenes": "Scenes in the chapter",
+      "legend": "Chapters",
+      "legendParts": "{parts} and {chapters}",
+      "caption": "{what} by chapter, in number of scenes",
+      "presence": "{present} of {total} appears in at least one scene. | {present} of {total} appear in at least one scene.",
+      "absent": "Not on stage yet: {names}.",
+      "more": "one more | {n} more",
+      "moreFeminine": "one more | {n} more",
+      "column": "{term} {n}, {title}"
+    },
+    "characters": {
+      "showMinor": "Show the minor character | Show the {n} minor characters"
+    },
+    "pov": {
+      "unset": "Not set",
+      "nobody": "Nobody",
+      "most": "The most used point of view: {pov}, {n} of {total}.",
+      "values": "Point of view by chapter",
+      "value": "Point of view",
+      "characters": "POV character by chapter"
+    },
+    "status": {
+      "count": {
+        "planned": "{n} planned | {n} planned",
+        "draft": "{n} draft | {n} drafts",
+        "revised": "{n} revised | {n} revised",
+        "final": "{n} final | {n} final"
+      },
+      "final": "Final scenes: {n}%.",
+      "header": "Status",
+      "caption": "Scene status by chapter"
+    },
+    "game": {
+      "noAct": "No act",
+      "kindsByAct": "Scene kinds by {act}",
+      "kindsByChapter": "Scene kinds by chapter",
+      "kindsHint": "The rhythm of the game: how many scenes are watched, how many are played, how many are spoken.",
+      "kind": "Scene kind",
+      "actScenes": "Scenes per {act}",
+      "choices": "Choices and branches",
+      "choicesSummary": "{choices} across {scenes}.",
+      "choiceCount": "{n} choice | {n} choices",
+      "branchPoints": "No scene opens more than one path. | {n} scene opens more than one path. | {n} scenes open more than one path.",
+      "start": "Start",
+      "continues": "Continue",
+      "unreachable": "Unreachable scene",
+      "deadEnd": "Dead end",
+      "incoming": "{n} incoming | {n} incoming",
+      "noEndings": "No scene is an ending yet: mark where the game can end in the scene details.",
+      "reachable": "Reachable",
+      "unreachableEnding": "Unreachable",
+      "speakers": "Lines and words per character",
+      "reading": "Reading the lines.",
+      "speakersSummary": "{speakers} speak, in {lines}.",
+      "speakerCount": "{n} character | {n} characters",
+      "lineCount": "{n} line | {n} lines",
+      "noLines": "No lines yet: write them in the scenes with the Line block, and here you will see who speaks and how much.",
+      "unattributed": "{n} line does not say who speaks. | {n} lines do not say who speaks.",
+      "readFailed": "The lines could not be read.",
+      "inScenes": "in {scenes}"
+    }
+  }
+}

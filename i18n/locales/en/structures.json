@@ -1,0 +1,613 @@
+{
+  "structures": {
+    "three_acts": {
+      "name": "Three-act structure",
+      "description": "The classic shape: setup, confrontation and resolution, hinged on two turning points. It fits almost any story, and it's the natural place to start if this is your first novel.",
+      "parts": {
+        "act_1": "Act one: setup",
+        "act_2": "Act two: confrontation",
+        "act_3": "Act three: resolution"
+      },
+      "chapters": {
+        "hook": {
+          "title": "The hook",
+          "reason": "The opening pages: an image, a voice or a question that makes the reader keep going. Show the protagonist doing something that reveals who they are."
+        },
+        "setup": {
+          "title": "The ordinary world",
+          "reason": "The protagonist's life before everything changes: what they want, what they lack, what they stand to lose. Plant the seeds that will pay off later."
+        },
+        "inciting_incident": {
+          "title": "The inciting incident",
+          "reason": "The event that upsets the balance and sets the story moving. From here on, the protagonist can't look away."
+        },
+        "first_turning_point": {
+          "title": "The first turning point",
+          "reason": "The protagonist commits and crosses a threshold with no way back. The first act ends here, about a quarter of the way in."
+        },
+        "rising_action": {
+          "title": "Rising action",
+          "reason": "Every attempt opens up a new problem. Allies, enemies and tests raise the stakes one step at a time."
+        },
+        "midpoint": {
+          "title": "The midpoint",
+          "reason": "A revelation or a reversal changes what the story is about: the protagonist stops reacting and starts acting."
+        },
+        "escalation": {
+          "title": "Closing in",
+          "reason": "The opposing forces regroup and tighten the net. The protagonist's flaws start to cost them dearly."
+        },
+        "crisis": {
+          "title": "The crisis",
+          "reason": "All seems lost: the plan fails, something precious breaks. Out of the crisis comes the decision that opens the third act."
+        },
+        "climax": {
+          "title": "The climax",
+          "reason": "The decisive confrontation, where the protagonist puts everything they've learned on the line. The story's central question gets its answer."
+        },
+        "resolution": {
+          "title": "The resolution",
+          "reason": "The new balance after the storm. Show what has changed, in the world and in the protagonist."
+        }
+      },
+      "strands": {
+        "main_plot": {
+          "name": "Main plot",
+          "description": "The outer story: the protagonist's goal and the obstacles in the way."
+        },
+        "relationship_subplot": {
+          "name": "Relationship subplot",
+          "description": "A bond (love, friendship, rivalry) that grows alongside the main plot and often carries the theme."
+        },
+        "protagonist_arc": {
+          "name": "Protagonist's arc",
+          "description": "The inner change, from the lie they believe to the truth they discover."
+        }
+      }
+    },
+    "heros_journey": {
+      "name": "The hero's journey",
+      "description": "Christopher Vogler's twelve stages, drawn from Joseph Campbell's work on myth: the hero leaves the ordinary world, survives the hardest of ordeals and comes home with something to give. It suits adventure, fantasy, coming-of-age stories and many games.",
+      "parts": {
+        "departure": "Departure",
+        "initiation": "Initiation",
+        "return": "Return"
+      },
+      "chapters": {
+        "ordinary_world": {
+          "title": "The ordinary world",
+          "reason": "The hero in everyday life, with a lack or a restlessness the story will come to touch. The contrast with the special world starts here."
+        },
+        "call_to_adventure": {
+          "title": "The call to adventure",
+          "reason": "A problem, a challenge or a stranger breaks the routine and asks the hero to set out."
+        },
+        "refusal_of_the_call": {
+          "title": "Refusal of the call",
+          "reason": "Fear gets in the way: the hero hesitates, makes excuses or says no. It shows what leaving will cost."
+        },
+        "meeting_the_mentor": {
+          "title": "Meeting the mentor",
+          "reason": "A wise figure offers advice, a gift or the confidence that's missing. The mentor can prepare the hero, but can't make the journey for them."
+        },
+        "crossing_the_threshold": {
+          "title": "Crossing the first threshold",
+          "reason": "The hero commits and steps into the special world. There's no going back."
+        },
+        "tests_allies_enemies": {
+          "title": "Tests, allies, enemies",
+          "reason": "In the new world the hero learns the rules, tests their skills and finds out whom to trust."
+        },
+        "approach": {
+          "title": "Approach to the inmost cave",
+          "reason": "Preparing for the greatest test: plans, doubts, a moment of calm before the storm."
+        },
+        "ordeal": {
+          "title": "The ordeal",
+          "reason": "The hero faces their greatest fear and brushes with death, real or symbolic. Part of the old self has to die for something new to be born."
+        },
+        "reward": {
+          "title": "The reward",
+          "reason": "Having survived, the hero seizes what they came for: an object, a truth, a reconciliation. Time to celebrate, but not to drop their guard."
+        },
+        "road_back": {
+          "title": "The road back",
+          "reason": "The consequences of the ordeal give chase. The hero must choose to return, often with danger close behind."
+        },
+        "resurrection": {
+          "title": "The resurrection",
+          "reason": "The final and hardest test, on the threshold of home. The hero proves the change is real."
+        },
+        "return_with_elixir": {
+          "title": "Return with the elixir",
+          "reason": "The hero comes home bearing something that transforms the ordinary world: a gift, knowledge, a new freedom."
+        }
+      },
+      "strands": {
+        "outer_journey": {
+          "name": "The outer journey",
+          "description": "The concrete stages of the adventure, from the call to the return."
+        },
+        "inner_journey": {
+          "name": "The inner journey",
+          "description": "The hero's transformation: what they must let go of, and what they bring home."
+        },
+        "mentor_bond": {
+          "name": "The mentor",
+          "description": "The bond with the hero's guide, from the first piece of advice to the moment the hero has to manage alone."
+        }
+      }
+    },
+    "save_the_cat": {
+      "name": "Save the Cat",
+      "description": "Blake Snyder's fifteen beats, built for screenwriting and adapted for novels by Jessica Brody. It works best for stories with a strong protagonist and a clear transformation, from crime to romantic comedy.",
+      "parts": {
+        "thesis": "Act one: thesis",
+        "antithesis": "Act two: antithesis",
+        "synthesis": "Act three: synthesis"
+      },
+      "chapters": {
+        "opening_image": {
+          "title": "Opening image",
+          "reason": "A snapshot of the protagonist and their world before the change. The final image will mirror it."
+        },
+        "theme_stated": {
+          "title": "Theme stated",
+          "reason": "Someone, almost in passing, states the truth the protagonist will have to learn. For now, the protagonist isn't listening."
+        },
+        "setup": {
+          "title": "Setup",
+          "reason": "The ordinary world, the people who matter and the flaws that need fixing. Everything that will have to change is introduced here."
+        },
+        "catalyst": {
+          "title": "Catalyst",
+          "reason": "An event turns the protagonist's life upside down: news, a meeting, a loss. There's no returning to how things were."
+        },
+        "debate": {
+          "title": "Debate",
+          "reason": "The protagonist hesitates: what should they do? Doubt and resistance show what change will cost."
+        },
+        "break_into_two": {
+          "title": "Break into two",
+          "reason": "An active choice: the protagonist leaves the old world and enters the new one, the upside-down world of the antithesis."
+        },
+        "b_story": {
+          "title": "B story",
+          "reason": "A new character or relationship arrives (a love interest, a friend, a mentor) who carries the theme and helps the protagonist change."
+        },
+        "fun_and_games": {
+          "title": "Fun and games",
+          "reason": "The promise of the premise, delivered: the scenes readers picked up the book for, with the protagonist finding their feet in the new world."
+        },
+        "midpoint": {
+          "title": "Midpoint",
+          "reason": "A false victory or a false defeat: the fun is over and the stakes go up. This is often where the A and B stories cross."
+        },
+        "bad_guys_close_in": {
+          "title": "Bad guys close in",
+          "reason": "Outside forces tighten the net while the protagonist's old flaws resurface. Alliances begin to crack."
+        },
+        "all_is_lost": {
+          "title": "All is lost",
+          "reason": "The lowest point: a defeat that feels final, often with a whiff of death (a person, a thing, a dream)."
+        },
+        "dark_night_of_the_soul": {
+          "title": "Dark night of the soul",
+          "reason": "The protagonist reckons with the loss and with themselves. From rock bottom comes the missing insight."
+        },
+        "break_into_three": {
+          "title": "Break into three",
+          "reason": "The A and B stories fuse into a solution: the protagonist knows what to do, and now does it for the right reasons."
+        },
+        "finale": {
+          "title": "Finale",
+          "reason": "The protagonist puts the lesson into practice, tackles the problem with what they've learned and changes the world around them."
+        },
+        "final_image": {
+          "title": "Final image",
+          "reason": "The mirror of the opening image: the same world, a different person. Proof that the change has happened."
+        }
+      },
+      "strands": {
+        "a_story": {
+          "name": "A story",
+          "description": "The outer plot: the concrete problem the protagonist has to solve."
+        },
+        "b_story": {
+          "name": "B story",
+          "description": "The relationship that carries the theme: it's through this bond that the protagonist learns to change."
+        },
+        "transformation": {
+          "name": "Transformation",
+          "description": "The protagonist's arc, from the flaw in the opening image to the person in the final one."
+        }
+      }
+    },
+    "seven_point": {
+      "name": "Seven-point structure",
+      "description": "Dan Wells's method: decide the ending and the beginning first, as opposites, then the points that carry you from one to the other. It's handy if you like to plan backwards, and for series, where every subplot can have seven points of its own.",
+      "parts": {
+        "beginning": "Beginning",
+        "middle": "Middle",
+        "end": "End"
+      },
+      "chapters": {
+        "hook": {
+          "title": "Hook",
+          "reason": "The protagonist in the opposite state to the ending. If they end up brave, here fear is in charge."
+        },
+        "plot_turn_1": {
+          "title": "First plot turn",
+          "reason": "Something changes and sets the story in motion: a meeting, a discovery, a call. The protagonist moves from the old world into the conflict."
+        },
+        "pinch_1": {
+          "title": "First pinch",
+          "reason": "The antagonist or the opposing forces show their teeth. The danger turns real and forces the protagonist to act."
+        },
+        "midpoint": {
+          "title": "Midpoint",
+          "reason": "The protagonist stops reacting and starts acting, choosing to face the conflict instead of enduring it."
+        },
+        "pinch_2": {
+          "title": "Second pinch",
+          "reason": "The hardest blow: the plan fails, an ally falls, hope seems gone. The protagonist is left with nothing to lean on."
+        },
+        "plot_turn_2": {
+          "title": "Second plot turn",
+          "reason": "The protagonist finds the final piece (a truth, a skill, a person) that makes the ending possible."
+        },
+        "resolution": {
+          "title": "Resolution",
+          "reason": "The climax and its outcome: the protagonist has become the opposite of who they were at the hook. Wells suggests designing it first."
+        }
+      },
+      "strands": {
+        "main_plot": {
+          "name": "Main plot",
+          "description": "The line that runs from the hook to the resolution."
+        },
+        "protagonist_arc": {
+          "name": "Protagonist's arc",
+          "description": "The shift from the starting state to its opposite, marked by the same seven points."
+        },
+        "secondary_plot": {
+          "name": "Subplot",
+          "description": "A secondary line with its own seven points, woven into the main one: a romance, an investigation, a rivalry."
+        }
+      }
+    },
+    "freytag": {
+      "name": "Freytag's pyramid",
+      "description": "The five-act pattern Gustav Freytag drew from classical tragedy: tension climbs to a peak, then falls towards catastrophe. It suits rise-and-fall stories, tragedies and novels with a bitter ending.",
+      "parts": {
+        "act_1": "Exposition",
+        "act_2": "Rising action",
+        "act_3": "Climax",
+        "act_4": "Falling action",
+        "act_5": "Catastrophe"
+      },
+      "chapters": {
+        "introduction": {
+          "title": "The world and its people",
+          "reason": "Time, place and the balance of power. We need to know what's at stake before anything moves."
+        },
+        "exciting_force": {
+          "title": "The exciting force",
+          "reason": "The first spark of conflict: a decision, an insult, a desire that sets the protagonist on a collision course."
+        },
+        "complications": {
+          "title": "Complications",
+          "reason": "Obstacles pile up and the two sides take shape. Every scene raises the tension a notch."
+        },
+        "escalation": {
+          "title": "Mounting tension",
+          "reason": "The protagonist advances, and the closer they get, the more they have to lose."
+        },
+        "climax": {
+          "title": "The peak",
+          "reason": "The protagonist reaches the height of their power or success and takes the decisive action. From here, the story changes direction."
+        },
+        "reversal": {
+          "title": "The reversal",
+          "reason": "The consequences of the decisive action turn against the one who took it. Fortune's wheel turns."
+        },
+        "tragic_force": {
+          "title": "The tragic force",
+          "reason": "The event that sets the fall in motion: a mistake, a revelation, an enemy's return. From here the end becomes inevitable."
+        },
+        "final_suspense": {
+          "title": "The final suspense",
+          "reason": "Just before the end, a way out seems to open. Freytag called it the moment of final suspense, and it keeps everyone holding their breath."
+        },
+        "catastrophe": {
+          "title": "The fall",
+          "reason": "The protagonist's ruin, or the defeat of everything they fought for. The conflict ends, usually at the highest price."
+        },
+        "denouement": {
+          "title": "Denouement",
+          "reason": "The last knots come loose and a new order remains. What's left for those still standing?"
+        }
+      },
+      "strands": {
+        "main_action": {
+          "name": "The main action",
+          "description": "The protagonist's rise and fall, from the exciting force to the catastrophe."
+        },
+        "counter_action": {
+          "name": "The counter-action",
+          "description": "The line of the opposing forces: what the antagonist is plotting while the protagonist rises."
+        },
+        "tragic_arc": {
+          "name": "The tragic arc",
+          "description": "The flaw or mistake that leads the protagonist to ruin."
+        }
+      }
+    },
+    "kishotenketsu": {
+      "name": "Kishōtenketsu",
+      "description": "The four-part structure of Chinese and Japanese storytelling: introduction, development, twist and conclusion, with no need for a central conflict. It's ideal for quiet stories, short fiction, slice-of-life and stories that rely on surprise rather than struggle.",
+      "parts": {
+        "ki": "Ki: introduction",
+        "sho": "Shō: development",
+        "ten": "Ten: twist",
+        "ketsu": "Ketsu: conclusion"
+      },
+      "chapters": {
+        "world": {
+          "title": "The world",
+          "reason": "Introduce the characters, the place and the situation calmly, with no crisis. Readers should feel at home."
+        },
+        "routine": {
+          "title": "The rhythm of days",
+          "reason": "Habits, gestures, small pleasures: a balance that matters precisely because it seems stable."
+        },
+        "deepening": {
+          "title": "Deepening",
+          "reason": "The development expands what we know without overturning it: new details, new shades."
+        },
+        "bonds": {
+          "title": "Bonds",
+          "reason": "The relationships between the characters grow, and so does our affection for them. Everything prepares the ground for the twist."
+        },
+        "twist": {
+          "title": "The unexpected",
+          "reason": "Something arrives that seems to have nothing to do with the rest: another place, another character, another point of view. It isn't a conflict, it's a shift."
+        },
+        "new_perspective": {
+          "title": "A different light",
+          "reason": "The twist casts the first half in a new light. The connection starts to show."
+        },
+        "convergence": {
+          "title": "The connection",
+          "reason": "The two elements meet and explain each other. This is the moment of understanding."
+        },
+        "new_harmony": {
+          "title": "A new harmony",
+          "reason": "The conclusion reconciles the parts in a new balance, different from the first and richer. Often a single image is enough."
+        }
+      },
+      "strands": {
+        "everyday_thread": {
+          "name": "The everyday thread",
+          "description": "The characters' lives, introduced and developed in the first two parts."
+        },
+        "unexpected_thread": {
+          "name": "The unexpected thread",
+          "description": "The element that arrives with the twist, seemingly unrelated to everything else."
+        },
+        "new_understanding": {
+          "name": "The new understanding",
+          "description": "The change in perspective, the protagonist's or the reader's, that the conclusion makes possible."
+        }
+      }
+    },
+    "game_three_acts": {
+      "name": "Three acts for games",
+      "description": "The three-act structure rethought for games: story and mechanics move forward together, from the tutorial to the final battle. It suits linear and mission-based games, whether action, adventure or RPG.",
+      "parts": {
+        "act_1": "Act one: the promise",
+        "act_2": "Act two: the world opens up",
+        "act_3": "Act three: the reckoning"
+      },
+      "chapters": {
+        "cold_open": {
+          "title": "The cold open",
+          "reason": "The first minutes: a playable moment or a short cutscene that sets the tone and makes a promise. Better to put the controller in the player's hands early."
+        },
+        "tutorial": {
+          "title": "Learning by playing",
+          "reason": "The first mechanics, taught inside the story rather than beside it. Every action the player learns should say something about the protagonist or the world."
+        },
+        "inciting_incident": {
+          "title": "The inciting incident",
+          "reason": "The event that gives the player a goal and a reason to care about it. The main quest starts here."
+        },
+        "leaving_home": {
+          "title": "Leaving home",
+          "reason": "The protagonist leaves the starting area and the world opens out. The player understands there's no going back."
+        },
+        "exploration": {
+          "title": "Exploration",
+          "reason": "New regions, new mechanics, the first side quests. The player sets the pace while the story holds the course."
+        },
+        "companions": {
+          "title": "Companions",
+          "reason": "The characters who join the journey, each with a motive and a story to unlock. The party becomes the emotional heart of the game."
+        },
+        "revelation": {
+          "title": "The revelation",
+          "reason": "Halfway through, a discovery changes the meaning of the quest: the enemy isn't who they seemed, the goal was something else."
+        },
+        "great_loss": {
+          "title": "The fall",
+          "reason": "A heavy loss: a companion, a base, a power. Often it's a mechanical loss too, one the player feels in their hands."
+        },
+        "point_of_no_return": {
+          "title": "Point of no return",
+          "reason": "The last chance to finish side quests and get ready. Warn the player: from here, it's all the way to the end."
+        },
+        "final_confrontation": {
+          "title": "The final confrontation",
+          "reason": "The battle or challenge that asks the player for everything they've learned, in both mechanics and story."
+        },
+        "ending": {
+          "title": "The ending",
+          "reason": "The story's outcome, weighted by the choices made. If the game has several endings, this is where they split."
+        },
+        "epilogue": {
+          "title": "The epilogue",
+          "reason": "What remains of the world and its people after the credits. It can open onto the post-game or a sequel."
+        }
+      },
+      "strands": {
+        "main_quest": {
+          "name": "Main quest",
+          "description": "The line that runs from the inciting incident to the final confrontation."
+        },
+        "companion_quests": {
+          "name": "Companion quests",
+          "description": "The party members' personal stories, unlocked in act two: they deepen the bonds and can change the ending."
+        },
+        "world_side_quests": {
+          "name": "Tales of the world",
+          "description": "Side quests that tell the story of the world's places, factions and past, and reward those who explore."
+        }
+      }
+    },
+    "hub_and_quests": {
+      "name": "Hub and quests",
+      "description": "A central place the player keeps coming back to, from which the main questline and the side quests set out. It suits RPGs, roguelites and any game with a base that changes along with the story.",
+      "parts": {
+        "arrival": "Arrival",
+        "questline": "The main questline",
+        "finale": "Finale"
+      },
+      "chapters": {
+        "first_sight": {
+          "title": "First sight of the hub",
+          "reason": "The player arrives at the place that will become home. The first impression should say who lives here, what's missing and why it's worth staying."
+        },
+        "meet_the_residents": {
+          "title": "The residents",
+          "reason": "The people of the hub, each with a service to offer and a story to tell. The first side quests are born here."
+        },
+        "first_assignment": {
+          "title": "The first assignment",
+          "reason": "The main quest takes shape: a goal, a reward, a reason to head out. The player learns the loop of leaving and coming back."
+        },
+        "mission_one": {
+          "title": "The first mission",
+          "reason": "The first major outing. It teaches the rules of the world outside and ends with a lead that points further on."
+        },
+        "return_to_hub": {
+          "title": "Back at the hub",
+          "reason": "The hub reacts to what the player has done: new dialogue, unlocked services, side quests opening up. The world notices."
+        },
+        "mission_two": {
+          "title": "The second mission",
+          "reason": "The stakes rise and the map grows. Completed side quests can make the road easier, or different."
+        },
+        "hub_under_threat": {
+          "title": "The hub under threat",
+          "reason": "The enemy comes home: an attack, a betrayal, a resident who vanishes. Now the player has something to defend."
+        },
+        "mission_three": {
+          "title": "The third mission",
+          "reason": "The truth behind the main questline comes to light. The player learns what the final mission will take."
+        },
+        "final_preparations": {
+          "title": "Final preparations",
+          "reason": "The last chance to wrap up side quests, rally allies and say goodbye. Everything the player has built in the hub pays off here."
+        },
+        "final_mission": {
+          "title": "The final mission",
+          "reason": "The mission that closes the main questline, carrying the weight of every choice made along the way."
+        },
+        "changed_hub": {
+          "title": "The changed hub",
+          "reason": "Coming home after the end: who stayed, who left, what the place has become because of the player."
+        }
+      },
+      "strands": {
+        "main_questline": {
+          "name": "Main questline",
+          "description": "The missions that lead from the first assignment to the final one."
+        },
+        "hub_stories": {
+          "name": "Hub stories",
+          "description": "Side quests tied to the residents: each one changes something in the place and in their relationship with the player."
+        },
+        "contracts": {
+          "name": "Jobs and bounties",
+          "description": "Short, repeatable quests from a notice board or a client that provide resources and tell the story of the world beyond the hub."
+        }
+      }
+    },
+    "branching_endings": {
+      "name": "Branching story, three endings",
+      "description": "A shared trunk where the player's choices set the variables, then a fork into three branches, each with its own ending. It suits narrative adventures, RPGs and gamebooks.",
+      "parts": {
+        "trunk": "The shared trunk",
+        "hope_branch": "The branch of hope",
+        "compromise_branch": "The branch of compromise",
+        "fall_branch": "The branch of the fall"
+      },
+      "chapters": {
+        "prologue": {
+          "title": "The prologue",
+          "reason": "The world, the protagonist and the question the endings will answer. A first small choice tells the player, right away, that their decisions matter."
+        },
+        "early_choices": {
+          "title": "Early choices",
+          "reason": "Decisions that seem small (who to save, whom to believe, what to keep) and that set the variables the endings depend on."
+        },
+        "convergence": {
+          "title": "The bottleneck",
+          "reason": "The paths rejoin at an event every player goes through, each carrying the consequences of their own choices."
+        },
+        "fork": {
+          "title": "The fork",
+          "reason": "The decisive choice, the one with no way back. The variables gathered so far can open or close some of the branches."
+        },
+        "hope_path": {
+          "title": "The road of hope",
+          "reason": "The protagonist chooses trust and sacrifice. The allies won in the trunk now make the difference."
+        },
+        "hope_ending": {
+          "title": "The bright ending",
+          "reason": "The goal reached and the need fulfilled. It has to be earned through the hardest choices."
+        },
+        "compromise_path": {
+          "title": "The road of compromise",
+          "reason": "The protagonist gets what they want but gives up something that matters. Every victory leaves a bill to pay."
+        },
+        "compromise_ending": {
+          "title": "The bittersweet ending",
+          "reason": "A victory at a price: the world is saved, or nearly, but something is lost for good."
+        },
+        "fall_path": {
+          "title": "The road to the fall",
+          "reason": "The player's choices have pushed the protagonist towards fear, power or revenge. The game lets them go all the way down."
+        },
+        "fall_ending": {
+          "title": "The dark ending",
+          "reason": "The fall complete, or defeat. A bitter ending that stays true to the player's choices is worth as much as the bright one."
+        }
+      },
+      "strands": {
+        "main_quest": {
+          "name": "Main quest",
+          "description": "The line that runs through the trunk and on down each branch to its ending."
+        },
+        "companions_fate": {
+          "name": "The companions' fate",
+          "description": "Side quests that decide who stays at the protagonist's side. How they turn out can open or close a branch."
+        },
+        "hidden_truth": {
+          "name": "The hidden truth",
+          "description": "An optional side quest that reveals what's really going on. It's often the key to the best ending."
+        }
+      }
+    }
+  }
+}

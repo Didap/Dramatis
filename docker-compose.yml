@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: dramatis-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: dramatis
+      POSTGRES_PASSWORD: dramatis
+      POSTGRES_DB: dramatis
+    ports:
+      - '5435:5432'
+    volumes:
+      - dramatis_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U dramatis -d dramatis']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  dramatis_pgdata:

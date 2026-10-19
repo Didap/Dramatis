@@ -1,0 +1,613 @@
+{
+  "structures": {
+    "three_acts": {
+      "name": "Tre atti",
+      "description": "La forma classica: impostazione, confronto e risoluzione, tenuti insieme da due svolte. Si adatta a quasi ogni storia ed è il punto di partenza naturale se è il tuo primo romanzo.",
+      "parts": {
+        "act_1": "Primo atto: l'impostazione",
+        "act_2": "Secondo atto: il confronto",
+        "act_3": "Terzo atto: la risoluzione"
+      },
+      "chapters": {
+        "hook": {
+          "title": "L'aggancio",
+          "reason": "Le prime pagine: un'immagine, una voce o una domanda che convince a proseguire. Mostra il protagonista mentre fa qualcosa che ne rivela il carattere."
+        },
+        "setup": {
+          "title": "Il mondo ordinario",
+          "reason": "La vita del protagonista prima che tutto cambi: cosa vuole, cosa non ha, cosa ha da perdere. Qui si piantano i semi che daranno frutto più avanti."
+        },
+        "inciting_incident": {
+          "title": "L'incidente scatenante",
+          "reason": "L'evento che rompe l'equilibrio e mette in moto la storia. Da qui il protagonista non può più fare finta di niente."
+        },
+        "first_turning_point": {
+          "title": "La prima svolta",
+          "reason": "Il protagonista sceglie di agire e varca una soglia da cui non si torna indietro. Il primo atto si chiude qui, più o meno a un quarto della storia."
+        },
+        "rising_action": {
+          "title": "Le complicazioni",
+          "reason": "Ogni tentativo apre un problema nuovo. Alleati, nemici e prove alzano la posta un passo alla volta."
+        },
+        "midpoint": {
+          "title": "Il punto di mezzo",
+          "reason": "Una rivelazione o un rovesciamento cambia il senso della storia: il protagonista smette di reagire e comincia ad agire."
+        },
+        "escalation": {
+          "title": "La stretta",
+          "reason": "Le forze contrarie si riorganizzano e stringono il cerchio. I difetti del protagonista cominciano a costare cari."
+        },
+        "crisis": {
+          "title": "La crisi",
+          "reason": "Tutto sembra perduto: il piano fallisce, qualcosa di prezioso va in pezzi. Dalla crisi nasce la decisione che apre il terzo atto."
+        },
+        "climax": {
+          "title": "Il climax",
+          "reason": "Lo scontro decisivo, in cui il protagonista mette in gioco tutto ciò che ha imparato. La domanda centrale della storia trova la sua risposta."
+        },
+        "resolution": {
+          "title": "La risoluzione",
+          "reason": "Il nuovo equilibrio dopo la tempesta. Mostra cosa è cambiato, nel mondo e nel protagonista."
+        }
+      },
+      "strands": {
+        "main_plot": {
+          "name": "Trama principale",
+          "description": "La vicenda esterna: l'obiettivo del protagonista e gli ostacoli che incontra."
+        },
+        "relationship_subplot": {
+          "name": "Sottotrama di relazione",
+          "description": "Un legame (amore, amicizia, rivalità) che cresce accanto alla trama principale e spesso ne porta il tema."
+        },
+        "protagonist_arc": {
+          "name": "Arco del protagonista",
+          "description": "Il cambiamento interiore, dalla bugia in cui crede alla verità che scopre."
+        }
+      }
+    },
+    "heros_journey": {
+      "name": "Il viaggio dell'eroe",
+      "description": "Le dodici tappe di Christopher Vogler, tratte dagli studi di Joseph Campbell sul mito: chi parte lascia il mondo ordinario, supera la prova più dura e torna con qualcosa da offrire. È adatto alle avventure, al fantasy, ai romanzi di formazione e a molti videogiochi.",
+      "parts": {
+        "departure": "La partenza",
+        "initiation": "L'iniziazione",
+        "return": "Il ritorno"
+      },
+      "chapters": {
+        "ordinary_world": {
+          "title": "Il mondo ordinario",
+          "reason": "L'eroe nella vita di sempre, con una mancanza o un'inquietudine che la storia verrà a toccare. Il contrasto con il mondo straordinario comincia qui."
+        },
+        "call_to_adventure": {
+          "title": "La chiamata all'avventura",
+          "reason": "Un problema, una sfida o un incontro rompe la routine e chiede all'eroe di partire."
+        },
+        "refusal_of_the_call": {
+          "title": "Il rifiuto della chiamata",
+          "reason": "La paura frena: l'eroe esita, cerca scuse o rifiuta. Mostra quanto costa partire."
+        },
+        "meeting_the_mentor": {
+          "title": "L'incontro con il mentore",
+          "reason": "Una figura saggia offre un consiglio, un dono o la fiducia che manca. Il mentore prepara al viaggio, ma non può farlo al posto dell'eroe."
+        },
+        "crossing_the_threshold": {
+          "title": "Il superamento della prima soglia",
+          "reason": "L'eroe si impegna e varca il confine del mondo straordinario. Non si torna indietro."
+        },
+        "tests_allies_enemies": {
+          "title": "Prove, alleati, nemici",
+          "reason": "Nel mondo nuovo l'eroe impara le regole, mette alla prova le proprie capacità e scopre di chi fidarsi."
+        },
+        "approach": {
+          "title": "L'avvicinamento alla caverna più profonda",
+          "reason": "La preparazione alla prova più grande: piani, dubbi, un momento di quiete prima della tempesta."
+        },
+        "ordeal": {
+          "title": "La prova centrale",
+          "reason": "L'eroe affronta la paura più grande e sfiora la morte, reale o simbolica. Qualcosa del vecchio sé deve morire perché nasca qualcosa di nuovo."
+        },
+        "reward": {
+          "title": "La ricompensa",
+          "reason": "Superata la prova, l'eroe ottiene ciò che cercava: un oggetto, una verità, una riconciliazione. È il momento di festeggiare, non di abbassare la guardia."
+        },
+        "road_back": {
+          "title": "La via del ritorno",
+          "reason": "Le conseguenze della prova inseguono l'eroe. Bisogna scegliere di tornare, spesso con il pericolo alle calcagna."
+        },
+        "resurrection": {
+          "title": "La resurrezione",
+          "reason": "L'ultima prova, la più dura, sulla soglia di casa. L'eroe dimostra che il cambiamento è reale."
+        },
+        "return_with_elixir": {
+          "title": "Il ritorno con l'elisir",
+          "reason": "L'eroe torna nel mondo ordinario portando qualcosa che lo trasforma: un dono, una conoscenza, una libertà nuova."
+        }
+      },
+      "strands": {
+        "outer_journey": {
+          "name": "Il viaggio esterno",
+          "description": "Le tappe concrete dell'avventura, dalla chiamata al ritorno."
+        },
+        "inner_journey": {
+          "name": "Il viaggio interiore",
+          "description": "La trasformazione dell'eroe: cosa deve lasciare andare e cosa porta a casa."
+        },
+        "mentor_bond": {
+          "name": "Il mentore",
+          "description": "Il rapporto con chi guida l'eroe, dal primo consiglio al momento in cui bisogna cavarsela senza aiuto."
+        }
+      }
+    },
+    "save_the_cat": {
+      "name": "Save the Cat",
+      "description": "I quindici beat di Blake Snyder, nati per la sceneggiatura e adattati al romanzo da Jessica Brody. Funziona bene per le storie con un protagonista forte e una trasformazione chiara, dal giallo alla commedia romantica.",
+      "parts": {
+        "thesis": "Primo atto: la tesi",
+        "antithesis": "Secondo atto: l'antitesi",
+        "synthesis": "Terzo atto: la sintesi"
+      },
+      "chapters": {
+        "opening_image": {
+          "title": "L'immagine d'apertura",
+          "reason": "Una fotografia del protagonista e del suo mondo prima del cambiamento. L'immagine finale le farà da specchio."
+        },
+        "theme_stated": {
+          "title": "Il tema dichiarato",
+          "reason": "Qualcuno, quasi di passaggio, dice la verità che il protagonista dovrà imparare. Per ora il protagonista non la ascolta."
+        },
+        "setup": {
+          "title": "L'impostazione",
+          "reason": "Il mondo ordinario, le persone che contano e i difetti da correggere. Qui si presenta tutto ciò che dovrà cambiare."
+        },
+        "catalyst": {
+          "title": "Il catalizzatore",
+          "reason": "Un evento sconvolge la vita del protagonista: una notizia, un incontro, una perdita. Non si torna alla vita di prima."
+        },
+        "debate": {
+          "title": "Il dibattito",
+          "reason": "Il protagonista esita: cosa deve fare? Dubbi e resistenze mostrano quanto costa il cambiamento."
+        },
+        "break_into_two": {
+          "title": "L'ingresso nel secondo atto",
+          "reason": "Una scelta attiva: il protagonista lascia il vecchio mondo ed entra in quello nuovo, il mondo capovolto dell'antitesi."
+        },
+        "b_story": {
+          "title": "La storia B",
+          "reason": "Entra un personaggio o un legame nuovo (un amore, un'amicizia, un mentore) che porterà il tema e aiuterà il protagonista a cambiare."
+        },
+        "fun_and_games": {
+          "title": "Gioco e divertimento",
+          "reason": "La promessa della premessa, mantenuta: le scene per cui si è aperto il libro, il protagonista alle prese con il mondo nuovo."
+        },
+        "midpoint": {
+          "title": "Il punto di mezzo",
+          "reason": "Una falsa vittoria o una falsa sconfitta: il gioco finisce e la posta sale. Spesso è qui che la storia A e la storia B si incrociano."
+        },
+        "bad_guys_close_in": {
+          "title": "I cattivi si avvicinano",
+          "reason": "Le forze esterne stringono il cerchio, mentre nel protagonista riaffiorano i vecchi difetti. Le alleanze cominciano a incrinarsi."
+        },
+        "all_is_lost": {
+          "title": "Tutto è perduto",
+          "reason": "Il punto più basso: una sconfitta che sembra definitiva, spesso con un sentore di morte (una persona, una cosa, un sogno)."
+        },
+        "dark_night_of_the_soul": {
+          "title": "La notte buia dell'anima",
+          "reason": "Il protagonista fa i conti con la perdita e con se stesso. Dal fondo nasce l'intuizione che mancava."
+        },
+        "break_into_three": {
+          "title": "L'ingresso nel terzo atto",
+          "reason": "La storia A e la storia B si fondono in una soluzione: il protagonista sa cosa fare, e ora lo fa per le ragioni giuste."
+        },
+        "finale": {
+          "title": "Il finale",
+          "reason": "Il protagonista mette in pratica la lezione, affronta il problema con ciò che ha imparato e trasforma il mondo intorno a sé."
+        },
+        "final_image": {
+          "title": "L'immagine finale",
+          "reason": "Lo specchio dell'immagine d'apertura: lo stesso mondo, una persona diversa. La prova che il cambiamento è avvenuto."
+        }
+      },
+      "strands": {
+        "a_story": {
+          "name": "Storia A",
+          "description": "La trama esterna: il problema concreto che il protagonista deve risolvere."
+        },
+        "b_story": {
+          "name": "Storia B",
+          "description": "La relazione che porta il tema: è attraverso questo legame che il protagonista impara a cambiare."
+        },
+        "transformation": {
+          "name": "La trasformazione",
+          "description": "L'arco del protagonista, dal difetto dell'immagine d'apertura alla persona dell'immagine finale."
+        }
+      }
+    },
+    "seven_point": {
+      "name": "Struttura in sette punti",
+      "description": "Il metodo di Dan Wells: si fissano prima il finale e l'inizio, che devono essere opposti, poi i punti che portano dall'uno all'altro. È pratico per chi ama progettare a ritroso e per le serie, dove ogni sottotrama può avere i suoi sette punti.",
+      "parts": {
+        "beginning": "Inizio",
+        "middle": "Sviluppo",
+        "end": "Fine"
+      },
+      "chapters": {
+        "hook": {
+          "title": "L'aggancio",
+          "reason": "Il protagonista nella situazione opposta a quella finale. Se alla fine troverà il coraggio, qui è la paura a comandare."
+        },
+        "plot_turn_1": {
+          "title": "La prima svolta",
+          "reason": "Qualcosa cambia e mette in moto la storia: un incontro, una scoperta, una chiamata. Il protagonista passa dal mondo di prima al conflitto."
+        },
+        "pinch_1": {
+          "title": "La prima stretta",
+          "reason": "L'antagonista o le forze contrarie mostrano i denti. Il pericolo diventa concreto e costringe il protagonista ad agire."
+        },
+        "midpoint": {
+          "title": "Il punto di mezzo",
+          "reason": "Il protagonista smette di reagire e comincia ad agire: decide di affrontare il conflitto invece di subirlo."
+        },
+        "pinch_2": {
+          "title": "La seconda stretta",
+          "reason": "Il colpo più duro: il piano fallisce, un alleato cade, la speranza sembra persa. Il protagonista resta senza appoggi."
+        },
+        "plot_turn_2": {
+          "title": "La seconda svolta",
+          "reason": "Il protagonista trova l'ultimo tassello (una verità, un'abilità, una persona) che rende possibile il finale."
+        },
+        "resolution": {
+          "title": "La risoluzione",
+          "reason": "Il climax e il suo esito: il protagonista è diventato l'opposto di com'era all'aggancio. Wells consiglia di progettarla per prima."
+        }
+      },
+      "strands": {
+        "main_plot": {
+          "name": "Trama principale",
+          "description": "La linea che va dall'aggancio alla risoluzione."
+        },
+        "protagonist_arc": {
+          "name": "Arco del protagonista",
+          "description": "Il passaggio dallo stato iniziale al suo opposto, scandito dagli stessi sette punti."
+        },
+        "secondary_plot": {
+          "name": "Sottotrama",
+          "description": "Una linea secondaria con i suoi sette punti, intrecciata alla principale: un amore, un'indagine, una rivalità."
+        }
+      }
+    },
+    "freytag": {
+      "name": "Piramide di Freytag",
+      "description": "Lo schema in cinque atti che Gustav Freytag ricavò dalla tragedia classica: la tensione sale fino al culmine e poi precipita verso la catastrofe. È adatto alle storie di ascesa e caduta, alle tragedie e ai romanzi dal finale amaro.",
+      "parts": {
+        "act_1": "Esposizione",
+        "act_2": "Azione crescente",
+        "act_3": "Culmine",
+        "act_4": "Azione discendente",
+        "act_5": "Catastrofe"
+      },
+      "chapters": {
+        "introduction": {
+          "title": "Il mondo e i suoi personaggi",
+          "reason": "Il tempo, il luogo, i rapporti di forza. Bisogna capire cosa c'è in gioco prima che qualcosa si muova."
+        },
+        "exciting_force": {
+          "title": "L'elemento scatenante",
+          "reason": "La prima scintilla del conflitto: una decisione, un'offesa, un desiderio che mette il protagonista in rotta di collisione."
+        },
+        "complications": {
+          "title": "Le complicazioni",
+          "reason": "Gli ostacoli si accumulano e i due schieramenti prendono forma. Ogni scena alza un poco la tensione."
+        },
+        "escalation": {
+          "title": "La tensione sale",
+          "reason": "Il protagonista avanza, e più si avvicina alla meta più ha da perdere."
+        },
+        "climax": {
+          "title": "Il punto più alto",
+          "reason": "Il protagonista raggiunge il massimo della forza o del successo e compie l'azione decisiva. Da qui la storia cambia direzione."
+        },
+        "reversal": {
+          "title": "Il rovesciamento",
+          "reason": "Le conseguenze dell'azione decisiva si rivoltano contro chi l'ha compiuta. La fortuna gira."
+        },
+        "tragic_force": {
+          "title": "Il momento tragico",
+          "reason": "L'evento che avvia la caduta: un errore, una rivelazione, un nemico che ritorna. Da qui la fine diventa inevitabile."
+        },
+        "final_suspense": {
+          "title": "L'ultima speranza",
+          "reason": "Poco prima della fine sembra aprirsi una via d'uscita. Freytag lo chiamava il momento dell'ultima tensione: tiene tutti col fiato sospeso."
+        },
+        "catastrophe": {
+          "title": "La caduta",
+          "reason": "La rovina del protagonista, o la sconfitta di ciò per cui ha lottato. Il conflitto si chiude, di solito al prezzo più alto."
+        },
+        "denouement": {
+          "title": "Lo scioglimento",
+          "reason": "Gli ultimi nodi si sciolgono e resta un ordine nuovo. Cosa rimane a chi resta?"
+        }
+      },
+      "strands": {
+        "main_action": {
+          "name": "L'azione principale",
+          "description": "L'ascesa e la caduta del protagonista, dall'elemento scatenante alla catastrofe."
+        },
+        "counter_action": {
+          "name": "Il controgioco",
+          "description": "La linea delle forze contrarie: ciò che l'antagonista trama mentre il protagonista sale."
+        },
+        "tragic_arc": {
+          "name": "L'arco tragico",
+          "description": "Il difetto o l'errore che porta il protagonista alla rovina."
+        }
+      }
+    },
+    "kishotenketsu": {
+      "name": "Kishōtenketsu",
+      "description": "La struttura in quattro tempi della narrativa cinese e giapponese: introduzione, sviluppo, svolta e conclusione, senza bisogno di un conflitto centrale. È ideale per le storie quiete, i racconti, le storie di vita quotidiana e quelle che puntano sulla sorpresa più che sullo scontro.",
+      "parts": {
+        "ki": "Ki: introduzione",
+        "sho": "Shō: sviluppo",
+        "ten": "Ten: svolta",
+        "ketsu": "Ketsu: conclusione"
+      },
+      "chapters": {
+        "world": {
+          "title": "Il mondo",
+          "reason": "Presenta personaggi, luogo e situazione con calma, senza crisi. Chi legge deve sentirsi a casa."
+        },
+        "routine": {
+          "title": "Il ritmo dei giorni",
+          "reason": "Le abitudini, i gesti, i piccoli piaceri: un equilibrio che conta proprio perché sembra stabile."
+        },
+        "deepening": {
+          "title": "Approfondire",
+          "reason": "Lo sviluppo amplia ciò che conosciamo senza stravolgerlo: nuovi dettagli, nuove sfumature."
+        },
+        "bonds": {
+          "title": "I legami",
+          "reason": "I rapporti tra i personaggi crescono, e con loro il nostro affetto. Tutto prepara il terreno per la svolta."
+        },
+        "twist": {
+          "title": "L'elemento inatteso",
+          "reason": "Entra qualcosa che sembra non c'entrare nulla: un altro luogo, un altro personaggio, un altro punto di vista. Non è un conflitto, è uno spostamento."
+        },
+        "new_perspective": {
+          "title": "Un'altra luce",
+          "reason": "La svolta getta una luce nuova sulla prima metà. Si comincia a intuire il collegamento."
+        },
+        "convergence": {
+          "title": "Il collegamento",
+          "reason": "I due elementi si incontrano e si spiegano a vicenda. È il momento della comprensione."
+        },
+        "new_harmony": {
+          "title": "Una nuova armonia",
+          "reason": "La conclusione riconcilia le parti in un equilibrio diverso da quello iniziale, e più ricco. Spesso basta un'immagine."
+        }
+      },
+      "strands": {
+        "everyday_thread": {
+          "name": "Il filo quotidiano",
+          "description": "La vita dei personaggi, presentata e sviluppata nei primi due tempi."
+        },
+        "unexpected_thread": {
+          "name": "Il filo inatteso",
+          "description": "L'elemento che arriva con la svolta, in apparenza estraneo a tutto il resto."
+        },
+        "new_understanding": {
+          "name": "Il nuovo sguardo",
+          "description": "Il cambio di prospettiva, del protagonista o di chi legge, che la conclusione rende possibile."
+        }
+      }
+    },
+    "game_three_acts": {
+      "name": "Tre atti per il gioco",
+      "description": "La struttura in tre atti ripensata per il videogioco: storia e meccaniche avanzano insieme, dal tutorial allo scontro finale. È adatta ai giochi lineari o a missioni, d'azione, d'avventura o di ruolo.",
+      "parts": {
+        "act_1": "Primo atto: la promessa",
+        "act_2": "Secondo atto: il mondo si apre",
+        "act_3": "Terzo atto: la resa dei conti"
+      },
+      "chapters": {
+        "cold_open": {
+          "title": "L'apertura",
+          "reason": "I primi minuti: un momento giocabile o una cutscene breve che fissa il tono e fa una promessa. Meglio mettere presto il controller in mano al giocatore."
+        },
+        "tutorial": {
+          "title": "Imparare giocando",
+          "reason": "Le prime meccaniche, insegnate dentro la storia e non accanto. Ogni azione che il giocatore impara dovrebbe dire qualcosa del protagonista o del mondo."
+        },
+        "inciting_incident": {
+          "title": "L'incidente scatenante",
+          "reason": "L'evento che dà al giocatore un obiettivo e una ragione per tenerci. Da qui parte la missione principale."
+        },
+        "leaving_home": {
+          "title": "Lasciare casa",
+          "reason": "Il protagonista abbandona la zona di partenza e il mondo si allarga. Il giocatore capisce che non si torna indietro."
+        },
+        "exploration": {
+          "title": "Esplorare",
+          "reason": "Nuove regioni, nuove meccaniche, le prime missioni secondarie. Il giocatore sceglie il ritmo, la storia tiene la direzione."
+        },
+        "companions": {
+          "title": "I compagni",
+          "reason": "I personaggi che si uniscono al viaggio, ciascuno con un motivo e una storia da sbloccare. Il gruppo diventa il cuore emotivo del gioco."
+        },
+        "revelation": {
+          "title": "La rivelazione",
+          "reason": "A metà gioco una scoperta cambia il senso della missione: il nemico non è chi sembrava, l'obiettivo era un altro."
+        },
+        "great_loss": {
+          "title": "La caduta",
+          "reason": "Una perdita pesante: un compagno, una base, un potere. Spesso è anche una perdita nelle meccaniche, che il giocatore sente tra le mani."
+        },
+        "point_of_no_return": {
+          "title": "Il punto di non ritorno",
+          "reason": "L'ultima occasione per chiudere le missioni secondarie e prepararsi. Il giocatore va avvisato: da qui si va fino in fondo."
+        },
+        "final_confrontation": {
+          "title": "Lo scontro finale",
+          "reason": "La battaglia o la sfida che chiede al giocatore tutto ciò che ha imparato, nelle meccaniche e nella storia."
+        },
+        "ending": {
+          "title": "Il finale",
+          "reason": "L'esito della storia, con il peso delle scelte fatte. Se il gioco ha più finali, è qui che si separano."
+        },
+        "epilogue": {
+          "title": "L'epilogo",
+          "reason": "Cosa resta del mondo e dei personaggi dopo i titoli di coda. Può aprire al post-game o a un seguito."
+        }
+      },
+      "strands": {
+        "main_quest": {
+          "name": "Missione principale",
+          "description": "La linea che porta dall'incidente scatenante allo scontro finale."
+        },
+        "companion_quests": {
+          "name": "Missioni dei compagni",
+          "description": "Le storie personali dei membri del gruppo, da sbloccare nel secondo atto: approfondiscono i legami e possono cambiare il finale."
+        },
+        "world_side_quests": {
+          "name": "Storie del mondo",
+          "description": "Missioni secondarie che raccontano luoghi, fazioni e passato del mondo, e ricompensano chi esplora."
+        }
+      }
+    },
+    "hub_and_quests": {
+      "name": "Hub e missioni",
+      "description": "Un luogo centrale a cui il giocatore torna sempre, da cui partono la linea principale e le missioni secondarie. È adatto ai giochi di ruolo, ai roguelite e a ogni gioco con una base che cambia insieme alla storia.",
+      "parts": {
+        "arrival": "L'arrivo",
+        "questline": "La linea principale",
+        "finale": "Il finale"
+      },
+      "chapters": {
+        "first_sight": {
+          "title": "Il primo sguardo sull'hub",
+          "reason": "Il giocatore arriva nel luogo che diventerà casa. La prima impressione deve dire chi ci vive, cosa manca e perché vale la pena restare."
+        },
+        "meet_the_residents": {
+          "title": "Gli abitanti",
+          "reason": "Le persone dell'hub, ciascuna con un servizio da offrire e una storia da raccontare. Qui nascono le prime missioni secondarie."
+        },
+        "first_assignment": {
+          "title": "Il primo incarico",
+          "reason": "La missione principale prende forma: un obiettivo, una ricompensa, una ragione per uscire. Il giocatore impara il ciclo di partenza e ritorno."
+        },
+        "mission_one": {
+          "title": "La prima missione",
+          "reason": "La prima uscita importante. Insegna le regole del mondo esterno e si chiude con un indizio che porta più lontano."
+        },
+        "return_to_hub": {
+          "title": "Il ritorno all'hub",
+          "reason": "L'hub reagisce a ciò che il giocatore ha fatto: dialoghi nuovi, servizi sbloccati, missioni secondarie che si aprono. Il mondo se ne accorge."
+        },
+        "mission_two": {
+          "title": "La seconda missione",
+          "reason": "La posta sale e la mappa si allarga. Le missioni secondarie completate possono rendere la strada più facile, o diversa."
+        },
+        "hub_under_threat": {
+          "title": "L'hub in pericolo",
+          "reason": "Il nemico arriva a casa: un attacco, un tradimento, un abitante che sparisce. Ora il giocatore ha qualcosa da difendere."
+        },
+        "mission_three": {
+          "title": "La terza missione",
+          "reason": "La verità dietro la linea principale viene a galla. Il giocatore capisce cosa servirà per l'ultima missione."
+        },
+        "final_preparations": {
+          "title": "I preparativi",
+          "reason": "L'ultima occasione per chiudere le missioni secondarie, radunare gli alleati e salutare. Tutto ciò che il giocatore ha costruito nell'hub qui ripaga."
+        },
+        "final_mission": {
+          "title": "L'ultima missione",
+          "reason": "La missione che chiude la linea principale, con il peso di tutte le scelte fatte lungo la strada."
+        },
+        "changed_hub": {
+          "title": "L'hub cambiato",
+          "reason": "Il ritorno a casa dopo la fine: chi è rimasto, chi se n'è andato, cosa è diventato quel luogo grazie al giocatore."
+        }
+      },
+      "strands": {
+        "main_questline": {
+          "name": "Linea principale",
+          "description": "Le missioni che portano dal primo incarico all'ultima missione."
+        },
+        "hub_stories": {
+          "name": "Le storie dell'hub",
+          "description": "Missioni secondarie legate agli abitanti: ognuna cambia qualcosa nel luogo e nel loro rapporto con il giocatore."
+        },
+        "contracts": {
+          "name": "Incarichi e taglie",
+          "description": "Missioni brevi e ripetibili, da una bacheca o da un committente, che danno risorse e raccontano il mondo fuori dall'hub."
+        }
+      }
+    },
+    "branching_endings": {
+      "name": "Storia ramificata, tre finali",
+      "description": "Un tronco comune in cui le scelte del giocatore impostano le variabili, poi un bivio che apre tre rami, ciascuno con il suo finale. È adatta alle avventure narrative, ai giochi di ruolo e ai librogame.",
+      "parts": {
+        "trunk": "Il tronco comune",
+        "hope_branch": "Il ramo della speranza",
+        "compromise_branch": "Il ramo del compromesso",
+        "fall_branch": "Il ramo della caduta"
+      },
+      "chapters": {
+        "prologue": {
+          "title": "Il prologo",
+          "reason": "Il mondo, il protagonista e la domanda a cui i finali risponderanno. Una prima scelta, piccola, fa capire subito al giocatore che le sue decisioni contano."
+        },
+        "early_choices": {
+          "title": "Le prime scelte",
+          "reason": "Decisioni che sembrano piccole (chi salvare, a chi credere, cosa tenere) e che impostano le variabili da cui dipendono i finali."
+        },
+        "convergence": {
+          "title": "Il punto d'incontro",
+          "reason": "I percorsi si ricongiungono in un evento che ogni giocatore vive, ciascuno con le conseguenze delle proprie scelte."
+        },
+        "fork": {
+          "title": "Il bivio",
+          "reason": "La scelta decisiva, quella da cui non si torna indietro. Le variabili accumulate fin qui possono aprire o chiudere alcuni rami."
+        },
+        "hope_path": {
+          "title": "La strada della speranza",
+          "reason": "Il protagonista sceglie la fiducia e il sacrificio. Gli alleati conquistati nel tronco ora fanno la differenza."
+        },
+        "hope_ending": {
+          "title": "Il finale luminoso",
+          "reason": "L'obiettivo raggiunto e il bisogno soddisfatto. Va guadagnato: deve richiedere le scelte più difficili."
+        },
+        "compromise_path": {
+          "title": "La strada del compromesso",
+          "reason": "Il protagonista ottiene ciò che vuole, ma cede su qualcosa che conta. Ogni vittoria lascia un conto da pagare."
+        },
+        "compromise_ending": {
+          "title": "Il finale agrodolce",
+          "reason": "Una vittoria con un prezzo: il mondo è salvo, o quasi, ma qualcosa è andato perduto per sempre."
+        },
+        "fall_path": {
+          "title": "La strada della caduta",
+          "reason": "Le scelte del giocatore hanno spinto il protagonista verso la paura, il potere o la vendetta. Il gioco lascia che scenda fino in fondo."
+        },
+        "fall_ending": {
+          "title": "Il finale oscuro",
+          "reason": "La caduta compiuta, o la sconfitta. Un finale amaro ma coerente con le scelte vale quanto quello luminoso."
+        }
+      },
+      "strands": {
+        "main_quest": {
+          "name": "Missione principale",
+          "description": "La linea che attraversa il tronco e prosegue in ciascun ramo fino al suo finale."
+        },
+        "companions_fate": {
+          "name": "Il destino dei compagni",
+          "description": "Missioni secondarie in cui si decide chi resta al fianco del protagonista. Il loro esito può aprire o chiudere un ramo."
+        },
+        "hidden_truth": {
+          "name": "La verità nascosta",
+          "description": "Una missione secondaria facoltativa che rivela ciò che sta accadendo davvero. Spesso è la chiave del finale migliore."
+        }
+      }
+    }
+  }
+}

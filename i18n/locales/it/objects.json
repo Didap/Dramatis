@@ -1,0 +1,34 @@
+{
+  "objects": {
+    "kind": "Tipo",
+    "description": "Descrizione",
+    "descriptionPlaceholder": "Com'è fatto, da dove viene, perché conta.",
+    "owners": "Proprietari",
+    "addOwner": "Aggiungi un proprietario",
+    "noOwners": "Nessun proprietario: chi lo possiede, o chi lo custodisce?",
+    "ownerLabel": "proprietario, custode, erede",
+    "removeOwner": "Togli {name} dai proprietari",
+    "scenes": "Scene in cui compare",
+    "events": "Eventi",
+    "relations": "Altre relazioni",
+    "noOtherRelations": "Nessun'altra relazione: dove si trova, a che cosa è legato.",
+    "images": "Immagini",
+    "notes": "Note",
+    "novel": {
+      "add": "Aggiungi un oggetto",
+      "namePlaceholder": "Nome dell'oggetto",
+      "intro": "Apri un oggetto per dire chi lo possiede e vedere dove compare; l'ordine si cambia dal menu di ogni riga.",
+      "empty": "Gli oggetti che contano: una lettera, un'arma, una chiave che apre più di una porta.",
+      "emptyQuestion": "Che cosa passa di mano in mano?",
+      "kindPlaceholder": "lettera, arma, chiave"
+    },
+    "game": {
+      "add": "Aggiungi un oggetto",
+      "namePlaceholder": "Nome dell'oggetto",
+      "intro": "Apri un oggetto per dire chi lo possiede e vedere dove compare; l'ordine si cambia dal menu di ogni riga.",
+      "empty": "Gli oggetti che contano: una chiave, un'arma, una reliquia da riportare a casa.",
+      "emptyQuestion": "Che cosa troverà il giocatore?",
+      "kindPlaceholder": "oggetto chiave, arma, documento"
+    }
+  }
+}

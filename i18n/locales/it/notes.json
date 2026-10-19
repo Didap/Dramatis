@@ -1,0 +1,28 @@
+{
+  "notes": {
+    "intro": "Il tuo quaderno: idee, ricerche, cose da ricordare. Dal telefono, la nota veloce del pulsante Aggiungi arriva qui.",
+    "new": "Nuova nota",
+    "pin": "Fissa in alto",
+    "unpin": "Togli dall'alto",
+    "pinned": "Fissata in alto",
+    "pinnedGroup": "Fissate in alto",
+    "othersGroup": "Le altre note",
+    "actions": "Azioni per {name}",
+    "pageActions": "Azioni sulla nota",
+    "titleLabel": "Titolo della nota",
+    "titlePlaceholder": "Titolo della nota",
+    "bodyLabel": "Testo della nota",
+    "bodyPlaceholder": "Scrivi qui: un'idea, una ricerca, una cosa da ricordare. Digita la chiocciola per citare un personaggio.",
+    "edited": "Modificata {when}",
+    "notFound": "Questa nota non c'è più. Forse è nel cestino.",
+    "empty": {
+      "title": "Le note sono il tuo quaderno: idee, ricerche, cose da ricordare.",
+      "body": "Che cosa non vuoi dimenticare? Una frase sentita in treno, una data da controllare, un nome per un personaggio che ancora non c'è. Citali con la chiocciola e restano collegati alla storia.",
+      "action": "Scrivi la prima nota",
+      "wayOut": {
+        "novel": "Oppure comincia dalla premessa",
+        "game": "Oppure comincia dalla premessa del gioco"
+      }
+    }
+  }
+}

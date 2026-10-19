@@ -1,0 +1,138 @@
+{
+  "timeline": {
+    "description": "Scenes and events in the order they happen in the story, which is not always the order you tell them in.",
+    "newEvent": "New event",
+    "summary": {
+      "both": "{scenes} and {events}",
+      "single": "in {year}",
+      "span": "from {from} to {to}",
+      "undated": "{n} undated | {n} undated",
+      "line": "{items}, {span}"
+    },
+    "units": {
+      "events": "{n} event | {n} events"
+    },
+    "kinds": {
+      "scene": "Scenes",
+      "story": "Story events",
+      "historical": "Historical events"
+    },
+    "filters": {
+      "label": "Timeline filters",
+      "any": "All",
+      "by": "Filter by {what}",
+      "kind": "Kind",
+      "clear": "Clear filters",
+      "title": "Filters",
+      "titleCount": "Filters ({n})",
+      "show": "Show {n} item | Show {n} items"
+    },
+    "order": {
+      "label": "Narrative order",
+      "description": "Shows where each scene sits in the manuscript and marks the ones that go back in time.",
+      "position": "{chapter} {number}, {scene} {index}",
+      "flashback": "Flashback"
+    },
+    "checks": {
+      "overlap": "{names} is also somewhere else at the same time: “{title}”. | {names} are also somewhere else at the same time: “{title}”.",
+      "count": "{n} overlap to check | {n} overlaps to check",
+      "outside": "(hidden by the filters)"
+    },
+    "row": {
+      "openScene": "Open the scene",
+      "changeDate": "Change the date",
+      "clearDate": "Remove the date",
+      "actions": "Actions for “{title}”",
+      "pov": "Point of view",
+      "more": "+{n}",
+      "start": "Start",
+      "ending": "Ending: {label}"
+    },
+    "undated": {
+      "title": "Undated",
+      "none": "Every scene has its date.",
+      "nothing": "Scenes and events without a date wait here.",
+      "hint": "They are not on the timeline yet: a date, even just the year, is enough.",
+      "give": "Give a date",
+      "giveTo": "Give “{title}” a date",
+      "showAll": "Show all ({n})",
+      "noneFiltered": "With these filters, nothing is left undated."
+    },
+    "dating": {
+      "formLabel": "Date of “{title}”",
+      "save": "Save the date",
+      "moved": "“{title}” is on the timeline: {date}.",
+      "cleared": "“{title}” is now in Undated."
+    },
+    "when": {
+      "date": "Story date",
+      "precision": {
+        "label": "Precision of the date",
+        "none": "Undated",
+        "year": "Year only",
+        "month": "Month and year",
+        "day": "Day",
+        "minute": "Day and time"
+      },
+      "day": "Day",
+      "dayPlaceholder": "dd",
+      "month": "Month",
+      "year": "Year",
+      "yearPlaceholder": "yyyy",
+      "time": "Time",
+      "errors": {
+        "year": "The year is missing.",
+        "yearRange": "The year goes from -9999 to 9999.",
+        "month": "The month is missing.",
+        "day": "The day is missing.",
+        "dayRange": "This day does not exist in the chosen month.",
+        "time": "The time is missing."
+      },
+      "label": "Date as written in the story",
+      "labelHelp": "Shown instead of the date: useful for invented calendars.",
+      "labelPlaceholder": "For example: Third moon of the year 312",
+      "duration": "Duration",
+      "durationPlaceholder": "none",
+      "durationUnit": "Unit of the duration"
+    },
+    "duration": {
+      "minutes": "{n} minute | {n} minutes",
+      "hours": "{n} hour | {n} hours",
+      "days": "{n} day | {n} days",
+      "weeks": "{n} week | {n} weeks",
+      "months": "{n} month | {n} months",
+      "years": "{n} year | {n} years"
+    },
+    "date": {
+      "bc": "{year} BC",
+      "withTime": "{date}, {time}"
+    },
+    "event": {
+      "new": "New event",
+      "panelDescription": "Something that happens in the story, or in history, with its date and who is part of it.",
+      "missing": "This event is gone: it may be in the trash.",
+      "titlePlaceholder": "What happens?",
+      "title": "Title of the event",
+      "kind": "Kind of event",
+      "links": "Who and what it involves",
+      "pick": "Choose or type a name",
+      "descriptionPlaceholder": "Tell the event: what happens and why it matters to the story.",
+      "trash": "Move to the trash",
+      "discard": "Discard",
+      "showInTimeline": "Show in the timeline"
+    },
+    "empty": {
+      "title": "The timeline puts scenes and events in order: give a scene a date and you will see it here.",
+      "guide": "A date can be a year, a month, a day or an exact moment: “1953” and “14 November 1953, 22:10” fall into line by themselves. For an invented calendar, also write the date as it appears in the story.",
+      "dateFirst": "Give the first scene a date",
+      "toManuscript": "Go to the {manuscript}",
+      "filtered": "No scene or event matches the filters."
+    },
+    "entity": {
+      "empty": "No events linked to {name}.",
+      "emptyHint": "An event is something that happens before the scenes or outside them: a birth, a war, a meeting. It also appears on the timeline.",
+      "add": "Add an event",
+      "undated": "Undated"
+    }
+  }
+}

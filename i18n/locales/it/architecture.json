@@ -1,0 +1,44 @@
+{
+  "architecture": {
+    "intro": {
+      "novel": "Le tre colonne della storia: cosa racconta, come si svolge davvero, dove e quando succede.",
+      "game": "Le tre colonne del gioco: cosa racconta, come si svolge davvero, in quale mondo si muove il giocatore."
+    },
+    "definitions": {
+      "premise": "La premessa è la storia in poche righe: chi vuole cosa, cosa glielo impedisce, cosa rischia.",
+      "fabula": "La fabula è la storia in ordine cronologico, dall'inizio alla fine, come si è svolta davvero.",
+      "setting": "L'ambientazione dice dove e quando succede la storia, e con quali regole."
+    },
+    "questions": {
+      "novel": {
+        "premise": "Chi vuole cosa, e cosa glielo impedisce?",
+        "fabula": "Cosa succede, dall'inizio alla fine?",
+        "setting": "Dove e quando succede?"
+      },
+      "game": {
+        "premise": "Chi è il giocatore, cosa vuole, cosa lo ferma?",
+        "fabula": "Cosa succede nel mondo, dall'inizio alla fine, qualunque strada prenda il giocatore?",
+        "setting": "Cosa deve sapere il team del mondo?"
+      }
+    },
+    "related": {
+      "novel": "Linee narrative e note",
+      "game": "Trame, missioni e note"
+    },
+    "statusOf": "Stato: {pillar}",
+    "notFound": "Questa pagina dell'architettura non esiste.",
+    "backToIndex": "Torna all'architettura",
+    "sortable": {
+      "moved": "{name}: posizione {n} di {total}",
+      "handle": "Trascina per riordinare, oppure usa Alt e le frecce"
+    },
+    "keyboard": {
+      "label": "Formattazione",
+      "bold": "Grassetto",
+      "italic": "Corsivo",
+      "list": "Elenco puntato",
+      "mention": "Cita un personaggio, un luogo o un oggetto",
+      "done": "Fine"
+    }
+  }
+}

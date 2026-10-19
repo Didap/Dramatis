@@ -1,0 +1,113 @@
+{
+  "settings": {
+    "description": "Cosa è il progetto e come si comporta. Ogni modifica si salva subito, tranne il tipo, che prima dice cosa cambia; spegnere qualcosa lo nasconde, non lo cancella.",
+    "sections": "Sezioni delle impostazioni",
+    "general": {
+      "title": "Generale",
+      "projectTitle": "Titolo",
+      "subtitle": "Sottotitolo",
+      "subtitleHelp": "Facoltativo: compare sotto il titolo e nel frontespizio.",
+      "author": "Nome dell'autore",
+      "authorHelp": "Come firmi l'opera nelle esportazioni.",
+      "language": "Lingua del testo",
+      "languageHelp": "Per il controllo ortografico, la tipografia e le esportazioni. La lingua dell'interfaccia si sceglie nell'account."
+    },
+    "type": {
+      "title": "Tipo e moduli",
+      "description": "Il tipo decide il vocabolario e i moduli di partenza; i moduli si accendono e si spengono uno per uno.",
+      "label": "Tipo di progetto",
+      "novel": "Parti, capitoli e scene, Manoscritto, Gruppi. I moduli di gioco partono spenti.",
+      "game": "Atti, capitoli e scene, Copione, Fazioni. Bivi, variabili, missioni, compendio, battute e tipi di scena partono accesi.",
+      "changed": {
+        "novel": "Ora è un romanzo.",
+        "game": "Ora è un videogioco."
+      }
+    },
+    "modules": {
+      "label": "Moduli",
+      "novelHint": "Accendili per un librogame o una storia non lineare.",
+      "gameHint": "Spegni quelli che non ti servono: quello che contengono resta.",
+      "branching": "Scelte del giocatore tra le scene, scena iniziale, finali, la vista del flusso e i suoi controlli.",
+      "variables": "Condizioni ed effetti delle scelte. Accende anche i bivi.",
+      "quests": "Missioni principali e secondarie, con committente, obiettivi e ricompense.",
+      "codex": "Il compendio del mondo, diviso in categorie: storia, popoli, religioni, magia, bestiario, lingue, politica.",
+      "script": "Battute di dialogo nel copione, con chi parla e l'indicazione, e il copione per il doppiaggio.",
+      "scene_kinds": "Il tipo di ogni scena: cinematica, dialogo, fase di gioco, esplorazione, combattimento, enigma.",
+      "branchingCascade": "Spegnendolo si spengono anche le variabili di stato.",
+      "variablesOff": "Anche le variabili di stato sono spente."
+    },
+    "writing": {
+      "title": "Scrittura",
+      "description": "Come l'editor scrive i dialoghi e la punteggiatura, e come escono i capitoli.",
+      "dialogue": "Punteggiatura dei dialoghi",
+      "dialogueHelp": "Quella che inseriscono i pulsanti del dialogo nell'editor.",
+      "dialogueSample": {
+        "guillemets": "«Vieni», disse. «È tardi.»",
+        "double_quotes": "“Vieni”, disse. “È tardi.”",
+        "dash": "— Vieni — disse. — È tardi."
+      },
+      "smart": "Tipografia automatica",
+      "smartHelp": "Virgolette nello stile scelto, due trattini diventano una lineetta, tre punti diventano i puntini di sospensione.",
+      "numberingLabel": "Numerazione dei {chapters}",
+      "numberingHelp": "Nel manoscritto e nelle esportazioni.",
+      "numbering": {
+        "arabic": "{chapter} 1, {chapter} 2",
+        "roman": "{chapter} I, {chapter} II",
+        "words": "{chapter} primo, {chapter} secondo",
+        "none": "Solo il titolo, senza numero"
+      },
+      "separator": "Separatore tra le scene",
+      "separatorHelp": "Stampato tra due scene dello stesso capitolo nelle esportazioni."
+    },
+    "structure": {
+      "title": "Struttura",
+      "novel": {
+        "label": "Dividi in parti",
+        "helpOn": "Ogni capitolo sta in una parte. Spegnendo, i capitoli restano nell'ordine di adesso e le parti vanno nel cestino tutte insieme.",
+        "helpOff": "I capitoli sono in fila, senza parti. Accendendo, entrano tutti nella prima parte; se c'erano già delle parti, ogni capitolo torna nella sua.",
+        "on": "Il manoscritto ora è diviso in parti.",
+        "off": "Le parti sono nel cestino, i capitoli restano in ordine."
+      },
+      "game": {
+        "label": "Dividi in atti",
+        "helpOn": "Ogni capitolo sta in un atto. Spegnendo, i capitoli restano nell'ordine di adesso e gli atti vanno nel cestino tutti insieme.",
+        "helpOff": "I capitoli sono in fila, senza atti. Accendendo, entrano tutti nel primo atto; se c'erano già degli atti, ogni capitolo torna nel suo.",
+        "on": "Il copione ora è diviso in atti.",
+        "off": "Gli atti sono nel cestino, i capitoli restano in ordine."
+      }
+    },
+    "guidance": {
+      "title": "Guida",
+      "label": "Mostra il percorso e la guida",
+      "help": "Il percorso nella panoramica, le spiegazioni come «Cos'è la fabula?», i suggerimenti sotto le domande dell'intervista e le righe che spiegano le pagine vuote. Non blocca mai niente."
+    },
+    "delete": {
+      "title": "Elimina il progetto",
+      "description": "Il progetto va tra gli eliminati, nell'elenco dei progetti: da lì puoi ripristinarlo, o eliminarlo per sempre.",
+      "action": "Sposta tra gli eliminati",
+      "ask": "Spostare «{name}» tra i progetti eliminati? Potrai ripristinarlo dall'elenco dei progetti.",
+      "confirm": "Sposta tra gli eliminati",
+      "done": "«{name}» è tra i progetti eliminati."
+    },
+    "kindChange": {
+      "title": {
+        "game": "Da romanzo a videogioco",
+        "novel": "Da videogioco a romanzo"
+      },
+      "vocabulary": "Cambiano i nomi:",
+      "becomes": "diventa",
+      "modules": {
+        "game": "I moduli del gioco, già accesi: spegni quelli che non ti servono.",
+        "novel": "I moduli di gioco si spengono: accendi quelli da tenere, per un librogame o una storia non lineare."
+      },
+      "safe": {
+        "game": "Non si elimina niente: parti, capitoli e scene restano dove sono, cambiano solo i nomi. Un modulo spento nasconde quello che contiene e lo ritrovi quando lo riaccendi.",
+        "novel": "Non si elimina niente: atti, capitoli e scene restano dove sono, cambiano solo i nomi. Un modulo spento nasconde quello che contiene e lo ritrovi quando lo riaccendi."
+      },
+      "confirm": {
+        "game": "Diventa un videogioco",
+        "novel": "Diventa un romanzo"
+      }
+    }
+  }
+}

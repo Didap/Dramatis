@@ -1,0 +1,41 @@
+{
+  "groups": {
+    "members": "Members",
+    "membersCount": "{n} member | {n} members",
+    "addMember": "Add a member",
+    "description": "Description",
+    "descriptionPlaceholder": "Who they are, where they come from, what they want.",
+    "language": "Language",
+    "languagePlaceholder": "How they speak: the words, accents and turns of phrase that give them away.",
+    "traditions": "Traditions",
+    "traditionsPlaceholder": "Rites, feasts, unwritten rules, what they hand down.",
+    "powers": "Powers",
+    "relations": "Relationships",
+    "images": "Images",
+    "scenes": "Scenes of the members",
+    "events": "Events",
+    "notes": "Notes",
+    "novel": {
+      "add": "Add a group",
+      "namePlaceholder": "Group name",
+      "intro": "Open a group to describe it and say who belongs to it; change the order from each row's menu.",
+      "empty": "A group brings characters, locations and objects together: a family, a guild, a people.",
+      "emptyQuestion": "Who belongs together in your story?",
+      "noMembers": "No members yet: add the characters, locations or objects that belong to this group.",
+      "role": "role in the group",
+      "removeMember": "Remove {name} from the group",
+      "powersPlaceholder": "What they can obtain, impose or prevent."
+    },
+    "game": {
+      "add": "Add a faction",
+      "namePlaceholder": "Faction name",
+      "intro": "Open a faction to describe it and say who belongs to it; change the order from each row's menu.",
+      "empty": "A faction brings characters, locations and items together: a guild, a clan, an army.",
+      "emptyQuestion": "Who is fighting over the world of your game?",
+      "noMembers": "No members yet: add the characters, locations or items that belong to this faction.",
+      "role": "role in the faction",
+      "removeMember": "Remove {name} from the faction",
+      "powersPlaceholder": "What they can do, what they control, what they can give the player or take away."
+    }
+  }
+}

@@ -1,0 +1,237 @@
+{
+  "overview": {
+    "empty": "Il progetto è vuoto: comincia dalla premessa, bastano poche righe.",
+    "today": "Oggi",
+    "resume": {
+      "action": "Riprendi a scrivere",
+      "start": "Comincia a scrivere",
+      "edited": "modificata {when}",
+      "editedNow": "modificata adesso"
+    },
+    "goals": {
+      "open": "Apri gli obiettivi",
+      "set": "Scegli un obiettivo"
+    },
+    "recent": {
+      "title": "Modificati di recente",
+      "sceneIn": "scena del capitolo {n}"
+    },
+    "flow": {
+      "problems": "Flusso: {list}.",
+      "clean": "Flusso in ordine: {n} finale raggiungibile. | Flusso in ordine: {n} finali raggiungibili.",
+      "noStart": "manca la scena iniziale",
+      "noEnding": "nessun finale",
+      "unreachable": "{n} scena irraggiungibile | {n} scene irraggiungibili",
+      "deadEnds": "{n} vicolo cieco | {n} vicoli ciechi",
+      "broken": "{n} scelta verso una scena che non c'è più | {n} scelte verso scene che non ci sono più"
+    },
+    "path": {
+      "title": "Percorso",
+      "menu": "Opzioni del percorso",
+      "hide": "Nascondi il percorso",
+      "show": "Mostra il percorso",
+      "settings": "Impostazioni della guida",
+      "hidden": "Percorso nascosto",
+      "hiddenHint": "Lo ritrovi nelle impostazioni del progetto, o cercando «Mostra il percorso».",
+      "stepOf": "Passo {n} di {total}",
+      "folded": "Percorso: {stage}, {n} di {total}",
+      "foldedDone": "Percorso completato, {total} di {total}",
+      "completed": "{stage}: fatto. {next}",
+      "allDone": "Il percorso è completo.",
+      "state": {
+        "done": "fatto",
+        "current": "passo attuale",
+        "ahead": "da fare"
+      },
+      "stages": {
+        "novel": {
+          "premise": {
+            "label": "Premessa",
+            "short": "Premessa",
+            "question": "Chi vuole cosa, e cosa glielo impedisce?",
+            "next": "Il prossimo passo è la premessa."
+          },
+          "protagonist": {
+            "label": "Protagonista",
+            "short": "Protagonista",
+            "question": "Chi porta la storia sulle spalle?",
+            "next": "Il prossimo passo è il protagonista."
+          },
+          "world": {
+            "label": "Il mondo",
+            "short": "Mondo",
+            "question": "Dove e quando succede?",
+            "next": "Il prossimo passo è il mondo."
+          },
+          "plot": {
+            "label": "La trama",
+            "short": "Trama",
+            "question": "Cosa succede, dall'inizio alla fine?",
+            "next": "Il prossimo passo è la trama."
+          },
+          "structure": {
+            "label": "La struttura",
+            "short": "Struttura",
+            "question": "In quali capitoli e scene si divide?",
+            "next": "Il prossimo passo è la struttura."
+          },
+          "draft": {
+            "label": "Prima stesura",
+            "short": "Stesura",
+            "question": "Scrivi, una scena alla volta.",
+            "next": "Il prossimo passo è la prima stesura."
+          },
+          "revision": {
+            "label": "Revisione",
+            "short": "Revisione",
+            "question": "La storia tiene?",
+            "next": "Il prossimo passo è la revisione."
+          },
+          "delivery": {
+            "label": "Consegna",
+            "short": "Consegna",
+            "question": "Pronto per un editor.",
+            "next": "Il prossimo passo è la consegna."
+          }
+        },
+        "game": {
+          "premise": {
+            "label": "Premessa",
+            "short": "Premessa",
+            "question": "Chi è il giocatore, cosa vuole, cosa lo ferma?",
+            "next": "Il prossimo passo è la premessa."
+          },
+          "protagonist": {
+            "label": "Protagonista",
+            "short": "Protagonista",
+            "question": "Chi guida il giocatore nella storia?",
+            "next": "Il prossimo passo è il protagonista."
+          },
+          "world": {
+            "label": "Mondo e lore",
+            "short": "Mondo",
+            "question": "Cosa deve sapere il team del mondo?",
+            "next": "Il prossimo passo è il mondo, con la sua lore."
+          },
+          "quests": {
+            "label": "Trama e missioni",
+            "short": "Missioni",
+            "question": "Qual è la missione principale?",
+            "next": "Il prossimo passo sono la trama e le missioni."
+          },
+          "structure": {
+            "label": "Struttura e flusso",
+            "short": "Struttura",
+            "question": "Da dove si parte e dove si può finire?",
+            "next": "Il prossimo passo sono la struttura e il flusso."
+          },
+          "draft": {
+            "label": "Prima stesura del copione",
+            "short": "Stesura",
+            "question": "Scrivi ogni scena e ogni bivio.",
+            "next": "Il prossimo passo è la prima stesura del copione."
+          },
+          "revision": {
+            "label": "Revisione",
+            "short": "Revisione",
+            "question": "Ogni percorso porta da qualche parte?",
+            "next": "Il prossimo passo è la revisione."
+          },
+          "delivery": {
+            "label": "Consegna al team",
+            "short": "Consegna",
+            "question": "Il team può costruire da qui.",
+            "next": "Il prossimo passo è la consegna al team."
+          }
+        }
+      },
+      "reasons": {
+        "premiseDone": "La premessa ha {n} parola. | La premessa ha {n} parole.",
+        "premiseEmpty": "La premessa è ancora vuota.",
+        "premiseShort": "La premessa ha {n} parola: ne servono almeno {target}. | La premessa ha {n} parole: ne servono almeno {target}.",
+        "noMain": "Non c'è ancora un personaggio principale.",
+        "protagonistDone": "{name} ha un profilo, conflitto compreso.",
+        "protagonistSections": "{name}: {n} sezione del profilo su 3. | {name}: {n} sezioni del profilo su 3.",
+        "protagonistNoConflict": "{name}: {n} sezione del profilo su 3, manca il conflitto. | {name}: {n} sezioni del profilo su 3, manca il conflitto.",
+        "worldDone": "L'ambientazione è scritta e c'è {n} luogo. | L'ambientazione è scritta e ci sono {n} luoghi.",
+        "settingEmpty": "L'ambientazione è ancora vuota.",
+        "settingShort": "L'ambientazione ha {n} parola: ne servono almeno {target}. | L'ambientazione ha {n} parole: ne servono almeno {target}.",
+        "noLocation": "Manca ancora un luogo.",
+        "loreDone": "L'ambientazione è scritta e il mondo ha {n} elemento. | L'ambientazione è scritta e il mondo ha {n} elementi.",
+        "loreFew": "Il mondo ha {n} elemento su {target}, tra luoghi, fazioni, oggetti e voci del compendio. | Il mondo ha {n} elementi su {target}, tra luoghi, fazioni, oggetti e voci del compendio.",
+        "plotDone": "La fabula ha {n} parola e c'è la trama principale. | La fabula ha {n} parole e c'è la trama principale.",
+        "questsDone": "La fabula ha {n} parola e c'è la missione principale. | La fabula ha {n} parole e c'è la missione principale.",
+        "fabulaEmpty": "La fabula è ancora vuota.",
+        "fabulaShort": "La fabula ha {n} parola: ne servono almeno {target}. | La fabula ha {n} parole: ne servono almeno {target}.",
+        "noPlotStrand": "Manca una linea narrativa di tipo «Trama principale».",
+        "noQuest": "Manca una missione principale con almeno un obiettivo.",
+        "structureDone": "{chapters} e {scenes}, ogni capitolo con le sue scene.",
+        "structureCounts": "Servono almeno 3 capitoli e 6 scene: per ora {chapters} e {scenes}.",
+        "structureScenes": "Servono almeno 6 scene: per ora {scenes}.",
+        "emptyChapter": "Il capitolo «{chapter}» non ha ancora scene.",
+        "noChapters": "Non c'è ancora nessun capitolo.",
+        "noStart": "Manca la scena iniziale.",
+        "noEnding": "Nessuna scena è ancora un finale.",
+        "noScenes": "Non c'è ancora nessuna scena.",
+        "draftDone": "L'unica scena ha il suo testo. | Tutte le {n} scene hanno un testo.",
+        "scenesPlanned": "{n} scena ancora pianificata. | {n} scene ancora pianificate.",
+        "scenesEmpty": "{n} scena ancora senza testo. | {n} scene ancora senza testo.",
+        "unreachable": "{n} scena irraggiungibile nel flusso. | {n} scene irraggiungibili nel flusso.",
+        "deadEnds": "{n} vicolo cieco nel flusso. | {n} vicoli ciechi nel flusso.",
+        "notRevised": "{n} scena da rivedere. | {n} scene da rivedere.",
+        "noPurpose": "Il capitolo «{chapter}» non ha ancora uno scopo.",
+        "untaggedCharacter": "{name} non compare ancora in nessuna scena.",
+        "untaggedStrand": "La linea «{name}» non ha ancora scene.",
+        "untaggedQuest": "La missione «{name}» non ha ancora scene.",
+        "unusedVariable": "La variabile {name} non è usata da nessuna scelta.",
+        "unreachableEnding": "Il finale «{title}» non si raggiunge.",
+        "noSpeaker": "{n} battuta senza chi parla. | {n} battute senza chi parla.",
+        "revisionDone": "Ogni scena è rivista e ogni filo è al suo posto.",
+        "delivered": "Esportato il {date}, con tutte le scene definitive.",
+        "notFinal": "{n} scena non ancora definitiva. | {n} scene non ancora definitive.",
+        "noExport": "Manca un'esportazione del manoscritto (DOCX, EPUB o PDF) con tutte le scene definitive.",
+        "noTeamExport": "Manca un'esportazione per il team con tutte le scene definitive e il flusso in ordine.",
+        "game": {
+          "noPlotStrand": "Manca una trama di tipo «Trama principale».",
+          "revisionDone": "Ogni scena è rivista e ogni percorso porta da qualche parte."
+        }
+      },
+      "actions": {
+        "writePremise": "Scrivi la premessa",
+        "continuePremise": "Apri la premessa",
+        "createProtagonist": "Crea il protagonista",
+        "completeProfile": "Completa il profilo di {name}",
+        "openCharacter": "Apri {name}",
+        "writeSetting": "Descrivi l'ambientazione",
+        "addLocation": "Aggiungi un luogo",
+        "openWorld": "Apri il mondo",
+        "writeFabula": "Scrivi la fabula",
+        "openStrands": "Apri le linee narrative",
+        "addPlotStrand": "Crea la trama principale",
+        "addQuest": "Crea la missione principale",
+        "openManuscript": "Apri il manoscritto",
+        "openFlow": "Apri il flusso",
+        "writeScene": "Scrivi «{title}»",
+        "openChecks": "Apri i controlli del flusso",
+        "reviseScene": "Rivedi «{title}»",
+        "writePurpose": "Scrivi lo scopo di «{chapter}»",
+        "openStrand": "Apri «{name}»",
+        "openVariables": "Apri le variabili",
+        "openAnalysis": "Apri l'analisi",
+        "finishScene": "Rileggi «{title}»",
+        "export": "Esporta",
+        "game": {
+          "openStrands": "Apri trame e missioni",
+          "openManuscript": "Apri il copione"
+        }
+      },
+      "loadError": "Il percorso non si è caricato."
+    },
+    "demo": {
+      "text": "Questo è un progetto di esempio: modificalo come vuoi, eliminalo quando non serve più.",
+      "delete": "Elimina l'esempio",
+      "dismiss": "Nascondi l'avviso"
+    },
+    "structure": "Struttura «{name}» creata: {chapters} in {parts} e {strands}."
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "characters": {
+    "list": {
+      "new": "New character",
+      "intro": {
+        "novel": "Main characters get an interview profile; secondary and minor characters a shorter sheet.",
+        "game": "Main characters get an interview profile, with their role in the game and their voice; secondary and minor characters a shorter sheet, with the voice.",
+        "hide": "Hide"
+      },
+      "search": "Search by name",
+      "searchLabel": "Search the characters by name or other name",
+      "clearSearch": "Clear the search",
+      "filter": "Filter",
+      "filterActive": "Filter, {n} filter on | Filter, {n} filters on",
+      "filters": {
+        "role": "Role",
+        "tags": "Label",
+        "remove": "Remove the filter {filter}",
+        "clear": "Clear the filters"
+      },
+      "sort": {
+        "label": "Sort",
+        "manual": "Manual order",
+        "name": "Name",
+        "appearances": "Appearances in scenes"
+      },
+      "noMatch": "No character matches the search.",
+      "empty": {
+        "title": "Characters are the heart of the story: start with the protagonist, the right questions come later.",
+        "body": {
+          "novel": "The protagonist gets an interview profile: who they are, what they want, what stands in their way. Secondary and minor characters only need a description.",
+          "game": "The protagonist, or the character the player controls, gets an interview profile, with their role in the game and their voice. Secondary and minor characters only need a description."
+        },
+        "action": "Add the protagonist",
+        "write": "Or write a scene first"
+      },
+      "moved": "{name}, position {n} of {total}",
+      "movedTo": "Importance of {name}: {importance}",
+      "moveTo": {
+        "main": "Move to main characters",
+        "secondary": "Move to secondary characters",
+        "minor": "Move to minor characters"
+      },
+      "trash": "Move to the trash",
+      "rowActions": "Actions for {name}",
+      "moveHint": "Only in manual order, with no filter"
+    },
+    "create": {
+      "name": "Character name",
+      "importance": "Importance",
+      "submit": "Create",
+      "duplicate": "There is already a character called {name}."
+    },
+    "sheet": {
+      "name": "Name",
+      "duplicate": "Another character is called {name}.",
+      "tagline": "In one line",
+      "taglinePlaceholder": "In one line: who they are, to whoever meets them",
+      "taglineCount": "{n} of {max}",
+      "importance": "Importance",
+      "role": "Role",
+      "noRole": "No role",
+      "status": "Status",
+      "color": "Colour",
+      "playable": "Playable",
+      "aliases": "Also known as",
+      "aliasesPlaceholder": "Add a name",
+      "tags": "Labels",
+      "menu": "More actions",
+      "trash": "Move to the trash",
+      "notFound": "This character is no longer here: perhaps it is in the trash.",
+      "backToList": "Back to the characters",
+      "openTrash": "Open the trash",
+      "taglineLeft": "No characters left | {n} character left | {n} characters left"
+    },
+    "description": {
+      "title": "Description",
+      "placeholder": "Who they are, how they look, what they want: enough to recognise them in a scene."
+    },
+    "profile": {
+      "title": "Profile",
+      "start": "Start the interview",
+      "continue": "Continue the interview",
+      "progress": "{n} of {total} answers",
+      "free": "Free text, {words}",
+      "freeEmpty": "Free text, still empty",
+      "answered": "Section answered",
+      "kept": "The profile answers are kept: they come back if you make this a main character again."
+    },
+    "traits": {
+      "title": "Qualities, flaws, contradictions",
+      "qualities": "Qualities",
+      "flaws": "Flaws",
+      "contradictions": "Contradictions",
+      "add": {
+        "qualities": "Add a quality",
+        "flaws": "Add a flaw",
+        "contradictions": "Add a contradiction"
+      },
+      "addShort": "Add",
+      "help": "Enter to edit, Alt and the arrows to move, Delete to remove. The same actions are in the menu.",
+      "removed": "Removed: “{text}”",
+      "moved": "“{text}”, position {n} of {total}",
+      "editLabel": "Edit “{text}”",
+      "remove": "Remove “{text}”",
+      "edit": "Edit",
+      "actions": "Actions for “{text}”"
+    },
+    "groups": {
+      "rolePlaceholder": {
+        "novel": "Role in the group",
+        "game": "Role in the faction"
+      },
+      "role": "Role in {group}",
+      "remove": "Remove from {group}",
+      "empty": {
+        "novel": "Not part of any group yet: a family, a guild, a people.",
+        "game": "Not part of any faction yet: a guild, a clan, an army."
+      },
+      "add": {
+        "novel": "Add to a group",
+        "game": "Add to a faction"
+      },
+      "create": {
+        "novel": "Create the group “{name}”",
+        "game": "Create the faction “{name}”"
+      }
+    },
+    "appearances": {
+      "title": "Appearances"
+    },
+    "images": {
+      "title": "Images",
+      "drop": "Or drop images here.",
+      "uploading": "Uploading the images"
+    },
+    "notes": {
+      "title": "Notes",
+      "placeholder": "Notes about this character: ideas, doubts, things not to forget."
+    },
+    "lines": {
+      "title": "Lines",
+      "count": "{n} line | {n} lines",
+      "failed": "The lines could not be read.",
+      "empty": "No lines yet: give them a voice with a dialogue line in a scene.",
+      "more": "Show the other line | Show the other {n} lines",
+      "summary": "{lines}, {words}"
+    },
+    "section": {
+      "interview": "Interview",
+      "free": "Free text",
+      "mode": "How to fill in the section",
+      "alsoFree": "There is also some free text.",
+      "alsoAnswers": "There are also answers in the interview.",
+      "useAsOutline": "Use the answers as an outline",
+      "showFree": "Show the free text",
+      "showInterview": "Back to the interview",
+      "outlineDone": "The questions and answers are in the free text: rewrite them as you like.",
+      "freePlaceholder": "Write freely, or go back to the interview.",
+      "nav": "Profile sections",
+      "previous": "Previous section",
+      "next": "Next section",
+      "backToSheet": "Back to the sheet",
+      "notFound": "This character has no such profile section.",
+      "otherAnswers": "Other answers",
+      "otherAnswersHint": "Answers to questions the interview no longer asks: they stay here.",
+      "eyebrow": "{name}, section {n} of {total}",
+      "formerQuestion": "A question no longer asked"
+    },
+    "trashed": {
+      "body": "This character is in the trash, perhaps moved there from another device: what you write here is not saved until it comes back.",
+      "restore": "Restore",
+      "openTrash": "Open the trash"
+    }
+  }
+}

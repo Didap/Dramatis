@@ -1,0 +1,113 @@
+{
+  "strands": {
+    "intro": {
+      "novel": "I fili che attraversano la storia: la trama principale, le sottotrame, gli archi dei personaggi.",
+      "game": "I fili che attraversano il gioco: la missione principale, le secondarie, gli archi dei personaggi."
+    },
+    "new": {
+      "novel": "Nuova linea narrativa",
+      "game": "Nuova trama o missione"
+    },
+    "create": {
+      "name": "Titolo",
+      "placeholder": {
+        "novel": "Come si chiama questa linea?",
+        "game": "Come si chiama questa trama o missione?"
+      }
+    },
+    "filter": {
+      "label": "Filtra per tipo",
+      "all": "Tutte",
+      "none": "Nessuna linea di questo tipo.",
+      "showAll": "Mostra tutte"
+    },
+    "empty": {
+      "title": {
+        "novel": "Una linea narrativa è un filo che attraversa la storia: la trama principale, una sottotrama, l'arco di un personaggio.",
+        "game": "Una trama o una missione è un filo che attraversa il gioco: la missione principale, le secondarie, l'arco di un personaggio."
+      },
+      "body": {
+        "novel": "Comincia dalla trama principale: cosa succede, dall'inizio alla fine? Poi lega le scene ai loro fili dai dettagli della scena, e vedrai quali avanzano e quali restano indietro.",
+        "game": "Comincia dalla missione principale: chi la affida al giocatore, e cosa deve fare per portarla a termine? Poi lega le scene alle missioni dai dettagli della scena.",
+        "gameNoQuests": "Comincia dalla trama principale: cosa succede nel gioco, dall'inizio alla fine? Poi lega le scene ai loro fili dai dettagli della scena."
+      },
+      "action": {
+        "novel": "Aggiungi la trama principale",
+        "game": "Aggiungi la missione principale",
+        "gameNoQuests": "Aggiungi la trama principale"
+      },
+      "wayOut": "Oppure scrivi prima la fabula"
+    },
+    "row": {
+      "objectives": "{done} di {total} obiettivo scritto | {done} di {total} obiettivi scritti",
+      "actions": "Azioni per {name}"
+    },
+    "sheet": {
+      "name": "Titolo",
+      "actions": "Azioni",
+      "kind": "Tipo",
+      "color": "Colore",
+      "status": "Stato",
+      "arc": "Di chi è l'arco",
+      "arcPlaceholder": "Scegli il personaggio",
+      "arcInTrash": "Il personaggio è nel cestino",
+      "descriptionPlaceholder": {
+        "plot": "Di cosa parla la trama principale: come comincia, cosa cambia, come va a finire.",
+        "subplot": "Cosa aggiunge questa sottotrama alla storia, e dove incrocia la trama principale.",
+        "arc": "Da dove parte il personaggio, cosa lo mette alla prova, chi diventa alla fine.",
+        "quest": "Perché il giocatore la affronta, cosa scopre lungo la strada, come si chiude.",
+        "side_quest": "Cosa racconta questa missione del mondo o di un personaggio, e perché vale la deviazione."
+      },
+      "questsOff": "Committente, obiettivi e ricompense restano salvati, ma sono nascosti perché il modulo Missioni è spento.",
+      "questsOffAction": "Apri le impostazioni",
+      "noScenes": {
+        "novel": "Nessuna scena appartiene ancora a questa linea: aggiungila dai dettagli di una scena.",
+        "game": "Nessuna scena appartiene ancora a questa trama o missione: aggiungila dai dettagli di una scena."
+      },
+      "notFound": {
+        "novel": "Questa linea narrativa non c'è più. Forse è nel cestino.",
+        "game": "Questa trama o missione non c'è più. Forse è nel cestino."
+      }
+    },
+    "quest": {
+      "giver": "Committente",
+      "giverPlaceholder": "Chi affida la missione",
+      "giverInTrash": "Il committente è nel cestino",
+      "objectives": "Obiettivi della missione",
+      "progress": "{done} di {total} scritto | {done} di {total} scritti",
+      "optionalCount": "più {n} facoltativo | più {n} facoltativi",
+      "objectivePlaceholder": "Cosa deve fare il giocatore",
+      "objectiveLabel": "Obiettivo {n}",
+      "objectiveUntitled": "Obiettivo senza testo",
+      "objectiveActions": "Azioni per l'obiettivo {n}",
+      "objectiveRemoved": "Obiettivo rimosso",
+      "noObjectives": "Nessun obiettivo ancora: cosa deve fare il giocatore, un passo alla volta?",
+      "addObjective": "Aggiungi un obiettivo",
+      "completedIn": "Si completa in",
+      "scenePlaceholder": "Scegli la scena",
+      "openScene": "Apri la scena",
+      "optional": "Facoltativo",
+      "check": {
+        "none": "Da fare: manca la scena in cui si completa",
+        "noneShort": "Manca la scena",
+        "trashed": "Da fare: la scena in cui si completa è nel cestino",
+        "trashedShort": "Scena nel cestino",
+        "open": "Da fare: la scena «{scene}» è ancora pianificata",
+        "openShort": "Da fare",
+        "done": "Fatto: la scena «{scene}» è scritta ({status})",
+        "doneShort": "Fatto"
+      },
+      "rewards": "Ricompense",
+      "rewardPlaceholder": "Cosa ottiene il giocatore",
+      "rewardLabel": "Ricompensa {n}",
+      "rewardUntitled": "Ricompensa senza testo",
+      "rewardObject": "Oggetto della ricompensa",
+      "rewardObjectPlaceholder": "Nessun oggetto",
+      "objectInTrash": "L'oggetto è nel cestino",
+      "rewardActions": "Azioni per la ricompensa {n}",
+      "rewardRemoved": "Ricompensa rimossa",
+      "noRewards": "Nessuna ricompensa: un oggetto, un passaggio, la fiducia di qualcuno.",
+      "addReward": "Aggiungi una ricompensa"
+    }
+  }
+}

@@ -1,0 +1,1222 @@
+{
+  "kind": "novel",
+  "title": "Borrowed Words",
+  "subtitle": "Mola di Bari, 1956",
+  "authorName": "Livia Caramia",
+  "genre": "Literary historical fiction",
+  "logline": "Mola di Bari, 1956: the town’s letter writer has filled the correspondence between an illiterate young wife and her husband, a miner in Belgium, with words of her own, and now that he is coming home for Christmas and the wife is learning to read, she must decide whether to confess before the truth surfaces on its own.",
+  "premise": [
+    "What happens to a marriage kept alive by letters a third person has filled with herself? A small-town letter writer, who for years has lent her pen to people who cannot write, begins adding to a young wife’s letters the words the wife never says, and the husband far away falls in love with that voice.",
+    "The novel follows three people bound by the same sheet of paper, and a question that tightens month by month: will Teresa confess before Vito comes home? And when the truth comes out, who owns the words of love, the one who writes them or the one who signs?"
+  ],
+  "fabula": [
+    "In 1949 Teresa Ladisa inherits her father’s table as letter writer in the old town of Mola di Bari. In 1950 Vito Didonna marries Nunzia Lorusso; in 1952, with the family boat sold, he leaves for the coal mines of Belgium. From then on every letter between them passes through Teresa’s pen: Nunzia dictates, Teresa writes, and when the replies come it is Teresa who reads them aloud.",
+    "In March 1956, for the first time, Teresa adds a sentence of her own to one of Nunzia’s letters. Vito answers that very sentence, and Teresa, reading aloud, leaves it out. All spring the correspondence grows in two directions: Nunzia’s letters become more beautiful, Vito’s more intimate, and only Teresa knows what is really on the page. Meanwhile Nunzia secretly starts going to the evening school for adults run by the teacher Ines Galeone.",
+    "On August 8 the Marcinelle disaster throws the town into anguish. Vito is alive, he works at another pit, and he announces that at Christmas he will come home for the first time in four years, to meet the voice that writes to him. In October Teresa turns down a proposal from the postman, Saverio Netti. In November Nunzia, who can now read, opens the box of letters on her own and finds the sentences nobody ever read to her.",
+    "In December Nunzia puts the letter writer to the test; on the 22nd Vito comes home and does not recognize the wife from the letters. Between Saint Stephen’s Day and the first weeks of 1957 each of the three must reckon with a voice of their own: Vito with Teresa, Nunzia with Vito, Teresa with herself. Nunzia writes her first letter alone."
+  ],
+  "setting": [
+    "Mola di Bari, on the Adriatic coast of Apulia, from March 1956 to January 1957. A town of fishermen, farmhands and emigrants, where news arrives by post, over the radio at the harbor bar, and from the mouths of the women on the pier. Many cannot read, and whoever can write holds a quiet, everyday power.",
+    "The heart of the story is the old town: alleys paved with worn limestone, houses with flat roof terraces, doors left open from April to October. Its counterpoint is Charleroi, in the Belgian coalfield, where Italians live in barracks and go down the pits: a place almost none of the characters has seen and all of them know through letters.",
+    "This is postwar Italy emigrating and learning to read at the same moment: money orders from Belgium, evening classes for adults, the radio on the windowsill of the bar. Television has existed for two years, but in Mola almost nobody owns a set."
+  ],
+  "wordGoal": 60000,
+  "dailyWordGoal": 500,
+  "characters": [
+    {
+      "key": "teresa",
+      "name": "Teresa Ladisa",
+      "aliases": [
+        "the letter writer",
+        "Miss Ladisa"
+      ],
+      "importance": "main",
+      "role": "Protagonist",
+      "tagline": "She writes letters for people who cannot write, and since March she has been putting her own words in them.",
+      "description": [
+        "Thirty-eight, unmarried, the daughter of the schoolmaster Nicola Ladisa, from whom she inherited the table by the door, the fountain pen and the trade. Since 1949 she has written and read the letters of the old town’s families for a few lire, or for a basket of figs.",
+        "She is the person in town who knows the most about everyone and about whom the least is known. She can recite addresses in Liège, Charleroi and Buenos Aires by heart, yet she has never been farther than Bari."
+      ],
+      "profile": {
+        "personal": "Born in Mola di Bari on February 2, 1918, the only child of the schoolmaster Nicola Ladisa and of Maria Cassano, who died of typhoid in 1931. She lives alone in her father’s house in the old town: the ground-floor room is her shop, the two rooms upstairs are her life. She took her teaching diploma in Bari in 1936 but never got a post.",
+        "physical": "Tall for the town and thin, with the slightly rounded shoulders of someone who spends her days bent over a table. She wears her brown hair in a low bun, a few white threads already at the temples. Her reading glasses hang from her neck on a black ribbon, and there is always an ink stain on the middle finger of her right hand.",
+        "behavior": "She speaks little and quietly, and listens with her head tilted, as if taking notes. When someone dictates to her, she repeats the last words under her breath as she writes. She copies every letter into her letter book before handing it over. She never asks anything personal, but she remembers everything.",
+        "psychology": "She has made discretion into both a defense and a kind of power: as long as she writes for others, nobody asks what she wants. Under her composure lies a hunger for life that has never found an addressee. She fears ridicule more than sin. She knows she is intelligent and is a little ashamed of it, as of a luxury.",
+        "ideas": "She loves Italian with the devotion of someone who learned it as a second language, on top of dialect. In the evenings she reads Leopardi and the novels the pharmacist lends her. She believes that a thing said well becomes a little more true. She distrusts the Church but goes to Mass so as not to give people something to talk about.",
+        "sociology": "Her standing in the old town is ambiguous: educated like a lady, poor like a widow. The women respect and fear her, because she knows their debts, their illnesses and their husbands. The men treat her like a notary, and the parish priest consults her on his letters to the bishop.",
+        "backstory": "As a child she sat under her father’s table while he wrote for the emigrants, and she learned to read by looking at the letters upside down. In 1947 her fiancé, Raffaele Colaprico, left for Argentina promising to send for her: he wrote her seven letters, then nothing more. When her father died in January 1949, she took his place at the table without anyone asking her to.",
+        "conflict": "She wants to be heard by someone, even at one remove, and in Vito she has found the only reader who truly answers what she writes. But every sentence she adds is taken from Nunzia, who trusts her. Vito’s return at Christmas and Nunzia’s evening classes set her a deadline: confess, or let the truth come out by itself.",
+        "evolution": "She moves from lending her voice to giving other people back theirs. She will have to hand over the letter book, the evidence of who she is, and accept being seen as she is. The novel leaves her on the threshold of a life written in the first person, perhaps beside Saverio, perhaps alone."
+      }
+    },
+    {
+      "key": "nunzia",
+      "name": "Nunzia Lorusso",
+      "aliases": [
+        "Vito’s wife",
+        "Nunziatina"
+      ],
+      "importance": "main",
+      "role": "Co-protagonist",
+      "tagline": "Twenty-four, a husband down a mine, a signature made with a cross.",
+      "description": [
+        "Vito Didonna’s wife and Cosimo’s mother, she lives with her mother-in-law in two rooms above a storeroom in the old town. She mends nets for the boat of Onofrio, her husband’s cousin, and salts anchovies in season.",
+        "She cannot read or write: for four years her marriage has passed through the letter writer’s hands. She has a quick, practical mind, used to counting money and hours, and when she starts the evening classes she discovers that she is hungry for words too."
+      ],
+      "profile": {
+        "personal": "Born in Mola in 1932, the youngest of six children of a farmhand who worked the fields toward Rutigliano. She married Vito Didonna in September 1950; their son Cosimo was born in July 1951. Since her husband left for Belgium she has lived with her mother-in-law, Filomena.",
+        "physical": "Small and strong, her arms brown up to the elbow and the rest of her skin pale. She keeps her black curls tied tight under a headscarf. Her hands are chapped from salt and cold water, and she has a habit of hiding them under her apron when she speaks to someone educated.",
+        "behavior": "She goes straight to the point: she dictates her letters like a shopping list, because for her a letter is for letting people know things, not for saying them. She laughs loudly with the women on the pier and at home says nothing at all. With her son she is tender and brusque in the same gesture.",
+        "psychology": "She learned early that people who cannot read have to trust others, and she hates having to trust. Her intelligence lies in watching: she reads faces the way others read newspapers. Behind her practicality she hides a fierce pride and the fear of no longer recognizing her husband.",
+        "ideas": "She believes in work, in money put aside, and in the saints when they are needed. She wants for Cosimo the schooling she never had. She does not think she has ideas; she discovers she has them when she begins to write them down.",
+        "sociology": "She belongs to the world of the white widows, the wives of emigrants left alone for years. She depends on her husband’s money, her mother-in-law’s house and the letter writer’s pen, and her honor is watched over by the whole town.",
+        "backstory": "When she was seven her mother took her out of school to look after the younger children; all she remembers of school is the black smock and the smell of the stove. She met Vito at the September feast, dancing on the square by the harbor. On the day he left, at Bari station, she did not know what to say to him and gave him an orange.",
+        "conflict": "She wants a husband who is present and a life of her own, but she cannot write him a single line without another woman writing it for her. When she discovers that Vito’s letters answer sentences she never said, she has to decide whether she has been betrayed or given a gift that does not belong to her.",
+        "evolution": "From a signature made with a cross to her first letter written alone, mistakes and all. Her arc is the conquest of a voice: not the letter writer’s, nor the one her husband expects, but her own, poorer and true."
+      }
+    },
+    {
+      "key": "vito",
+      "name": "Vito Didonna",
+      "aliases": [
+        "Vituccio"
+      ],
+      "importance": "main",
+      "role": "The absent husband",
+      "tagline": "For four years he has gone down six hundred meters underground, and come back up to read his wife’s letters.",
+      "description": [
+        "Twenty-nine, a miner at a coal pit outside Charleroi since the autumn of 1952. He signed a one-year contract and stayed on, because the pay in Belgium is double and the family boat has been sold.",
+        "He finished the fifth grade and writes his own letters, in a big crooked hand with the mistakes of someone who seldom writes. For years they were letters of news; from the spring of 1956 they grow long, full of things he had never told anyone."
+      ],
+      "profile": {
+        "personal": "Born in Mola on November 9, 1927, the only child left to Filomena and to Cosimo Didonna, a fisherman lost at sea in 1944. He has been married to Nunzia since 1950 and is Cosimo’s father. He lives in a wooden barracks for Italian miners on the outskirts of Charleroi, with eleven other men.",
+        "physical": "Broad shoulders, huge hands, a slight stoop from the low galleries. The skin around his eyes is shadowed with coal dust that not even soap removes. He coughs in the mornings. When he smiles he looks ten years younger.",
+        "behavior": "He works without complaining and without talking; in the evenings he plays cards and loses on purpose to the younger men. He sends almost all his pay home. He writes his letters on Sundays, at the barracks’ common table, shielding the page with his arm as he did at school.",
+        "psychology": "He is a man who has never had words for what he feels, and who discovers them by reading. He is afraid of the dark in the mine and has never admitted it to anyone, until a letter in April. To withstand the distance he idealizes home, and the distance has built him a wife he does not know.",
+        "ideas": "He believes in the dignity of work and in going home: every franc put aside is a brick in the house by the sea he wants to buy. He distrusts union men and priests in equal measure. He thinks a man should protect his family from his own fears.",
+        "sociology": "In Belgium he is a macaroni, a foreign laborer with no say in anything; in Mola he is the one who is doing well because he sends money home. He belongs to the great postwar emigration to the Belgian mines, the generation of men traded for coal.",
+        "backstory": "At sixteen he lost his father in a storm off Polignano and became the man of the house. He worked on other men’s boats until he could afford to marry Nunzia. In 1952 he signed up for Belgium, passed the medical examination in the basement of Milan’s Central Station, and has not been home since.",
+        "conflict": "He wants to come home to the woman in the letters, and he will find that she does not exist, or exists as two people. He must choose between the wife he has and the one he imagined, and between the mine and the sea.",
+        "evolution": "From longing for an ideal home to meeting a real wife. He will learn that the words that kept him alive were partly someone else’s, and that he will have to find words of his own to speak to Nunzia face to face."
+      }
+    },
+    {
+      "key": "saverio",
+      "name": "Saverio Netti",
+      "aliases": [
+        "the postman"
+      ],
+      "importance": "secondary",
+      "role": "The postman",
+      "tagline": "He delivers everyone’s news and has never sent any of his own.",
+      "description": [
+        "Forty-six, widowed for eight years, the old town’s postman since 1946. He knows the handwriting of half the world and the weight of envelopes: the ones with money, the ones with photographs, the ones nobody wants to receive.",
+        "For years he has brought Teresa letters to be read, and lingered over a glass of water he is not thirsty for."
+      ],
+      "profile": {
+        "personal": "Born in 1910, widower of Angela, who died in childbirth in 1948 along with the baby. He lives with his unmarried sister near the Chiesa Matrice.",
+        "behavior": "He whistles as he climbs the stairs, to give warning. He never reads a postcard for longer than he must, and he is proud of it.",
+        "psychology": "He is patient to the point of resignation and has mistaken waiting for a virtue. He can tell what people are like from the way they open the door.",
+        "conflict": "He loves Teresa and senses that she is waiting for something in the envelopes from Belgium. He must decide whether to speak, knowing he lacks the words she deserves."
+      }
+    },
+    {
+      "key": "filomena",
+      "name": "Filomena Didonna",
+      "aliases": [
+        "Aunt Mena"
+      ],
+      "importance": "secondary",
+      "role": "The mother-in-law",
+      "tagline": "A fisherman’s widow and a miner’s mother, she keeps watch over the house and her daughter-in-law.",
+      "description": [
+        "Sixty-two, the widow of a fisherman drowned in 1944. She lives with her daughter-in-law and her grandson in the family house, which she considers hers down to the last floor tile.",
+        "She can read numbers and her own name, and makes sure everyone knows it. She does not trust the letter writer, who knows too much, nor her daughter-in-law, who says too little."
+      ],
+      "profile": {
+        "personal": "Born in Mola in 1894, married at nineteen, mother of five children of whom only one survived. She lives on the money her son sends from Belgium.",
+        "behavior": "She always sits facing the door. She listens to the letters being read with her eyes fixed on the letter writer’s mouth, as if she could see the words come out.",
+        "psychology": "Grief has made her hard but not blind: she is the first to notice that something in the letters has changed. She is afraid of losing the only son she has left, first to the coal and then to a woman.",
+        "conflict": "She wants her son home for good. She suspects the letters are binding him to a wife she thinks too young and too free."
+      }
+    },
+    {
+      "key": "ines",
+      "name": "Ines Galeone",
+      "aliases": [
+        "the teacher"
+      ],
+      "importance": "secondary",
+      "role": "Adult-school teacher",
+      "tagline": "She teaches grown-ups to read in the evenings, in a little hall that smells of wax.",
+      "description": [
+        "Twenty-seven, from Bari, the teacher in charge of Mola’s evening school for adults. She studied the hard way and believes that one adult who learns to read changes the town more than any political rally.",
+        "She comes from Bari on the afternoon bus and leaves on the last one. Her pupils are fishwives, farm women, mothers, and she calls every one of them signora."
+      ],
+      "profile": {
+        "personal": "Born in Bari in 1929, the daughter of a railwayman. She qualified as a teacher in 1948 and has taught at the adult school since 1954 while waiting for a permanent post.",
+        "behavior": "She smiles a lot and talks fast. She corrects in red pencil, then rubs the red out so it will not humiliate.",
+        "ideas": "She believes reading is a right, not a favor. That is why she looks with suspicion on the letter writer’s trade, which strikes her as a leftover from the last century.",
+        "conflict": "She wants her pupils never again to need anyone to read them a letter. She does not know that, by teaching Nunzia, she is taking a secret apart."
+      }
+    },
+    {
+      "key": "cosimo",
+      "name": "Cosimo Didonna",
+      "aliases": [
+        "Mimmo"
+      ],
+      "importance": "minor",
+      "role": "The son",
+      "tagline": "Five years old, he knows his father from three photographs.",
+      "description": [
+        "Nunzia and Vito’s son, named after his drowned grandfather, as custom requires. He spends his mornings under the letter writer’s table, as she once did under her father’s, and learns his letters by looking at them upside down."
+      ],
+      "profile": {
+        "personal": "Born on July 12, 1951. He was fifteen months old when his father left.",
+        "behavior": "He fires off questions and counts everything: boats, steps, the letters of the alphabet. He will not give his hand to strangers, and to him his father is a stranger."
+      }
+    }
+  ],
+  "groups": [
+    {
+      "key": "famiglia_didonna",
+      "name": "The Didonna family",
+      "kind": "family",
+      "description": [
+        "A family of fishermen from the old town, reduced to three generations under one roof and one man abroad. Grandfather Cosimo was lost at sea in 1944; the boat was sold in 1952 to pay the debts, the year Vito left.",
+        "Language: dialect at home, Italian only in the letters, through the letter writer’s pen. Traditions: the first son takes his paternal grandfather’s name, and on Sundays a place is laid for whoever is away. What holds them together is the money that comes from Belgium and the photograph of Vito above the dresser."
+      ],
+      "members": [
+        "character:vito",
+        "character:nunzia",
+        "character:filomena",
+        "character:cosimo",
+        "location:casa_didonna",
+        "object:scatola"
+      ]
+    },
+    {
+      "key": "vedove_bianche",
+      "name": "The white widows",
+      "kind": "other",
+      "description": [
+        "This is what the town calls, under its breath, the wives of emigrants: married women who live alone for years, their husbands in Belgium, Argentina or America. They have no association and no leader, but they share a geography: the pier at dawn, the post office on money-order day, the letter writer’s room.",
+        "Language: among themselves they go by their husbands’ names, Vito’s wife, Franco’s wife. Traditions: the photograph in the purse, the good dress for the portrait to be mailed, the rosary for the men who work underground. Their power is knowing the whole old town’s secrets and knowing how to keep them."
+      ],
+      "members": [
+        "character:nunzia",
+        "location:porto",
+        "location:casa_ladisa"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "key": "mola",
+      "name": "Mola di Bari",
+      "kind": "Town",
+      "nation": "Italy",
+      "region": "Apulia",
+      "city": "Mola di Bari",
+      "description": [
+        "A town of fishermen and farmhands on the Adriatic, some twenty kilometers south of Bari. In 1956 it lives on the sea, on olives and on remittances: almost every family has someone who left for America, for Argentina or for the mines of Belgium.",
+        "The Angevin castle on the water, the Chiesa Matrice, the harbor famous for its octopus, the seafront where people stroll on Sundays. The bus to Bari leaves from the square."
+      ]
+    },
+    {
+      "key": "borgo",
+      "name": "Old Town",
+      "kind": "Quarter",
+      "nation": "Italy",
+      "region": "Apulia",
+      "city": "Mola di Bari",
+      "parent": "mola",
+      "description": [
+        "The old heart of the town, squeezed between the castle and the harbor: alleys paved with limestone slabs worn smooth, archways, outside staircases, two-story houses with a flat roof terrace on top. From April to October the doors stay open and voices travel from house to house.",
+        "In the little parish hall behind the sacristy, the evening school for adults holds its lessons."
+      ]
+    },
+    {
+      "key": "casa_ladisa",
+      "name": "Ladisa house",
+      "kind": "House and shop",
+      "nation": "Italy",
+      "region": "Apulia",
+      "city": "Mola di Bari",
+      "parent": "borgo",
+      "description": [
+        "Schoolmaster Ladisa’s house, in an alley that runs down to the harbor. On the ground floor is the letter writer’s room: a walnut table by the door, two rush-seated chairs for clients, a shelf with her father’s dictionaries and the letter books bound year by year.",
+        "Upstairs Teresa sleeps, reads and receives no one. From her bedroom window a sliver of sea shows between two roofs."
+      ]
+    },
+    {
+      "key": "casa_didonna",
+      "name": "Didonna house",
+      "kind": "House",
+      "nation": "Italy",
+      "region": "Apulia",
+      "city": "Mola di Bari",
+      "parent": "borgo",
+      "description": [
+        "Two rooms above a net store, reached by an outside stone staircase. In the kitchen, above the dresser, hangs the photograph of Vito in a jacket and tie, taken in Charleroi to be mailed home.",
+        "The roof terrace on top is the only place where Nunzia is alone: she hangs the washing there, and from it you can see the harbor, the light at the end of the pier and, on summer nights, the lampare, the boats that fish by lamplight."
+      ]
+    },
+    {
+      "key": "porto",
+      "name": "Mola harbor",
+      "kind": "Harbor",
+      "nation": "Italy",
+      "region": "Apulia",
+      "city": "Mola di Bari",
+      "parent": "mola",
+      "description": [
+        "The fishing harbor, with the pier that closes the basin and the quay where the catch is sold at dawn. The women mend nets sitting on fish crates; the men argue about the weather outside the bar.",
+        "The harbor bar has the only radio in the old town that plays at full volume: in summer the owner puts it on the windowsill, and the news reaches the pier along with the smell of coffee."
+      ]
+    },
+    {
+      "key": "charleroi",
+      "name": "Charleroi",
+      "kind": "Coalfield",
+      "nation": "Belgium",
+      "region": "Hainaut",
+      "city": "Charleroi",
+      "description": [
+        "An industrial city in Wallonia, ringed by coal pits, steelworks and black hills of mine waste, the terrils. After the war tens of thousands of Italians arrive here, often housed at first in the barracks of old prisoner-of-war camps.",
+        "Vito lives in one of these barracks, a few kilometers from the pit where he works. The address, written out by Teresa more than forty times, is the only part of the city Nunzia knows."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "key": "stilografica",
+      "name": "Schoolmaster’s pen",
+      "kind": "Writing instrument",
+      "description": [
+        "A black fountain pen with a gold nib, bought in Bari by the schoolmaster Nicola Ladisa in 1925 with his first salary. Teresa uses it only for letters; for accounts she uses a pencil.",
+        "The nib bent itself to her father’s hand and still writes with a slight lean to the right: it is the only thing of his that is still moving."
+      ]
+    },
+    {
+      "key": "copialettere",
+      "name": "Letter book",
+      "kind": "Ledger",
+      "description": [
+        "The ledger in which Teresa, like her father before her, copies out every letter she writes on someone else’s behalf, with the date and the client’s name. There is one for each year, bound in gray cloth.",
+        "The one for 1956 holds Nunzia’s letters with the added sentences: it is the proof of everything, and Teresa has never thought of destroying it."
+      ]
+    },
+    {
+      "key": "scatola",
+      "name": "Tin box",
+      "kind": "Container",
+      "description": [
+        "A biscuit tin with a mountain landscape half flaked off the lid, where Nunzia keeps all of Vito’s letters, tied by year with basting thread. It sits high in the wardrobe, behind the sheets from her trousseau.",
+        "For four years Nunzia opened it without being able to read what it held. One night in November she opens it to read on her own."
+      ]
+    }
+  ],
+  "strands": [
+    {
+      "key": "lettere",
+      "name": "The letters",
+      "kind": "plot",
+      "description": [
+        "The main line: from March to December 1956 Teresa adds sentences of her own to the letters she writes for Nunzia and, reading aloud, suppresses the ones in which Vito answers her. The correspondence becomes a love among three of which only one person knows the shape.",
+        "Dramatic question: will Teresa confess before Vito comes home at Christmas? And when the truth comes out, who owns the words that have held a marriage together?"
+      ]
+    },
+    {
+      "key": "saverio_teresa",
+      "name": "The postman",
+      "kind": "subplot",
+      "description": [
+        "Saverio Netti, who carries the envelopes and knows their weight, has loved Teresa for years without saying so. His silent courtship mirrors Vito’s: a man without words facing a woman who has too many.",
+        "The subplot builds in October with the Sunday walk and the refusal, and resolves early in 1957."
+      ]
+    },
+    {
+      "key": "nunzia_legge",
+      "name": "Learning to read",
+      "kind": "arc",
+      "description": [
+        "Nunzia’s arc, from a signature made with a cross to her first letter written alone. The evening school for adults, which she attends in secret on the pretext of the May rosary, gives her first her own name, then her husband’s words, and finally proof of what the letter writer has done.",
+        "Every step Nunzia takes tightens the circle around Teresa: the main plot and the arc move against each other."
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "character:nunzia",
+      "to": "character:vito",
+      "kind": "romance",
+      "label": "spouses",
+      "description": "Married in 1950 and apart since 1952, for four years their marriage has existed only on paper, and the paper is written by someone else.",
+      "directed": false
+    },
+    {
+      "from": "character:filomena",
+      "to": "character:vito",
+      "kind": "family",
+      "label": "mother",
+      "description": "He is the only son she has left, and she waits for him the way you wait for a boat in heavy seas.",
+      "directed": true,
+      "reverseLabel": "son"
+    },
+    {
+      "from": "character:filomena",
+      "to": "character:nunzia",
+      "kind": "family",
+      "label": "mother-in-law",
+      "description": "They live together out of necessity: Filomena keeps watch on her daughter-in-law, and her daughter-in-law puts up with it.",
+      "directed": true,
+      "reverseLabel": "daughter-in-law"
+    },
+    {
+      "from": "character:nunzia",
+      "to": "character:cosimo",
+      "kind": "family",
+      "label": "mother",
+      "description": "She is raising him alone and wants for him the schooling she never had.",
+      "directed": true,
+      "reverseLabel": "son"
+    },
+    {
+      "from": "character:vito",
+      "to": "character:cosimo",
+      "kind": "family",
+      "label": "father",
+      "description": "He left him at fifteen months and knows him from three photographs.",
+      "directed": true,
+      "reverseLabel": "son"
+    },
+    {
+      "from": "character:teresa",
+      "to": "character:nunzia",
+      "kind": "professional",
+      "label": "letter writer",
+      "description": "For four years Teresa has written and read Nunzia’s letters, and since March she has been betraying her with the best of intentions.",
+      "directed": true,
+      "reverseLabel": "client"
+    },
+    {
+      "from": "character:teresa",
+      "to": "character:vito",
+      "kind": "romance",
+      "label": "love by letter",
+      "description": "Without ever having seen him, Teresa falls in love with the only man who truly answers what she writes.",
+      "directed": true,
+      "reverseLabel": "beloved by letter"
+    },
+    {
+      "from": "character:saverio",
+      "to": "character:teresa",
+      "kind": "romance",
+      "label": "in love",
+      "description": "Saverio has loved her silently for years, and the daily mail is his excuse.",
+      "directed": true,
+      "reverseLabel": "beloved"
+    },
+    {
+      "from": "character:ines",
+      "to": "character:nunzia",
+      "kind": "mentorship",
+      "label": "teacher",
+      "description": "Ines teaches her to read and write in the evenings, in the little parish hall.",
+      "directed": true,
+      "reverseLabel": "pupil"
+    },
+    {
+      "from": "character:ines",
+      "to": "character:teresa",
+      "kind": "rivalry",
+      "label": "unwitting rivals",
+      "description": "Every pupil who learns to read is one client fewer for the letter writer, and one secret more fragile.",
+      "directed": false
+    },
+    {
+      "from": "character:filomena",
+      "to": "character:teresa",
+      "kind": "rivalry",
+      "label": "distrust",
+      "description": "Filomena does not trust the letter writer, who knows too much and smiles too little.",
+      "directed": false
+    },
+    {
+      "from": "character:saverio",
+      "to": "character:nunzia",
+      "kind": "professional",
+      "label": "postman",
+      "description": "He brings her the money orders and the letters from Belgium, and in August he runs up the alley with the envelope that says Vito is alive.",
+      "directed": true,
+      "reverseLabel": "addressee"
+    },
+    {
+      "from": "character:teresa",
+      "to": "character:cosimo",
+      "kind": "friendship",
+      "label": "friends",
+      "description": "The boy spends his mornings under the letter writer’s table, and she teaches him his letters without telling anyone.",
+      "directed": false
+    }
+  ],
+  "parts": [
+    {
+      "title": "Other People’s Words",
+      "chapters": [
+        {
+          "key": "cap_vico",
+          "title": "The Room in the Alley",
+          "reason": "Introduces Teresa’s trade and the pact among the three voices, and holds the inciting incident: the first added sentence and the first omission.",
+          "scenes": [
+            {
+              "key": "dettatura",
+              "title": "Dictation",
+              "synopsis": "Nunzia dictates her usual letter to Vito, as short as a shopping list. For the first time in seven years at her trade, Teresa adds a sentence at the end that nobody dictated.",
+              "status": "final",
+              "pov": "third_limited",
+              "povCharacter": "teresa",
+              "characters": [
+                "teresa",
+                "nunzia",
+                "cosimo"
+              ],
+              "locations": [
+                "casa_ladisa"
+              ],
+              "objects": [
+                "stilografica",
+                "copialettere"
+              ],
+              "strands": [
+                "lettere"
+              ],
+              "storyAt": "1956-03-12T10:30",
+              "storyTimeLabel": "Monday, March 12, 1956, morning",
+              "durationMinutes": 40,
+              "text": [
+                {
+                  "p": "From April to October the door stood open, but in March Teresa kept it pulled to, and visitors had to shoulder it. @[character:nunzia] pushed it with her hip, one hand holding the boy, the other a knotted handkerchief with the money."
+                },
+                {
+                  "p": "“I have to write to Vito,” she said, as every month, and sat down unasked. Mimmo went straight under the table, where a spool and two corks were waiting."
+                },
+                {
+                  "p": "@[character:teresa] unscrewed the cap of the @[object:stilografica], tried the nib on scrap paper and wrote at the top right: Mola di Bari, March 12, 1956. Then she waited. With Nunzia there was never long to wait."
+                },
+                {
+                  "p": "“Dear Vito. We are well. Mimmo has grown out of his shoes. Your mother has a cough but won’t have the doctor. February’s money came. Onofrio wants to know if you’re coming for the summer season, or he’ll take someone else.”"
+                },
+                {
+                  "p": "Teresa wrote each sentence down, repeating it under her breath. Then came a silence in which they could hear crates banging on the quay below."
+                },
+                {
+                  "p": "“Is that all?” she asked."
+                },
+                {
+                  "p": "“That’s all. What am I supposed to tell him, that it’s cold? He knows.”"
+                },
+                {
+                  "p": "Nunzia had turned toward the street, where a cart was stuck. Teresa dipped her pen and, below the last line, in the same tidy hand, wrote: Last night I went up on the roof and counted the lampare going out. There were eleven. One was missing, and I thought it was you."
+                },
+                {
+                  "p": "She hadn’t decided to. The sentence had come out whole, the way some answers come when nobody has asked the question."
+                },
+                {
+                  "p": "“Read it to me,” said Nunzia. Teresa read from the beginning and stopped after Onofrio’s season. Nunzia nodded and made her cross at the bottom of the page, small and crooked, pressing so hard she scored the paper."
+                },
+                {
+                  "p": "When they had gone, Teresa opened the year’s @[object:copialettere] and copied the letter out, as her father had done for thirty years. She copied the lampare too, and sat looking at the line until the ink dried."
+                }
+              ]
+            },
+            {
+              "key": "lettera_marzo",
+              "title": "The Reply",
+              "synopsis": "Vito’s reply arrives, longer than usual: he answers the very sentence about the lampare. Reading aloud in the Didonna kitchen, Teresa replaces it with a line about the cold, under Filomena’s gaze.",
+              "status": "final",
+              "pov": "third_limited",
+              "povCharacter": "teresa",
+              "characters": [
+                "teresa",
+                "nunzia",
+                "filomena",
+                "saverio",
+                "cosimo"
+              ],
+              "locations": [
+                "casa_didonna"
+              ],
+              "objects": [
+                "scatola"
+              ],
+              "strands": [
+                "lettere"
+              ],
+              "storyAt": "1956-04-03T17:30",
+              "storyTimeLabel": "Tuesday, April 3, 1956, afternoon",
+              "durationMinutes": 35,
+              "text": [
+                {
+                  "p": "The letter came on a Tuesday, with the afternoon post. @[character:saverio] handed it to Filomena on the stairs, and Filomena sent the boy to fetch the letter writer, because Vito’s letters were read at home, in the kitchen, with the door shut."
+                },
+                {
+                  "p": "Teresa climbed up with her glasses already hanging from her neck. The kitchen smelled of chicory and charcoal. Filomena sat facing the door, as always; Nunzia stood by the sink with wet hands she didn’t bother to dry."
+                },
+                {
+                  "p": "The envelope was fatter than usual. Inside were two closely written sheets, in Vito’s big hand that sagged a little lower with every line, and a photograph: four men in jackets outside a wooden hut, all with the solemn faces of men having their picture taken for someone else."
+                },
+                {
+                  "p": "Teresa began to read. The first lines were the usual ones: work, his health, the money he would send on the fifteenth. Then the writing slowed and pressed harder, and Teresa understood a moment before she read it."
+                },
+                {
+                  "p": "I count the lampare too, Nunzia. There are no lamp boats here, but at night, when they turn out the light in the barracks, I count them on the ceiling. I didn’t know you went up on the roof to watch them. You never told me."
+                },
+                {
+                  "p": "Her voice caught in her throat. She looked up: Nunzia was looking at the photograph, @[character:filomena] was looking at her."
+                },
+                {
+                  "p": "“Here he says it’s cold,” said Teresa, and turned the page. “That it’s still winter in Charleroi, and the coal they dig out isn’t enough to heat the barracks.”"
+                },
+                {
+                  "p": "She read the rest without stopping again. When she had finished, Nunzia took the sheets, folded them along the old creases and put them in the @[object:scatola], high in the wardrobe, with the others. At the door, as Teresa was leaving, Filomena asked whether her son had written anything for his mother too. Teresa said yes, he sent her his love. That wasn’t written anywhere either."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "cap_carbone",
+          "title": "Coal and Salt",
+          "reason": "Shows the other end of the thread, Vito in Belgium changed by the letters, and Nunzia’s decision to learn to read: it opens the arc that will put the secret in danger.",
+          "scenes": [
+            {
+              "key": "baracca",
+              "title": "The Barracks",
+              "synopsis": "In Charleroi, on a Sunday evening, Vito reads a letter that seems to know his fear of the dark. For the first time he writes to Nunzia about the mine, mistakes and all, and feels like another man.",
+              "status": "revised",
+              "pov": "third_limited",
+              "povCharacter": "vito",
+              "characters": [
+                "vito"
+              ],
+              "locations": [
+                "charleroi"
+              ],
+              "objects": [],
+              "strands": [
+                "lettere"
+              ],
+              "storyAt": "1956-04-22T21:30",
+              "storyTimeLabel": "Sunday, April 22, 1956, evening",
+              "durationMinutes": 60,
+              "text": [
+                {
+                  "p": "In the barracks twelve men slept, smoked, cut their nails with the same knife. The stove burned the coal they themselves dug out of the earth, and on Sunday evenings the air was so thick that letters had to be read right under the bulb."
+                },
+                {
+                  "p": "@[character:vito] read Nunzia’s twice, the second time moving his lips. She wrote about the April wind knocking the basil pots off the roof, and about Mimmo asking whether his papa, underground, could see the roots of the trees. At the end there was a sentence: When you are afraid of the dark, remember the dark is the same here, and we are looking at it together."
+                },
+                {
+                  "p": "He had never told her he was afraid of the dark. He had never told anyone, not even Peppino from Andria, in the bunk above his. Yet Nunzia knew. Maybe wives just know, he thought, even from far away, even with someone else’s pen."
+                },
+                {
+                  "p": "He folded the sheet so the sentence stayed on the outside and tucked it into the pocket of his work shirt, for Monday’s shift. Then he took out the squared notepad and the indelible pencil, licked the tip as he had at school, and shielded the page with his arm."
+                },
+                {
+                  "p": "Dear Nunzia, he wrote. At six hundred meters theres a silence that is not silence, becuase the earth creaks like an old boat. The lamp makes a circle and outside the circle theres nothing."
+                },
+                {
+                  "p": "For an hour he wrote things he hadn’t known he knew: the flame in the foreman’s lamp that stretches taller when there is firedamp; the day the gallery roof sank a hand’s breadth above his head and he thought of the sea at six in the morning. When he read it over, it seemed another man’s letter, and he was glad."
+                },
+                {
+                  "p": "Outside, rain fell on the terrils, the black hills that in @[location:charleroi] stand in for mountains. Peppino leaned out of his bunk and asked who he was writing so much to. “My wife,” said Vito, as if saying it for the first time."
+                }
+              ]
+            },
+            {
+              "key": "reti",
+              "title": "The Nets",
+              "synopsis": "At dawn, mending nets on the pier, Nunzia watches the teacher Ines pin up a notice for the evening school for adults and, while the other women laugh, asks her what it says.",
+              "status": "final",
+              "pov": "third_limited",
+              "povCharacter": "nunzia",
+              "characters": [
+                "nunzia",
+                "ines"
+              ],
+              "locations": [
+                "porto"
+              ],
+              "objects": [],
+              "strands": [
+                "nunzia_legge"
+              ],
+              "storyAt": "1956-05-17T06:15",
+              "storyTimeLabel": "Thursday, May 17, 1956, dawn",
+              "durationMinutes": 60,
+              "text": [
+                {
+                  "p": "At dawn the pier belonged to the women. The men had come in at four, sold the catch on the quay, and were now asleep, or drinking coffee at the harbor bar with caps pulled low; the nets stayed behind, heaped on the stones, with the holes the night had left."
+                },
+                {
+                  "p": "@[character:nunzia] sat mending on an upturned crate, wooden needle in hand, twine between her teeth. Her hands knew the work, and her mind always went to the same place: Vito’s latest letters, longer than ever, which the letter writer read in a lower voice than usual."
+                },
+                {
+                  "p": "“Your husband’s turned poet,” Onofrio’s sister-in-law had said, a woman who knew everything about everyone and had never received a letter in her life."
+                },
+                {
+                  "p": "Toward six a young woman in a pale coat, carrying a leather satchel, pinned a sheet of paper to the wall of the ice store. The women stopped sewing to watch her. She had city shoes."
+                },
+                {
+                  "p": "“What does it say?” asked Nunzia, before she could stop herself."
+                },
+                {
+                  "p": "The young woman turned. She didn’t laugh, or make the face the town hall clerks made. “It says that from the twenty-second of May there’s an evening school for adults, in the parish hall, to learn reading and writing. It’s free. I’m the teacher, Ines Galeone.” She held out her hand, and Nunzia shook it with her own, which smelled of fish."
+                },
+                {
+                  "p": "The others laughed. “And what good is that to us, at our age? Reading the fishmonger’s bills?” @[character:ines] answered that it was good for reading whatever you liked, and went off toward the castle with her satchel under her arm."
+                },
+                {
+                  "p": "Nunzia went back to her net. The sheet on the wall was a white rectangle full of black marks, and for the first time it seemed to her that the marks were looking at her. She thought of the April letter, of the way the letter writer had turned the page a moment too soon, and pulled the twine so hard that the mesh closed crooked."
+                }
+              ]
+            },
+            {
+              "key": "saletta",
+              "title": "The May Rosary",
+              "synopsis": "Using the rosary as cover, Nunzia goes to the first lesson of the evening school. In an hour, at a child’s desk, she learns to write her own name.",
+              "status": "final",
+              "pov": "third_limited",
+              "povCharacter": "nunzia",
+              "characters": [
+                "nunzia",
+                "ines",
+                "filomena"
+              ],
+              "locations": [
+                "casa_didonna",
+                "borgo"
+              ],
+              "objects": [],
+              "strands": [
+                "nunzia_legge"
+              ],
+              "storyAt": "1956-05-22T19:30",
+              "storyTimeLabel": "Tuesday, May 22, 1956, evening",
+              "durationMinutes": 90,
+              "text": [
+                {
+                  "p": "She told Filomena she was going to the rosary. In May, the month of Our Lady, the women of the @[location:borgo] went out every evening after supper with veils in their pockets, and nobody questioned a wife going to church. Her mother-in-law watched her put on her shawl and said only, “Pray for your husband too.”"
+                },
+                {
+                  "p": "The parish hall was behind the sacristy, across a courtyard with a fig tree. Inside were six children’s desks, a blackboard, a cold stove and five grown-ups sitting sideways, knees too big for the desks. @[character:ines] was writing on the board with squeaking chalk."
+                },
+                {
+                  "p": "There were two old fishermen, a boy from the olive press, the cobbler’s wife and Nunzia. Nobody looked at anybody. The teacher called them ladies and gentlemen, and said the letters like people’s names: this is A, it opens its mouth; this is O, round as an egg."
+                },
+                {
+                  "p": "Nunzia was given a ruled exercise book with a black cover and a white label. On the label the teacher wrote, in her round hand: Nunzia Lorusso. Then she left it in front of her. “This is your name. Tonight we learn to write it.”"
+                },
+                {
+                  "p": "It took the whole hour. The N was easy, two legs and a bridge. The U was a boat. The Z refused to stand up straight, and the pencil broke twice. The boy from the olive press laughed quietly, but now and then he huffed over his own lines too."
+                },
+                {
+                  "p": "When the teacher came round, she stopped behind her and said nothing for a long time. Then she put a finger on the page, under the last line, where crooked letters spelled NUNZIA, all joined up. “There,” she said. “From now on you sign with this.”"
+                },
+                {
+                  "p": "Walking home, Nunzia kept the exercise book under her apron, against her belly, the way you carry something warm. She climbed the stairs silently. From her bed @[character:filomena] asked whether the rosary had been long, and she said yes, very long, and it wasn’t a lie."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "cap_agosto",
+          "title": "The Eighth of August",
+          "reason": "The Marcinelle disaster tests everyone and brings the turn of the first part: Vito is alive and announces his return, and Teresa’s lie now has a deadline.",
+          "scenes": [
+            {
+              "key": "radio",
+              "title": "The Radio at the Bar",
+              "synopsis": "The evening news on the radio reports a fire in the mine at Marcinelle, near Charleroi. The town gathers outside the harbor bar; Teresa reassures Nunzia with a certainty she does not have.",
+              "status": "final",
+              "pov": "third_omniscient",
+              "povCharacter": "teresa",
+              "characters": [
+                "teresa",
+                "nunzia",
+                "filomena",
+                "saverio",
+                "cosimo"
+              ],
+              "locations": [
+                "porto"
+              ],
+              "objects": [],
+              "strands": [
+                "lettere"
+              ],
+              "storyAt": "1956-08-08T20:30",
+              "storyTimeLabel": "Wednesday, August 8, 1956, evening",
+              "durationMinutes": 150,
+              "text": [
+                {
+                  "p": "The news reached Mola on the evening radio bulletin, and for a few minutes nobody understood it. The owner of the harbor bar had put the set on the windowsill, as every summer, and the voice from Rome was speaking of a fire in a Belgian mine, at Marcinelle, near Charleroi. Hundreds of men were trapped below. Many of them were Italian."
+                },
+                {
+                  "p": "At the name Charleroi a woman got up from the bench on the pier, then another. Within minutes there were fifty people outside the bar. The owner turned it up until it crackled, but there was little news and it kept repeating itself: the fire, the smoke, the galleries the rescuers could not reach."
+                },
+                {
+                  "p": "@[character:saverio] stood holding his bicycle and thought of the envelopes with that postmark, dozens of them, trying to remember who received them, as if remembering could protect them. Filomena was saying the rosary under her breath, without stopping, skipping the mysteries."
+                },
+                {
+                  "p": "@[character:nunzia] came running with the boy in her arms and searched the crowd for the letter writer. She didn’t know which pit Vito worked in; she had never known. All she knew was a word, Charleroi, which had always sounded to her like something distant and harmless, a medicine."
+                },
+                {
+                  "p": "@[character:teresa] knew. She had written that address more than forty times, another town, on the far side of the city, and she also knew how little that was worth."
+                },
+                {
+                  "p": "“It isn’t his pit,” she told Nunzia, and took hold of her wrist. “Vito is somewhere else.” She said it in the voice she used for reading letters, and Nunzia believed her, because she had always believed that voice. But men change pits, get lent out for a shift, and a July letter doesn’t tell you where a man is in August."
+                },
+                {
+                  "p": "They stayed on the pier until late. Nobody went home to supper. The sea was still and black, the lampare had gone out all the same, and someone said it was a shame, that evening, for the sea to be so beautiful."
+                }
+              ]
+            },
+            {
+              "key": "lettera_agosto",
+              "title": "At Christmas",
+              "synopsis": "After thirteen days of waiting the letter comes: Vito is alive and will come home at Christmas, to meet the voice that writes to him. Teresa reads only the first half of the sentence, and that evening writes a reply without adding a word.",
+              "status": "revised",
+              "pov": "third_limited",
+              "povCharacter": "teresa",
+              "characters": [
+                "teresa",
+                "nunzia",
+                "saverio",
+                "cosimo"
+              ],
+              "locations": [
+                "casa_ladisa"
+              ],
+              "objects": [
+                "copialettere"
+              ],
+              "strands": [
+                "lettere"
+              ],
+              "storyAt": "1956-08-21T11:00",
+              "storyTimeLabel": "Tuesday, August 21, 1956, late morning",
+              "durationMinutes": 30,
+              "text": [
+                {
+                  "p": "For thirteen days the women of the old town lived at their windows. The news came in pieces: the death toll rising, names in the paper, almost all from faraway villages. Each morning Teresa read the Gazzetta aloud on her doorstep, and the women left without thanking her, because there was nothing to be thankful for."
+                },
+                {
+                  "p": "On the thirteenth day @[character:saverio] came running up the alley, which nobody had ever seen him do, his bag banging his hip. Nunzia had spotted him from the roof and was already on the stairs. They reached the letter writer’s room together, she first, he behind, holding the envelope high like something breakable."
+                },
+                {
+                  "p": "Teresa knew the handwriting before she opened it, and her hands shook, and everyone saw. She read the first line aloud: Dear Nunzia, I am alive, I am well, my pit is somewhere else. @[character:nunzia] sat down on the threshold, her back against the doorpost. Saverio took off his cap."
+                },
+                {
+                  "p": "The rest was about a boy from the Abruzzo who had traveled from Milan with him and never came back up, and about the coffins in rows. Then, near the end, the writing grew larger: At Christmas I am coming. They are giving me leave. I am coming to hear with my own ears the voice that writes me these letters, because since March it feels like I have another wife, and I want to meet her."
+                },
+                {
+                  "p": "“He’s coming at Christmas,” Teresa read. “They’re giving him leave.” And she folded the page."
+                },
+                {
+                  "p": "Laughing and crying at once, the boy clutched to her, Nunzia kissed both the letter writer’s hands, as you would a priest’s. Teresa let her. She could feel the unread sentence lying in the paper like a stone in a pocket."
+                },
+                {
+                  "p": "That evening Nunzia came back to dictate the reply: come, we are waiting, Mimmo is drawing you a picture. Teresa wrote those words and no others. When she copied it into the @[object:copialettere], for the first time since March the letter seemed to her naked, and true, and unbearable."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "A Voice of One’s Own",
+      "chapters": [
+        {
+          "key": "cap_copialettere",
+          "title": "The Letter Book",
+          "reason": "Two refusals and a discovery: Teresa turns Saverio down because she is bound to a voice that is not her own, and Nunzia, alone, reads the April letter and finds the sentences she never said.",
+          "scenes": [
+            {
+              "key": "domenica",
+              "title": "The Walk",
+              "synopsis": "Saverio takes Teresa for a walk along the seafront and tells her that since March the envelopes from Belgium weigh twice as much. Then he asks her to marry him; she refuses gently, because she already has too many words that are not hers.",
+              "status": "revised",
+              "pov": "third_limited",
+              "povCharacter": "saverio",
+              "characters": [
+                "saverio",
+                "teresa"
+              ],
+              "locations": [
+                "mola",
+                "casa_ladisa"
+              ],
+              "objects": [],
+              "strands": [
+                "saverio_teresa",
+                "lettere"
+              ],
+              "storyAt": "1956-10-07T16:30",
+              "storyTimeLabel": "Sunday, October 7, 1956, afternoon",
+              "durationMinutes": 75,
+              "text": [
+                {
+                  "p": "@[character:saverio] had consulted his sister, the barber and, to be safe, the Madonna, and on Saturday he had his Sunday jacket pressed. Teresa said yes, nobody refuses a Sunday walk, and he decided not to wonder whether the yes was for him or for the Sunday."
+                },
+                {
+                  "p": "They walked along the sea, from the castle to the far end of the seafront, where families turned back. In October, in Mola, the afternoons are still summer and the evenings already winter. @[character:teresa] kept her hands in her coat pockets and looked at the boats hauled up on the shingle; he looked at her, sparingly, so as not to use her up."
+                },
+                {
+                  "p": "They talked about his sister, the new parish priest, the price of oil. Then Saverio said what he knew, because it was the one thing he did well: deliver. “Since March the envelopes from Belgium weigh twice as much. Vito Didonna used to write one sheet; now he writes three. I can tell by the weight, signorina. I don’t open letters.”"
+                },
+                {
+                  "p": "She didn’t answer. She had stopped to watch a boy fishing with a rod off the rocks, and Saverio understood that he had hurt her, and that the hurt was proof of something."
+                },
+                {
+                  "p": "So he said the other thing, rehearsed in front of the barber’s mirror: that he couldn’t write like her, that his words came out crooked and short, but a man his age knows how to keep a house and a promise, and he would keep both."
+                },
+                {
+                  "p": "Teresa looked at him for a long time, with a kindness that frightened him more than a no. “Saverio,” she said. “Right now I have too many words that aren’t mine. I can’t take yours as well.”"
+                },
+                {
+                  "p": "They walked back without talking. Outside the @[location:casa_ladisa] she shook his hand as she would a client’s, and then held it a moment longer. Saverio went home whistling, out of habit, and only halfway down the alley noticed it was a sad song."
+                }
+              ]
+            },
+            {
+              "key": "parola",
+              "title": "One Word at a Time",
+              "synopsis": "At night, while the house sleeps, Nunzia opens the box of letters and reads the April one by herself. She finds the word lampare and a sentence that answers something she never said.",
+              "status": "revised",
+              "pov": "third_limited",
+              "povCharacter": "nunzia",
+              "characters": [
+                "nunzia",
+                "cosimo",
+                "filomena"
+              ],
+              "locations": [
+                "casa_didonna"
+              ],
+              "objects": [
+                "scatola"
+              ],
+              "strands": [
+                "nunzia_legge",
+                "lettere"
+              ],
+              "storyAt": "1956-11-14T22:30",
+              "storyTimeLabel": "Wednesday, November 14, 1956, night",
+              "durationMinutes": 50,
+              "text": [
+                {
+                  "p": "She waited until Filomena began to snore next door, with the short whistle the cough had left her. Mimmo slept crosswise on the big bed, one arm outside the blanket. @[character:nunzia] switched on the bulb over the kitchen table and draped a handkerchief over it, so no light would show under the door."
+                },
+                {
+                  "p": "She took the @[object:scatola] down from the wardrobe, from behind the sheets of her trousseau, and for the first time opened it knowing what was inside. The letters were tied by year with basting thread: four bundles, and the thickest was 1956."
+                },
+                {
+                  "p": "Since September the teacher had had her reading the primer and newspaper headlines, a finger under the line. Vito’s hand was another matter: the letters huddled like men in the rain, his A’s looked like O’s, and some words were in no primer at all."
+                },
+                {
+                  "p": "She began with April’s, the letter with the photograph. The first side took her twenty minutes. It said work, his health, the money on the fifteenth: the same things the letter writer had read. Nunzia felt her shoulders loosen."
+                },
+                {
+                  "p": "Then, at the top of the second side, she found a word she knew, having written it in her exercise book the week before, under a drawing of a boat: lampare. She read it three times. She read the words around it one by one, keeping her place with a fingernail. I count the lampare too, Nunzia. I didn’t know you went up on the roof to watch them."
+                },
+                {
+                  "p": "She had never gone up on the roof to watch the lampare. She went up to hang the washing, and in summer for some air, but she had never counted the lampare, or said so, because it wasn’t true."
+                },
+                {
+                  "p": "She sat with the sheet on her knees until the bulb warmed the handkerchief. Then she put everything back, the thread, the bundle, the sheets. In bed, beside her son, she tried the word under her breath, lampare, the way a tongue goes back to a sore tooth."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "cap_dicembre",
+          "title": "December",
+          "reason": "The confrontation: Nunzia puts the letter writer to the test, then Vito comes home and finds a wife unlike the one in the letters.",
+          "scenes": [
+            {
+              "key": "prova",
+              "title": "The Test",
+              "synopsis": "Nunzia dictates the last letter before Vito’s return, reads it back herself and signs it with her own name. Then she asks Teresa to read her the April letter in full.",
+              "status": "draft",
+              "pov": "third_limited",
+              "povCharacter": "teresa",
+              "characters": [
+                "teresa",
+                "nunzia"
+              ],
+              "locations": [
+                "casa_ladisa"
+              ],
+              "objects": [
+                "stilografica",
+                "copialettere"
+              ],
+              "strands": [
+                "lettere",
+                "nunzia_legge"
+              ],
+              "storyAt": "1956-12-03T10:00",
+              "storyTimeLabel": "Monday, December 3, 1956, morning",
+              "durationMinutes": 40,
+              "text": [
+                {
+                  "p": "Nunzia came without the boy, and Teresa noticed at once. She sat down, took the scarf off her head, something she had never done, and folded it in four on her knees."
+                },
+                {
+                  "p": "“I have to write to Vito. To say we’ll be waiting for him in the square, at the six o’clock bus.” She dictated a few lines, more slowly than usual, and instead of looking at the street she watched Teresa’s hand as it wrote. Teresa wrote down what she heard, word for word, and felt that gaze on her skin like sun on a wound."
+                },
+                {
+                  "p": "When she had finished, Nunzia reached out. Not for the @[object:stilografica], to make her cross: for the page. She turned it toward herself and read it slowly, a finger under the line, moving her lips. It took a long time. Teresa didn’t breathe."
+                },
+                {
+                  "p": "“It’s right,” Nunzia said at last. Then she took the pen and, under the last line, where for four years there had been a cross, she wrote her name. The letters were large and separate, the Z still a little crooked. @[character:teresa] watched her write and thought that crooked name weighed more than all the sentences she had added since March."
+                },
+                {
+                  "p": "Then Nunzia took April’s letter out of her bag, the one with the photograph, and laid it open on the table at the second side."
+                },
+                {
+                  "p": "“Now read me this,” she said. “All of it.”"
+                },
+                {
+                  "p": "Teresa read all of it. She read the lampare, the barracks ceiling, I didn’t know you went up on the roof. Her voice didn’t stop, because there was nothing left to stop behind. The @[object:copialettere] lay open on the shelf behind her, and Nunzia was looking at it."
+                },
+                {
+                  "p": "“So who is my husband writing to?” Nunzia asked. There was no anger in the question, only a terrible curiosity."
+                },
+                {
+                  "p": "[To revise: does Teresa answer or not? Maybe the chapter should end on the question.]"
+                }
+              ]
+            },
+            {
+              "key": "ritorno",
+              "title": "The Return",
+              "synopsis": "Vito steps off the bus after four years. His son won’t give him his hand, his mother holds him tight, and at supper the wife in front of him does not resemble the woman in the letters.",
+              "status": "draft",
+              "pov": "third_limited",
+              "povCharacter": "vito",
+              "characters": [
+                "vito",
+                "nunzia",
+                "filomena",
+                "cosimo"
+              ],
+              "locations": [
+                "mola",
+                "casa_didonna"
+              ],
+              "objects": [],
+              "strands": [
+                "lettere"
+              ],
+              "storyAt": "1956-12-22T18:40",
+              "storyTimeLabel": "Saturday, December 22, 1956, evening",
+              "durationMinutes": 180,
+              "text": [
+                {
+                  "p": "The bus from Bari set him down in the square at six forty, with his cardboard suitcase and a parcel of Belgian chocolate tied with string. Four years. The town was smaller, the streetlamps yellower, and the smell was the same: seaweed, wet wood, frying. @[character:vito] stood on the step until the driver told him to get off, he had other stops."
+                },
+                {
+                  "p": "They were there, under the lamp at the stop: his mother, smaller than he remembered, in her black Sunday coat; a boy with ears red from the cold, who hid at once behind a skirt; and the skirt was Nunzia’s."
+                },
+                {
+                  "p": "His mother hugged him first, and for a long time. The boy wouldn’t give him his hand. Nunzia offered him one cheek, then the other, and said, “You’re thin,” and he said, “You’re not,” and they both laughed too loudly, while the square watched with the tenderness of people who have seen it all a thousand times."
+                },
+                {
+                  "p": "For supper his mother had made orecchiette with turnip greens and fried salt cod, like an early Christmas Eve. Vito ate and looked at his wife. She was the same and she wasn’t. Her hands were rougher, her hair shorter, and she had a new way of keeping quiet, upright, as if listening to something he couldn’t hear."
+                },
+                {
+                  "p": "After supper, while his mother washed the dishes, he went over to @[character:nunzia] and spoke softly, because the things in the letters belonged to the two of them alone: “Tomorrow night take me up on the roof. I want to see where you count them from.”"
+                },
+                {
+                  "p": "Nunzia looked at him. It was a long, calm look, one he had never seen on her and didn’t know how to read. “Tomorrow,” she said. Then she went to put the boy to bed, and Vito stayed in the kitchen with his mother, who was drying an already dry plate and not looking at him."
+                },
+                {
+                  "p": "[Missing: the night. Vito in bed beside a woman he knows and doesn’t know. Write it after Saint Stephen’s Day?]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "cap_prima_persona",
+          "title": "First Person",
+          "reason": "The resolution: each of the three must speak without a go-between. The chapter is planned and not yet written; the last scene is in the first person, in Nunzia’s voice.",
+          "scenes": [
+            {
+              "key": "santo_stefano",
+              "title": "Saint Stephen’s Day",
+              "synopsis": "On the morning of Saint Stephen’s Day Vito knocks at the letter writer’s closed door with the bundle of letters under his arm. He wants to know which sentences are his wife’s; Teresa sets the letter book in front of him and tells him he must ask Nunzia, not her.",
+              "status": "planned",
+              "pov": "third_limited",
+              "povCharacter": "teresa",
+              "characters": [
+                "teresa",
+                "vito"
+              ],
+              "locations": [
+                "casa_ladisa"
+              ],
+              "objects": [
+                "copialettere",
+                "scatola"
+              ],
+              "strands": [
+                "lettere"
+              ],
+              "storyAt": "1956-12-26T09:30",
+              "storyTimeLabel": "Wednesday, December 26, 1956, Saint Stephen’s Day",
+              "durationMinutes": 45,
+              "text": []
+            },
+            {
+              "key": "molo",
+              "title": "The Last Night of the Year",
+              "synopsis": "On New Year’s Eve Nunzia takes Vito out onto the pier instead of up to the roof. She tells him what she really sees when she looks at the sea; he asks her to join him in Belgium in the spring, and she does not answer at once.",
+              "status": "planned",
+              "pov": "third_limited",
+              "povCharacter": "nunzia",
+              "characters": [
+                "nunzia",
+                "vito"
+              ],
+              "locations": [
+                "porto"
+              ],
+              "objects": [],
+              "strands": [
+                "lettere",
+                "nunzia_legge"
+              ],
+              "storyAt": "1956-12-31T23:30",
+              "storyTimeLabel": "Monday, December 31, 1956, night",
+              "durationMinutes": 60,
+              "text": []
+            },
+            {
+              "key": "prima_lettera",
+              "title": "The First Letter",
+              "synopsis": "January 1957. Vito has gone back to Charleroi. Nunzia writes her first letter on her own, mistakes and all, and takes it to the post office, where Saverio sells her the stamp and tells her that on Sundays he walks out with Miss Ladisa. On the door of the Ladisa house there is a new sign: writing lessons, Tuesdays and Thursdays.",
+              "status": "planned",
+              "pov": "first",
+              "povCharacter": "nunzia",
+              "characters": [
+                "nunzia",
+                "saverio",
+                "teresa"
+              ],
+              "locations": [
+                "mola",
+                "casa_ladisa"
+              ],
+              "objects": [],
+              "strands": [
+                "nunzia_legge",
+                "saverio_teresa"
+              ],
+              "storyAt": "1957-01-21T15:00",
+              "storyTimeLabel": "Monday, January 21, 1957, afternoon",
+              "durationMinutes": 30,
+              "text": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "title": "Schoolmaster Ladisa dies",
+      "at": "1949-01-20",
+      "timeLabel": "January 20, 1949",
+      "kind": "story",
+      "description": "Nicola Ladisa, elementary schoolmaster and letter writer of the old town, dies. Teresa takes his place at the table by the door, with his fountain pen and his habit of the letter book.",
+      "links": [
+        "character:teresa",
+        "location:casa_ladisa",
+        "object:stilografica",
+        "object:copialettere"
+      ]
+    },
+    {
+      "title": "Vito and Nunzia marry",
+      "at": "1950-09-17",
+      "timeLabel": "Sunday, September 17, 1950",
+      "kind": "story",
+      "description": "Vito Didonna and Nunzia Lorusso are married in the Chiesa Matrice; the party is held on the roof terrace of the Didonna house, with wine from her father.",
+      "links": [
+        "character:vito",
+        "character:nunzia",
+        "character:filomena",
+        "location:mola",
+        "location:casa_didonna"
+      ]
+    },
+    {
+      "title": "Vito leaves for Belgium",
+      "at": "1952-10-06",
+      "timeLabel": "October 1952",
+      "kind": "story",
+      "description": "With a one-year contract for the coal mines, Vito leaves from Bari station, passes his medical examination in Milan and reaches Charleroi. At the station Nunzia gives him an orange.",
+      "links": [
+        "character:vito",
+        "character:nunzia",
+        "character:cosimo",
+        "location:charleroi"
+      ]
+    },
+    {
+      "title": "The Marcinelle disaster",
+      "at": "1956-08-08",
+      "timeLabel": "Wednesday, August 8, 1956",
+      "kind": "historical",
+      "description": "At the Bois du Cazier mine in Marcinelle, near Charleroi, a fire that breaks out in the morning almost a thousand meters underground kills 262 miners of twelve nationalities, 136 of them Italian. It is one of the worst tragedies of Italian emigration.",
+      "links": [
+        "location:charleroi"
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "title": "Research: men for coal",
+      "category": "Research",
+      "content": [
+        "The Italo-Belgian protocol signed in Rome on June 23, 1946 provided for 50,000 Italian workers to be sent to the Belgian mines in exchange for coal supplies to Italy. Many left on a one-year contract that bound them to work underground.",
+        "The miners were often housed in the barracks of former prisoner-of-war camps. Before departure came the medical examination in Milan, in the basement of the Central Station. To check: how long did a letter take from Charleroi to Mola in 1956, a week or ten days?"
+      ]
+    },
+    {
+      "title": "Research: adult schools and illiteracy",
+      "category": "Research",
+      "content": [
+        "In the 1951 census almost one Italian in eight declared they could neither read nor write, with far higher rates in the South and among women. The adult school program, set up at the end of 1947, ran evening classes for grown-ups in towns and villages, often in makeshift classrooms.",
+        "Details to keep: children’s desks for adult bodies, primers, first-grade ruled exercise books, the shame of signing with a cross. The television program Non è mai troppo tardi only begins in 1960: it must not appear in the novel."
+      ]
+    },
+    {
+      "title": "Ideas: language and ending",
+      "category": "Ideas",
+      "content": [
+        "Three languages in the book: the dialect of the houses, the schoolroom Italian of Teresa’s letters, Vito’s crooked, living Italian. Vito’s mistakes are never corrected; Teresa’s sentences must be beautiful, but a little too much so.",
+        "The ending must neither punish Teresa nor absolve her. Perhaps Nunzia does not go to Belgium; perhaps she does, with an exercise book of her own. Decide after writing the Saint Stephen’s Day scene."
+      ]
+    }
+  ]
+}

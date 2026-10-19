@@ -1,0 +1,263 @@
+{
+  "manuscript": {
+    "units": {
+      "parts": {
+        "novel": "{n} parte | {n} parti",
+        "game": "{n} atto | {n} atti"
+      },
+      "choices": "{n} scelta | {n} scelte"
+    },
+    "statusCount": {
+      "planned": "{n} pianificata | {n} pianificate",
+      "draft": "{n} bozza | {n} bozze",
+      "revised": "{n} rivista | {n} riviste",
+      "final": "{n} definitiva | {n} definitive"
+    },
+    "defaults": {
+      "chapter": "Capitolo {n}",
+      "novelPart": "Parte {n}",
+      "novelPartOrdinal": {
+        "1": "Parte prima",
+        "2": "Parte seconda",
+        "3": "Parte terza",
+        "4": "Parte quarta",
+        "5": "Parte quinta",
+        "6": "Parte sesta",
+        "7": "Parte settima",
+        "8": "Parte ottava",
+        "9": "Parte nona",
+        "10": "Parte decima"
+      },
+      "gamePart": "Atto {n}"
+    },
+    "untitledPart": {
+      "novel": "Parte senza titolo",
+      "game": "Atto senza titolo"
+    },
+    "position": {
+      "part": {
+        "novel": "Parte {n}",
+        "game": "Atto {n}"
+      },
+      "chapter": "Capitolo {n}",
+      "scene": "Scena {n}"
+    },
+    "outline": {
+      "hint": "Trascina scene e capitoli per cambiare l'ordine, oppure seleziona una riga e usa {up} e {down}.",
+      "hideHint": "Nascondi il suggerimento",
+      "synopsis": "Sinossi",
+      "pageMenu": "Altre azioni del manoscritto",
+      "expandAll": "Espandi tutto",
+      "collapseAll": "Comprimi tutto",
+      "partsOn": {
+        "novel": "Dividi in parti",
+        "game": "Dividi in atti"
+      },
+      "partsOff": {
+        "novel": "Togli le parti",
+        "game": "Togli gli atti"
+      },
+      "partsOnDone": {
+        "novel": "Parti attive: ogni capitolo ha la sua parte.",
+        "game": "Atti attivi: ogni capitolo ha il suo atto."
+      },
+      "partsOffDone": {
+        "novel": "Parti tolte: i capitoli restano nello stesso ordine, le parti sono nel cestino.",
+        "game": "Atti tolti: i capitoli restano nello stesso ordine, gli atti sono nel cestino."
+      },
+      "total": "In tutto",
+      "loose": {
+        "novel": "Fuori dalle parti",
+        "game": "Fuori dagli atti"
+      },
+      "looseHint": {
+        "novel": "Questi capitoli non appartengono a nessuna parte: spostali con il menu Sposta.",
+        "game": "Questi capitoli non appartengono a nessun atto: spostali con il menu Sposta."
+      },
+      "empty": {
+        "novel": "Il manoscritto è fatto di capitoli e scene: crea il primo capitolo e comincia a scrivere.",
+        "game": "Il copione è fatto di atti, capitoli e scene: crea la prima scena, il gioco comincia lì."
+      },
+      "emptyExplain": {
+        "novel": "Una scena racconta un momento: un luogo, un tempo, qualcuno che vuole qualcosa. I capitoli raccolgono le scene, e l'ordine si cambia quando vuoi.",
+        "game": "Ogni scena è un momento del gioco: una cinematica, un dialogo, una fase di esplorazione. La prima diventa la scena iniziale; con le scelte decidi dove porta ognuna."
+      },
+      "emptyAction": {
+        "novel": "Crea il primo capitolo",
+        "game": "Crea la prima scena"
+      },
+      "emptyWayOut": "Prima la premessa",
+      "hintTouch": "Tieni premuta la maniglia a sinistra di una riga per spostarla, oppure apri il suo menu e scegli Sposta."
+    },
+    "part": {
+      "empty": {
+        "novel": "Nessun capitolo in questa parte: aggiungine uno, o trascinalo qui.",
+        "game": "Nessun capitolo in questo atto: aggiungine uno, o trascinalo qui."
+      },
+      "new": {
+        "novel": "Nuova parte",
+        "game": "Nuovo atto"
+      },
+      "newAfter": {
+        "novel": "Nuova parte dopo questa",
+        "game": "Nuovo atto dopo questo"
+      },
+      "titlePlaceholder": {
+        "novel": "Titolo della parte",
+        "game": "Titolo dell'atto"
+      },
+      "newChapterIn": {
+        "novel": "Nuovo capitolo in questa parte",
+        "game": "Nuovo capitolo in questo atto"
+      },
+      "trash": {
+        "novel": "Sposta nel cestino, con capitoli e scene",
+        "game": "Sposta nel cestino, con capitoli e scene"
+      },
+      "menu": "Azioni di «{title}»",
+      "newBefore": {
+        "novel": "Nuova parte prima di questa",
+        "game": "Nuovo atto prima di questo"
+      }
+    },
+    "chapter": {
+      "new": "Nuovo capitolo",
+      "newAfter": "Nuovo capitolo dopo questo",
+      "titlePlaceholder": "Titolo del capitolo",
+      "noPurpose": "senza scopo",
+      "noPurposeHint": "Lo scopo del capitolo è ancora da scrivere.",
+      "empty": "Nessuna scena: aggiungine una, o trascinala qui.",
+      "collapse": "Comprimi «{title}»",
+      "expand": "Espandi «{title}»",
+      "open": "Apri il capitolo",
+      "read": "Leggi il capitolo",
+      "newSceneIn": "Nuova scena in questo capitolo",
+      "trash": "Sposta nel cestino, con le sue scene",
+      "menu": "Azioni di «{title}»",
+      "newBefore": "Nuovo capitolo prima di questo"
+    },
+    "scene": {
+      "new": "Nuova scena",
+      "newAfter": "Nuova scena dopo questa",
+      "titlePlaceholder": "Titolo della scena",
+      "open": "Apri nell'editor",
+      "start": "Inizio",
+      "startHint": "La scena da cui parte il gioco",
+      "ending": "Finale",
+      "unreachable": "Irraggiungibile",
+      "unreachableHint": "Nessuna scelta porta qui dalla scena iniziale.",
+      "pov": "Punto di vista: {name}",
+      "code": "Codice {code}",
+      "kind": "Tipo: {kind}",
+      "statusOf": "Stato di «{title}»: {status}",
+      "duplicate": "Duplica",
+      "duplicated": "Scena duplicata: «{title}»",
+      "copyTitle": "{title} (copia)",
+      "trash": "Sposta nel cestino",
+      "menu": "Azioni di «{title}»",
+      "synopsisPlaceholder": "Sinossi: cosa succede, in una o due frasi.",
+      "synopsisLabel": "Sinossi di «{title}»",
+      "newBefore": "Nuova scena prima di questa"
+    },
+    "actions": {
+      "rename": "Rinomina",
+      "status": "Stato",
+      "move": "Sposta",
+      "moveTitle": "Sposta «{title}»",
+      "moveInto": "Sposta in",
+      "searchChapter": "Cerca un capitolo",
+      "searchPart": {
+        "novel": "Cerca una parte",
+        "game": "Cerca un atto"
+      },
+      "here": "qui adesso",
+      "createHint": "Invio per creare, Esc per chiudere",
+      "select": "Seleziona",
+      "selected": "{n} scena selezionata | {n} scene selezionate",
+      "clearSelection": "Annulla la selezione",
+      "selectScene": "Seleziona «{title}»",
+      "moveMenu": "Sposta…",
+      "deselect": "Togli dalla selezione",
+      "statusMany": "Stato della scena selezionata | Stato delle {n} scene selezionate",
+      "trashMany": "Sposta nel cestino la scena selezionata | Sposta nel cestino le {n} scene selezionate"
+    },
+    "live": {
+      "moved": "«{title}»: posizione {n} di {total} in «{container}».",
+      "movedTop": "«{title}»: posizione {n} di {total}.",
+      "atStart": "«{title}» è già in cima.",
+      "atEnd": "«{title}» è già in fondo.",
+      "movedMany": "{n} scena spostata in «{container}». | {n} scene spostate in «{container}».",
+      "statusMany": "{n} scena ora è «{status}». | {n} scene ora sono «{status}»."
+    },
+    "filters": {
+      "label": "Filtra",
+      "status": "Stato",
+      "clear": "Togli i filtri",
+      "showing": "{n} scena su {total} | {n} scene su {total}",
+      "none": "Nessuna scena con questi filtri.",
+      "dragOff": "Con i filtri attivi il trascinamento è sospeso: usa il menu Sposta.",
+      "kind": "Tipo",
+      "done": "Fatto"
+    },
+    "page": {
+      "notFound": "Questo capitolo non c'è più: forse è nel cestino.",
+      "back": "Torna al manoscritto",
+      "structure": "Struttura",
+      "reading": "Lettura",
+      "views": "Vista del capitolo",
+      "purposePlaceholder": "Perché esiste questo capitolo? Cosa cambia tra la prima scena e l'ultima?",
+      "purposeHint": "Lo scopo è la ragione del capitolo nella storia: cosa scopre, decide o perde qualcuno. Se non riesci a scriverlo, forse il capitolo si può unire a un altro.",
+      "notesPlaceholder": "Ricerche, dubbi, cose da sistemare.",
+      "scenesEmpty": "Questo capitolo non ha ancora scene: aggiungine una, anche solo con la sinossi.",
+      "presence": "In questo capitolo",
+      "presenceEmpty": "Nessun personaggio né luogo, per ora: citali con {at} nelle scene o aggiungili dai dettagli di una scena.",
+      "previous": "Capitolo precedente",
+      "next": "Capitolo successivo",
+      "menu": "Azioni del capitolo",
+      "chapterLabel": "{n}, «{title}»",
+      "inPart": "In {title}"
+    },
+    "reading": {
+      "loading": "Carico il testo",
+      "error": "Non riesco a caricare il testo di questa scena.",
+      "unwritten": "Scena ancora da scrivere.",
+      "open": "Apri nell'editor",
+      "choices": "Scelte",
+      "continue": "Continua",
+      "towards": "verso «{title}»",
+      "conditional": "con una condizione",
+      "ending": "Finale",
+      "end": "Fine del capitolo",
+      "nextChapter": "Continua a leggere: {title}",
+      "empty": "Questo capitolo non ha ancora scene da leggere."
+    },
+    "appearances": {
+      "summary": "{scenes} in {chapters}.",
+      "first": {
+        "character": "Compare per la prima volta nel capitolo {n}, «{title}».",
+        "location": "La storia ci arriva per la prima volta nel capitolo {n}, «{title}».",
+        "object": "Compare per la prima volta nel capitolo {n}, «{title}».",
+        "group": "Un suo membro compare per la prima volta nel capitolo {n}, «{title}».",
+        "strand": "Comincia nel capitolo {n}, «{title}»."
+      },
+      "empty": {
+        "character": "Non compare ancora in nessuna scena: citalo con {at} mentre scrivi.",
+        "location": "Nessuna scena è ambientata qui: citalo con {at} mentre scrivi, o aggiungilo dai dettagli di una scena.",
+        "object": "Non compare ancora in nessuna scena: citalo con {at} mentre scrivi.",
+        "group": "Nessun membro compare ancora in una scena.",
+        "strand": {
+          "novel": "Nessuna scena appartiene ancora a questa linea: aggiungila dai dettagli di una scena.",
+          "game": "Nessuna scena appartiene ancora a questa trama o missione: aggiungila dai dettagli di una scena."
+        }
+      },
+      "chapter": "Capitolo {n}",
+      "pov": "punto di vista",
+      "mentions": "{n} menzione | {n} menzioni",
+      "lines": "{n} battuta | {n} battute",
+      "manual": "nei dettagli",
+      "showAll": "Mostra tutte le {n} scene",
+      "showLess": "Mostra meno"
+    },
+    "quoted": "«{text}»"
+  }
+}

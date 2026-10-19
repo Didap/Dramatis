@@ -1,0 +1,1222 @@
+{
+  "kind": "novel",
+  "title": "Le parole prestate",
+  "subtitle": "Mola di Bari, 1956",
+  "authorName": "Livia Caramia",
+  "genre": "Romanzo storico letterario",
+  "logline": "Mola di Bari, 1956: la scrivana del paese ha riempito di parole sue le lettere tra una giovane moglie analfabeta e il marito minatore in Belgio, e ora che lui annuncia il ritorno per Natale e lei comincia a imparare a leggere, deve decidere se confessare prima che la verità affiori da sola.",
+  "premise": [
+    "Che cosa succede a un matrimonio tenuto in vita da lettere che una terza persona ha riempito di sé? Una scrivana di paese, che da anni presta la penna a chi non sa scrivere, comincia ad aggiungere alle lettere di una giovane moglie le parole che lei non dice, e il marito lontano si innamora di quella voce.",
+    "Il romanzo segue tre persone legate dallo stesso foglio di carta e una domanda che si stringe di mese in mese: Teresa confesserà prima che Vito torni a casa? E quando la verità viene fuori, a chi appartengono le parole d'amore, a chi le scrive o a chi le firma?"
+  ],
+  "fabula": [
+    "Nel 1949 Teresa Ladisa eredita dal padre il tavolo di scrivana nel borgo antico di Mola di Bari. Nel 1950 Vito Didonna sposa Nunzia Lorusso; nel 1952, venduta la barca di famiglia, parte per le miniere di carbone del Belgio. Da allora le lettere tra i due passano per la penna di Teresa: Nunzia detta, Teresa scrive, e quando arrivano le risposte è Teresa a leggerle ad alta voce.",
+    "Nel marzo del 1956, per la prima volta, Teresa aggiunge a una lettera di Nunzia una frase sua. Vito risponde proprio a quella frase, e Teresa, leggendo, la omette. Per tutta la primavera la corrispondenza cresce in due direzioni: le lettere di Nunzia diventano più belle, quelle di Vito più intime, e solo Teresa sa che cosa c'è davvero sulla carta. Intanto Nunzia comincia di nascosto la scuola popolare serale della maestra Ines Galeone.",
+    "L'8 agosto la catastrofe di Marcinelle getta il paese nell'angoscia. Vito è vivo, lavora in un altro pozzo, e annuncia che a Natale tornerà a casa per la prima volta in quattro anni, per conoscere la voce che gli scrive. In ottobre Teresa rifiuta la proposta del portalettere Saverio Netti. In novembre Nunzia, che ormai legge, apre da sola la scatola delle lettere e trova le frasi che nessuno le aveva letto.",
+    "In dicembre Nunzia mette alla prova la scrivana; il 22 Vito torna e non riconosce la moglie delle lettere. Tra Santo Stefano e l'inizio del 1957 ognuno dei tre deve fare i conti con la propria voce: Vito con Teresa, Nunzia con Vito, Teresa con se stessa. Nunzia scrive da sola la sua prima lettera."
+  ],
+  "setting": [
+    "Mola di Bari, sulla costa adriatica della Puglia, dal marzo del 1956 al gennaio del 1957. Un paese di pescatori, contadini ed emigranti, dove le notizie arrivano per posta, per radio al bar del porto e per bocca delle donne sul molo. Molti non sanno leggere, e chi sa scrivere ha un potere discreto e quotidiano.",
+    "Il centro della storia è il borgo antico: vicoli lastricati di chianche, case con il lastrico sul tetto, porte aperte da aprile a ottobre. Il contrappunto è Charleroi, nel bacino carbonifero belga, dove gli italiani vivono nelle baracche e scendono nei pozzi: un luogo che quasi nessuno dei personaggi ha visto e che tutti conoscono attraverso le lettere.",
+    "È l'Italia del dopoguerra che emigra e impara a leggere nello stesso momento: i vaglia dal Belgio, la scuola popolare serale, la radio sul davanzale del bar. La televisione esiste da due anni, ma a Mola quasi nessuno ce l'ha."
+  ],
+  "wordGoal": 60000,
+  "dailyWordGoal": 500,
+  "characters": [
+    {
+      "key": "teresa",
+      "name": "Teresa Ladisa",
+      "aliases": [
+        "la scrivana",
+        "la signorina Ladisa"
+      ],
+      "importance": "main",
+      "role": "Protagonista",
+      "tagline": "Scrive le lettere di chi non sa scrivere, e da marzo ci mette dentro anche le sue.",
+      "description": [
+        "Trentotto anni, nubile, figlia del maestro elementare Nicola Ladisa, da cui ha ereditato il tavolo accanto alla porta, la stilografica e il mestiere. Dal 1949 scrive e legge le lettere delle famiglie del borgo antico per poche lire, o per un cesto di fichi.",
+        "È la persona che in paese sa più cose di tutti e quella di cui si sa meno. Conosce a memoria gli indirizzi di Liegi, di Charleroi e di Buenos Aires, ma non è mai andata più lontano di Bari."
+      ],
+      "profile": {
+        "personal": "Nata a Mola di Bari il 2 febbraio 1918, figlia unica del maestro Nicola Ladisa e di Maria Cassano, morta di tifo nel 1931. Vive da sola nella casa paterna del borgo antico: la stanza a pianterreno è la bottega, le due di sopra sono la sua vita. Ha il diploma magistrale preso a Bari nel 1936, ma non ha mai avuto una cattedra.",
+        "physical": "Alta per il paese, magra, con le spalle un po' curve di chi passa le giornate su un tavolo. Porta i capelli castani raccolti in una crocchia bassa, con qualche filo bianco sulle tempie. Tiene gli occhiali da lettura appesi al collo con un nastro nero e ha sempre una macchia d'inchiostro sul medio della mano destra.",
+        "behavior": "Parla poco e a voce bassa, e ascolta con la testa inclinata, come se prendesse appunti. Quando qualcuno le detta, ripete a mezza voce le ultime parole mentre scrive. Ricopia ogni lettera nel copialettere prima di consegnarla. Non chiede mai niente di personale, ma ricorda tutto.",
+        "psychology": "Ha fatto della discrezione una difesa e una forma di potere: finché scrive per gli altri, nessuno le chiede che cosa vuole lei. Sotto la compostezza c'è una fame di vita che non ha mai trovato un destinatario. Teme il ridicolo più del peccato. Sa di essere intelligente e se ne vergogna un poco, come di un lusso.",
+        "ideas": "Ama l'italiano con la devozione di chi l'ha imparato come una seconda lingua, sopra il dialetto. La sera legge Leopardi e i romanzi che le presta il farmacista. Crede che una cosa detta bene diventi un po' più vera. Diffida della Chiesa, ma va a messa per non dare da parlare.",
+        "sociology": "Nel borgo ha una posizione ambigua: istruita come una signora, povera come una vedova. Le donne la rispettano e la temono, perché conosce i loro debiti, le loro malattie e i loro mariti. Gli uomini la trattano come un notaio, e il parroco la consulta per le lettere al vescovo.",
+        "backstory": "Da bambina sedeva sotto il tavolo del padre mentre lui scriveva per gli emigranti, e imparò a leggere guardando le lettere al contrario. Nel 1947 il fidanzato, Raffaele Colaprico, partì per l'Argentina promettendo di chiamarla: le mandò sette lettere, poi più niente. Quando il padre morì, nel gennaio del 1949, prese il suo posto al tavolo senza che nessuno glielo chiedesse.",
+        "conflict": "Vuole essere ascoltata da qualcuno, anche per interposta persona, e in Vito ha trovato il solo lettore che risponde davvero a quello che lei scrive. Ma ogni frase che aggiunge è sottratta a Nunzia, che si fida di lei. Il ritorno di Vito a Natale e la scuola serale di Nunzia le mettono una scadenza: confessare, o lasciare che la verità venga fuori da sola.",
+        "evolution": "Passa dal prestare la propria voce al restituire quella degli altri. Dovrà consegnare il copialettere, cioè la prova di sé, e accettare di essere guardata per quello che è. Il romanzo la lascia sulla soglia di una vita scritta in prima persona, forse accanto a Saverio, forse da sola."
+      }
+    },
+    {
+      "key": "nunzia",
+      "name": "Nunzia Lorusso",
+      "aliases": [
+        "la moglie di Vito",
+        "Nunziatina"
+      ],
+      "importance": "main",
+      "role": "Coprotagonista",
+      "tagline": "Ventiquattro anni, un marito in miniera, una firma fatta a croce.",
+      "description": [
+        "Moglie di Vito Didonna e madre di Cosimo, vive con la suocera in due stanze sopra un magazzino del borgo antico. Rammenda le reti per la barca di Onofrio, il cugino del marito, e nella stagione sala le acciughe.",
+        "Non sa leggere né scrivere: da quattro anni il suo matrimonio passa per le mani della scrivana. Ha una mente pratica e veloce, abituata a contare i soldi e le ore, e quando comincia la scuola serale scopre di avere fame anche di parole."
+      ],
+      "profile": {
+        "personal": "Nata a Mola nel 1932, ultima dei sei figli di un bracciante delle campagne verso Rutigliano. Ha sposato Vito Didonna nel settembre del 1950; il figlio Cosimo è nato nel luglio del 1951. Da quando il marito è partito per il Belgio vive con la suocera, Filomena.",
+        "physical": "Piccola e forte, con le braccia scure fino al gomito e il resto della pelle bianca. Tiene i capelli neri e ricci stretti in un fazzoletto. Ha le mani screpolate dal sale e dall'acqua fredda, e l'abitudine di nasconderle sotto il grembiule quando parla con chi ha studiato.",
+        "behavior": "Va dritta alle cose: detta le lettere come una lista della spesa, perché per lei una lettera serve a far sapere, non a dire. Ride forte con le donne del molo e in casa tace del tutto. Con il figlio è tenera e brusca nello stesso gesto.",
+        "psychology": "Ha imparato presto che chi non sa leggere deve fidarsi, e odia doversi fidare. La sua intelligenza è tutta nell'osservare: legge le facce come gli altri leggono i giornali. Sotto la praticità nasconde un orgoglio feroce e la paura di non riconoscere più il marito.",
+        "ideas": "Crede nel lavoro, nei soldi messi da parte e nei santi quando servono. Vuole per Cosimo la scuola che lei non ha avuto. Non pensa di avere idee: scopre di averne quando comincia a scriverle.",
+        "sociology": "Appartiene al mondo delle vedove bianche, le mogli degli emigranti che restano sole per anni. Dipende dai soldi del marito, dalla casa della suocera e dalla penna della scrivana, e in paese il suo onore è sorvegliato da tutti.",
+        "backstory": "A sette anni la madre la tolse da scuola per badare ai fratelli più piccoli; della scuola ricorda solo il grembiule nero e l'odore della stufa. Conobbe Vito alla festa di settembre, ballando sul piazzale del porto. Il giorno in cui lui partì, alla stazione di Bari, non sapeva che cosa dirgli e gli diede un'arancia.",
+        "conflict": "Vuole un marito presente e una vita sua, ma non può scrivergli una riga senza che un'altra donna la scriva per lei. Quando scopre che le lettere di Vito rispondono a frasi che non ha mai detto, deve decidere se è stata tradita o se ha ricevuto un dono che non le appartiene.",
+        "evolution": "Dalla firma a croce alla prima lettera scritta da sola, con gli errori. Il suo arco è conquistare una voce: non quella della scrivana, né quella che il marito si aspetta, ma la propria, più povera e vera."
+      }
+    },
+    {
+      "key": "vito",
+      "name": "Vito Didonna",
+      "aliases": [
+        "Vituccio"
+      ],
+      "importance": "main",
+      "role": "Il marito lontano",
+      "tagline": "Da quattro anni scende a seicento metri sotto terra, e risale per leggere le lettere della moglie.",
+      "description": [
+        "Ventinove anni, minatore in un pozzo di carbone nei dintorni di Charleroi dall'autunno del 1952. Ha firmato un contratto di un anno ed è rimasto, perché in Belgio la paga è il doppio e la barca di famiglia è stata venduta.",
+        "Ha fatto la quinta elementare e scrive le sue lettere da solo, con una grafia grande e storta e gli errori di chi scrive poco. Per anni sono state lettere di notizie; dalla primavera del 1956 diventano lunghe, piene di cose che non aveva mai detto a nessuno."
+      ],
+      "profile": {
+        "personal": "Nato a Mola il 9 novembre 1927, unico figlio rimasto a Filomena e a Cosimo Didonna, pescatore morto in mare nel 1944. È sposato con Nunzia dal 1950 ed è padre di Cosimo. Vive in una baracca di legno per minatori italiani alla periferia di Charleroi, con altri undici uomini.",
+        "physical": "Spalle larghe, mani enormi, un po' curvo per le gallerie basse. La pelle intorno agli occhi è segnata da un'ombra di polvere di carbone che non va via neanche col sapone. La mattina tossisce. Quando sorride sembra più giovane di dieci anni.",
+        "behavior": "Lavora senza lamentarsi e senza parlare; la sera gioca a carte e perde apposta con i più giovani. Manda a casa quasi tutta la paga. Scrive le lettere la domenica, al tavolo comune della baracca, coprendo il foglio con il braccio come a scuola.",
+        "psychology": "È un uomo che non ha mai avuto parole per quello che sente, e che le scopre leggendo. Ha paura del buio della miniera e non l'ha mai confessato a nessuno, fino a una lettera di aprile. Per resistere alla lontananza idealizza la casa, e la lontananza gli ha costruito una moglie che non conosce.",
+        "ideas": "Crede nella dignità del lavoro e nel ritorno: ogni franco messo da parte è un mattone della casa sul mare che vuole comprare. Diffida dei sindacalisti e dei preti in egual misura. Pensa che un uomo debba proteggere la famiglia dalle proprie paure.",
+        "sociology": "In Belgio è un macaroni, un operaio straniero che non ha diritto di parola; a Mola è quello che sta bene perché manda i soldi. Appartiene alla grande emigrazione del dopoguerra verso le miniere belghe, la generazione degli uomini scambiati con il carbone.",
+        "backstory": "A sedici anni perse il padre in una burrasca al largo di Polignano e diventò l'uomo di casa. Lavorò sulle barche degli altri finché non poté sposare Nunzia. Nel 1952 firmò per il Belgio, passò la visita medica nei sotterranei della stazione Centrale di Milano e da allora non è mai tornato.",
+        "conflict": "Vuole tornare dalla donna delle lettere, e scoprirà che quella donna non esiste, o esiste in due persone. Deve scegliere tra la moglie che ha e quella che ha immaginato, e tra la miniera e il mare.",
+        "evolution": "Dalla nostalgia per una casa ideale all'incontro con una moglie reale. Imparerà che le parole che lo hanno tenuto in vita erano in parte di un'altra, e che dovrà trovarne di sue per parlare a Nunzia faccia a faccia."
+      }
+    },
+    {
+      "key": "saverio",
+      "name": "Saverio Netti",
+      "aliases": [
+        "il portalettere"
+      ],
+      "importance": "secondary",
+      "role": "Il portalettere",
+      "tagline": "Porta le notizie di tutti e non ne ha mai mandata una sua.",
+      "description": [
+        "Quarantasei anni, vedovo da otto, portalettere del borgo antico dal 1946. Conosce le calligrafie di mezzo mondo e il peso delle buste: quelle con i soldi, quelle con le fotografie, quelle che nessuno vorrebbe ricevere.",
+        "Da anni porta a Teresa le lettere da leggere e si ferma a bere un bicchiere d'acqua che non ha sete di bere."
+      ],
+      "profile": {
+        "personal": "Nato nel 1910, vedovo di Angela, morta di parto nel 1948 insieme al bambino. Vive con una sorella nubile vicino alla Chiesa Matrice.",
+        "behavior": "Fischietta salendo le scale, per avvertire. Non legge mai una cartolina più a lungo del necessario, e ne va fiero.",
+        "psychology": "È paziente fino alla rassegnazione e ha scambiato l'attesa per una virtù. Capisce le persone dal modo in cui aprono la porta.",
+        "conflict": "Ama Teresa e intuisce che lei aspetta qualcosa dalle buste del Belgio. Deve decidere se parlare, sapendo di non avere le parole che lei merita."
+      }
+    },
+    {
+      "key": "filomena",
+      "name": "Filomena Didonna",
+      "aliases": [
+        "zia Mena"
+      ],
+      "importance": "secondary",
+      "role": "La suocera",
+      "tagline": "Vedova di un pescatore, madre di un minatore: sorveglia la casa e la nuora.",
+      "description": [
+        "Sessantadue anni, vedova di un pescatore annegato nel 1944. Vive con la nuora e il nipote nella casa di famiglia, che considera sua mattonella per mattonella.",
+        "Sa leggere i numeri e il proprio nome, e lo fa pesare. Non si fida della scrivana, che sa troppe cose, né della nuora, che ne dice troppo poche."
+      ],
+      "profile": {
+        "personal": "Nata a Mola nel 1894, sposata a diciannove anni, cinque figli di cui uno solo sopravvissuto. Vive dei soldi che il figlio manda dal Belgio.",
+        "behavior": "Si siede sempre di fronte alla porta. Ascolta la lettura delle lettere con gli occhi fissi sulla bocca della scrivana, come se potesse vedere le parole uscire.",
+        "psychology": "Il dolore l'ha resa dura ma non cieca: è la prima ad accorgersi che nelle lettere qualcosa è cambiato. Ha paura di perdere l'unico figlio che le resta, prima al carbone e poi a una donna.",
+        "conflict": "Vuole che il figlio torni a casa per sempre. Sospetta che le lettere lo stiano legando a una moglie che lei giudica troppo giovane e troppo libera."
+      }
+    },
+    {
+      "key": "ines",
+      "name": "Ines Galeone",
+      "aliases": [
+        "la maestra"
+      ],
+      "importance": "secondary",
+      "role": "Maestra della scuola popolare",
+      "tagline": "Insegna a leggere agli adulti, la sera, in una saletta che odora di cera.",
+      "description": [
+        "Ventisette anni, di Bari, maestra incaricata della scuola popolare serale di Mola. Ha studiato con fatica e crede che un adulto che impara a leggere cambi il paese più di un comizio.",
+        "Arriva da Bari con la corriera del pomeriggio e riparte con l'ultima. Le sue allieve sono pescatrici, contadine, madri, e lei le chiama tutte signora."
+      ],
+      "profile": {
+        "personal": "Nata a Bari nel 1929, figlia di un ferroviere. Diplomata alle magistrali nel 1948, insegna nella scuola popolare dal 1954 in attesa di una cattedra.",
+        "behavior": "Sorride molto e parla in fretta. Corregge con la matita rossa, e poi cancella il rosso perché non umilii.",
+        "ideas": "Crede che leggere sia un diritto e non un favore. Per questo guarda con sospetto il mestiere della scrivana, che le sembra un avanzo dell'Ottocento.",
+        "conflict": "Vuole che le sue allieve non abbiano più bisogno di nessuno per leggere una lettera. Non sa che, insegnando a Nunzia, sta smontando un segreto."
+      }
+    },
+    {
+      "key": "cosimo",
+      "name": "Cosimo Didonna",
+      "aliases": [
+        "Mimmo"
+      ],
+      "importance": "minor",
+      "role": "Il figlio",
+      "tagline": "Cinque anni, conosce il padre da tre fotografie.",
+      "description": [
+        "Figlio di Nunzia e di Vito, porta il nome del nonno annegato, come vuole l'uso. Passa le mattine sotto il tavolo della scrivana, come lei da bambina sotto quello del padre, e impara le lettere guardandole al contrario."
+      ],
+      "profile": {
+        "personal": "Nato il 12 luglio 1951. Aveva quindici mesi quando il padre è partito.",
+        "behavior": "Fa domande a raffica e conta tutto: le barche, i gradini, le lettere dell'alfabeto. Non dà la mano agli sconosciuti, e suo padre, per lui, è uno sconosciuto."
+      }
+    }
+  ],
+  "groups": [
+    {
+      "key": "famiglia_didonna",
+      "name": "Famiglia Didonna",
+      "kind": "family",
+      "description": [
+        "Una famiglia di pescatori del borgo antico ridotta a tre generazioni sotto lo stesso tetto e a un uomo all'estero. Il nonno Cosimo è morto in mare nel 1944; la barca è stata venduta nel 1952 per pagare i debiti, l'anno in cui Vito è partito.",
+        "Lingua: in casa il dialetto, l'italiano solo nelle lettere, attraverso la penna della scrivana. Tradizioni: il primo figlio prende il nome del nonno paterno, e la domenica si apparecchia anche per chi è lontano. Ciò che la tiene unita sono i soldi che arrivano dal Belgio e la fotografia di Vito sopra la credenza."
+      ],
+      "members": [
+        "character:vito",
+        "character:nunzia",
+        "character:filomena",
+        "character:cosimo",
+        "location:casa_didonna",
+        "object:scatola"
+      ]
+    },
+    {
+      "key": "vedove_bianche",
+      "name": "Le vedove bianche",
+      "kind": "other",
+      "description": [
+        "Così il paese chiama, a mezza voce, le mogli degli emigranti: donne sposate che vivono sole per anni, con i mariti in Belgio, in Argentina o in America. Non hanno un'associazione né un capo, ma una geografia comune: il molo all'alba, l'ufficio postale il giorno dei vaglia, la stanza della scrivana.",
+        "Lingua: tra loro si chiamano con il nome del marito, quella di Vito, quella di Franco. Tradizioni: la fotografia nel portafoglio, il vestito buono per il ritratto da spedire, il rosario per chi lavora sotto terra. Il loro potere è conoscere i segreti di tutto il borgo e saperli tenere."
+      ],
+      "members": [
+        "character:nunzia",
+        "location:porto",
+        "location:casa_ladisa"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "key": "mola",
+      "name": "Mola di Bari",
+      "kind": "Città",
+      "nation": "Italia",
+      "region": "Puglia",
+      "city": "Mola di Bari",
+      "description": [
+        "Cittadina di pescatori e di contadini sull'Adriatico, una ventina di chilometri a sud di Bari. Nel 1956 vive di mare, di ulivi e di rimesse: in quasi ogni famiglia c'è qualcuno partito per l'America, per l'Argentina o per le miniere del Belgio.",
+        "Il castello angioino sul mare, la Chiesa Matrice, il porto dei polpi, il lungomare dove la domenica si passeggia. La corriera per Bari parte dalla piazza."
+      ]
+    },
+    {
+      "key": "borgo",
+      "name": "Borgo antico",
+      "kind": "Quartiere",
+      "nation": "Italia",
+      "region": "Puglia",
+      "city": "Mola di Bari",
+      "parent": "mola",
+      "description": [
+        "Il nucleo vecchio del paese, stretto tra il castello e il porto: vicoli di chianche lucide, archi, scale esterne, case a due piani con il lastrico in cima. Da aprile a ottobre le porte stanno aperte e le voci passano da una casa all'altra.",
+        "Nella saletta della parrocchia, dietro la sacrestia, si tengono le lezioni serali della scuola popolare."
+      ]
+    },
+    {
+      "key": "casa_ladisa",
+      "name": "Casa Ladisa",
+      "kind": "Casa e bottega",
+      "nation": "Italia",
+      "region": "Puglia",
+      "city": "Mola di Bari",
+      "parent": "borgo",
+      "description": [
+        "La casa del maestro Ladisa, in un vicolo che scende verso il porto. Al pianterreno c'è la stanza della scrivana: un tavolo di noce accanto alla porta, due sedie impagliate per i clienti, uno scaffale con i dizionari del padre e i copialettere rilegati anno per anno.",
+        "Al piano di sopra Teresa dorme, legge e non riceve nessuno. Dalla finestra della camera si vede un taglio di mare tra due tetti."
+      ]
+    },
+    {
+      "key": "casa_didonna",
+      "name": "Casa Didonna",
+      "kind": "Casa",
+      "nation": "Italia",
+      "region": "Puglia",
+      "city": "Mola di Bari",
+      "parent": "borgo",
+      "description": [
+        "Due stanze sopra un magazzino di reti, con una scala esterna di pietra. In cucina, sopra la credenza, c'è la fotografia di Vito in giacca e cravatta, scattata a Charleroi per essere spedita.",
+        "Il lastrico, in cima, è il solo posto dove Nunzia sta da sola: ci stende i panni, e da lì si vedono il porto, il fanale del molo e, nelle sere d'estate, le lampare."
+      ]
+    },
+    {
+      "key": "porto",
+      "name": "Porto di Mola",
+      "kind": "Porto",
+      "nation": "Italia",
+      "region": "Puglia",
+      "city": "Mola di Bari",
+      "parent": "mola",
+      "description": [
+        "Il porto peschereccio, con il molo che chiude il bacino e la banchina dove all'alba si vende il pesce. Le donne rammendano le reti sedute sulle cassette; gli uomini discutono del tempo davanti al bar.",
+        "Il bar del porto ha l'unica radio del borgo accesa ad alto volume: d'estate il gestore la mette sul davanzale, e le notizie arrivano sul molo insieme all'odore del caffè."
+      ]
+    },
+    {
+      "key": "charleroi",
+      "name": "Charleroi",
+      "kind": "Bacino minerario",
+      "nation": "Belgio",
+      "region": "Hainaut",
+      "city": "Charleroi",
+      "description": [
+        "Città industriale della Vallonia, circondata da pozzi di carbone, acciaierie e colline nere di scorie, i terril. Dopo la guerra vi arrivano decine di migliaia di italiani, alloggiati spesso nelle baracche dei vecchi campi di prigionia.",
+        "Vito vive in una di queste baracche, a qualche chilometro dal pozzo dove lavora. L'indirizzo, scritto da Teresa più di quaranta volte, è l'unica parte della città che Nunzia conosca."
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "key": "stilografica",
+      "name": "Stilografica del maestro",
+      "kind": "Strumento di scrittura",
+      "description": [
+        "Una penna stilografica nera con il pennino d'oro, comprata a Bari dal maestro Nicola Ladisa nel 1925 con il primo stipendio. Teresa la usa solo per le lettere; per i conti usa una matita.",
+        "Il pennino si è piegato alla mano del padre e scrive ancora un poco inclinato verso destra: è la sola cosa di lui che continua a muoversi."
+      ]
+    },
+    {
+      "key": "copialettere",
+      "name": "Copialettere",
+      "kind": "Registro",
+      "description": [
+        "Il registro in cui Teresa, come il padre prima di lei, ricopia ogni lettera che scrive per conto d'altri, con la data e il nome del cliente. Ce n'è uno per ogni anno, rilegato in tela grigia.",
+        "Quello del 1956 contiene le lettere di Nunzia con le frasi aggiunte: è la prova di tutto, e Teresa non ha mai pensato di distruggerlo."
+      ]
+    },
+    {
+      "key": "scatola",
+      "name": "Scatola di latta",
+      "kind": "Contenitore",
+      "description": [
+        "Una scatola di biscotti con un paesaggio di montagna mezzo scrostato sul coperchio, dove Nunzia conserva tutte le lettere di Vito, legate per anno con il filo da imbastire. Sta in alto nell'armadio, dietro le lenzuola del corredo.",
+        "Per quattro anni Nunzia l'ha aperta senza poter leggere quello che conteneva. Una notte di novembre la apre per leggere da sola."
+      ]
+    }
+  ],
+  "strands": [
+    {
+      "key": "lettere",
+      "name": "Le lettere",
+      "kind": "plot",
+      "description": [
+        "La linea principale: da marzo a dicembre del 1956 Teresa aggiunge frasi sue alle lettere che scrive per Nunzia e tace, leggendo ad alta voce, quelle in cui Vito le risponde. La corrispondenza diventa un amore a tre di cui una sola persona conosce la forma.",
+        "Domanda drammatica: Teresa confesserà prima che Vito torni a Natale? E quando la verità viene fuori, a chi appartengono le parole che hanno tenuto in piedi un matrimonio?"
+      ]
+    },
+    {
+      "key": "saverio_teresa",
+      "name": "Il portalettere",
+      "kind": "subplot",
+      "description": [
+        "Saverio Netti, che porta le buste e ne conosce il peso, ama Teresa da anni senza dirlo. La sua corte silenziosa è lo specchio di quella di Vito: un uomo senza parole davanti a una donna che ne ha troppe.",
+        "La sottotrama cresce in ottobre con la passeggiata della domenica e il rifiuto, e si scioglie all'inizio del 1957."
+      ]
+    },
+    {
+      "key": "nunzia_legge",
+      "name": "Imparare a leggere",
+      "kind": "arc",
+      "description": [
+        "L'arco di Nunzia, dalla firma a croce alla prima lettera scritta da sola. La scuola popolare serale, frequentata di nascosto con la scusa del rosario di maggio, le dà prima il proprio nome, poi le parole del marito, infine la prova di quello che ha fatto la scrivana.",
+        "Ogni progresso di Nunzia stringe il cerchio intorno a Teresa: la trama principale e l'arco si muovono uno contro l'altro."
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "from": "character:nunzia",
+      "to": "character:vito",
+      "kind": "romance",
+      "label": "sposi",
+      "description": "Sposati nel 1950 e separati dal 1952, sono un matrimonio che da quattro anni esiste solo sulla carta, e la carta la scrive un'altra.",
+      "directed": false
+    },
+    {
+      "from": "character:filomena",
+      "to": "character:vito",
+      "kind": "family",
+      "label": "madre",
+      "description": "È l'unico figlio che le è rimasto, e lo aspetta come si aspetta una barca col mare grosso.",
+      "directed": true,
+      "reverseLabel": "figlio"
+    },
+    {
+      "from": "character:filomena",
+      "to": "character:nunzia",
+      "kind": "family",
+      "label": "suocera",
+      "description": "Convivono per necessità: Filomena sorveglia la nuora, e la nuora la sopporta.",
+      "directed": true,
+      "reverseLabel": "nuora"
+    },
+    {
+      "from": "character:nunzia",
+      "to": "character:cosimo",
+      "kind": "family",
+      "label": "madre",
+      "description": "Lo cresce da sola e vuole per lui la scuola che lei non ha avuto.",
+      "directed": true,
+      "reverseLabel": "figlio"
+    },
+    {
+      "from": "character:vito",
+      "to": "character:cosimo",
+      "kind": "family",
+      "label": "padre",
+      "description": "Lo ha lasciato a quindici mesi e lo conosce da tre fotografie.",
+      "directed": true,
+      "reverseLabel": "figlio"
+    },
+    {
+      "from": "character:teresa",
+      "to": "character:nunzia",
+      "kind": "professional",
+      "label": "scrivana",
+      "description": "Da quattro anni Teresa scrive e legge le lettere di Nunzia, e da marzo la tradisce con le migliori intenzioni.",
+      "directed": true,
+      "reverseLabel": "cliente"
+    },
+    {
+      "from": "character:teresa",
+      "to": "character:vito",
+      "kind": "romance",
+      "label": "amore per lettera",
+      "description": "Teresa si innamora, senza averlo mai visto, del solo uomo che risponde davvero a quello che scrive.",
+      "directed": true,
+      "reverseLabel": "amato per lettera"
+    },
+    {
+      "from": "character:saverio",
+      "to": "character:teresa",
+      "kind": "romance",
+      "label": "innamorato",
+      "description": "Saverio la ama in silenzio da anni, e la posta di ogni giorno è il suo pretesto.",
+      "directed": true,
+      "reverseLabel": "amata"
+    },
+    {
+      "from": "character:ines",
+      "to": "character:nunzia",
+      "kind": "mentorship",
+      "label": "maestra",
+      "description": "Ines le insegna a leggere e a scrivere la sera, nella saletta della parrocchia.",
+      "directed": true,
+      "reverseLabel": "allieva"
+    },
+    {
+      "from": "character:ines",
+      "to": "character:teresa",
+      "kind": "rivalry",
+      "label": "rivali senza saperlo",
+      "description": "Ogni allieva che impara a leggere è una cliente in meno per la scrivana, e un segreto più fragile.",
+      "directed": false
+    },
+    {
+      "from": "character:filomena",
+      "to": "character:teresa",
+      "kind": "rivalry",
+      "label": "diffidenza",
+      "description": "Filomena non si fida della scrivana, che sa troppo e sorride poco.",
+      "directed": false
+    },
+    {
+      "from": "character:saverio",
+      "to": "character:nunzia",
+      "kind": "professional",
+      "label": "portalettere",
+      "description": "Le porta i vaglia e le lettere del Belgio, e ad agosto corre su per il vicolo con la busta che dice che Vito è vivo.",
+      "directed": true,
+      "reverseLabel": "destinataria"
+    },
+    {
+      "from": "character:teresa",
+      "to": "character:cosimo",
+      "kind": "friendship",
+      "label": "amici",
+      "description": "Il bambino passa le mattine sotto il tavolo della scrivana, e lei gli insegna le lettere senza dirlo a nessuno.",
+      "directed": false
+    }
+  ],
+  "parts": [
+    {
+      "title": "Le parole degli altri",
+      "chapters": [
+        {
+          "key": "cap_vico",
+          "title": "La stanza sul vico",
+          "reason": "Presenta il mestiere di Teresa e il patto tra le tre voci, e contiene l'incidente scatenante: la prima frase aggiunta e la prima omissione.",
+          "scenes": [
+            {
+              "key": "dettatura",
+              "title": "Dettatura",
+              "synopsis": "Nunzia detta a Teresa la solita lettera per Vito, breve come una lista della spesa. Per la prima volta in sette anni di mestiere, Teresa aggiunge in fondo una frase che nessuno le ha dettato.",
+              "status": "final",
+              "pov": "third_limited",
+              "povCharacter": "teresa",
+              "characters": [
+                "teresa",
+                "nunzia",
+                "cosimo"
+              ],
+              "locations": [
+                "casa_ladisa"
+              ],
+              "objects": [
+                "stilografica",
+                "copialettere"
+              ],
+              "strands": [
+                "lettere"
+              ],
+              "storyAt": "1956-03-12T10:30",
+              "storyTimeLabel": "Lunedì 12 marzo 1956, mattina",
+              "durationMinutes": 40,
+              "text": [
+                {
+                  "p": "Da aprile a ottobre la porta della stanza restava aperta, ma a marzo Teresa la teneva accostata, e chi entrava doveva spingerla con la spalla. @[character:nunzia] la spinse con il fianco, perché con una mano teneva il bambino e con l'altra il fazzoletto annodato dei soldi."
+                },
+                {
+                  "p": "«Devo scrivere a Vito» disse, come ogni mese, e si sedette senza aspettare l'invito. Mimmo andò dritto sotto il tavolo, dove sapeva di trovare un rocchetto e due tappi di sughero."
+                },
+                {
+                  "p": "@[character:teresa] svitò il cappuccio della @[object:stilografica], provò il pennino su un foglio di brutta e scrisse in alto a destra: Mola di Bari, 12 marzo 1956. Poi aspettò. Con Nunzia non c'era mai da aspettare molto."
+                },
+                {
+                  "p": "«Caro Vito. Stiamo bene. Mimmo è cresciuto e non gli entrano più le scarpe. Tua madre ha la tosse ma il medico non lo vuole. I soldi di febbraio sono arrivati. Onofrio vuole sapere se d'estate vieni per la stagione, sennò si prende un altro.»"
+                },
+                {
+                  "p": "Teresa scrisse ogni frase ripetendola a mezza voce. Poi ci fu un silenzio in cui si sentivano, giù al porto, le cassette sbattute sulla banchina."
+                },
+                {
+                  "p": "«Basta così?» chiese."
+                },
+                {
+                  "p": "«Basta così. Che gli devo dire, che fa freddo? Lo sa.»"
+                },
+                {
+                  "p": "Nunzia si era voltata verso la strada, dove un carretto non riusciva a passare. Teresa intinse il pennino e sotto l'ultima riga, con la stessa grafia ordinata, scrisse: Ieri sera sono salita sul lastrico e ho contato le lampare che uscivano dal porto. Erano undici. Ne mancava una, e ho pensato che eri tu."
+                },
+                {
+                  "p": "Non l'aveva deciso. La frase era venuta intera, come vengono certe risposte quando nessuno ha fatto la domanda."
+                },
+                {
+                  "p": "«Leggimela» disse Nunzia. Teresa lesse dall'inizio e si fermò dopo la stagione di Onofrio. Nunzia annuì e fece la sua croce in fondo al foglio, piccola e storta, premendo tanto da graffiare la carta."
+                },
+                {
+                  "p": "Quando se ne furono andati, Teresa aprì il @[object:copialettere] dell'anno e ricopiò la lettera, come il padre aveva fatto per trent'anni. Ricopiò anche le lampare, e rimase a guardare la riga finché l'inchiostro non fu asciutto."
+                }
+              ]
+            },
+            {
+              "key": "lettera_marzo",
+              "title": "La risposta",
+              "synopsis": "Arriva la risposta di Vito, più lunga del solito: risponde proprio alla frase delle lampare. Teresa, leggendo ad alta voce in casa Didonna, la sostituisce con una frase sul freddo, sotto lo sguardo di Filomena.",
+              "status": "final",
+              "pov": "third_limited",
+              "povCharacter": "teresa",
+              "characters": [
+                "teresa",
+                "nunzia",
+                "filomena",
+                "saverio",
+                "cosimo"
+              ],
+              "locations": [
+                "casa_didonna"
+              ],
+              "objects": [
+                "scatola"
+              ],
+              "strands": [
+                "lettere"
+              ],
+              "storyAt": "1956-04-03T17:30",
+              "storyTimeLabel": "Martedì 3 aprile 1956, pomeriggio",
+              "durationMinutes": 35,
+              "text": [
+                {
+                  "p": "La lettera arrivò di martedì, con la posta del pomeriggio. @[character:saverio] la consegnò a Filomena sulla scala, e Filomena mandò il bambino a chiamare la scrivana, perché le lettere di Vito si leggevano in casa, in cucina, con la porta chiusa."
+                },
+                {
+                  "p": "Teresa salì con gli occhiali già appesi al collo. In cucina c'era odore di cicoria e di carbonella. Filomena sedeva di fronte alla porta, come sempre; Nunzia stava in piedi vicino all'acquaio, con le mani bagnate che non si asciugava."
+                },
+                {
+                  "p": "La busta era più gonfia del solito. Dentro c'erano due fogli scritti fitti, con la grafia grande di Vito che a ogni riga pendeva un poco più in basso, e una fotografia: quattro uomini in giacca davanti a una baracca di legno, tutti con la faccia seria di chi si fa ritrarre per qualcun altro."
+                },
+                {
+                  "p": "Teresa cominciò a leggere. Le prime righe erano quelle di sempre: il lavoro, la salute, i soldi che avrebbe mandato il quindici. Poi la grafia si faceva più lenta, più premuta, e Teresa capì un attimo prima di leggere."
+                },
+                {
+                  "p": "Le lampare le conto pure io, Nunzia. Qui non ci sono, ma la sera, quando spengono la luce nella baracca, le conto sul soffitto. Non lo sapevo che tu salivi sul lastrico a guardarle. Non me lo avevi mai detto."
+                },
+                {
+                  "p": "La voce le si fermò in gola. Alzò gli occhi: Nunzia guardava la fotografia, @[character:filomena] guardava lei."
+                },
+                {
+                  "p": "«Qui dice che fa freddo» disse Teresa, e voltò il foglio. «Che a Charleroi è ancora inverno, e il carbone che tirano fuori non basta a scaldare la baracca.»"
+                },
+                {
+                  "p": "Lesse il resto senza fermarsi più. Quando ebbe finito, Nunzia prese i fogli, li ripiegò lungo le pieghe vecchie e li mise nella @[object:scatola], in alto nell'armadio, insieme alle altre. Sulla porta, mentre Teresa scendeva, Filomena le chiese se il figlio avesse scritto qualcosa anche per la madre. Teresa disse di sì, che la salutava tanto. Neanche questo era scritto da nessuna parte."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "cap_carbone",
+          "title": "Carbone e sale",
+          "reason": "Mostra l'altro capo del filo, Vito in Belgio cambiato dalle lettere, e la decisione di Nunzia di imparare a leggere: apre l'arco che metterà in pericolo il segreto.",
+          "scenes": [
+            {
+              "key": "baracca",
+              "title": "La baracca",
+              "synopsis": "A Charleroi, la domenica sera, Vito legge una lettera che sembra conoscere la sua paura del buio. Per la prima volta scrive a Nunzia della miniera, con i suoi errori, e si sente un altro uomo.",
+              "status": "revised",
+              "pov": "third_limited",
+              "povCharacter": "vito",
+              "characters": [
+                "vito"
+              ],
+              "locations": [
+                "charleroi"
+              ],
+              "objects": [],
+              "strands": [
+                "lettere"
+              ],
+              "storyAt": "1956-04-22T21:30",
+              "storyTimeLabel": "Domenica 22 aprile 1956, sera",
+              "durationMinutes": 60,
+              "text": [
+                {
+                  "p": "Nella baracca dodici uomini dormivano, fumavano, si tagliavano le unghie con lo stesso coltello. La stufa bruciava il carbone che loro stessi tiravano fuori dalla terra, e la domenica sera l'aria era così fitta che le lettere si leggevano a un palmo dalla lampadina."
+                },
+                {
+                  "p": "@[character:vito] lesse quella di Nunzia due volte, la seconda muovendo le labbra. Raccontava del vento di aprile che aveva rovesciato i vasi di basilico dal lastrico, e di Mimmo che aveva chiesto se il papà, sotto terra, vedeva le radici degli alberi. In fondo c'era una frase: Quando hai paura del buio, pensa che il buio è lo stesso anche qui, e che lo guardiamo insieme."
+                },
+                {
+                  "p": "Non le aveva mai detto che aveva paura del buio. Non l'aveva detto a nessuno, neppure a Peppino, quello di Andria, che dormiva nella branda sopra la sua. Eppure Nunzia lo sapeva. Forse le mogli lo sanno, pensò, anche da lontano, anche con la penna di un'altra."
+                },
+                {
+                  "p": "Piegò il foglio in modo che quella frase restasse fuori e lo mise nel taschino della camicia da lavoro, per il turno del lunedì. Poi prese il blocco a quadretti e la matita copiativa, la bagnò con la lingua come a scuola e coprì la pagina con il braccio."
+                },
+                {
+                  "p": "Cara Nunzia, scrisse. A seicento metri ce un silenzio che non è silenzio, perche la terra scricchiola come una barca vecchia. La lampada fa un cerchio, e fuori dal cerchio non ce niente."
+                },
+                {
+                  "p": "Scrisse per un'ora cose che non sapeva di sapere: la fiammella della lampada del caposquadra, che si allunga quando c'è il grisù; la galleria che un giorno si era abbassata di un palmo sopra la sua testa, e lui aveva pensato al mare alle sei di mattina. Quando rilesse, gli sembrò la lettera di un altro uomo, e ne fu contento."
+                },
+                {
+                  "p": "Fuori pioveva sui terril, le colline nere che a @[location:charleroi] tengono il posto delle montagne. Peppino si sporse dalla branda e gli chiese a chi scriveva tanto. «A mia moglie» disse Vito, come se lo dicesse per la prima volta."
+                }
+              ]
+            },
+            {
+              "key": "reti",
+              "title": "Le reti",
+              "synopsis": "All'alba, mentre rammenda le reti sul molo, Nunzia vede la maestra Ines attaccare l'avviso della scuola serale per adulti e, davanti alle altre donne che ridono, le chiede che cosa c'è scritto.",
+              "status": "final",
+              "pov": "third_limited",
+              "povCharacter": "nunzia",
+              "characters": [
+                "nunzia",
+                "ines"
+              ],
+              "locations": [
+                "porto"
+              ],
+              "objects": [],
+              "strands": [
+                "nunzia_legge"
+              ],
+              "storyAt": "1956-05-17T06:15",
+              "storyTimeLabel": "Giovedì 17 maggio 1956, all'alba",
+              "durationMinutes": 60,
+              "text": [
+                {
+                  "p": "All'alba il molo era delle donne. Gli uomini erano rientrati alle quattro, avevano venduto il pesce sulla banchina e adesso dormivano, o bevevano il caffè al bar del porto con il berretto sugli occhi; le reti restavano lì, ammucchiate sulle pietre, con i buchi lasciati dalla notte."
+                },
+                {
+                  "p": "@[character:nunzia] rammendava seduta su una cassetta rovesciata, con l'ago di legno in mano e il filo tra i denti. Le mani sapevano il lavoro da sole, e la testa andava sempre nello stesso posto: alle ultime lettere di Vito, lunghe come non erano mai state, che la scrivana leggeva con una voce più bassa del solito."
+                },
+                {
+                  "p": "«Si è fatto poeta, tuo marito» aveva detto la cognata di Onofrio, che sapeva tutto di tutti e una lettera non l'aveva mai ricevuta."
+                },
+                {
+                  "p": "Verso le sei arrivò una ragazza con un cappotto chiaro e una cartella di cuoio, e attaccò un foglio al muro del magazzino del ghiaccio con quattro puntine. Le donne smisero di cucire per guardarla. Aveva le scarpe di città."
+                },
+                {
+                  "p": "«Che dice?» chiese Nunzia, prima di potersi trattenere."
+                },
+                {
+                  "p": "La ragazza si voltò. Non rise, e non fece la faccia degli impiegati del Comune. «Dice che dal ventidue di maggio c'è la scuola serale per gli adulti, nella saletta della parrocchia, per imparare a leggere e a scrivere. È gratis. Io sono la maestra, Ines Galeone.» Le tese la mano, e Nunzia gliela strinse con la sua, che sapeva di pesce."
+                },
+                {
+                  "p": "Le altre risero. «E a che ci serve, alla nostra età? A leggere i conti del pescivendolo?» @[character:ines] rispose che serviva a leggere quello che uno voleva, e se ne andò verso il castello con la cartella sotto il braccio."
+                },
+                {
+                  "p": "Nunzia tornò alla rete. Il foglio sul muro era un rettangolo bianco pieno di segni neri, e per la prima volta le parve che quei segni la guardassero. Pensò alla lettera di aprile, a come la scrivana aveva voltato il foglio un momento troppo presto, e tirò il filo così forte che la maglia si chiuse storta."
+                }
+              ]
+            },
+            {
+              "key": "saletta",
+              "title": "Il rosario di maggio",
+              "synopsis": "Con la scusa del rosario, Nunzia va alla prima lezione della scuola popolare. In un'ora, su un banco da bambini, impara a scrivere il proprio nome.",
+              "status": "final",
+              "pov": "third_limited",
+              "povCharacter": "nunzia",
+              "characters": [
+                "nunzia",
+                "ines",
+                "filomena"
+              ],
+              "locations": [
+                "casa_didonna",
+                "borgo"
+              ],
+              "objects": [],
+              "strands": [
+                "nunzia_legge"
+              ],
+              "storyAt": "1956-05-22T19:30",
+              "storyTimeLabel": "Martedì 22 maggio 1956, sera",
+              "durationMinutes": 90,
+              "text": [
+                {
+                  "p": "A Filomena disse che andava al rosario. A maggio, il mese della Madonna, le donne del @[location:borgo] uscivano tutte le sere dopo cena con il velo in tasca, e nessuno chiedeva niente a una moglie che va in chiesa. La suocera la guardò mettersi lo scialle e disse soltanto: «Prega pure per tuo marito»."
+                },
+                {
+                  "p": "La saletta della parrocchia stava dietro la sacrestia, in fondo a un cortile con un fico. Dentro c'erano sei banchi da bambini, una lavagna, una stufa spenta e cinque adulti seduti di sbieco, con le ginocchia che non entravano sotto il piano. @[character:ines] scriveva alla lavagna con un gesso che strideva."
+                },
+                {
+                  "p": "C'erano due pescatori vecchi, un ragazzo del frantoio, la moglie del calzolaio e Nunzia. Nessuno guardava nessuno. La maestra li chiamava signore e signori, e diceva le lettere come fossero nomi di persone: questa è la A, apre la bocca; questa è la O, tonda come un uovo."
+                },
+                {
+                  "p": "A Nunzia toccò un quaderno a righe con la copertina nera e l'etichetta bianca. Sull'etichetta la maestra scrisse, con la sua calligrafia rotonda: Nunzia Lorusso. Poi glielo lasciò davanti. «Questo è il suo nome. Stasera impariamo a scriverlo.»"
+                },
+                {
+                  "p": "Ci volle tutta l'ora. La N era facile, due gambe e un ponte. La U era una barca. La Z non voleva saperne di stare dritta, e la matita si spezzò due volte. Il ragazzo del frantoio rideva piano, ma ogni tanto sbuffava anche lui sopra le sue righe."
+                },
+                {
+                  "p": "Quando la maestra passò tra i banchi, si fermò dietro di lei e restò zitta per un tempo lunghissimo. Poi posò un dito sul foglio, sotto l'ultima riga, dove le lettere storte dicevano NUNZIA, tutte attaccate. «Ecco» disse. «D'ora in poi firma con questo.»"
+                },
+                {
+                  "p": "Tornando a casa, Nunzia tenne il quaderno sotto il grembiule, contro la pancia, come si porta una cosa calda. Salì la scala senza far rumore. Dal letto @[character:filomena] chiese se il rosario era stato lungo, e lei rispose di sì, lunghissimo, e non era una bugia."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "cap_agosto",
+          "title": "L'otto agosto",
+          "reason": "La catastrofe di Marcinelle mette alla prova tutti e porta la svolta della prima parte: Vito è vivo e annuncia il ritorno, e la menzogna di Teresa ha ora una scadenza.",
+          "scenes": [
+            {
+              "key": "radio",
+              "title": "La radio del bar",
+              "synopsis": "Il giornale radio della sera annuncia l'incendio nella miniera di Marcinelle, vicino a Charleroi. Il paese si raccoglie davanti al bar del porto; Teresa rassicura Nunzia con una certezza che non ha.",
+              "status": "final",
+              "pov": "third_omniscient",
+              "povCharacter": "teresa",
+              "characters": [
+                "teresa",
+                "nunzia",
+                "filomena",
+                "saverio",
+                "cosimo"
+              ],
+              "locations": [
+                "porto"
+              ],
+              "objects": [],
+              "strands": [
+                "lettere"
+              ],
+              "storyAt": "1956-08-08T20:30",
+              "storyTimeLabel": "Mercoledì 8 agosto 1956, sera",
+              "durationMinutes": 150,
+              "text": [
+                {
+                  "p": "La notizia arrivò a Mola con il giornale radio della sera, e per qualche minuto nessuno la capì. Il gestore del bar del porto aveva messo l'apparecchio sul davanzale, come ogni estate, e la voce di Roma parlava di un incendio in una miniera del Belgio, a Marcinelle, vicino a Charleroi. Centinaia di uomini erano rimasti sotto. Molti erano italiani."
+                },
+                {
+                  "p": "Al nome di Charleroi una donna si alzò dalla panchina del molo, poi un'altra. In pochi minuti davanti al bar c'erano cinquanta persone. Il gestore alzò il volume fino a far gracchiare la radio, ma le notizie erano poche e tornavano sempre uguali: il fuoco, il fumo, le gallerie che i soccorsi non riuscivano a raggiungere."
+                },
+                {
+                  "p": "@[character:saverio] era rimasto con la bicicletta in mano e pensava alle buste con quel timbro, decine, cercando di ricordare chi le riceveva, come se ricordarle potesse proteggerle. Filomena diceva il rosario a mezza voce, senza fermarsi, saltando i misteri."
+                },
+                {
+                  "p": "@[character:nunzia] arrivò di corsa con il bambino in braccio e cercò con gli occhi la scrivana. Non sapeva in quale pozzo lavorasse Vito, non l'aveva mai saputo. Sapeva solo una parola, Charleroi, che le era sempre sembrata il nome di una cosa lontana e innocua, come una medicina."
+                },
+                {
+                  "p": "@[character:teresa] invece lo sapeva. Aveva scritto quell'indirizzo più di quaranta volte, un altro comune, dall'altra parte della città, e sapeva anche quanto poco valesse."
+                },
+                {
+                  "p": "«Non è il pozzo suo» disse a Nunzia, e le prese il polso. «Vito sta da un'altra parte.» Lo disse con la voce con cui leggeva le lettere, e Nunzia le credette, perché a quella voce aveva sempre creduto. Ma gli uomini cambiano pozzo, si fanno prestare per un turno, e una lettera di luglio non dice dove uno sta in agosto."
+                },
+                {
+                  "p": "Restarono sul molo fino a tardi. Nessuno andò a cena. Il mare era fermo e nero, le lampare erano uscite lo stesso, e qualcuno disse che era un peccato, quella sera, che il mare fosse così bello."
+                }
+              ]
+            },
+            {
+              "key": "lettera_agosto",
+              "title": "A Natale",
+              "synopsis": "Dopo tredici giorni di attesa arriva la lettera: Vito è vivo e tornerà a Natale, per conoscere la voce che gli scrive. Teresa legge solo la prima metà della frase, e la sera scrive una risposta senza aggiungere nulla.",
+              "status": "revised",
+              "pov": "third_limited",
+              "povCharacter": "teresa",
+              "characters": [
+                "teresa",
+                "nunzia",
+                "saverio",
+                "cosimo"
+              ],
+              "locations": [
+                "casa_ladisa"
+              ],
+              "objects": [
+                "copialettere"
+              ],
+              "strands": [
+                "lettere"
+              ],
+              "storyAt": "1956-08-21T11:00",
+              "storyTimeLabel": "Martedì 21 agosto 1956, tarda mattina",
+              "durationMinutes": 30,
+              "text": [
+                {
+                  "p": "Per tredici giorni le donne del borgo vissero alla finestra. Le notizie arrivavano a pezzi: il numero dei morti che cresceva, i nomi sul giornale, quasi tutti di paesi lontani. Ogni mattina Teresa leggeva la Gazzetta ad alta voce sulla soglia, e le donne se ne andavano senza dire grazie, perché non c'era niente di cui ringraziare."
+                },
+                {
+                  "p": "Il tredicesimo giorno @[character:saverio] salì il vicolo di corsa, cosa che nessuno gli aveva mai visto fare, con la borsa che gli sbatteva sul fianco. Nunzia l'aveva visto dal lastrico ed era già sulla scala. Arrivarono insieme alla stanza della scrivana, lei davanti e lui dietro, con la busta tenuta alta come una cosa che si può rompere."
+                },
+                {
+                  "p": "Teresa riconobbe la grafia prima di aprirla, e le tremarono le mani, e se ne accorsero tutti. Lesse la prima riga ad alta voce: Cara Nunzia, sono vivo, sto bene, il pozzo mio è da un'altra parte. @[character:nunzia] si sedette per terra, sulla soglia, con la schiena contro lo stipite. Saverio si tolse il berretto."
+                },
+                {
+                  "p": "Il resto parlava di un ragazzo abruzzese che aveva fatto con lui il viaggio da Milano e non era risalito, e delle bare allineate. Poi, verso la fine, la grafia si allargava: A Natale vengo. Ho chiesto il permesso e me lo danno. Vengo a sentire con le orecchie mie la voce che mi scrive queste lettere, perché da marzo mi pare di avere un'altra moglie, e la voglio conoscere."
+                },
+                {
+                  "p": "«A Natale viene» lesse Teresa. «Ha chiesto il permesso e glielo danno.» E piegò il foglio."
+                },
+                {
+                  "p": "Nunzia rideva e piangeva insieme, con il bambino stretto addosso, e baciò le mani alla scrivana, tutte e due, come si baciano a un prete. Teresa la lasciò fare. Sentiva la frase che non aveva letto stare nella carta come un sasso in tasca."
+                },
+                {
+                  "p": "La sera Nunzia tornò a dettare la risposta: vieni, ti aspettiamo, Mimmo ti fa un disegno. Teresa scrisse queste parole e nessun'altra. Quando la ricopiò nel @[object:copialettere], per la prima volta da marzo la lettera le sembrò nuda, e vera, e insopportabile."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La propria voce",
+      "chapters": [
+        {
+          "key": "cap_copialettere",
+          "title": "Il copialettere",
+          "reason": "Due rifiuti e una scoperta: Teresa respinge Saverio perché è legata a una voce che non è la sua, e Nunzia, da sola, legge la lettera di aprile e trova le frasi che non ha mai detto.",
+          "scenes": [
+            {
+              "key": "domenica",
+              "title": "La passeggiata",
+              "synopsis": "Saverio invita Teresa a passeggiare sul lungomare e le dice che da marzo le buste del Belgio pesano il doppio. Poi le chiede di sposarlo; lei rifiuta con gentilezza, perché ha già troppe parole che non sono sue.",
+              "status": "revised",
+              "pov": "third_limited",
+              "povCharacter": "saverio",
+              "characters": [
+                "saverio",
+                "teresa"
+              ],
+              "locations": [
+                "mola",
+                "casa_ladisa"
+              ],
+              "objects": [],
+              "strands": [
+                "saverio_teresa",
+                "lettere"
+              ],
+              "storyAt": "1956-10-07T16:30",
+              "storyTimeLabel": "Domenica 7 ottobre 1956, pomeriggio",
+              "durationMinutes": 75,
+              "text": [
+                {
+                  "p": "@[character:saverio] aveva chiesto consiglio alla sorella, al barbiere e, per scrupolo, alla Madonna, e il sabato aveva fatto stirare la giacca della festa. Teresa disse di sì, che una passeggiata la domenica non si nega a nessuno, e lui decise di non chiedersi se fosse un sì per lui o per la domenica."
+                },
+                {
+                  "p": "Camminarono lungo il mare, dal castello fino in fondo al lungomare, dove le famiglie tornavano indietro. A ottobre, a Mola, il pomeriggio è ancora estate e la sera è già inverno. @[character:teresa] teneva le mani nelle tasche del cappotto e guardava le barche tirate in secca; lui guardava lei, poco, per non sciuparla."
+                },
+                {
+                  "p": "Parlarono della sorella di lui, del parroco nuovo, del prezzo dell'olio. Poi Saverio disse quello che sapeva, perché era l'unica cosa che sapesse fare bene: portare. «Da marzo le buste del Belgio pesano il doppio. Vito Didonna scriveva un foglio, adesso ne scrive tre. Lo so dal peso, signorina. Le lettere io non le apro.»"
+                },
+                {
+                  "p": "Lei non rispose. Si era fermata a guardare un ragazzo che pescava con la canna dagli scogli, e Saverio capì di averle fatto male, e che il male era la prova di qualcosa."
+                },
+                {
+                  "p": "Allora disse l'altra cosa, quella provata davanti allo specchio del barbiere: che lui non sapeva scrivere come lei, che le parole gli venivano storte e corte, ma che un uomo della sua età sa tenere una casa e una promessa, e lui le avrebbe tenute tutte e due."
+                },
+                {
+                  "p": "Teresa lo guardò a lungo, con una gentilezza che gli fece più paura di un no. «Saverio» disse. «In questo momento ho troppe parole che non sono mie. Non posso prendere anche le vostre.»"
+                },
+                {
+                  "p": "Tornarono indietro senza parlare. Davanti a @[location:casa_ladisa] lei gli strinse la mano come a un cliente, e poi la tenne un momento di più. Saverio scese verso casa fischiettando, per abitudine, e solo a metà del vicolo si accorse che era il motivo di una canzone triste."
+                }
+              ]
+            },
+            {
+              "key": "parola",
+              "title": "Una parola alla volta",
+              "synopsis": "Di notte, mentre la casa dorme, Nunzia apre la scatola delle lettere e legge da sola quella di aprile. Trova la parola lampare e una frase che risponde a qualcosa che lei non ha mai detto.",
+              "status": "revised",
+              "pov": "third_limited",
+              "povCharacter": "nunzia",
+              "characters": [
+                "nunzia",
+                "cosimo",
+                "filomena"
+              ],
+              "locations": [
+                "casa_didonna"
+              ],
+              "objects": [
+                "scatola"
+              ],
+              "strands": [
+                "nunzia_legge",
+                "lettere"
+              ],
+              "storyAt": "1956-11-14T22:30",
+              "storyTimeLabel": "Mercoledì 14 novembre 1956, notte",
+              "durationMinutes": 50,
+              "text": [
+                {
+                  "p": "Aspettò che Filomena cominciasse a russare, nella stanza accanto, con il fischio corto che le era rimasto dalla tosse. Mimmo dormiva di traverso nel letto grande, con un braccio fuori dalla coperta. @[character:nunzia] accese la lampadina sopra il tavolo di cucina e la coprì con un fazzoletto, perché la luce non passasse sotto la porta."
+                },
+                {
+                  "p": "Prese la @[object:scatola] dall'armadio, da dietro le lenzuola del corredo, e per la prima volta la aprì sapendo che cosa c'era dentro. Le lettere erano legate per anno con il filo da imbastire: quattro mazzetti, e il più grosso era quello del 1956."
+                },
+                {
+                  "p": "Da settembre la maestra le faceva leggere il sillabario e i titoli del giornale, con il dito sotto la riga. La scrittura di Vito era un'altra cosa: le lettere si attaccavano tra loro come uomini sotto la pioggia, le A sembravano O, e c'erano parole che non stavano in nessun sillabario."
+                },
+                {
+                  "p": "Cominciò da quella di aprile, la lettera con la fotografia. Per la prima facciata ci mise venti minuti. Diceva il lavoro, la salute, i soldi del quindici: le stesse cose che aveva letto la scrivana. Nunzia sentì le spalle sciogliersi."
+                },
+                {
+                  "p": "Poi, all'inizio della seconda facciata, trovò una parola che conosceva perché la settimana prima l'aveva scritta sul quaderno, sotto il disegno di una barca: lampare. La lesse tre volte. Lesse le parole intorno una alla volta, tenendo il segno con l'unghia. Le lampare le conto pure io, Nunzia. Non lo sapevo che tu salivi sul lastrico a guardarle."
+                },
+                {
+                  "p": "Lei non era mai salita sul lastrico a guardare le lampare. Ci saliva a stendere i panni, e d'estate a prendere un po' d'aria, ma le lampare non le aveva mai contate, e non l'aveva mai detto, perché non era vero."
+                },
+                {
+                  "p": "Restò seduta con il foglio sulle ginocchia finché la lampadina non cominciò a scaldare il fazzoletto. Poi rimise tutto com'era, il filo, il mazzetto, le lenzuola. A letto, accanto al figlio, provò a dire la parola a voce bassa, lampare, come si tocca con la lingua un dente che fa male."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "cap_dicembre",
+          "title": "Dicembre",
+          "reason": "Il confronto: Nunzia mette alla prova la scrivana, poi Vito torna a casa e trova una moglie diversa da quella delle lettere.",
+          "scenes": [
+            {
+              "key": "prova",
+              "title": "La prova",
+              "synopsis": "Nunzia detta l'ultima lettera prima del ritorno di Vito, la rilegge da sola e la firma con il proprio nome. Poi chiede a Teresa di leggerle per intero la lettera di aprile.",
+              "status": "draft",
+              "pov": "third_limited",
+              "povCharacter": "teresa",
+              "characters": [
+                "teresa",
+                "nunzia"
+              ],
+              "locations": [
+                "casa_ladisa"
+              ],
+              "objects": [
+                "stilografica",
+                "copialettere"
+              ],
+              "strands": [
+                "lettere",
+                "nunzia_legge"
+              ],
+              "storyAt": "1956-12-03T10:00",
+              "storyTimeLabel": "Lunedì 3 dicembre 1956, mattina",
+              "durationMinutes": 40,
+              "text": [
+                {
+                  "p": "Nunzia arrivò senza il bambino, e Teresa lo notò subito. Si sedette, si tolse il fazzoletto dalla testa, cosa che non aveva mai fatto, e lo piegò in quattro sulle ginocchia."
+                },
+                {
+                  "p": "«Devo scrivere a Vito. Che lo aspettiamo in piazza, alla corriera delle sei.» Dettò poche righe, più lente del solito, e invece di guardare la strada guardava la mano di Teresa che scriveva. Teresa scrisse parola per parola quello che sentiva, e sentì quello sguardo sulla pelle come il sole su una ferita."
+                },
+                {
+                  "p": "Quando ebbe finito, Nunzia allungò la mano. Non verso la @[object:stilografica], per la croce: verso il foglio. Lo girò dalla sua parte e lo lesse piano, con il dito sotto la riga, muovendo le labbra. Ci mise molto. Teresa non respirava."
+                },
+                {
+                  "p": "«È giusta» disse Nunzia alla fine. Poi prese la penna e sotto l'ultima riga, dove per quattro anni c'era stata una croce, scrisse il suo nome. Le lettere erano grandi, separate, la Z ancora un po' storta. @[character:teresa] la guardò scrivere e pensò che quel nome storto pesava più di tutte le frasi che lei aveva aggiunto da marzo."
+                },
+                {
+                  "p": "Poi Nunzia tirò fuori dalla borsa la lettera di aprile, quella con la fotografia, e la posò aperta sul tavolo, alla seconda facciata."
+                },
+                {
+                  "p": "«Adesso leggimi questa» disse. «Tutta.»"
+                },
+                {
+                  "p": "Teresa la lesse tutta. Lesse le lampare, il soffitto della baracca, non lo sapevo che tu salivi sul lastrico. La voce non si fermò, perché non c'era più niente dietro cui fermarsi. Il @[object:copialettere] era aperto sullo scaffale alle sue spalle, e Nunzia lo guardava."
+                },
+                {
+                  "p": "«Allora a chi scrive, mio marito?» chiese Nunzia. Non c'era rabbia nella domanda, solo una curiosità terribile."
+                },
+                {
+                  "p": "[Da rivedere: Teresa risponde o no? Forse il capitolo deve chiudersi sulla domanda.]"
+                }
+              ]
+            },
+            {
+              "key": "ritorno",
+              "title": "Il ritorno",
+              "synopsis": "Vito scende dalla corriera dopo quattro anni. Il figlio non gli dà la mano, la madre lo stringe, e a cena la moglie che ha davanti non somiglia alla donna delle lettere.",
+              "status": "draft",
+              "pov": "third_limited",
+              "povCharacter": "vito",
+              "characters": [
+                "vito",
+                "nunzia",
+                "filomena",
+                "cosimo"
+              ],
+              "locations": [
+                "mola",
+                "casa_didonna"
+              ],
+              "objects": [],
+              "strands": [
+                "lettere"
+              ],
+              "storyAt": "1956-12-22T18:40",
+              "storyTimeLabel": "Sabato 22 dicembre 1956, sera",
+              "durationMinutes": 180,
+              "text": [
+                {
+                  "p": "La corriera da Bari lo lasciò in piazza alle sei e quaranta, con la valigia di cartone e un pacco di cioccolata belga legato con lo spago. Quattro anni. Il paese era più piccolo, i lampioni più gialli, e l'odore era quello: alghe, legna bagnata, frittura. @[character:vito] restò fermo sul predellino finché l'autista non gli disse di scendere, che aveva altre fermate."
+                },
+                {
+                  "p": "Erano lì, sotto il lampione della fermata: sua madre, più piccola di come se la ricordava, nel cappotto nero della domenica; un bambino con le orecchie rosse dal freddo, che si nascose subito dietro una gonna; e la gonna era di Nunzia."
+                },
+                {
+                  "p": "La madre lo abbracciò per prima, e a lungo. Il bambino non volle dargli la mano. Nunzia gli porse una guancia, poi l'altra, e disse: «Sei magro», e lui rispose: «Tu no», e risero tutti e due troppo forte, mentre la gente della piazza li guardava con la tenerezza di chi ha già visto mille volte la stessa scena."
+                },
+                {
+                  "p": "A cena la madre aveva fatto le orecchiette con le cime di rapa e il baccalà fritto, come una vigilia anticipata. Vito mangiava e guardava sua moglie. Era la stessa e non lo era. Aveva le mani più rovinate, i capelli più corti, e un modo nuovo di stare zitta, dritta, come se ascoltasse qualcosa che lui non sentiva."
+                },
+                {
+                  "p": "Dopo cena, mentre la madre lavava i piatti, si avvicinò a @[character:nunzia] e le parlò piano, perché le cose delle lettere erano solo loro due: «Domani sera mi porti sul lastrico. Voglio vedere da dove le conti.»"
+                },
+                {
+                  "p": "Nunzia lo guardò. Fu uno sguardo lungo e calmo, che lui non le conosceva e non sapeva leggere. «Domani» disse. Poi andò a mettere a letto il bambino, e Vito restò in cucina con la madre, che asciugava un piatto già asciutto e non lo guardava."
+                },
+                {
+                  "p": "[Manca la notte: Vito nel letto accanto a una donna che conosce e non conosce. Scriverla dopo Santo Stefano?]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "cap_prima_persona",
+          "title": "Prima persona",
+          "reason": "La risoluzione: ognuno dei tre deve parlare senza intermediari. Il capitolo è pianificato e ancora da scrivere; l'ultima scena è in prima persona, con la voce di Nunzia.",
+          "scenes": [
+            {
+              "key": "santo_stefano",
+              "title": "Santo Stefano",
+              "synopsis": "La mattina di Santo Stefano Vito bussa alla porta chiusa della scrivana con il pacco delle lettere sotto il braccio. Vuole sapere quali frasi sono di sua moglie; Teresa gli mette davanti il copialettere e gli dice che deve chiederlo a Nunzia, non a lei.",
+              "status": "planned",
+              "pov": "third_limited",
+              "povCharacter": "teresa",
+              "characters": [
+                "teresa",
+                "vito"
+              ],
+              "locations": [
+                "casa_ladisa"
+              ],
+              "objects": [
+                "copialettere",
+                "scatola"
+              ],
+              "strands": [
+                "lettere"
+              ],
+              "storyAt": "1956-12-26T09:30",
+              "storyTimeLabel": "Mercoledì 26 dicembre 1956, Santo Stefano",
+              "durationMinutes": 45,
+              "text": []
+            },
+            {
+              "key": "molo",
+              "title": "L'ultima notte dell'anno",
+              "synopsis": "A San Silvestro Nunzia porta Vito sul molo invece che sul lastrico. Gli dice che cosa vede davvero quando guarda il mare; lui le chiede di raggiungerlo in Belgio a primavera, e lei non risponde subito.",
+              "status": "planned",
+              "pov": "third_limited",
+              "povCharacter": "nunzia",
+              "characters": [
+                "nunzia",
+                "vito"
+              ],
+              "locations": [
+                "porto"
+              ],
+              "objects": [],
+              "strands": [
+                "lettere",
+                "nunzia_legge"
+              ],
+              "storyAt": "1956-12-31T23:30",
+              "storyTimeLabel": "Lunedì 31 dicembre 1956, notte",
+              "durationMinutes": 60,
+              "text": []
+            },
+            {
+              "key": "prima_lettera",
+              "title": "La prima lettera",
+              "synopsis": "Gennaio 1957. Vito è ripartito per Charleroi. Nunzia scrive da sola la sua prima lettera, con gli errori, e la porta all'ufficio postale, dove Saverio le vende il francobollo e le racconta che la domenica passeggia con la signorina Ladisa. Sulla porta di casa Ladisa c'è un cartello nuovo: lezioni di scrittura, il martedì e il giovedì.",
+              "status": "planned",
+              "pov": "first",
+              "povCharacter": "nunzia",
+              "characters": [
+                "nunzia",
+                "saverio",
+                "teresa"
+              ],
+              "locations": [
+                "mola",
+                "casa_ladisa"
+              ],
+              "objects": [],
+              "strands": [
+                "nunzia_legge",
+                "saverio_teresa"
+              ],
+              "storyAt": "1957-01-21T15:00",
+              "storyTimeLabel": "Lunedì 21 gennaio 1957, pomeriggio",
+              "durationMinutes": 30,
+              "text": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "title": "Muore il maestro Ladisa",
+      "at": "1949-01-20",
+      "timeLabel": "20 gennaio 1949",
+      "kind": "story",
+      "description": "Muore Nicola Ladisa, maestro elementare e scrivano del borgo. Teresa prende il suo posto al tavolo accanto alla porta, con la sua stilografica e l'abitudine del copialettere.",
+      "links": [
+        "character:teresa",
+        "location:casa_ladisa",
+        "object:stilografica",
+        "object:copialettere"
+      ]
+    },
+    {
+      "title": "Nozze di Vito e Nunzia",
+      "at": "1950-09-17",
+      "timeLabel": "Domenica 17 settembre 1950",
+      "kind": "story",
+      "description": "Vito Didonna e Nunzia Lorusso si sposano nella Chiesa Matrice; la festa si fa sul lastrico di casa Didonna, con il vino del padre di lei.",
+      "links": [
+        "character:vito",
+        "character:nunzia",
+        "character:filomena",
+        "location:mola",
+        "location:casa_didonna"
+      ]
+    },
+    {
+      "title": "Vito parte per il Belgio",
+      "at": "1952-10-06",
+      "timeLabel": "Ottobre 1952",
+      "kind": "story",
+      "description": "Con un contratto di un anno per le miniere di carbone, Vito parte dalla stazione di Bari, passa la visita medica a Milano e arriva a Charleroi. Alla stazione Nunzia gli dà un'arancia.",
+      "links": [
+        "character:vito",
+        "character:nunzia",
+        "character:cosimo",
+        "location:charleroi"
+      ]
+    },
+    {
+      "title": "La catastrofe di Marcinelle",
+      "at": "1956-08-08",
+      "timeLabel": "Mercoledì 8 agosto 1956",
+      "kind": "historical",
+      "description": "Nella miniera del Bois du Cazier, a Marcinelle, vicino a Charleroi, un incendio scoppiato la mattina a quasi mille metri di profondità uccide 262 minatori di dodici nazionalità, 136 dei quali italiani. È una delle più gravi tragedie dell'emigrazione italiana.",
+      "links": [
+        "location:charleroi"
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "title": "Ricerche: uomini in cambio di carbone",
+      "category": "Ricerca",
+      "content": [
+        "Il protocollo italo-belga firmato a Roma il 23 giugno 1946 prevedeva l'invio in Belgio di 50.000 lavoratori italiani per le miniere, in cambio di forniture di carbone all'Italia. Molti partivano con un contratto di un anno e l'obbligo di lavorare nel fondo.",
+        "I minatori erano alloggiati spesso nelle baracche degli ex campi di prigionia. Prima della partenza c'era la visita medica a Milano, nei sotterranei della stazione Centrale. Da verificare: quanto ci metteva una lettera da Charleroi a Mola nel 1956, una settimana o dieci giorni?"
+      ]
+    },
+    {
+      "title": "Ricerche: scuole popolari e analfabetismo",
+      "category": "Ricerca",
+      "content": [
+        "Al censimento del 1951 quasi un italiano su otto dichiarava di non saper leggere né scrivere, con percentuali molto più alte nel Mezzogiorno e tra le donne. La scuola popolare, istituita alla fine del 1947, organizzava corsi serali per adulti nei comuni, spesso in aule di fortuna.",
+        "Dettagli da tenere: banchi da bambini per corpi da adulti, sillabari, quaderni a righe di prima, la vergogna della firma a croce. La trasmissione televisiva Non è mai troppo tardi arriverà solo nel 1960: nel romanzo non deve comparire."
+      ]
+    },
+    {
+      "title": "Idee: lingua e finale",
+      "category": "Idee",
+      "content": [
+        "Tre lingue nel libro: il dialetto delle case, l'italiano di scuola delle lettere di Teresa, l'italiano storto e vivo di Vito. Gli errori di Vito non si correggono mai; le frasi di Teresa devono essere belle, ma un poco troppo.",
+        "Il finale non deve punire Teresa né assolverla. Forse Nunzia non va in Belgio; forse sì, ma con un quaderno suo. Decidere dopo aver scritto la scena di Santo Stefano."
+      ]
+    }
+  ]
+}

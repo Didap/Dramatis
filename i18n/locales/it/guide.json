@@ -1,0 +1,192 @@
+{
+  "guide": {
+    "premise": {
+      "title": "La premessa",
+      "what": "La storia in una o due frasi: chi è il protagonista, cosa vuole, cosa glielo impedisce e cosa rischia. È la bussola a cui tornare quando ti perdi.",
+      "questions": {
+        "q1": "Chi è il protagonista, in poche parole?",
+        "q2": "Cosa vuole, e perché proprio adesso?",
+        "q3": "Chi o cosa si mette in mezzo?",
+        "q4": "Cosa perde se fallisce?",
+        "q5": "Cosa rende questa storia diversa da quelle che le somigliano?"
+      },
+      "example": "Marta, restauratrice, trova sotto un affresco il ritratto della sorella scomparsa vent'anni prima: per scoprire chi l'ha dipinto dovrà riaprire un caso che la sua famiglia ha voluto chiudere."
+    },
+    "fabula": {
+      "title": "La fabula",
+      "what": "Gli eventi della storia in ordine cronologico, come sono accaduti. L'intreccio, invece, è l'ordine in cui scegli di raccontarli: flashback, salti in avanti, rivelazioni rimandate.",
+      "questions": {
+        "q1": "Da quale evento comincia davvero tutto, anche se accade prima della storia?",
+        "q2": "In che ordine succedono le cose, una dopo l'altra?",
+        "q3": "Quali eventi racconti fuori ordine, e perché?",
+        "q4": "Quali fatti restano fuori scena, ma devono comunque tornare?"
+      },
+      "example": "Fabula: Marta nasce nel 1962, la sorella scompare nel 1985, l'affresco riemerge nel 2005. Intreccio: il romanzo si apre nel 2005 e rivela il 1985 un pezzo alla volta."
+    },
+    "setting": {
+      "title": "L'ambientazione",
+      "what": "Il dove e il quando della storia: luoghi, epoca, clima, regole sociali e, per i mondi inventati, le leggi che li governano.",
+      "questions": {
+        "q1": "In quale epoca e in quali luoghi si svolge la storia?",
+        "q2": "Cosa rende questo mondo diverso da quello in cui viviamo?",
+        "q3": "Quali regole (sociali, politiche, magiche, tecnologiche) non si possono infrangere?",
+        "q4": "Come cambia l'ambientazione nel corso della storia?",
+        "q5": "Quale luogo potrebbe esistere solo in questa storia?"
+      },
+      "example": "Trieste, autunno 1913, dopo quaranta giorni di pioggia: i caffè sono pieni di spie, il porto è chiuso e da una strada all'altra cambia la lingua."
+    },
+    "strands": {
+      "title": "I fili narrativi",
+      "what": "Le linee di storia che attraversano l'opera: la trama principale, le sottotrame, gli archi dei personaggi. Collegare le scene ai fili mostra quali avanzano e quali restano indietro.",
+      "questions": {
+        "q1": "Qual è la trama principale, in una frase?",
+        "q2": "Quali sottotrame la accompagnano, e cosa aggiungono al tema?",
+        "q3": "Ogni filo ha un inizio, uno sviluppo e una fine?",
+        "q4": "Dove si incrociano i fili, e in quali scene?",
+        "q5": "C'è un filo che hai lasciato cadere per strada?"
+      },
+      "example": "In un giallo: l'indagine sull'omicidio (trama principale), il matrimonio in crisi dell'ispettrice (sottotrama) e la sua fiducia negli altri, tutta da ricostruire (arco)."
+    },
+    "quests": {
+      "title": "Le missioni",
+      "what": "Nei giochi i fili narrativi diventano missioni: la principale porta la storia alla fine, le secondarie la arricchiscono. Ogni missione ha chi la affida, una lista di obiettivi e una ricompensa.",
+      "questions": {
+        "q1": "Chi affida la missione, e perché proprio al giocatore?",
+        "q2": "Quali obiettivi la compongono, e in che ordine?",
+        "q3": "Cosa ottiene il giocatore, oltre alla ricompensa?",
+        "q4": "Cosa racconta questa missione del mondo o di un personaggio?",
+        "q5": "Cosa succede se il giocatore la ignora, o fallisce?",
+        "q6": "È legata ad altre missioni o a una variabile?"
+      },
+      "example": "Missione secondaria «Il faro spento». La guardiana Ilse chiede di riaccendere la lanterna. Obiettivi: trovare l'olio, riparare la lente, resistere fino all'alba. Ricompensa: la mappa delle scogliere, e la storia di suo figlio."
+    },
+    "pov": {
+      "title": "Il punto di vista",
+      "what": "Gli occhi attraverso cui si vive una scena: chi racconta, cosa può sapere, quanto ci si avvicina ai pensieri dei personaggi.",
+      "questions": {
+        "q1": "Chi è nella posizione migliore per raccontare questa scena?",
+        "q2": "Chi ha più da perdere in questa scena?",
+        "q3": "Cosa deve restare nascosto, e quale punto di vista lo permette?",
+        "q4": "Quanta distanza vuoi tra chi legge e i pensieri del personaggio?",
+        "q5": "Il punto di vista resta lo stesso per tutta la scena?"
+      },
+      "types": {
+        "first": "Un personaggio racconta dicendo «io»: vediamo solo ciò che vede e sappiamo solo ciò che sa.",
+        "second": "Il racconto si rivolge a un «tu» che diventa il protagonista. Raro nei romanzi, comune nei librogame e nei giochi.",
+        "third_limited": "Terza persona, vicina a un solo personaggio per scena: ne seguiamo i pensieri, ma mai oltre ciò che sa.",
+        "third_omniscient": "Una voce narrante che sa tutto: entra nella mente di chiunque, anticipa il futuro, commenta.",
+        "third_objective": "Terza persona esterna, come una macchina da presa: solo azioni e dialoghi, nessun pensiero.",
+        "multiple": "Più personaggi si alternano come punto di vista, di solito un capitolo o una scena alla volta."
+      },
+      "example": "La stessa cena, vista da Marta in terza persona limitata, ci dà la sua ansia per la sorella; raccontata da una voce onnisciente, rivela anche che il padre sta mentendo."
+    },
+    "relations": {
+      "title": "Le relazioni",
+      "what": "La mappa dei legami tra personaggi, luoghi, oggetti e gruppi, ciascuno con il suo tipo: famiglia, amore, alleanza, rivalità e così via. Vedere la rete intera aiuta a scoprire tensioni nascoste e personaggi isolati.",
+      "questions": {
+        "q1": "Chi deve qualcosa a chi?",
+        "q2": "Quale legame è più fragile, e cosa potrebbe spezzarlo?",
+        "q3": "Chi conosce un segreto che riguarda qualcun altro?",
+        "q4": "Quali relazioni cambiano dall'inizio alla fine?",
+        "q5": "C'è un personaggio isolato? È voluto?"
+      },
+      "example": "Marta e il padre: famiglia, ma anche rivalità, perché lui ha nascosto le lettere della sorella. L'affresco appartiene alla curia ed è legato alla chiesa di San Silvestro."
+    },
+    "groups": {
+      "title": "I gruppi",
+      "what": "Famiglie, fazioni, organizzazioni, culture: insiemi di personaggi, luoghi e oggetti con una lingua, delle tradizioni e dei poteri propri. Un gruppo ben costruito pesa sulle scelte dei suoi membri anche quando non è in scena.",
+      "questions": {
+        "q1": "Cosa tiene insieme questo gruppo?",
+        "q2": "Chi comanda, e chi vorrebbe farlo?",
+        "q3": "Quali regole, riti o parole lo distinguono?",
+        "q4": "Cosa offre ai suoi membri, e cosa chiede in cambio?",
+        "q5": "Con quali altri gruppi è in conflitto?"
+      },
+      "example": "La Gilda dei Cartografi disegna le mappe del regno e così, di fatto, ne decide i confini. Ha una lingua fatta di simboli, un giuramento di silenzio e un seggio in consiglio. Chi tradisce viene cancellato da ogni mappa."
+    },
+    "timeline": {
+      "title": "La linea del tempo",
+      "what": "Le scene e gli eventi in ordine cronologico, con data, ora e durata, collegati a personaggi, luoghi, oggetti e fatti storici reali. Serve a scovare le contraddizioni prima che le trovi qualcun altro.",
+      "questions": {
+        "q1": "Quando si svolge ogni scena, e quanto dura?",
+        "q2": "Dove si trova ogni personaggio nel frattempo?",
+        "q3": "Quanto tempo passa tra un capitolo e l'altro?",
+        "q4": "Quali fatti storici reali toccano la storia?",
+        "q5": "Età, stagioni e distanze tornano?"
+      },
+      "example": "14 marzo 2005, ore 9: Marta trova il ritratto. Stesso giorno, ore 21: il padre brucia le lettere. In mezzo, una telefonata che nessuno dei due ricorderà allo stesso modo."
+    },
+    "revisions": {
+      "title": "Le revisioni",
+      "what": "Le versioni successive di una scena, conservate una accanto all'altra. Puoi riscrivere senza timore: la versione precedente resta dov'è e puoi tornarci quando vuoi.",
+      "questions": {
+        "q1": "Cosa vuoi cambiare in questa versione: la struttura, il ritmo, la voce?",
+        "q2": "Cosa funzionava nella versione precedente, e va tenuto?",
+        "q3": "La scena fa ancora il suo lavoro nella storia?",
+        "q4": "Cosa puoi togliere senza perdere niente?"
+      },
+      "example": "Revisione 1: la scena dell'affresco in tre pagine. Revisione 2: la stessa scena in una pagina sola, tutta nello sguardo di Marta. Le tieni entrambe e decidi più avanti."
+    },
+    "branching": {
+      "title": "Le ramificazioni",
+      "what": "I collegamenti tra le scene che dipendono dalle scelte del giocatore. Ogni scelta ha il suo testo, può richiedere una condizione e modificare le variabili; la vista a grafo mostra il flusso e segnala le scene che nessuno potrà mai raggiungere.",
+      "questions": {
+        "q1": "Cosa sceglie il giocatore, e cosa sa nel momento in cui sceglie?",
+        "q2": "Le opzioni sono davvero diverse, o portano tutte nello stesso posto?",
+        "q3": "Quali conseguenze si vedono subito, e quali molto più tardi?",
+        "q4": "Dove si ricongiungono i rami, per tenere la storia gestibile?",
+        "q5": "Ogni scena e ogni finale si possono raggiungere?"
+      },
+      "example": "Al molo il giocatore può consegnare la lettera a Ilse o tenerla. «Dalle la lettera» porta alla scena del faro e aumenta di 1 fiducia_ilse; «Tienila» porta al mercato e chiude la sua missione."
+    },
+    "variables": {
+      "title": "Le variabili di stato",
+      "what": "La memoria del gioco: valori che registrano ciò che il giocatore ha fatto. Ogni variabile ha un nome, un tipo (vero o falso, numero, testo) e un valore iniziale; le scelte la modificano e le condizioni la leggono per aprire o chiudere un percorso.",
+      "questions": {
+        "q1": "Cosa deve ricordare il gioco delle scelte del giocatore?",
+        "q2": "Basta un vero o falso, o serve un numero che sale e scende?",
+        "q3": "Qual è il valore iniziale, e cosa lo cambia?",
+        "q4": "In quali scene questa variabile fa davvero la differenza?",
+        "q5": "Il nome è chiaro anche per chi non l'ha creata?"
+      },
+      "example": "fiducia_ilse, numero, parte da 0: sale di 1 quando la aiuti, scende di 2 quando le menti. Se arriva a 3, al faro Ilse ti racconta di suo figlio."
+    },
+    "codex": {
+      "title": "Il compendio",
+      "what": "L'enciclopedia del mondo di gioco: storia, religioni, specie, tecnologie, leggende, divise per categorie. Serve a te e alla squadra, e può diventare la base del compendio che il giocatore sblocca giocando.",
+      "questions": {
+        "q1": "Cosa deve sapere su questo argomento chiunque lavori al gioco?",
+        "q2": "Cosa sa già il giocatore, e cosa scoprirà più avanti?",
+        "q3": "Questa voce contraddice qualcosa di già scritto?",
+        "q4": "Quali personaggi, luoghi o missioni la richiamano?",
+        "q5": "Cosa resta un mistero, di proposito?"
+      },
+      "example": "Categoria Storia, voce «La Notte delle Lanterne»: l'anno in cui il mare si ritirò per tre giorni. I pescatori la ricordano come un miracolo, i Cartografi come un errore nelle mappe."
+    },
+    "dialogue_lines": {
+      "title": "Le battute di dialogo",
+      "what": "Il dialogo scritto come un copione: per ogni battuta, chi parla, cosa dice e come lo dice. Ogni battuta ha un codice univoco, così chi cura il doppiaggio e la localizzazione sa sempre di quale si parla.",
+      "questions": {
+        "q1": "Chi parla, e a chi?",
+        "q2": "Cosa vuole ottenere il personaggio con questa battuta?",
+        "q3": "Come va detta: sussurrata, ironica, spezzata?",
+        "q4": "Funziona anche ascoltata, senza leggerla?",
+        "q5": "È abbastanza breve da stare in un sottotitolo?",
+        "q6": "Suona come quel personaggio, e come nessun altro?"
+      },
+      "example": "Chi parla: Ilse. Battuta: «Il faro non si accende da solo». Indicazione: stanca, senza voltarsi."
+    },
+    "goals": {
+      "title": "Gli obiettivi",
+      "what": "Un traguardo di parole per l'opera intera, uno per ogni giorno e, se vuoi, una scadenza. Dramatis registra quanto scrivi giorno per giorno e ti mostra l'andamento, senza giudizi.",
+      "questions": {
+        "q1": "Quanto sarà lunga, più o meno, l'opera finita?",
+        "q2": "Quante parole riesci a scrivere in un giorno normale, non nel migliore?",
+        "q3": "Hai una scadenza vera, o te ne servirebbe una?",
+        "q4": "In quali giorni della settimana scrivi davvero?",
+        "q5": "Cosa conta come lavoro: anche revisione e pianificazione?"
+      },
+      "example": "Un romanzo di 80.000 parole, a 500 parole al giorno, richiede circa 160 giorni di scrittura: poco più di cinque mesi, scrivendo tutti i giorni."
+    }
+  }
+}

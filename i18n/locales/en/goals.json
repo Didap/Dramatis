@@ -1,0 +1,82 @@
+{
+  "goals": {
+    "description": "A pace to keep, and the numbers to see whether you keep it.",
+    "empty": "A goal gives you a pace: choose how many words to write in all, every day, or by a date.",
+    "today": {
+      "loading": "Counting today's words.",
+      "withGoal": "Today {words} of {goal}.",
+      "noGoal": "Today {words}.",
+      "noneWithGoal": "No words yet today: the goal is {goal}.",
+      "none": "No words yet today.",
+      "removed": "({n} removed) | ({n} removed)"
+    },
+    "total": {
+      "withGoal": "In all {total} of {goal}.",
+      "noGoal": "In all {words}.",
+      "reached": "In all {total}: the {goal} goal is reached."
+    },
+    "targets": {
+      "title": "Targets",
+      "hint": "Each one is optional: leave empty what you do not need.",
+      "total": "Words in all",
+      "totalHelp": "The length you want to reach.",
+      "daily": "Words a day",
+      "dailyHelp": "How many you want to write every day.",
+      "deadline": "Deadline",
+      "deadlineHelp": "When you want to finish.",
+      "none": "None",
+      "clearDeadline": "Remove the deadline"
+    },
+    "progress": {
+      "title": "Where you are"
+    },
+    "trend": {
+      "title": "The pace",
+      "noData": "Your pace will show here, from your first writing session on.",
+      "average": "Over the last 14 writing days: {words} a day on average.",
+      "averageFew": "On the first writing day: {words}. | Over the first {n} writing days: {words} a day on average.",
+      "finishFull": "At the current pace, about {pace} more words a day, you reach {goal} on {date}.",
+      "reachedFull": "Goal reached: {total} words of {goal}.",
+      "tooEarly": "It takes at least three writing days to estimate the finish.",
+      "notGrowing": "The text has not grown over the last few days: no estimate of the finish for now.",
+      "noGoal": "Choose how many words to write in all to know when you get there.",
+      "needed": "To finish by {date} you need {words} a day.",
+      "daysLeft": "{n} day left until the deadline. | {n} days left until the deadline.",
+      "dueToday": "The deadline is today.",
+      "overdue": "The deadline was {date}.",
+      "reached": "You have already reached {goal} words.",
+      "finish": "At the current pace you finish on {date}.",
+      "finishLate": "At the current pace you finish on {date}, past the deadline.",
+      "finishFullLate": "At the current pace, about {pace} more words a day, you reach {goal} on {date}: past the deadline."
+    },
+    "history": {
+      "title": "Every day",
+      "viewLabel": "How to show the days",
+      "spanLabel": "How many days",
+      "bars": "Bars",
+      "table": "Table",
+      "days": "{n} days",
+      "empty": "The words you write every day will show here, from your first session on.",
+      "summary": "In {span} days: {written} written and {removed} removed, over {days} of writing.",
+      "caption": "Words written and removed over the last {span} days",
+      "restDay": "{day}: no words",
+      "restDays": "From {from} to {to}: no words",
+      "removedShort": "−{n}",
+      "day": "Day",
+      "written": "Written",
+      "removed": "Removed",
+      "total": "Total at the end of the day",
+      "goalMark": "The mark on every row is the daily goal: {n} words."
+    },
+    "months": {
+      "title": "Every month",
+      "empty": "Monthly averages arrive with your first writing days.",
+      "caption": "Writing days and words written per month",
+      "month": "Month",
+      "days": "Writing days",
+      "written": "Words written",
+      "average": "Average per writing day"
+    },
+    "loadError": "I cannot read the words written in the past days."
+  }
+}

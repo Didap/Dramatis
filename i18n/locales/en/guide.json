@@ -1,0 +1,192 @@
+{
+  "guide": {
+    "premise": {
+      "title": "Premise",
+      "what": "Your story in a sentence or two: who the protagonist is, what they want, what's stopping them and what they stand to lose. It's the compass to come back to when you get lost.",
+      "questions": {
+        "q1": "Who is your protagonist, in a few words?",
+        "q2": "What do they want, and why now?",
+        "q3": "Who or what gets in the way?",
+        "q4": "What do they lose if they fail?",
+        "q5": "What sets this story apart from the ones it resembles?"
+      },
+      "example": "Marta, a restorer, finds a portrait of her sister, missing for twenty years, beneath the fresco she's cleaning. To learn who painted it, she'll have to reopen a case her family wanted closed."
+    },
+    "fabula": {
+      "title": "Fabula",
+      "what": "The events of your story in chronological order, as they actually happened. The plot, by contrast, is the order you choose to tell them in: flashbacks, jumps ahead, delayed reveals.",
+      "questions": {
+        "q1": "Which event really sets everything off, even if it happens before the story starts?",
+        "q2": "In what order do things actually happen?",
+        "q3": "Which events do you tell out of order, and why?",
+        "q4": "Which facts stay offstage but still have to add up?"
+      },
+      "example": "Fabula: Marta is born in 1962, her sister disappears in 1985, the fresco resurfaces in 2005. Plot: the novel opens in 2005 and reveals 1985 a piece at a time."
+    },
+    "setting": {
+      "title": "Setting",
+      "what": "The where and when of your story: places, era, climate, social rules and, for invented worlds, the laws that govern them.",
+      "questions": {
+        "q1": "When and where does the story take place?",
+        "q2": "What makes this world different from the one we live in?",
+        "q3": "Which rules (social, political, magical, technological) can't be broken?",
+        "q4": "How does the setting change over the course of the story?",
+        "q5": "Which place could exist only in this story?"
+      },
+      "example": "Trieste, autumn 1913, after forty days of rain: the cafés are full of spies, the port is closed and the language changes from one street to the next."
+    },
+    "strands": {
+      "title": "Narrative strands",
+      "what": "The lines of story that run through the work: the main plot, the subplots, the character arcs. Linking scenes to strands shows which ones are moving and which are falling behind.",
+      "questions": {
+        "q1": "What's the main plot, in one sentence?",
+        "q2": "Which subplots run alongside it, and what do they add to the theme?",
+        "q3": "Does every strand have a beginning, a middle and an end?",
+        "q4": "Where do the strands cross, and in which scenes?",
+        "q5": "Is there a strand you've dropped along the way?"
+      },
+      "example": "In a crime novel: the murder investigation (main plot), the inspector's failing marriage (subplot) and her trust in other people, which has to be rebuilt from scratch (arc)."
+    },
+    "quests": {
+      "title": "Quests",
+      "what": "In games, narrative strands become quests: the main quest carries the story to its end, side quests enrich it. Every quest has a giver, a list of objectives and a reward.",
+      "questions": {
+        "q1": "Who gives the quest, and why to the player?",
+        "q2": "What objectives make it up, and in what order?",
+        "q3": "What does the player gain beyond the reward?",
+        "q4": "What does this quest reveal about the world or a character?",
+        "q5": "What happens if the player ignores it, or fails?",
+        "q6": "Is it tied to other quests or to a variable?"
+      },
+      "example": "Side quest “The Dark Lighthouse”. Ilse, the keeper, asks you to relight the lamp. Objectives: find oil, mend the lens, hold out until dawn. Reward: a chart of the cliffs, and the story of her son."
+    },
+    "pov": {
+      "title": "Point of view",
+      "what": "The eyes through which a scene is lived: who tells it, what they can know, how close we get to the characters' thoughts.",
+      "questions": {
+        "q1": "Who is best placed to tell this scene?",
+        "q2": "Who has the most to lose in it?",
+        "q3": "What needs to stay hidden, and which point of view allows it?",
+        "q4": "How close do you want the reader to get to the character's thoughts?",
+        "q5": "Does the point of view hold for the whole scene?"
+      },
+      "types": {
+        "first": "A character tells the story as “I”: we see only what they see and know only what they know.",
+        "second": "The story addresses a “you” who becomes the protagonist. Rare in novels, common in gamebooks and games.",
+        "third_limited": "Third person, close to one character per scene: we follow their thoughts, but never beyond what they know.",
+        "third_omniscient": "A narrating voice that knows everything: it enters anyone's mind, hints at the future, comments.",
+        "third_objective": "Third person from the outside, like a camera: only actions and dialogue, no thoughts.",
+        "multiple": "Several characters take turns as the point of view, usually a chapter or a scene at a time."
+      },
+      "example": "The same dinner, seen through Marta in third person limited, gives us her worry for her sister; told by an omniscient voice, it also reveals that her father is lying."
+    },
+    "relations": {
+      "title": "Relationships",
+      "what": "The map of connections among characters, places, objects and groups, each with its kind: family, romance, alliance, rivalry and so on. Seeing the whole web helps you spot hidden tensions and isolated characters.",
+      "questions": {
+        "q1": "Who owes what to whom?",
+        "q2": "Which bond is most fragile, and what could break it?",
+        "q3": "Who knows a secret about someone else?",
+        "q4": "Which relationships change from beginning to end?",
+        "q5": "Is anyone isolated? Is that deliberate?"
+      },
+      "example": "Marta and her father: family, but rivals too, because he hid her sister's letters. The fresco belongs to the diocese and is tied to the church of San Silvestro."
+    },
+    "groups": {
+      "title": "Groups",
+      "what": "Families, factions, organisations, cultures: sets of characters, places and objects with their own language, traditions and powers. A well-built group weighs on its members' choices even when it's offstage.",
+      "questions": {
+        "q1": "What holds this group together?",
+        "q2": "Who's in charge, and who wants to be?",
+        "q3": "Which rules, rites or words set it apart?",
+        "q4": "What does it give its members, and what does it ask in return?",
+        "q5": "Which other groups is it in conflict with?"
+      },
+      "example": "The Cartographers' Guild draws the kingdom's maps and so, in practice, decides its borders. It has a language of symbols, an oath of silence and a seat on the council. Traitors are erased from every map."
+    },
+    "timeline": {
+      "title": "Timeline",
+      "what": "Scenes and events in chronological order, with date, time and duration, linked to characters, places, objects and real historical events. It's how you catch contradictions before someone else does.",
+      "questions": {
+        "q1": "When does each scene take place, and how long does it last?",
+        "q2": "Where is every character in the meantime?",
+        "q3": "How much time passes between chapters?",
+        "q4": "Which real historical events touch the story?",
+        "q5": "Do the ages, seasons and distances add up?"
+      },
+      "example": "14 March 2005, 9 a.m.: Marta finds the portrait. Same day, 9 p.m.: her father burns the letters. In between, a phone call neither of them will remember the same way."
+    },
+    "revisions": {
+      "title": "Revisions",
+      "what": "Successive versions of a scene, kept side by side. You can rewrite without fear: the previous version stays where it is, and you can go back to it whenever you like.",
+      "questions": {
+        "q1": "What do you want to change in this version: the structure, the pace, the voice?",
+        "q2": "What worked in the previous version and should stay?",
+        "q3": "Is the scene still doing its job in the story?",
+        "q4": "What can you cut without losing anything?"
+      },
+      "example": "Revision 1: the fresco scene in three pages. Revision 2: the same scene in a single page, entirely through Marta's eyes. Keep both and decide later."
+    },
+    "branching": {
+      "title": "Branching",
+      "what": "The links between scenes that depend on the player's choices. Each choice has its own text, can require a condition and can change variables; the graph view shows the flow and flags any scene no one can ever reach.",
+      "questions": {
+        "q1": "What is the player choosing, and what do they know at that moment?",
+        "q2": "Are the options really different, or do they all lead to the same place?",
+        "q3": "Which consequences show up right away, and which much later?",
+        "q4": "Where do the branches rejoin, to keep the story manageable?",
+        "q5": "Can every scene and every ending be reached?"
+      },
+      "example": "At the pier, the player can give Ilse the letter or keep it. “Give her the letter” leads to the lighthouse scene and raises ilse_trust by 1; “Keep it” leads to the market and closes her quest."
+    },
+    "variables": {
+      "title": "State variables",
+      "what": "The game's memory: values that record what the player has done. Each variable has a name, a type (true or false, number, text) and a starting value; choices change it, and conditions read it to open or close a path.",
+      "questions": {
+        "q1": "What does the game need to remember about the player's choices?",
+        "q2": "Is true or false enough, or do you need a number that rises and falls?",
+        "q3": "What's the starting value, and what changes it?",
+        "q4": "In which scenes does this variable actually make a difference?",
+        "q5": "Is the name clear to someone who didn't create it?"
+      },
+      "example": "ilse_trust, a number starting at 0: up by 1 when you help her, down by 2 when you lie to her. If it reaches 3, Ilse tells you about her son at the lighthouse."
+    },
+    "codex": {
+      "title": "Lore codex",
+      "what": "The encyclopaedia of your game's world: history, religions, species, technologies, legends, sorted into categories. It serves you and the team, and it can become the basis of the codex the player unlocks in the game.",
+      "questions": {
+        "q1": "What does anyone working on the game need to know about this topic?",
+        "q2": "What does the player already know, and what will they find out later?",
+        "q3": "Does this entry contradict anything already written?",
+        "q4": "Which characters, places or quests refer to it?",
+        "q5": "What stays a mystery, on purpose?"
+      },
+      "example": "Category History, entry “The Night of Lanterns”: the year the sea drew back for three days. The fishermen remember it as a miracle; the Cartographers, as an error in the maps."
+    },
+    "dialogue_lines": {
+      "title": "Dialogue lines",
+      "what": "Dialogue written as a script: for each line, who speaks, what they say and how they say it. Every line gets a unique ID, so voice-over and localisation always know which one you mean.",
+      "questions": {
+        "q1": "Who is speaking, and to whom?",
+        "q2": "What does the character want from this line?",
+        "q3": "How should it be delivered: whispered, wry, broken?",
+        "q4": "Does it work when heard, not just read?",
+        "q5": "Is it short enough to fit in a subtitle?",
+        "q6": "Does it sound like this character, and no one else?"
+      },
+      "example": "Speaker: Ilse. Line: “The lighthouse won't light itself.” Direction: tired, without turning round."
+    },
+    "goals": {
+      "title": "Goals",
+      "what": "A word target for the whole work, a daily one and, if you like, a deadline. Dramatis records what you write day by day and shows you the trend, without judgement.",
+      "questions": {
+        "q1": "Roughly how long will the finished work be?",
+        "q2": "How many words can you write on an ordinary day, not your best one?",
+        "q3": "Do you have a real deadline, or would one help?",
+        "q4": "Which days of the week do you actually write?",
+        "q5": "What counts as work: revising and planning too?"
+      },
+      "example": "An 80,000-word novel at 500 words a day takes about 160 writing days: just over five months if you write every day."
+    }
+  }
+}
