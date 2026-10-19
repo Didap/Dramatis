@@ -146,12 +146,17 @@ export const useProjectStore = defineStore('project', () => {
     return item?.name ?? item?.title ?? ''
   }
 
+  /** A group that is a race of the world, with its own page (module races). */
+  function isRace(groupId: string | null | undefined): boolean {
+    return modules.value.races && get('groups', groupId)?.kind === 'race'
+  }
+
   /** Route of the page that shows an item. */
   function refPath(ref: EntityRef): string {
     const base = `/p/${projectId.value}`
     switch (ref.type) {
       case 'character': return `${base}/characters/${ref.id}`
-      case 'group': return `${base}/groups/${ref.id}`
+      case 'group': return isRace(ref.id) ? `${base}/races/${ref.id}` : `${base}/groups/${ref.id}`
       case 'location': return `${base}/locations/${ref.id}`
       case 'object': return `${base}/objects/${ref.id}`
       case 'strand': return `${base}/strands/${ref.id}`
@@ -858,6 +863,7 @@ export const useProjectStore = defineStore('project', () => {
     getRef,
     refLabel,
     refPath,
+    isRace,
     imagesOf,
     primaryImage,
     worldEntities,

@@ -228,6 +228,7 @@
         "faction": "Fazione",
         "organization": "Organizzazione",
         "culture": "Popolo e cultura",
+        "race": "Razza",
         "other": "Altro"
       },
       "sceneKind": {
@@ -287,7 +288,8 @@
         "quests": "Missioni",
         "codex": "Compendio",
         "script": "Battute di dialogo",
-        "scene_kinds": "Tipi di scena"
+        "scene_kinds": "Tipi di scena",
+        "races": "Razze"
       },
       "dialogueStyle": {
         "guillemets": "Caporali « »",
@@ -360,6 +362,8 @@
         "character": "Personaggio | Personaggi",
         "groups": "Gruppi",
         "group": "Gruppo | Gruppi",
+        "races": "Razze",
+        "race": "Razza | Razze",
         "locations": "Luoghi",
         "location": "Luogo | Luoghi",
         "objects": "Oggetti",
@@ -406,6 +410,8 @@
         "character": "Personaggio | Personaggi",
         "groups": "Fazioni",
         "group": "Fazione | Fazioni",
+        "races": "Razze",
+        "race": "Razza | Razze",
         "locations": "Luoghi",
         "location": "Luogo | Luoghi",
         "objects": "Oggetti",

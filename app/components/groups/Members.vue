@@ -8,7 +8,7 @@ import { CHARACTER_IMPORTANCES } from '#shared/utils/constants'
  * place, remove (the relationship goes to the trash, with undo). Grouped by kind, in the order of
  * their own lists.
  */
-const props = defineProps<{ groupId: string }>()
+const props = defineProps<{ groupId: string, race?: boolean }>()
 
 const MEMBER_TYPES = ['character', 'location', 'object'] as const
 type MemberType = (typeof MEMBER_TYPES)[number]
@@ -25,7 +25,7 @@ interface Member {
 const store = useProjectStore()
 const { t } = useI18n()
 const { term } = useTerms()
-const mt = (key: string, values?: Record<string, unknown>) => t(`groups.${store.kind}.${key}`, values ?? {})
+const mt = (key: string, values?: Record<string, unknown>) => t(`groups.${props.race ? 'race' : store.kind}.${key}`, values ?? {})
 
 const members = computed(() => {
   const byType: Record<MemberType, Member[]> = { character: [], location: [], object: [] }
@@ -69,7 +69,7 @@ async function add(ref: { type: string, id: string }) {
 </script>
 
 <template>
-  <WorldSection :title="t('groups.members')" :count="total">
+  <WorldSection :title="props.race ? mt('members') : t('groups.members')" :count="total">
     <template #actions>
       <WorldRefPicker :types="[...MEMBER_TYPES]" :exclude="exclude" :label="t('groups.addMember')" @pick="add" />
     </template>

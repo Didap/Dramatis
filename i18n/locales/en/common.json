@@ -228,6 +228,7 @@
         "faction": "Faction",
         "organization": "Organization",
         "culture": "People and culture",
+        "race": "Race",
         "other": "Other"
       },
       "sceneKind": {
@@ -287,7 +288,8 @@
         "quests": "Quests",
         "codex": "Codex",
         "script": "Dialogue lines",
-        "scene_kinds": "Scene kinds"
+        "scene_kinds": "Scene kinds",
+        "races": "Races"
       },
       "dialogueStyle": {
         "guillemets": "Guillemets « »",
@@ -360,6 +362,8 @@
         "character": "Character | Characters",
         "groups": "Groups",
         "group": "Group | Groups",
+        "races": "Races",
+        "race": "Race | Races",
         "locations": "Locations",
         "location": "Location | Locations",
         "objects": "Objects",
@@ -406,6 +410,8 @@
         "character": "Character | Characters",
         "groups": "Factions",
         "group": "Faction | Factions",
+        "races": "Races",
+        "race": "Race | Races",
         "locations": "Locations",
         "location": "Location | Locations",
         "objects": "Items",

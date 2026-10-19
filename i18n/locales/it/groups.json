@@ -36,6 +36,19 @@
       "role": "ruolo nella fazione",
       "removeMember": "Togli {name} dalla fazione",
       "powersPlaceholder": "Che cosa sanno fare, che cosa controllano, che cosa possono dare o togliere al giocatore."
+    },
+    "race": {
+      "add": "Aggiungi una razza",
+      "namePlaceholder": "Nome della razza (elfi, nani, uklari...)",
+      "intro": "Apri una razza per descriverla e dire chi ne fa parte; la razza di un personaggio si sceglie anche dalla sua scheda.",
+      "empty": "Una razza riunisce i personaggi che hanno la stessa origine: elfi, nani, draghi, gli uklari del tuo regno.",
+      "emptyQuestion": "Chi abita il tuo mondo, oltre agli umani?",
+      "noMembers": "Nessuno, per ora: aggiungi i personaggi di questa razza, o sceglila dalla scheda di un personaggio.",
+      "role": "note sul personaggio",
+      "removeMember": "Togli {name} da questa razza",
+      "descriptionPlaceholder": "Com'è fatta: aspetto, quanto vive, dove abita, come la vedono gli altri.",
+      "powersPlaceholder": "Che cosa sa fare che gli altri non sanno: doni, sensi, magie. E le sue debolezze.",
+      "members": "Chi ne fa parte"
     }
   }
 }

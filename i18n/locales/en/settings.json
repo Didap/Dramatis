@@ -33,6 +33,7 @@
       "codex": "The codex of the world, in categories: history, peoples, religions, magic, bestiary, languages, politics.",
       "script": "Dialogue lines in the script, with the speaker and the direction, and the voice-over script.",
       "scene_kinds": "The kind of every scene: cutscene, dialogue, gameplay, exploration, combat, puzzle.",
+      "races": "The races and species of the world, with a page of their own, and the race of each character. Switch it off if your story has none.",
       "branchingCascade": "Switching it off also switches off the state variables.",
       "variablesOff": "The state variables are off too."
     },

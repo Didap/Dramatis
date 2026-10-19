@@ -33,6 +33,7 @@
       "codex": "Il compendio del mondo, diviso in categorie: storia, popoli, religioni, magia, bestiario, lingue, politica.",
       "script": "Battute di dialogo nel copione, con chi parla e l'indicazione, e il copione per il doppiaggio.",
       "scene_kinds": "Il tipo di ogni scena: cinematica, dialogo, fase di gioco, esplorazione, combattimento, enigma.",
+      "races": "Le razze e le specie del mondo, con una pagina tutta loro, e la razza di ogni personaggio. Spegnilo se la tua storia non ne ha.",
       "branchingCascade": "Spegnendolo si spengono anche le variabili di stato.",
       "variablesOff": "Anche le variabili di stato sono spente."
     },

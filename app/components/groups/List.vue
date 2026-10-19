@@ -3,12 +3,14 @@ import type { Group } from '#shared/types/entities'
 
 /**
  * The groups of the project (factions, in games) in the author's order: create inline, filter by name
- * or kind, reorder, move to the trash. `compact` is the side column of a sheet, from xl.
+ * or kind, reorder, move to the trash. `compact` is the side column of a sheet, from xl. With `races`,
+ * the races of the world instead (groups of kind race, module races); the groups list leaves them out.
  */
 const props = withDefaults(defineProps<{
   compact?: boolean
   activeId?: string
-}>(), { compact: false, activeId: undefined })
+  races?: boolean
+}>(), { compact: false, activeId: undefined, races: false })
 
 const creating = defineModel<boolean>('creating', { default: false })
 
@@ -16,7 +18,10 @@ const store = useProjectStore()
 const { t } = useI18n()
 const { term } = useTerms()
 const { label } = useEnums()
-const mt = (key: string) => t(`groups.${store.kind}.${key}`)
+const mt = (key: string) => t(`groups.${props.races ? 'race' : store.kind}.${key}`)
+const listTerm = computed(() => term(props.races ? 'races' : 'groups'))
+const listPath = computed(() => `/p/${store.projectId}/${props.races ? 'races' : 'groups'}`)
+const icon = computed(() => (props.races ? 'i-lucide-dna' : 'i-lucide-users-round'))
 const query = ref('')
 const filter = ref<{ focus: () => void } | null>(null)
 
@@ -31,10 +36,13 @@ const members = computed(() => {
   return counts
 })
 
+/** This list's own: the races, or the groups that are not races (all of them with the module off). */
+const own = computed(() => store.rows.groups.filter(group => store.isRace(group.id) === props.races))
+
 const needle = computed(() => query.value.trim().toLocaleLowerCase())
 const visible = computed<Group[]>(() => {
-  if (!needle.value) return store.rows.groups
-  return store.rows.groups.filter(group =>
+  if (!needle.value) return own.value
+  return own.value.filter(group =>
     group.name.toLocaleLowerCase().includes(needle.value) || label('groupKind', group.kind).toLocaleLowerCase().includes(needle.value))
 })
 
@@ -44,7 +52,8 @@ function clearFilter() {
 }
 
 async function create(name: string) {
-  const row = await store.create('groups', { name, ...(store.isGame ? { kind: 'faction' as const } : {}) })
+  const kind = props.races ? 'race' as const : store.isGame ? 'faction' as const : undefined
+  const row = await store.create('groups', { name, ...(kind ? { kind } : {}) })
   creating.value = false
   query.value = ''
   await navigateTo(store.refPath({ type: 'group', id: row.id }))
@@ -54,14 +63,14 @@ async function create(name: string) {
 <template>
   <div class="d-groups-list">
     <div v-if="props.compact" class="mb-2 flex items-center justify-between gap-2 ps-2">
-      <NuxtLink :to="`/p/${store.projectId}/groups`" class="text-sm font-medium text-muted hover:text-default">
-        {{ term('groups') }}
+      <NuxtLink :to="listPath" class="text-sm font-medium text-muted hover:text-default">
+        {{ listTerm }}
       </NuxtLink>
       <UButton icon="i-lucide-plus" size="sm" color="neutral" variant="ghost" :aria-label="mt('add')" data-world-create @click="creating = true" />
     </div>
 
     <WorldFilter
-      v-if="store.rows.groups.length > 7"
+      v-if="own.length > 7"
       ref="filter"
       v-model="query"
       :placeholder="t('world.list.filterByNameOrKind')"
@@ -73,11 +82,11 @@ async function create(name: string) {
       v-if="creating"
       :placeholder="mt('namePlaceholder')"
       :create="create"
-      icon="i-lucide-users-round"
+      :icon="icon"
       @cancel="creating = false"
     />
 
-    <WorldList v-if="visible.length" collection="groups" :items="visible" :label="term('groups')" :compact="props.compact">
+    <WorldList v-if="visible.length" collection="groups" :items="visible" :label="listTerm" :compact="props.compact">
       <template #row="{ item }">
         <GroupsRow :group="item" :members="members.get(item.id) ?? 0" :compact="props.compact" :active="item.id === props.activeId" />
       </template>
@@ -90,7 +99,7 @@ async function create(name: string) {
       :text="mt('empty')"
       :question="mt('emptyQuestion')"
       :action="mt('add')"
-      icon="i-lucide-users-round"
+      :icon="icon"
       @action="creating = true"
     />
   </div>

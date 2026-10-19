@@ -146,8 +146,14 @@ const filterItems = computed<DropdownMenuItem[][]>(() => {
   if (roleOptions.value.length) {
     groups.push([{ type: 'label', label: t('characters.list.filters.role') }, ...roleOptions.value.map(role => checkbox('roles', role, label('role', role)))])
   }
-  if (groupOptions.value.length) {
-    groups.push([{ type: 'label', label: term('group') }, ...groupOptions.value.map(g => checkbox('groups', g.id, g.name))])
+  // Races (module races) are groups too, under their own heading.
+  const races = groupOptions.value.filter(g => store.isRace(g.id))
+  const others = groupOptions.value.filter(g => !store.isRace(g.id))
+  if (races.length) {
+    groups.push([{ type: 'label', label: term('race') }, ...races.map(g => checkbox('groups', g.id, g.name))])
+  }
+  if (others.length) {
+    groups.push([{ type: 'label', label: term('group') }, ...others.map(g => checkbox('groups', g.id, g.name))])
   }
   if (tagOptions.value.length) {
     groups.push([{ type: 'label', label: t('characters.list.filters.tags') }, ...tagOptions.value.map(tag => checkbox('tags', tag, tag))])
@@ -157,7 +163,7 @@ const filterItems = computed<DropdownMenuItem[][]>(() => {
 
 const activeFilters = computed(() => [
   ...state.value.roles.map(value => ({ key: 'roles' as const, value, text: `${t('characters.list.filters.role')}: ${label('role', value)}` })),
-  ...state.value.groups.map(value => ({ key: 'groups' as const, value, text: `${term('group')}: ${store.get('groups', value)?.name ?? ''}` })),
+  ...state.value.groups.map(value => ({ key: 'groups' as const, value, text: `${term(store.isRace(value) ? 'race' : 'group')}: ${store.get('groups', value)?.name ?? ''}` })),
   ...state.value.tags.map(value => ({ key: 'tags' as const, value, text: `${t('characters.list.filters.tags')}: ${value}` })),
 ])
 const filterCount = computed(() => state.value.roles.length + state.value.groups.length + state.value.tags.length)

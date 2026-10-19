@@ -38,7 +38,8 @@ const colour = computed(() => (props.group.color ? label('color', props.group.co
     <template #numbers>
       <span class="flex flex-wrap items-center gap-x-3 gap-y-0.5">
         <span v-if="colour" class="whitespace-nowrap text-dimmed">{{ colour }}</span>
-        <span class="whitespace-nowrap">{{ label('groupKind', props.group.kind) }}</span>
+        <!-- In the races list every row is a race: the kind would only repeat it. -->
+        <span v-if="!store.isRace(props.group.id)" class="whitespace-nowrap">{{ label('groupKind', props.group.kind) }}</span>
         <span class="whitespace-nowrap">{{ t('groups.membersCount', { n: number(props.members) }, props.members) }}</span>
         <DStatusBadge :value="props.group.status" kind="planning" />
       </span>

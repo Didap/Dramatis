@@ -74,6 +74,12 @@ const chipUi = {
   itemDeleteIcon: 'pointer-coarse:size-4',
 }
 const selectUi = { base: 'pointer-coarse:min-h-11' }
+/** One column per field from sm: importance, role, race (module), status, colour, playable (games). */
+const FIELD_COLUMNS: Record<number, string> = {
+  4: 'sm:grid-cols-[repeat(4,minmax(0,auto))]',
+  5: 'sm:grid-cols-[repeat(5,minmax(0,auto))]',
+  6: 'sm:grid-cols-[repeat(6,minmax(0,auto))]',
+}
 </script>
 
 <template>
@@ -128,7 +134,7 @@ const selectUi = { base: 'pointer-coarse:min-h-11' }
 
     <div
       class="mt-6 grid grid-cols-2 gap-x-4 gap-y-3"
-      :class="store.isGame ? 'sm:grid-cols-[repeat(5,minmax(0,auto))]' : 'sm:grid-cols-[repeat(4,minmax(0,auto))]'"
+      :class="FIELD_COLUMNS[4 + (store.isGame ? 1 : 0) + (store.modules.races ? 1 : 0)]"
     >
       <UFormField :label="t('characters.sheet.importance')" :ui="fieldUi">
         <USelect
@@ -151,6 +157,9 @@ const selectUi = { base: 'pointer-coarse:min-h-11' }
           :ui="{ ...selectUi, value: character.role ? '' : 'text-muted' }"
           @update:model-value="(value: unknown) => set({ role: value === NO_ROLE ? '' : value as CharacterRole })"
         />
+      </UFormField>
+      <UFormField v-if="store.modules.races" :label="t('characters.sheet.race')" :ui="fieldUi">
+        <CharactersRace :character="character" />
       </UFormField>
       <UFormField :label="t('characters.sheet.status')" :ui="fieldUi">
         <DStatusSelect

@@ -5,7 +5,7 @@ import { useWorldIntro } from '~/components/world/Intro.vue'
 
 /**
  * The world hub (the phone "Mondo" tab, spec 4.4; on desktop a page outside the sidebar). It opens on
- * the characters, the cast with the main ones in view, then groups, locations, objects, relationships
+ * the characters, the cast with the main ones in view, then races (module), groups, locations, objects, relationships
  * and the codex (module) as rows with their counts and the item edited last.
  */
 const store = useProjectStore()
@@ -71,7 +71,8 @@ function section<T extends { updatedAt: string }>(key: keyof typeof SECTION_ICON
 }
 
 const sections = computed<HubSection[]>(() => [
-  section('groups', term('groups'), store.rows.groups, g => g.name),
+  ...(store.modules.races ? [section('races', term('races'), store.rows.groups.filter(g => store.isRace(g.id)), g => g.name)] : []),
+  section('groups', term('groups'), store.rows.groups.filter(g => !store.isRace(g.id)), g => g.name),
   section('locations', term('locations'), store.rows.locations, l => l.name),
   section('objects', term('objects'), store.rows.objects, o => o.name),
   section('relations', term('relations'), relations.value, r => t('world.hub.relation', {

@@ -71,7 +71,10 @@
       "notFound": "This character is no longer here: perhaps it is in the trash.",
       "backToList": "Back to the characters",
       "openTrash": "Open the trash",
-      "taglineLeft": "No characters left | {n} character left | {n} characters left"
+      "taglineLeft": "No characters left | {n} character left | {n} characters left",
+      "race": "Race",
+      "racePlaceholder": "None",
+      "raceCreate": "Create the race “{name}”"
     },
     "description": {
       "title": "Description",

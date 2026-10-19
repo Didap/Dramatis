@@ -107,6 +107,7 @@ const MODULE_ICONS: Record<ProjectModule, string> = {
   codex: 'i-lucide-library-big',
   script: 'i-lucide-messages-square',
   scene_kinds: 'i-lucide-clapperboard',
+  races: 'i-lucide-dna',
 }
 
 /** On a phone a switch answers to a 44px square around it (DESIGN.md "Buttons"). */

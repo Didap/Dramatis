@@ -3,8 +3,8 @@ import { PROJECT_MODULES } from './constants'
 
 /** Modules switched on by default for each kind of project. */
 export const DEFAULT_MODULES: Record<ProjectKind, Record<ProjectModule, boolean>> = {
-  novel: { branching: false, variables: false, quests: false, codex: false, script: false, scene_kinds: false },
-  game: { branching: true, variables: true, quests: true, codex: true, script: true, scene_kinds: true },
+  novel: { branching: false, variables: false, quests: false, codex: false, script: false, scene_kinds: false, races: true },
+  game: { branching: true, variables: true, quests: true, codex: true, script: true, scene_kinds: true, races: true },
 }
 
 /** The effective modules of a project: its explicit choices over the defaults of its kind. */

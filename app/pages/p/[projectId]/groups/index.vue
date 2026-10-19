@@ -10,15 +10,17 @@ const mt = (key: string) => t(`groups.${store.kind}.${key}`)
 const desktop = useIsDesktop()
 const creating = useCreating()
 const { visible: introVisible } = useWorldIntro('groups')
+/** The races have their own page (module races). */
+const groups = computed(() => store.rows.groups.filter(group => !store.isRace(group.id)))
 </script>
 
 <template>
   <DPage :title="term('groups')">
     <DPageHeader :title="term('groups')">
-      <template v-if="introVisible && store.rows.groups.length" #description>
+      <template v-if="introVisible && groups.length" #description>
         <WorldIntro topic="groups" :text="mt('intro')" />
       </template>
-      <template v-if="store.rows.groups.length" #actions>
+      <template v-if="groups.length" #actions>
         <UButton
           :color="desktop ? 'primary' : 'neutral'"
           :variant="desktop ? 'solid' : 'outline'"

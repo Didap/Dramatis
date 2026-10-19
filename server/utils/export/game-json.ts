@@ -1,4 +1,4 @@
-import { PROJECT_MODULES } from '#shared/utils/constants'
+import { GROUP_KINDS, PROJECT_MODULES } from '#shared/utils/constants'
 import { exportChoices, exportIsEnding, exportLines, exportPlaceOf, exportStartScene, exportTypedValue, type GameChoice } from './game'
 import { exportPlainText, type ExportModel } from './model'
 
@@ -212,7 +212,7 @@ export const DRAMATIS_GAME_SCHEMA = {
     groups: list(object({
       id,
       name: text,
-      kind: { enum: ['family', 'faction', 'organization', 'culture', 'other'] },
+      kind: { enum: [...GROUP_KINDS] },
       description: text,
       members: list(object({ type: { enum: ['character', 'location', 'object'] }, id, role: text })),
     })),

@@ -59,7 +59,8 @@ export const RELATION_KINDS = [
   'other',
 ] as const
 
-export const GROUP_KINDS = ['family', 'faction', 'organization', 'culture', 'other'] as const
+/** `race`: a race or species of the world, listed on its own page when the module races is on. */
+export const GROUP_KINDS = ['family', 'faction', 'organization', 'culture', 'race', 'other'] as const
 
 export const SCENE_KINDS = ['scene', 'cutscene', 'dialogue', 'gameplay', 'exploration', 'combat', 'puzzle'] as const
 
@@ -138,12 +139,13 @@ export const COLLECTION_TO_REF = {
 } as const satisfies Partial<Record<Collection, RefType>>
 
 /**
- * Optional modules of a project. Novels start with all of them off, games with all of them on.
+ * Optional modules of a project. Novels start with all of them off but races, games with all of them on.
  * branching: choices, start scene, endings, flow view and checks. variables: state variables, conditions
  * and effects (switching it on also switches on branching). quests: strand kinds quest and side_quest.
  * codex: the lore codex. script: dialogue lines in scenes and the voice-over CSV. scene_kinds: the scene kind field.
+ * races: the races of the world (groups of kind race) with their own page, and the race of each character.
  */
-export const PROJECT_MODULES = ['branching', 'variables', 'quests', 'codex', 'script', 'scene_kinds'] as const
+export const PROJECT_MODULES = ['branching', 'variables', 'quests', 'codex', 'script', 'scene_kinds', 'races'] as const
 
 export const CONDITION_OPS = ['eq', 'neq', 'gt', 'gte', 'lt', 'lte', 'is_true', 'is_false'] as const
 export const EFFECT_OPS = ['set', 'add', 'subtract', 'toggle'] as const

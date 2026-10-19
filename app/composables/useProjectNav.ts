@@ -28,6 +28,7 @@ export const SECTION_ICONS = {
   world: 'i-lucide-globe',
   characters: 'i-lucide-user-round',
   groups: 'i-lucide-users-round',
+  races: 'i-lucide-dna',
   locations: 'i-lucide-map-pin',
   objects: 'i-lucide-gem',
   relations: 'i-lucide-network',
@@ -71,6 +72,7 @@ export function useProjectNav() {
         label: t('common.nav.world'),
         items: [
           item('characters', 'characters', 'characters'),
+          ...(store.modules.races ? [item('races', 'races', 'races')] : []),
           item('groups', 'groups', 'groups'),
           item('locations', 'locations', 'locations'),
           item('objects', 'objects', 'objects'),

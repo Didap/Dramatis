@@ -36,6 +36,19 @@
       "role": "role in the faction",
       "removeMember": "Remove {name} from the faction",
       "powersPlaceholder": "What they can do, what they control, what they can give the player or take away."
+    },
+    "race": {
+      "add": "Add a race",
+      "namePlaceholder": "Name of the race (elves, dwarves, Uklari...)",
+      "intro": "Open a race to describe it and say who belongs to it; a character's race can also be chosen from their sheet.",
+      "empty": "A race brings together the characters who share an origin: elves, dwarves, dragons, the Uklari of your kingdom.",
+      "emptyQuestion": "Who lives in your world, besides humans?",
+      "noMembers": "Nobody yet: add the characters of this race, or choose it from a character's sheet.",
+      "role": "note on the character",
+      "removeMember": "Remove {name} from this race",
+      "descriptionPlaceholder": "What they are like: looks, lifespan, where they live, how others see them.",
+      "powersPlaceholder": "What they can do that others cannot: gifts, senses, magic. And their weaknesses.",
+      "members": "Who belongs to it"
     }
   }
 }

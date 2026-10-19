@@ -25,7 +25,8 @@ const touch = useMediaQuery('(pointer: coarse)')
 
 const memberships = computed(() =>
   store.rows.relations
-    .filter(r => r.kind === 'membership' && r.sourceType === 'character' && r.sourceId === props.character.id && r.targetType === 'group')
+    // The races are the sheet's own field (module races).
+    .filter(r => r.kind === 'membership' && r.sourceType === 'character' && r.sourceId === props.character.id && r.targetType === 'group' && !store.isRace(r.targetId))
     .map(relation => ({ relation, group: store.get('groups', relation.targetId) }))
     .filter((m): m is { relation: Relation, group: Group } => !!m.group)
     .sort((a, b) => a.group.position - b.group.position),
@@ -34,7 +35,7 @@ const memberships = computed(() =>
 const joined = computed(() => new Set(memberships.value.map(m => m.group.id)))
 const choices = computed(() =>
   [...store.rows.groups]
-    .filter(g => !joined.value.has(g.id))
+    .filter(g => !joined.value.has(g.id) && !store.isRace(g.id))
     .sort((a, b) => a.position - b.position)
     .map(g => ({ id: g.id, label: g.name, icon: REF_ICONS.group })),
 )

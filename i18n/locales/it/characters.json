@@ -71,7 +71,10 @@
       "notFound": "Questo personaggio non c'è più: forse è nel cestino.",
       "backToList": "Torna ai personaggi",
       "openTrash": "Apri il cestino",
-      "taglineLeft": "Nessun carattere rimasto | Resta {n} carattere | Restano {n} caratteri"
+      "taglineLeft": "Nessun carattere rimasto | Resta {n} carattere | Restano {n} caratteri",
+      "race": "Razza",
+      "racePlaceholder": "Nessuna",
+      "raceCreate": "Crea la razza «{name}»"
     },
     "description": {
       "title": "Descrizione",
