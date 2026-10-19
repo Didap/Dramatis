@@ -42,21 +42,26 @@ watch(scenes, async (list) => {
 
 // ---------------------------------------------------------------- the account's manuscript typography
 
-// The same preferences as the editor (its "Aa" menu), so a chapter reads back as it was written.
+// The editor's face and line height (its "Aa" menu), so a chapter reads back as it was written; the
+// size and the width of the page are the reading view's own (its "Aa"): smaller type across a wider
+// block, like a printed page, and the width no longer follows the size.
 const { prefs: typography, load: loadTypography } = useEditorTypography()
 onMounted(() => { void loadTypography() })
 
-const MEASURE = { narrow: 60, medium: 70, wide: 80 } as const
+const wide = useMediaQuery('(min-width: 640px)')
+const defaultSize = computed(() => (wide.value ? 16 : 17))
+const WIDTH = { book: '40rem', wide: '50rem', full: 'none' } as const
 const style = computed(() => {
   const prefs = typography.value
   const sans = prefs.font === 'sans'
   return {
-    ...(prefs.font ? { '--manuscript-font': sans ? 'var(--font-readable)' : 'var(--font-serif)', '--manuscript-avg-char': sans ? '0.433em' : '0.462em' } : {}),
-    ...(prefs.size ? { '--manuscript-size': `${prefs.size / 16}rem` } : {}),
+    ...(prefs.font ? { '--manuscript-font': sans ? 'var(--font-readable)' : 'var(--font-serif)' } : {}),
     ...(prefs.lineHeight ? { '--manuscript-leading': String(prefs.lineHeight) } : {}),
-    ...(prefs.width ? { '--manuscript-measure': String(MEASURE[prefs.width] ?? 70) } : {}),
+    '--reading-size': `${(prefs.readingSize ?? defaultSize.value) / 16}rem`,
+    '--reading-width': WIDTH[prefs.readingWidth ?? 'book'] ?? WIDTH.book,
   }
 })
+const justify = computed(() => typography.value.readingJustify !== false)
 
 // ---------------------------------------------------------------- choices (module branching)
 
@@ -101,7 +106,17 @@ const nextLabel = computed(() => {
 <template>
   <!-- The frame clips what would stick out sideways (line ids in the margin, with a very wide measure). -->
   <div class="manuscript-reading-frame">
-    <div class="manuscript-reading mx-auto" :style="style" :lang="store.project?.language || undefined" :data-sized="typography.size ? '' : undefined">
+    <div class="mx-auto mb-6 flex justify-end" :style="style" style="max-width: var(--reading-width)">
+      <UPopover :content="{ align: 'end', sideOffset: 6 }">
+        <UTooltip :text="t('manuscript.reading.typography')">
+          <UButton color="neutral" variant="ghost" :aria-label="t('manuscript.reading.typography')" class="voice-author min-w-9 justify-center text-[0.9375rem] font-semibold max-lg:min-h-11 max-lg:min-w-11">Aa</UButton>
+        </UTooltip>
+        <template #content>
+          <ManuscriptReadingMenu :default-size="defaultSize" />
+        </template>
+      </UPopover>
+    </div>
+    <div class="manuscript-reading mx-auto" :style="style" :lang="store.project?.language || undefined" :data-justify="justify ? '' : undefined">
       <p v-if="!scenes.length" class="py-10 text-center text-muted">{{ t('manuscript.reading.empty') }}</p>
 
       <article
@@ -193,15 +208,16 @@ const nextLabel = computed(() => {
 .manuscript-reading-frame {
   overflow-x: clip;
 }
-/* The measure is counted in characters of the manuscript face, at the manuscript size (DESIGN.md). */
+/* A page, not a column: its width is the reader's choice and does not follow the size of the type. */
 .manuscript-reading {
-  font-size: var(--manuscript-size);
-  max-width: calc(var(--manuscript-measure) * var(--manuscript-avg-char));
+  font-size: var(--reading-size, 1rem);
+  max-width: var(--reading-width, 40rem);
 }
-@media (max-width: 639.98px) {
-  .manuscript-reading:not([data-sized]) {
-    font-size: 1.125rem;
-  }
+/* Justified and hyphenated in the work's language, as in a printed book; dialogue lines keep their hang. */
+.manuscript-reading[data-justify] .manuscript-prose p:not(.prose-line, .prose-break) {
+  text-align: justify;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
 }
 .manuscript-reading-break {
   margin: 2.5rem 0;

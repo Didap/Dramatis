@@ -198,6 +198,12 @@ export interface EditorPreferences {
   width?: 'narrow' | 'medium' | 'wide'
   typewriter?: boolean
   focusParagraph?: boolean
+  /** The chapter's reading view: font size in px, 13 to 22 (default 16 on a desktop, 17 on a phone). */
+  readingSize?: number
+  /** Width of the reading page: book 40rem (default), wide 50rem, full the whole page. */
+  readingWidth?: 'book' | 'wide' | 'full'
+  /** Justified lines with hyphenation, as in a printed book. Default true. */
+  readingJustify?: boolean
 }
 
 export interface UserPreferences {

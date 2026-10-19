@@ -231,7 +231,16 @@
       "ending": "Ending",
       "end": "End of the chapter",
       "nextChapter": "Keep reading: {title}",
-      "empty": "This chapter has no scenes to read yet."
+      "empty": "This chapter has no scenes to read yet.",
+      "typography": "Page appearance",
+      "widthLabel": "Page width",
+      "width": {
+        "book": "Book",
+        "wide": "Wide",
+        "full": "Full"
+      },
+      "justify": "Justified",
+      "justifyHint": "Lines flush with both margins and words hyphenated, as in a printed book."
     },
     "appearances": {
       "summary": "{scenes} in {chapters}.",
