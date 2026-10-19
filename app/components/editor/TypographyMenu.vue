@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import type { EditorPreferences } from '#shared/types/domain'
+import { spellLanguage } from '~/utils/spelling'
 
 /**
  * "Aa": the typography of the manuscript (spec 7.1), saved to the account so it follows the author on
  * every device: the face, the size, the line height, the line width; paragraph focus and typewriter
- * scrolling for focus mode.
+ * scrolling for focus mode; the spell check.
  */
 const props = defineProps<{
   /** The effective size and line height when the author has not chosen one (they depend on the screen). */
@@ -15,6 +16,19 @@ const props = defineProps<{
 const { t } = useI18n()
 const { number, localeTag } = useFormat()
 const { prefs, set } = useEditorTypography()
+
+const store = useProjectStore()
+/** The name of the language the spell check reads, in the interface's language; empty without a dictionary. */
+const spellLanguageName = computed(() => {
+  const language = spellLanguage(store.project?.language)
+  if (!language) return ''
+  try {
+    return new Intl.DisplayNames([localeTag.value], { type: 'language' }).of(language) ?? language
+  }
+  catch {
+    return language
+  }
+})
 
 const font = computed(() => prefs.value.font ?? 'serif')
 const size = computed(() => prefs.value.size ?? props.defaultSize)
@@ -139,6 +153,14 @@ const widthKey = (event: KeyboardEvent) => onRadioKey(event, widths.value.map(w 
         :description="t('editor.typography.typewriterHint')"
         size="sm"
         @update:model-value="(v) => update({ typewriter: v })"
+      />
+      <USwitch
+        :model-value="prefs.spellcheck !== false"
+        :label="t('editor.spelling.spellcheck')"
+        :description="spellLanguageName ? t('editor.spelling.spellcheckHint', { language: spellLanguageName }) : t('editor.spelling.spellcheckUnavailable')"
+        :disabled="!spellLanguageName"
+        size="sm"
+        @update:model-value="(v) => update({ spellcheck: v })"
       />
     </div>
 

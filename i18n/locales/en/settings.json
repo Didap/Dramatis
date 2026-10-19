@@ -58,7 +58,10 @@
         "none": "The title only, no number"
       },
       "separator": "Scene separator",
-      "separatorHelp": "Printed between two scenes of the same chapter in exports."
+      "separatorHelp": "Printed between two scenes of the same chapter in exports.",
+      "dictionary": "Project dictionary",
+      "dictionaryHelp": "The words the spell check accepts in this project, besides the names of characters, races, places and objects. Add them from the editor, by clicking an underlined word, or here.",
+      "dictionaryPlaceholder": "Add a word"
     },
     "structure": {
       "title": "Structure",

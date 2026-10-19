@@ -163,6 +163,14 @@ const separator = ref(settings.value.sceneSeparator ?? '')
 watch(() => settings.value.sceneSeparator, (value) => {
   if ((value ?? '') !== separator.value) separator.value = value ?? ''
 })
+/** The project's spelling dictionary: the words added from the editor, to take out or add here. */
+const dictionary = useSpellcheck({ load: false })
+function onDictionary(words: string[]) {
+  const before = dictionary.dictionary.value
+  for (const word of words) if (!before.includes(word) && /^[\p{L}\p{M}'’-]+$/u.test(word.trim())) void dictionary.addWord(word)
+  for (const word of before) if (!words.includes(word)) void dictionary.removeWord(word)
+}
+
 let separatorTimer: ReturnType<typeof setTimeout> | null = null
 function onSeparator(value: string) {
   separator.value = value
@@ -324,6 +332,19 @@ const sections = computed(() => [
             class="w-full"
             :ui="{ base: 'voice-author text-center' }"
             @update:model-value="(value) => onSeparator(String(value ?? ''))"
+          />
+        </SettingsField>
+        <SettingsField :label="t('settings.writing.dictionary')" :description="t('settings.writing.dictionaryHelp')" for="settings-dictionary">
+          <UInputTags
+            id="settings-dictionary"
+            :model-value="dictionary.dictionary.value"
+            :placeholder="t('settings.writing.dictionaryPlaceholder')"
+            :max-length="60"
+            add-on-blur
+            add-on-paste
+            class="w-full"
+            :ui="{ item: 'voice-author font-normal', input: 'min-w-32' }"
+            @update:model-value="onDictionary"
           />
         </SettingsField>
       </SettingsSection>

@@ -325,6 +325,34 @@
     "script": {
       "addDirection": "Add a direction",
       "mentions": "Who or what to mention"
+    },
+    "spelling": {
+      "title": "Spelling",
+      "menu": "Corrections for “{word}”",
+      "suggestions": "Did you mean",
+      "noSuggestions": "No suggestions",
+      "add": "Add to dictionary",
+      "addHint": "A word added to the dictionary is right in the whole project; the names of characters, races, groups, places and objects already are.",
+      "ignore": "Ignore",
+      "quoted": "“{word}”",
+      "toCheck": "{n} word to check | {n} words to check",
+      "review": "Check them one by one",
+      "barCount": "Spelling: {n} word to check | Spelling: {n} words to check",
+      "position": "Word {n} of {total}",
+      "previous": "Previous word",
+      "next": "Next word",
+      "currentLabel": "The word to check",
+      "everywhere": "Correct all {n} times",
+      "replaceWith": "Replace “{word}” with “{with}”",
+      "replaceAllWith": "Replace “{word}” with “{with}”, {n} times",
+      "all": "All the words to check",
+      "times": "{n} time | {n} times",
+      "none": "No words to check in this scene.",
+      "loading": "Loading the dictionary…",
+      "failed": "The dictionary could not be loaded: the spell check will be back the next time you open the editor.",
+      "spellcheck": "Spell check",
+      "spellcheckHint": "Underlines the words that are not in the dictionary of the work's language ({language}).",
+      "spellcheckUnavailable": "There is no dictionary yet for the work's language: the browser's spell check stays on."
     }
   }
 }

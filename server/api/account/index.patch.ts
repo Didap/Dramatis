@@ -18,6 +18,7 @@ const schema = z
           readingSize: z.number().int().min(13).max(22).optional(),
           readingWidth: z.enum(['book', 'wide', 'full']).optional(),
           readingJustify: z.boolean().optional(),
+          spellcheck: z.boolean().optional(),
         })
         .optional(),
       guidance: z.boolean().optional(),

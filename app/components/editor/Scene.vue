@@ -7,6 +7,7 @@ import { countCharacters, countWords, docWordCount, mentionId, richToPlainText }
 import { applyLineIds, centerCaret, scrollParent } from './Surface.vue'
 import type { EditorPanel } from './TopBar.vue'
 import type { PreviewRequest } from './RevisionsPanel.vue'
+import { spellState, type SpellError } from '~/utils/spelling'
 
 /**
  * The scene editor (spec 4.5, DESIGN.md "Scene editor"): the page is the canvas. A top bar and a slim
@@ -60,7 +61,7 @@ const manuscriptStyle = computed(() => ({
 
 // ---------------------------------------------------------------- panels (?panel=details|revisions|find)
 
-const PANELS = ['details', 'revisions', 'find'] as const
+const PANELS = ['details', 'revisions', 'find', 'spelling'] as const
 const PANEL_KEY = 'dramatis:editor-panel'
 const panel = computed<EditorPanel | null>(() => PANELS.find(p => p === route.query.panel) ?? null)
 
@@ -129,6 +130,21 @@ function closePanel() {
   editor.value?.commands.focus()
 }
 
+// ---------------------------------------------------------------- spelling
+
+const spelling = useSpellcheck()
+const spellPick = shallowRef<{ error: SpellError, anchor: HTMLElement } | null>(null)
+/** Words still to check in the scene (the bar, the foot of the text); null with the spell check off. */
+const spellCount = ref<number | null>(null)
+function onSpellTransaction() {
+  spellCount.value = spelling.enabled.value && editor.value ? spellState(editor.value).errors.length : null
+}
+watch(() => spelling.enabled.value, onSpellTransaction)
+
+function onSpellPick(error: SpellError, anchor: HTMLElement) {
+  spellPick.value = { error, anchor }
+}
+
 // ---------------------------------------------------------------- the editor
 
 const editor = shallowRef<Editor | null>(null)
@@ -163,12 +179,14 @@ function onReady(instance: Editor) {
   else if (wordsBeforeReload !== null) openedWords.value += counts.words - wordsBeforeReload
   wordsBeforeReload = null
   instance.on('selectionUpdate', onSelection)
+  instance.on('transaction', onSpellTransaction)
   void restorePosition(instance)
 }
 
 function onDestroy() {
   wordsBeforeReload = counts.words
   editor.value?.off('selectionUpdate', onSelection)
+  editor.value?.off('transaction', onSpellTransaction)
   content.detach()
   editor.value = null
 }
@@ -540,6 +558,7 @@ const narrow = computed(() => !desktop.value || (mainWidth.value - columnWidth.v
           :menu="menu"
           :default-size="defaultSize"
           :default-line-height="defaultLineHeight"
+          :spell-count="spellCount"
           @panel="togglePanel"
           @focus="enterFocus"
         />
@@ -707,13 +726,22 @@ const narrow = computed(() => !desktop.value || (mainWidth.value - columnWidth.v
                   :script="modules.script"
                   :touch="touch || !desktop"
                   :narrow="narrow"
+                  :spellcheck="spelling.enabled.value"
+                  :spell-checker="spelling.checker.value"
                   @ready="onReady"
                   @destroy="onDestroy"
                   @change="onChange"
                   @typing="typing = true"
                   @open-entity="openEntity"
+                  @spell="onSpellPick"
                 />
               </div>
+              <!-- The end of the sheet: the words still to check, one at a time from the panel. -->
+              <p v-if="spellCount && !preview && !linesOnly" class="d-chrome mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
+                <UIcon name="i-lucide-spell-check" class="size-4 shrink-0" aria-hidden="true" />
+                <span>{{ t('editor.spelling.toCheck', { n: number(spellCount) }, spellCount) }}</span>
+                <UButton size="sm" color="neutral" variant="outline" :label="t('editor.spelling.review')" class="pointer-coarse:min-h-11" @click="setPanel('spelling')" />
+              </p>
             </template>
 
             <!-- Previous and next scene -->
@@ -749,11 +777,11 @@ const narrow = computed(() => !desktop.value || (mainWidth.value - columnWidth.v
     <aside
       v-if="desktop && panel && !focusMode"
       class="d-inspector d-chrome sticky top-0 flex h-dvh w-80 shrink-0 flex-col border-s border-default/70 bg-muted"
-      :aria-label="panel === 'details' ? t('editor.details.title') : panel === 'revisions' ? term('revision', 2) : t('editor.find.title')"
+      :aria-label="panel === 'details' ? t('editor.details.title') : panel === 'revisions' ? term('revision', 2) : panel === 'spelling' ? t('editor.spelling.title') : t('editor.find.title')"
     >
       <div class="flex h-12 shrink-0 items-center gap-2 px-4">
         <h2 class="min-w-0 flex-1 truncate text-sm font-semibold text-highlighted">
-          {{ panel === 'details' ? t('editor.details.title') : panel === 'revisions' ? term('revision', 2) : t('editor.find.title') }}
+          {{ panel === 'details' ? t('editor.details.title') : panel === 'revisions' ? term('revision', 2) : panel === 'spelling' ? t('editor.spelling.title') : t('editor.find.title') }}
         </h2>
         <UButton icon="i-lucide-x" size="sm" :aria-label="t('common.actions.close')" @click="closePanel" />
       </div>
@@ -775,6 +803,14 @@ const narrow = computed(() => !desktop.value || (mainWidth.value - columnWidth.v
           :ref-id="findRef"
           @close="closePanel"
           @replaced="onReplaced"
+        />
+        <EditorSpellPanel
+          v-else-if="panel === 'spelling' && editor"
+          :editor="editor"
+          :speller="spelling.speller.value"
+          :failed="spelling.failed.value"
+          @add="spelling.addWord"
+          @ignore="spelling.ignore"
         />
       </div>
     </aside>
@@ -804,12 +840,31 @@ const narrow = computed(() => !desktop.value || (mainWidth.value - columnWidth.v
           <EditorRevisionsPanel :scene-id="sceneId" @preview="(r) => { preview = r; setPanel(null) }" />
         </template>
       </UDrawer>
+      <UDrawer
+        :open="panel === 'spelling'"
+        :title="t('editor.spelling.title')"
+        :ui="{ content: 'max-h-[70dvh]', body: 'pb-[calc(1rem+env(safe-area-inset-bottom))]' }"
+        @update:open="(open: boolean) => !open && panel === 'spelling' && setPanel(null)"
+      >
+        <template #body>
+          <EditorSpellPanel
+            v-if="editor"
+            compact
+            :editor="editor"
+            :speller="spelling.speller.value"
+            :failed="spelling.failed.value"
+            @add="spelling.addWord"
+            @ignore="spelling.ignore"
+          />
+        </template>
+      </UDrawer>
       <!-- The focus goes where the chosen action leads, not back to the ⋯ button. -->
       <UDrawer v-model:open="moreOpen" :title="t('editor.bar.more')" :content="noFocusReturn" :ui="{ body: 'pb-[calc(1rem+env(safe-area-inset-bottom))]' }">
         <template #body>
           <ul class="-mx-2">
             <li><button type="button" class="d-drawer-row" @click="phoneAction(() => openFind())"><UIcon name="i-lucide-search" />{{ t('editor.bar.find') }}</button></li>
             <li><button type="button" class="d-drawer-row" @click="phoneAction(() => setPanel('revisions'))"><UIcon name="i-lucide-history" />{{ term('revision', 2) }}</button></li>
+            <li v-if="spellCount !== null"><button type="button" class="d-drawer-row" @click="phoneAction(() => setPanel('spelling'))"><UIcon name="i-lucide-spell-check" />{{ t('editor.spelling.title') }}<span v-if="spellCount" class="ms-auto tabular text-sm text-muted">{{ number(spellCount) }}</span></button></li>
             <li><button type="button" class="d-drawer-row" @click="phoneAction(enterFocus)"><UIcon name="i-lucide-maximize-2" />{{ t('editor.bar.focus') }}</button></li>
             <li v-if="modules.script"><button type="button" class="d-drawer-row" :aria-pressed="linesOnly" @click="phoneAction(() => { linesOnly = !linesOnly })"><UIcon name="i-lucide-message-square-text" />{{ t('editor.writingBar.linesOnly') }}</button></li>
             <li><button type="button" class="d-drawer-row" @click="phoneAction(() => { typographyOpen = true })"><span class="voice-author w-5 text-center font-semibold" aria-hidden="true">Aa</span>{{ t('editor.bar.typography') }}</button></li>
@@ -863,6 +918,15 @@ const narrow = computed(() => !desktop.value || (mainWidth.value - columnWidth.v
     </template>
 
     <EditorEntityPeek v-if="desktop" v-model:ref-id="peek" />
+    <EditorSpellMenu
+      :editor="editor"
+      :speller="spelling.speller.value"
+      :error="spellPick?.error ?? null"
+      :anchor="spellPick?.anchor ?? null"
+      @close="spellPick = null"
+      @add="spelling.addWord"
+      @ignore="spelling.ignore"
+    />
   </div>
 </template>
 

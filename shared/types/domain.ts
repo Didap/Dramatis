@@ -186,6 +186,8 @@ export interface ProjectSettings {
   demo?: boolean
   /** Key of the structure template the project was created from (shared/content/structures.ts). */
   template?: string
+  /** Words the spell check accepts in this project ("Aggiungi al dizionario"), as written the first time. */
+  dictionary?: string[]
 }
 
 export interface EditorPreferences {
@@ -204,6 +206,8 @@ export interface EditorPreferences {
   readingWidth?: 'book' | 'wide' | 'full'
   /** Justified lines with hyphenation, as in a printed book. Default true. */
   readingJustify?: boolean
+  /** Spell check in the editor, in the work's language when there is a dictionary for it. Default true. */
+  spellcheck?: boolean
 }
 
 export interface UserPreferences {

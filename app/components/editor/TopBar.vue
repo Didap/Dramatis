@@ -1,5 +1,5 @@
 <script lang="ts">
-export type EditorPanel = 'details' | 'revisions' | 'find'
+export type EditorPanel = 'details' | 'revisions' | 'find' | 'spelling'
 </script>
 
 <script setup lang="ts">
@@ -8,7 +8,7 @@ import type { SceneStatus } from '#shared/types/domain'
 
 /**
  * The editor's top bar (DESIGN.md "Scene editor"): back to the manuscript, where the scene is, and the
- * tools: typography, find, revisions, details, focus, the menu. It fades while the author types.
+ * tools: typography, find, spelling (when on), revisions, details, focus, the menu. It fades while the author types.
  */
 const props = defineProps<{
   sceneId: string
@@ -19,6 +19,8 @@ const props = defineProps<{
   menu: DropdownMenuItem[][]
   defaultSize: number
   defaultLineHeight: number
+  /** Words still to check; null with the spell check off. */
+  spellCount: number | null
 }>()
 
 const emit = defineEmits<{
@@ -53,6 +55,9 @@ const statusItems = computed(() => [options('sceneStatus').map(option => ({
 
 const tools = computed(() => [
   { key: 'find' as const, icon: 'i-lucide-search', label: t('editor.bar.find'), kbds: ['meta', 'f'] },
+  ...(props.spellCount !== null
+    ? [{ key: 'spelling' as const, icon: 'i-lucide-spell-check', label: props.spellCount ? t('editor.spelling.barCount', { n: props.spellCount }, props.spellCount) : t('editor.spelling.title'), kbds: [] as string[] }]
+    : []),
   { key: 'revisions' as const, icon: 'i-lucide-history', label: term('revision', 2), kbds: [] as string[] },
   // ⌘J on a Mac; elsewhere Ctrl+J belongs to the browser, so Alt+Enter.
   { key: 'details' as const, icon: 'i-lucide-panel-right', label: t('editor.bar.details'), kbds: macOS.value ? ['meta', 'j'] : ['alt', 'enter'] },

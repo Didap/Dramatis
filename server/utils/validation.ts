@@ -338,6 +338,10 @@ export function updateSchema(collection: Collection): z.ZodType<Record<string, u
   return (collectionSchemas[collection] as z.ZodObject<z.ZodRawShape>).partial().extend({ $base: zBase })
 }
 
+/** A word of a project's spelling dictionary: letters, apostrophes and hyphens, no spaces. */
+export const zSpellWord = z.string().trim().min(1).max(60).regex(/^[\p{L}\p{M}'’-]+$/u)
+export const DICTIONARY_MAX = 5000
+
 export const projectSettingsSchema = z
   .object({
     chapterNumbering: z.enum(['arabic', 'roman', 'words', 'none']).optional(),
@@ -349,6 +353,7 @@ export const projectSettingsSchema = z
     customQuestions: z
       .record(z.string().max(40), z.array(z.object({ key: z.string().max(80), label: zText(300) })).max(100))
       .optional(),
+    dictionary: z.array(zSpellWord).max(DICTIONARY_MAX).optional(),
   })
   .loose()
 

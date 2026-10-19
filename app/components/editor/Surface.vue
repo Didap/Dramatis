@@ -508,6 +508,7 @@ import type { EntityRef } from '#shared/types/domain'
 import { parseMentionId } from '#shared/utils/richtext'
 import { FindReplace } from './FindPanel.vue'
 import { SceneMention, TextAlign } from './RichView.vue'
+import { refreshSpelling, Spelling, type SpellChecker, type SpellError } from '~/utils/spelling'
 
 /**
  * The page the author writes on (DESIGN.md "Scene editor"): the text at the measure, a bubble menu on
@@ -517,8 +518,11 @@ const props = defineProps<{
   content: RichDoc | null
   editable: boolean
   placeholder: string
-  /** The language of the work, for the browser's spell check. */
+  /** The language of the work, for hyphenation and the browser's spell check. */
   lang: string
+  /** Our spell check is on (the browser's is then off); `spellChecker` is null while it loads. */
+  spellcheck: boolean
+  spellChecker: SpellChecker | null
   quoteStyle: QuoteStyle['style']
   smartTypography: boolean
   focusParagraph: boolean
@@ -537,6 +541,8 @@ const emit = defineEmits<{
   destroy: []
   /** "Apri scheda" from the mention card. */
   openEntity: [ref: EntityRef]
+  /** A misspelled word was clicked or tapped. */
+  spell: [error: SpellError, anchor: HTMLElement]
 }>()
 
 const { t } = useI18n()
@@ -560,6 +566,7 @@ const extensions = [
   PasteCleanup.configure({ isLive: refId => nameOf(refId) !== null }),
   WritingFocus.configure({ settings: () => ({ paragraph: props.focusParagraph, typewriter: props.typewriter }) }),
   FindReplace,
+  Spelling.configure({ checker: () => props.spellChecker, onPick: (error, anchor) => emit('spell', error, anchor) }),
   TabOut,
   ManuscriptOnly,
 ]
@@ -624,7 +631,7 @@ const slashItems = computed(() => [
 
 const editorProps = computed(() => ({
   attributes: {
-    'spellcheck': 'true',
+    'spellcheck': props.spellcheck ? 'false' : 'true',
     'lang': props.lang,
     'autocorrect': 'on',
     'autocapitalize': 'sentences',
@@ -690,6 +697,11 @@ const names = computed(() => [store.rows.characters, store.rows.locations, store
   .join('/'))
 watch(names, () => {
   if (editor) syncNames(editor, nameOf)
+})
+
+// The dictionary has loaded, or a word was added or ignored: check the text again.
+watch(() => props.spellChecker, () => {
+  if (editor) refreshSpelling(editor)
 })
 
 // The writing settings changed: decorations follow.

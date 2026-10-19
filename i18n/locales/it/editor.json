@@ -325,6 +325,34 @@
     "script": {
       "addDirection": "Aggiungi un'indicazione",
       "mentions": "Chi o cosa citare"
+    },
+    "spelling": {
+      "title": "Ortografia",
+      "menu": "Correzioni per «{word}»",
+      "suggestions": "Forse volevi scrivere",
+      "noSuggestions": "Nessun suggerimento",
+      "add": "Aggiungi al dizionario",
+      "addHint": "Una parola aggiunta al dizionario è giusta in tutto il progetto; i nomi di personaggi, razze, gruppi, luoghi e oggetti lo sono già.",
+      "ignore": "Ignora",
+      "quoted": "«{word}»",
+      "toCheck": "{n} parola da controllare | {n} parole da controllare",
+      "review": "Controllale una a una",
+      "barCount": "Ortografia: {n} parola da controllare | Ortografia: {n} parole da controllare",
+      "position": "Parola {n} di {total}",
+      "previous": "Parola precedente",
+      "next": "Parola successiva",
+      "currentLabel": "La parola da controllare",
+      "everywhere": "Correggi tutte e {n} le volte",
+      "replaceWith": "Sostituisci «{word}» con «{with}»",
+      "replaceAllWith": "Sostituisci «{word}» con «{with}», {n} volte",
+      "all": "Tutte le parole da controllare",
+      "times": "{n} volta | {n} volte",
+      "none": "Nessuna parola da controllare in questa scena.",
+      "loading": "Carico il dizionario…",
+      "failed": "Non riesco a caricare il dizionario: il controllo ortografico tornerà alla prossima apertura.",
+      "spellcheck": "Controllo ortografico",
+      "spellcheckHint": "Sottolinea le parole che non sono nel dizionario della lingua dell'opera ({language}).",
+      "spellcheckUnavailable": "Non c'è ancora un dizionario per la lingua dell'opera: resta quello del browser."
     }
   }
 }

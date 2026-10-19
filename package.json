@@ -53,6 +53,7 @@
     "docx": "^9.12.0",
     "drizzle-orm": "^0.45.4",
     "fflate": "^0.8.3",
+    "hunspell-asm": "^4.0.2",
     "nuxt": "^4.6.2",
     "nuxt-auth-utils": "^0.5.32",
     "pinia": "^4.1.0",

@@ -58,7 +58,10 @@
         "none": "Solo il titolo, senza numero"
       },
       "separator": "Separatore tra le scene",
-      "separatorHelp": "Stampato tra due scene dello stesso capitolo nelle esportazioni."
+      "separatorHelp": "Stampato tra due scene dello stesso capitolo nelle esportazioni.",
+      "dictionary": "Dizionario del progetto",
+      "dictionaryHelp": "Le parole che il controllo ortografico accetta in questo progetto, oltre ai nomi di personaggi, razze, luoghi e oggetti. Si aggiungono dall'editor, cliccando su una parola sottolineata, o qui.",
+      "dictionaryPlaceholder": "Aggiungi una parola"
     },
     "structure": {
       "title": "Struttura",

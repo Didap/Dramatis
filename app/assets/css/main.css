@@ -390,6 +390,21 @@
   letter-spacing: 0.3em;
 }
 
+/* A misspelled word: a wavy underline in the error ink, a tint on the one the spelling panel is on. */
+.tiptap .d-spell-error {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--ui-error);
+  text-decoration-thickness: 1.5px;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+.tiptap .d-spell-error.is-current {
+  background: color-mix(in oklab, var(--ui-error) 14%, transparent);
+  border-radius: 2px;
+}
+
 /* ---------------------------------------------------------------- motion */
 
 @media (prefers-reduced-motion: reduce) {
