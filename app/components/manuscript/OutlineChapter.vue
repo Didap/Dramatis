@@ -15,6 +15,7 @@ const { t } = useI18n()
 const store = useProjectStore()
 const { words, scenes: sceneCount } = useFormat()
 const structure = useManuscriptStructure()
+const router = useRouter()
 const context = useOutlineContext()
 const renaming = useRenaming()
 const dragging = useDragging()
@@ -75,7 +76,10 @@ function onKeydown(event: KeyboardEvent) {
 }
 
 async function addScene(titleText: string) {
-  await structure.createScene({ chapterId: id.value, title: titleText })
+  // The first scene of the manuscript opens in the editor: that is where the writing happens.
+  const first = !store.rows.scenes.length
+  const scene = await structure.createScene({ chapterId: id.value, title: titleText })
+  if (first) void router.push(store.refPath({ type: 'scene', id: scene.id }))
 }
 
 function newScene() {
@@ -205,7 +209,8 @@ const menu = computed<RowActionGroup[]>(() => [
       <ManuscriptAddRow
         v-if="!context.filtering.value"
         ref="addRow"
-        class="ps-7 transition-opacity duration-150 lg:opacity-0 lg:group-hover/chapter:opacity-100 lg:focus-within:opacity-100 lg:pointer-coarse:opacity-100"
+        class="ps-7 transition-opacity duration-150"
+        :class="scenes.length && 'lg:opacity-0 lg:group-hover/chapter:opacity-100 lg:focus-within:opacity-100 lg:pointer-coarse:opacity-100'"
         :label="t('manuscript.scene.new')"
         :placeholder="t('manuscript.scene.titlePlaceholder')"
         :create="addScene"

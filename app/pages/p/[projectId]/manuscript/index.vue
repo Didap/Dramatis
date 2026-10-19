@@ -84,8 +84,11 @@ const busy = ref(false)
 async function newScene() {
   // A new scene would hide behind the filters: show everything first.
   if (filtering.value) filters.value = { ...NO_FILTERS }
+  const first = !store.rows.scenes.length
   const scene = await structure.createScene().catch(() => null)
   if (!scene) return
+  // The first scene of the manuscript opens in the editor, where its title and its text are written.
+  if (first) return void router.push(store.refPath({ type: 'scene', id: scene.id }))
   collapsed.value = collapsed.value.filter(id => id !== scene.chapterId && id !== store.get('chapters', scene.chapterId)?.partId)
   renaming.value = scene.id
 }
