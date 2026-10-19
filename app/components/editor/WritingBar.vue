@@ -45,7 +45,7 @@ import { QUOTES } from './Surface.vue'
 
 /**
  * The slim writing bar under the top bar (spec 4.5): the project's dialogue punctuation, the dash, the
- * ellipsis, and with `script` a line of dialogue. The buttons never take the caret away from the text.
+ * ellipsis, the scene break ("Fine scena"), and with `script` a line of dialogue. The buttons never take the caret away from the text.
  */
 const props = defineProps<{
   editor: Editor | null
@@ -60,6 +60,10 @@ const quotes = computed(() => `${QUOTES[props.quoteStyle].open} ${QUOTES[props
 
 function punctuation(kind: 'quotes' | 'dash' | 'ellipsis') {
   props.editor?.chain().focus().insertDialoguePunctuation(kind).run()
+}
+
+function sceneBreak() {
+  props.editor?.chain().focus().insertSceneBreak().run()
 }
 
 function line() {
@@ -93,6 +97,10 @@ const { onKeydown, onFocusin } = useToolbarFocus(bar)
       <UButton size="sm" class="voice-author min-w-9 justify-center text-base" :aria-label="t('editor.writingBar.ellipsis')" :disabled="!editor" @mousedown.prevent @click="punctuation('ellipsis')">
         …
       </UButton>
+    </UTooltip>
+    <span class="mx-1.5 h-4 w-px bg-(--ui-border)" aria-hidden="true" />
+    <UTooltip :text="t('editor.writingBar.breakHint')">
+      <UButton size="sm" icon="i-lucide-separator-horizontal" :label="t('editor.writingBar.break')" :disabled="!editor || linesOnly" @mousedown.prevent @click="sceneBreak" />
     </UTooltip>
     <template v-if="script">
       <span class="mx-1.5 h-4 w-px bg-(--ui-border)" aria-hidden="true" />

@@ -376,7 +376,7 @@
   margin-inline-start: 0.4em;
 }
 
-/* A break between sections of a scene, printed as * * * in exports. */
+/* A break between sections of a scene ("Fine scena"), printed as * * * or the project's separator. */
 .tiptap hr.scene-break {
   border: 0;
   margin-block: 1.5em;
@@ -384,7 +384,7 @@
   overflow: visible;
 }
 .tiptap hr.scene-break::after {
-  content: '*  *  *';
+  content: var(--scene-break, '*  *  *');
   white-space: pre;
   color: var(--ui-text-muted);
   letter-spacing: 0.3em;

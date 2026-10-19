@@ -54,6 +54,8 @@ const manuscriptStyle = computed(() => ({
   '--manuscript-size': `${(prefs.value.size ?? defaultSize.value) / 16}rem`,
   '--manuscript-leading': String(prefs.value.lineHeight ?? defaultLineHeight.value),
   '--manuscript-measure': String({ narrow: 60, medium: 70, wide: 80 }[prefs.value.width ?? 'medium']),
+  // A break looks as the reading view and the exports print it (Settings, Writing).
+  ...(settings.value.sceneSeparator?.trim() ? { '--scene-break': JSON.stringify(settings.value.sceneSeparator.trim()) } : {}),
 }))
 
 // ---------------------------------------------------------------- panels (?panel=details|revisions|find)

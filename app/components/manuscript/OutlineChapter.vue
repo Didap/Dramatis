@@ -202,8 +202,13 @@ const menu = computed<RowActionGroup[]>(() => [
         >
           <ManuscriptSceneRow v-for="scene in scenes" :key="scene.id" :scene="scene" />
         </VueDraggable>
-        <p v-if="!scenes.length" class="pointer-events-none absolute inset-0 flex items-center ps-9 text-sm text-dimmed">
-          {{ context.filtering.value ? t('manuscript.filters.none') : t('manuscript.chapter.empty') }}
+        <p v-if="!scenes.length" class="pointer-events-none absolute inset-0 flex min-w-0 items-center gap-3 ps-9 text-sm text-dimmed">
+          <template v-if="context.filtering.value">{{ t('manuscript.filters.none') }}</template>
+          <!-- An empty chapter opens straight on its sheet: no scene to invent first. -->
+          <template v-else>
+            <UButton class="pointer-events-auto shrink-0 max-lg:min-h-11" size="sm" color="primary" variant="soft" icon="i-lucide-pen-line" :label="t('manuscript.page.startWriting')" @click="structure.writeIn(id)" />
+            <span class="truncate">{{ t('manuscript.chapter.empty') }}</span>
+          </template>
         </p>
       </div>
       <ManuscriptAddRow

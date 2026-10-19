@@ -126,7 +126,7 @@
       "titlePlaceholder": "Title of the chapter",
       "noPurpose": "no purpose yet",
       "noPurposeHint": "The purpose of the chapter is still to be written.",
-      "empty": "No scenes: add one, or drag one here.",
+      "empty": "or drag a scene here.",
       "collapse": "Collapse “{title}”",
       "expand": "Expand “{title}”",
       "open": "Open the chapter",
@@ -208,14 +208,16 @@
       "purposePlaceholder": "Why does this chapter exist? What changes between its first scene and its last?",
       "purposeHint": "The purpose is the chapter's reason in the story: what someone finds out, decides or loses. If you cannot write it, the chapter may belong with another one.",
       "notesPlaceholder": "Research, doubts, things to fix.",
-      "scenesEmpty": "This chapter has no scenes yet: add one, even with just a synopsis.",
+      "scenesEmpty": "The chapter is still empty: “Start writing” opens its sheet. If you prefer, split it into scenes first, even with just a synopsis.",
       "presence": "In this chapter",
       "presenceEmpty": "No characters or places yet: mention them with {at} in the scenes, or add them from a scene's details.",
       "previous": "Previous chapter",
       "next": "Next chapter",
       "menu": "Chapter actions",
       "chapterLabel": "{n}, “{title}”",
-      "inPart": "In {title}"
+      "inPart": "In {title}",
+      "startWriting": "Start writing",
+      "continueWriting": "Continue writing"
     },
     "reading": {
       "loading": "Loading the text",

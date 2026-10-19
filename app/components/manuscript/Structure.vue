@@ -549,6 +549,17 @@ export function useManuscriptStructure() {
     return scene
   }
 
+  /**
+   * "Inizia a scrivere" on a chapter: the sheet where its text goes. An empty chapter gets its first
+   * scene, untitled, so the author never has to know what a scene is to start; otherwise the
+   * chapter's last scene, where the writing carries on.
+   */
+  async function writeIn(chapterId: string) {
+    const last = store.chapterScenes(chapterId).at(-1)
+    const scene = last ?? await createScene({ chapterId }).catch(() => null)
+    if (scene) await navigateTo(store.refPath({ type: 'scene', id: scene.id }))
+  }
+
   // ---------------------------------------------------------------- editing
 
   async function rename(kind: StructureKind, id: string, title: string) {
@@ -669,6 +680,7 @@ export function useManuscriptStructure() {
     createPart,
     createChapter,
     createScene,
+    writeIn,
     rename,
     setStatus,
     trash,

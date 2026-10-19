@@ -23,7 +23,7 @@
       "title": "Inserisci",
       "line": "Battuta",
       "lineHint": "Chi parla, come, cosa dice",
-      "break": "Cambio di sezione",
+      "break": "Fine scena",
       "breakHint": "Una pausa dentro la scena",
       "quote": "Citazione",
       "quoteHint": "Una lettera, un'epigrafe, un brano citato",
@@ -32,7 +32,7 @@
       "paragraph": "Testo normale"
     },
     "writingBar": {
-      "label": "Punteggiatura del dialogo",
+      "label": "Punteggiatura e fine scena",
       "quotes": "Virgolette {quotes}",
       "quotesHint": "Apre le virgolette del dialogo, e le chiude",
       "dash": "Lineetta",
@@ -43,7 +43,9 @@
       "line": "Battuta",
       "lineHint": "Una battuta di dialogo: chi parla, come, cosa dice",
       "linesOnly": "Solo dialoghi",
-      "linesOnlyHint": "Solo le battute, come in un copione"
+      "linesOnlyHint": "Solo le battute, come in un copione",
+      "break": "Fine scena",
+      "breakHint": "Una linea al centro che chiude un momento e ne apre un altro. Si ottiene anche scrivendo *** su una riga vuota."
     },
     "keyboard": {
       "label": "Strumenti di scrittura",

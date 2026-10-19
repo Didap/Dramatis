@@ -6,7 +6,7 @@ import { useToolbarFocus } from './WritingBar.vue'
 
 /**
  * The phone's toolbar above the keyboard (spec 4.5, DESIGN.md): bold, italic, the project's quotes, the
- * dash, the ellipsis, @, with `script` a line of dialogue, with `branching` a choice, undo and redo,
+ * dash, the ellipsis, the scene break, @, with `script` a line of dialogue, with `branching` a choice, undo and redo,
  * the details. It takes the place of the bottom bar and rides on the keyboard.
  */
 const props = defineProps<{
@@ -70,6 +70,7 @@ const buttons = computed(() => [
   { key: 'quotes', label: t('editor.writingBar.quotes', { quotes: quotes.value }), text: quotes.value, run: () => chain()?.insertDialoguePunctuation('quotes').run() },
   { key: 'dash', label: t('editor.writingBar.dash'), text: '—', run: () => chain()?.insertDialoguePunctuation('dash').run() },
   { key: 'ellipsis', label: t('editor.writingBar.ellipsis'), text: '…', run: () => chain()?.insertDialoguePunctuation('ellipsis').run() },
+  { key: 'break', label: t('editor.writingBar.break'), icon: 'i-lucide-separator-horizontal', run: () => chain()?.insertSceneBreak().run() },
   { key: 'mention', label: t('editor.keyboard.mention'), icon: 'i-lucide-at-sign', run: mention },
   ...(props.script ? [{ key: 'line', label: t('editor.writingBar.line'), icon: 'i-lucide-message-square-quote', run: () => chain()?.insertDialogueLine().run() }] : []),
   ...(props.branching ? [{ key: 'choice', label: t('editor.keyboard.choice'), icon: 'i-lucide-split', run: () => emit('choice') }] : []),

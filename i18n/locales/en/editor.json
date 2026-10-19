@@ -23,7 +23,7 @@
       "title": "Insert",
       "line": "Line",
       "lineHint": "Who speaks, how, what they say",
-      "break": "Section break",
+      "break": "Scene break",
       "breakHint": "A pause inside the scene",
       "quote": "Quote",
       "quoteHint": "A letter, an epigraph, a quoted passage",
@@ -32,7 +32,7 @@
       "paragraph": "Plain text"
     },
     "writingBar": {
-      "label": "Dialogue punctuation",
+      "label": "Punctuation and scene breaks",
       "quotes": "Quotes {quotes}",
       "quotesHint": "Opens the dialogue quotes, and closes them",
       "dash": "Dash",
@@ -43,7 +43,9 @@
       "line": "Line",
       "lineHint": "A line of dialogue: who speaks, how, what they say",
       "linesOnly": "Lines only",
-      "linesOnlyHint": "Only the lines, as in a script"
+      "linesOnlyHint": "Only the lines, as in a script",
+      "break": "Scene break",
+      "breakHint": "A centred line that closes one moment and opens the next. Typing *** on an empty line does the same."
     },
     "keyboard": {
       "label": "Writing tools",

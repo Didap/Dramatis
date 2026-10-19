@@ -184,26 +184,38 @@ onBeforeUnmount(() => { renaming.value = null })
           <ManuscriptFigures :text="`${sceneCount(scenes.length)} · ${words(total)}`" />
           <ManuscriptStatusLine :scenes="scenes" />
         </div>
-        <nav class="mt-5 inline-flex rounded-[calc(var(--ui-radius)*2)] bg-elevated p-0.5 text-sm" :aria-label="t('manuscript.page.views')">
-          <NuxtLink
-            :to="{ query: { ...route.query, view: undefined } }"
-            class="rounded-[calc(var(--ui-radius)*1.5)] px-3 py-1.5 font-medium max-lg:py-3"
-            :class="!reading ? 'bg-default text-highlighted shadow-xs' : 'text-muted hover:text-default'"
-            :aria-current="!reading ? 'page' : undefined"
-            replace
-          >
-            {{ t('manuscript.page.structure') }}
-          </NuxtLink>
-          <NuxtLink
-            :to="{ query: { ...route.query, view: 'read' } }"
-            class="rounded-[calc(var(--ui-radius)*1.5)] px-3 py-1.5 font-medium max-lg:py-3"
-            :class="reading ? 'bg-default text-highlighted shadow-xs' : 'text-muted hover:text-default'"
-            :aria-current="reading ? 'page' : undefined"
-            replace
-          >
-            {{ t('manuscript.page.reading') }}
-          </NuxtLink>
-        </nav>
+        <div class="mt-5 flex flex-wrap items-center gap-3" :class="reading ? 'justify-center' : ''">
+          <!-- Where the chapter's text is written: the way in for an author who does not think in scenes. -->
+          <UButton
+            v-if="!reading"
+            :icon="scenes.length ? 'i-lucide-square-pen' : 'i-lucide-pen-line'"
+            :label="scenes.length ? t('manuscript.page.continueWriting') : t('manuscript.page.startWriting')"
+            color="primary"
+            variant="solid"
+            class="max-lg:min-h-11"
+            @click="structure.writeIn(chapterId)"
+          />
+          <nav class="inline-flex rounded-[calc(var(--ui-radius)*2)] bg-elevated p-0.5 text-sm" :aria-label="t('manuscript.page.views')">
+            <NuxtLink
+              :to="{ query: { ...route.query, view: undefined } }"
+              class="rounded-[calc(var(--ui-radius)*1.5)] px-3 py-1.5 font-medium max-lg:py-3"
+              :class="!reading ? 'bg-default text-highlighted shadow-xs' : 'text-muted hover:text-default'"
+              :aria-current="!reading ? 'page' : undefined"
+              replace
+            >
+              {{ t('manuscript.page.structure') }}
+            </NuxtLink>
+            <NuxtLink
+              :to="{ query: { ...route.query, view: 'read' } }"
+              class="rounded-[calc(var(--ui-radius)*1.5)] px-3 py-1.5 font-medium max-lg:py-3"
+              :class="reading ? 'bg-default text-highlighted shadow-xs' : 'text-muted hover:text-default'"
+              :aria-current="reading ? 'page' : undefined"
+              replace
+            >
+              {{ t('manuscript.page.reading') }}
+            </NuxtLink>
+          </nav>
+        </div>
       </header>
 
       <ManuscriptReadingView v-if="reading" :chapter-id="chapter.id" />

@@ -126,7 +126,7 @@
       "titlePlaceholder": "Titolo del capitolo",
       "noPurpose": "senza scopo",
       "noPurposeHint": "Lo scopo del capitolo è ancora da scrivere.",
-      "empty": "Nessuna scena: aggiungine una, o trascinala qui.",
+      "empty": "oppure trascina qui una scena.",
       "collapse": "Comprimi «{title}»",
       "expand": "Espandi «{title}»",
       "open": "Apri il capitolo",
@@ -208,14 +208,16 @@
       "purposePlaceholder": "Perché esiste questo capitolo? Cosa cambia tra la prima scena e l'ultima?",
       "purposeHint": "Lo scopo è la ragione del capitolo nella storia: cosa scopre, decide o perde qualcuno. Se non riesci a scriverlo, forse il capitolo si può unire a un altro.",
       "notesPlaceholder": "Ricerche, dubbi, cose da sistemare.",
-      "scenesEmpty": "Questo capitolo non ha ancora scene: aggiungine una, anche solo con la sinossi.",
+      "scenesEmpty": "Il capitolo è ancora vuoto: «Inizia a scrivere» apre il suo foglio. Se preferisci, dividilo prima in scene, anche solo con la sinossi.",
       "presence": "In questo capitolo",
       "presenceEmpty": "Nessun personaggio né luogo, per ora: citali con {at} nelle scene o aggiungili dai dettagli di una scena.",
       "previous": "Capitolo precedente",
       "next": "Capitolo successivo",
       "menu": "Azioni del capitolo",
       "chapterLabel": "{n}, «{title}»",
-      "inPart": "In {title}"
+      "inPart": "In {title}",
+      "startWriting": "Inizia a scrivere",
+      "continueWriting": "Continua a scrivere"
     },
     "reading": {
       "loading": "Carico il testo",
