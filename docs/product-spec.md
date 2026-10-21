@@ -879,7 +879,7 @@ Title; body (rich text); position; P1 pinned flag.
 Name (required); aliases (list); importance; planning status; one-line description (up to 140 characters); description (rich text, for `secondary` and `minor`, kept for `main`); qualities, flaws, contradictions (three ordered lists of short texts up to 200 characters); playable (game); notes (rich text); position within its importance group; images. P1: born and died, as story dates.
 
 ### 7.6 Profile section
-One per character and section key: mode (`interview` or `free`); answers (question key from appendix A to plain text); free text (rich text). Availability: `main` characters see the nine shared sections, plus `gameplay` and `voice` in game projects; `secondary` and `minor` characters see `voice` in game projects and no section in novels. Content is never deleted when a section becomes unavailable.
+One per character and section key: mode (`interview` or `free`); answers (question key from appendix A to plain text); free text (rich text). Availability: `main` and `secondary` characters see the nine shared sections, plus `gameplay` and `voice` in game projects; `minor` characters see `voice` in game projects and no section in novels. Content is never deleted when a section becomes unavailable.
 
 ### 7.7 Group
 Name; kind; planning status; colour; description, language, traditions, powers (rich text each); images; position. Members are `membership` relationships pointing to the group.

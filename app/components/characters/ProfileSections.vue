@@ -1,17 +1,17 @@
 <script lang="ts">
-import { PROFILE_SECTIONS } from '#shared/content/profile'
+import { PROFILE_SECTIONS, hasFullProfile } from '#shared/content/profile'
 import type { ProfileSectionDef } from '#shared/content/profile'
 import type { CharacterImportance, CharacterProfile, CharacterProfileSection, ProjectKind } from '#shared/types/domain'
 import { countWords, docWordCount, isEmptyDoc } from '#shared/utils/richtext'
 
 /**
- * The profile sections a character sees (spec 7.6): main characters every shared section, plus
- * gameplay and voice in game projects; in games secondary and minor characters keep voice.
+ * The profile sections a character sees (spec 7.6): main and secondary characters every shared
+ * section, plus gameplay and voice in game projects; in games minor characters keep voice.
  * Content of a section that is not shown is never deleted.
  */
 export function profileSectionsFor(kind: ProjectKind, importance: CharacterImportance): readonly ProfileSectionDef[] {
   const sections = PROFILE_SECTIONS.filter(s => (s.media as readonly string[]).includes(kind))
-  if (importance === 'main') return sections
+  if (hasFullProfile(importance)) return sections
   return kind === 'game' ? sections.filter(s => s.key === 'voice') : []
 }
 
@@ -100,7 +100,7 @@ const rows = computed(() => sections.value.map((section) => {
 
 /** "Comincia l'intervista" on an empty profile, then "Continua" towards the first section still empty. */
 const action = computed(() => {
-  if (!guidance.value || props.character.importance !== 'main' || !rows.value.length) return null
+  if (!guidance.value || !hasFullProfile(props.character.importance) || !rows.value.length) return null
   const next = rows.value.find(row => !row.answered)
   if (!next) return null
   const started = rows.value.some(row => row.started)

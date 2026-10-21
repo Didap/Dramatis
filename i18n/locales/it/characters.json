@@ -3,8 +3,8 @@
     "list": {
       "new": "Nuovo personaggio",
       "intro": {
-        "novel": "I principali hanno un profilo a intervista; secondari e comparse una scheda più breve.",
-        "game": "I principali hanno un profilo a intervista, con il ruolo nel gioco e la voce; secondari e comparse una scheda più breve, con la voce.",
+        "novel": "Principali e secondari hanno un profilo a intervista; le comparse una scheda più breve.",
+        "game": "Principali e secondari hanno un profilo a intervista, con il ruolo nel gioco e la voce; le comparse una scheda più breve, con la voce.",
         "hide": "Nascondi"
       },
       "search": "Cerca per nome",
@@ -88,7 +88,7 @@
       "free": "Testo libero, {words}",
       "freeEmpty": "Testo libero, ancora vuoto",
       "answered": "Sezione con risposta",
-      "kept": "Le risposte del profilo sono conservate: tornano se lo rendi di nuovo principale."
+      "kept": "Le risposte del profilo sono conservate: tornano se lo rendi principale o secondario."
     },
     "traits": {
       "title": "Qualità, difetti, contraddizioni",

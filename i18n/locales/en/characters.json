@@ -3,8 +3,8 @@
     "list": {
       "new": "New character",
       "intro": {
-        "novel": "Main characters get an interview profile; secondary and minor characters a shorter sheet.",
-        "game": "Main characters get an interview profile, with their role in the game and their voice; secondary and minor characters a shorter sheet, with the voice.",
+        "novel": "Main and secondary characters get an interview profile; minor characters a shorter sheet.",
+        "game": "Main and secondary characters get an interview profile, with their role in the game and their voice; minor characters a shorter sheet, with the voice.",
         "hide": "Hide"
       },
       "search": "Search by name",
@@ -88,7 +88,7 @@
       "free": "Free text, {words}",
       "freeEmpty": "Free text, still empty",
       "answered": "Section answered",
-      "kept": "The profile answers are kept: they come back if you make this a main character again."
+      "kept": "The profile answers are kept: they come back if you make this a main or secondary character."
     },
     "traits": {
       "title": "Qualities, flaws, contradictions",

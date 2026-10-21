@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { hasFullProfile } from '#shared/content/profile'
 import { isEmptyDoc } from '#shared/utils/richtext'
 import type { Character } from '#shared/types/entities'
 import { hasHiddenProfile, profileSectionsFor } from './ProfileSections.vue'
@@ -6,7 +7,7 @@ import { useCharacterSaves } from './saving'
 
 /**
  * The character sheet (spec 4.4): everything about this person in one place. The profile for main
- * characters, a description for the others (games: also the voice), traits, relationships, groups,
+ * and secondary characters, a description for minor ones (games: also the voice), traits, relationships, groups,
  * the scenes, the events, the lines spoken, images and notes. The page of a character, and whatever
  * else wants to show one whole (a slideover from a mention card).
  */
@@ -18,10 +19,10 @@ const { term } = useTerms()
 const { save } = useCharacterSaves()
 
 const sections = computed(() => profileSectionsFor(store.kind, props.character.importance))
-const isMain = computed(() => props.character.importance === 'main')
-/** Main characters keep a description written before a promotion, above the sections. */
-const showDescription = computed(() => !isMain.value || !isEmptyDoc(props.character.description))
-const keptProfile = computed(() => !isMain.value && hasHiddenProfile(props.character.profile, sections.value))
+const full = computed(() => hasFullProfile(props.character.importance))
+/** Main and secondary characters keep a description written before, above the sections. */
+const showDescription = computed(() => !full.value || !isEmptyDoc(props.character.description))
+const keptProfile = computed(() => !full.value && hasHiddenProfile(props.character.profile, sections.value))
 
 // ---------------------------------------------------------------- images dropped on the gallery (spec 5.2 step 8)
 

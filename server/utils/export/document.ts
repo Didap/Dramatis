@@ -16,7 +16,7 @@ import {
 } from 'docx'
 import type { EntityRef, RichDoc, WorldRefType } from '#shared/types/domain'
 import type { Character, Scene } from '#shared/types/entities'
-import { PROFILE_SECTIONS } from '#shared/content/profile'
+import { PROFILE_SECTIONS, hasFullProfile } from '#shared/content/profile'
 import { CHARACTER_IMPORTANCES } from '#shared/utils/constants'
 import { variableUsage, type FlowCheck, type FlowCheckKind } from '#shared/utils/flow'
 import { isEmptyDoc } from '#shared/utils/richtext'
@@ -254,7 +254,7 @@ export function buildProjectDocument(model: ExportModel): ProjectDocument {
     if (character.aliases.length) field(t('export.doc.aliases'), character.aliases.join(', '))
     if (character.tagline.trim()) blocks.push({ kind: 'text', paragraphs: [character.tagline.trim()], italic: true })
     text(character.description)
-    if (character.importance === 'main') for (const section of sections) profileSection(character, section.key)
+    if (hasFullProfile(character.importance)) for (const section of sections) profileSection(character, section.key)
     else if (model.isGame) profileSection(character, 'voice')
     if (modules.script) {
       const words = spoken.get(character.id)

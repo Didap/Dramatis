@@ -244,3 +244,8 @@ export const PROFILE_SECTIONS = [
 ] as const satisfies readonly ProfileSectionDef[]
 
 export type ProfileSectionKey = (typeof PROFILE_SECTIONS)[number]['key']
+
+/** Main and secondary characters get the whole profile; minor ones a description (VRS-566). */
+export function hasFullProfile(importance: 'main' | 'secondary' | 'minor'): boolean {
+  return importance !== 'minor'
+}
