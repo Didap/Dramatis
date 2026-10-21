@@ -33,10 +33,6 @@
       "clear": "Clear filters",
       "count": "no relationships | {n} relationship | {n} relationships",
       "noMatch": "No relationship matches these filters.",
-      "rowDirected": "{kind}, from {from} to {to}",
-      "rowMutual": "{kind}, between {from} and {to}",
-      "sideWords": "{name} ({words})",
-      "rowMenu": "Actions for the relationship between {from} and {to}",
       "empty": {
         "title": "Relationships say who is tied to whom: a father and a daughter, two rivals, a character and the house they live in.",
         "titleGame": "Relationships say who is tied to whom: a mentor and an apprentice, two rivals, a character and the faction they fight for.",
@@ -205,6 +201,39 @@
       "helpPhone": "Tap anyone, anything or a relationship to see what you can do. To link two of them use “Link to...”.",
       "keyboard": "With the keyboard: Tab moves from one to the next, the arrows follow the relationships, Enter opens the relationship just followed (otherwise the actions), Shift and an arrow move it, Esc closes.",
       "keyboardPhone": "Tab moves from one to the next, the arrows follow the relationships, Enter opens the relationship just followed, otherwise the actions."
+    },
+    "bonds": {
+      "count": "{n} relationship | {n} relationships",
+      "region": "{name}'s relationships",
+      "rowExpand": "{name}, {phrase} ({kind}): intensity and evolution",
+      "rowExpandKind": "{name} ({kind}): intensity and evolution",
+      "pick": "Choose a relationship to see how strong it is and how it changes in the story.",
+      "intensity": "Intensity for {name}",
+      "evolution": "How the bond evolves",
+      "steps": "No changes | One change | {n} changes",
+      "edit": "Edit relationship",
+      "openSheet": "Open the sheet"
+    },
+    "intensity": {
+      "1": "Weak",
+      "2": "Medium",
+      "3": "Strong"
+    },
+    "evolution": {
+      "title": "How the bond evolves",
+      "description": "{a} and {b}, as {a} sees it: where in the story the bond changes and how strong it is from then on.",
+      "start": "At the start",
+      "chapter": "From which {chapter}",
+      "chapterPick": "Choose...",
+      "chapterNone": "No chapter",
+      "intensityAria": "Intensity from then on",
+      "note": "What changes",
+      "notePlaceholder": "e.g. finds out who wrote the letters",
+      "add": "Add a change",
+      "remove": "Remove this change",
+      "empty": "No changes: the bond stays as it is from start to end.",
+      "noChapters": "To say where the bond changes you need at least one {chapter}: add it in {manuscript}.",
+      "done": "Done"
     }
   }
 }

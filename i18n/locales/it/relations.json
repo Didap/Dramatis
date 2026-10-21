@@ -33,10 +33,6 @@
       "clear": "Togli i filtri",
       "count": "nessuna relazione | {n} relazione | {n} relazioni",
       "noMatch": "Nessuna relazione con questi filtri.",
-      "rowDirected": "{kind}, da {from} a {to}",
-      "rowMutual": "{kind}, tra {from} e {to}",
-      "sideWords": "{name} ({words})",
-      "rowMenu": "Azioni della relazione tra {from} e {to}",
       "empty": {
         "title": "Le relazioni dicono chi è legato a chi: un padre e una figlia, due rivali, un personaggio e la casa dove vive.",
         "titleGame": "Le relazioni dicono chi è legato a chi: un mentore e la sua apprendista, due rivali, un personaggio e la fazione per cui combatte.",
@@ -205,6 +201,39 @@
       "helpPhone": "Tocca un elemento o una relazione per vederne le azioni. Per collegare due elementi usa «Collega a...».",
       "keyboard": "Con la tastiera: Tab passa da un elemento all'altro, le frecce seguono le relazioni, Invio apre la relazione appena seguita (altrimenti le azioni dell'elemento), Maiuscolo con una freccia sposta l'elemento, Esc chiude.",
       "keyboardPhone": "Tab passa da un elemento all'altro, le frecce seguono le relazioni, Invio apre la relazione appena seguita, altrimenti le azioni dell'elemento."
+    },
+    "bonds": {
+      "count": "{n} relazione | {n} relazioni",
+      "region": "Le relazioni di {name}",
+      "rowExpand": "{name}, {phrase} ({kind}): intensità ed evoluzione",
+      "rowExpandKind": "{name} ({kind}): intensità ed evoluzione",
+      "pick": "Scegli una relazione per vederne l'intensità e come cambia nella storia.",
+      "intensity": "Intensità per {name}",
+      "evolution": "Evoluzione del legame",
+      "steps": "Nessun cambiamento | Un cambiamento | {n} cambiamenti",
+      "edit": "Modifica relazione",
+      "openSheet": "Apri la scheda"
+    },
+    "intensity": {
+      "1": "Debole",
+      "2": "Media",
+      "3": "Forte"
+    },
+    "evolution": {
+      "title": "Evoluzione del legame",
+      "description": "{a} e {b}, visti da {a}: in che punto della storia cambia il legame e quanto diventa forte da lì in poi.",
+      "start": "All'inizio",
+      "chapter": "Da quale {chapter}",
+      "chapterPick": "Scegli...",
+      "chapterNone": "Senza capitolo",
+      "intensityAria": "Intensità da lì in poi",
+      "note": "Che cosa cambia",
+      "notePlaceholder": "es. scopre chi ha scritto le lettere",
+      "add": "Aggiungi un cambiamento",
+      "remove": "Togli questo cambiamento",
+      "empty": "Nessun cambiamento: il legame resta com'è dall'inizio alla fine.",
+      "noChapters": "Per dire dove cambia il legame serve almeno un {chapter}: aggiungilo in {manuscript}.",
+      "done": "Fatto"
     }
   }
 }

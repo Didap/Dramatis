@@ -151,7 +151,10 @@ export function referencesOf(collection: Collection, data: Record<string, any>):
             data.sourceType && data.sourceId ? { type: data.sourceType, id: data.sourceId } : null,
             data.targetType && data.targetId ? { type: data.targetType, id: data.targetId } : null,
           ].filter((r): r is { type: string, id: string } => !!r),
-        ),
+        ).concat([
+          // A step keeps its trashed chapter (it shows again when the chapter is restored).
+          { collection: 'chapters', ids: ((data.evolution ?? []) as { chapterId: string | null }[]).map(s => s.chapterId), allowTrashed: true },
+        ]),
         media: [],
       }
     case 'events':
@@ -400,6 +403,14 @@ export async function forgetVariable(projectId: string, variableId: string, db: 
     where project_id = ${projectId} and (conditions::text like ${`%${variableId}%`} or effects::text like ${`%${variableId}%`})`)
 }
 
+/** The steps of a relationship's evolution lose a chapter deleted for good, and keep their intensity and note. */
+async function forgetChapters(projectId: string, ids: string[], db: DbOrTx) {
+  for (const id of ids) {
+    await db.execute(sql`update relations set evolution = (select coalesce(jsonb_agg(case when s->>'chapterId' = ${id} then jsonb_set(s, '{chapterId}', 'null'::jsonb) else s end), '[]'::jsonb) from jsonb_array_elements(evolution) s)
+      where project_id = ${projectId} and evolution::text like ${`%${id}%`}`)
+  }
+}
+
 /**
  * Deletes an item for good, with its batch, and removes every reference to it so nothing points to a
  * ghost. Foreign keys already cascade (scenes of a chapter, revisions and links of a scene, entries of a
@@ -413,7 +424,8 @@ export async function purgeItem(projectId: string, collection: Collection, id: s
 
   if (collection === 'parts' && item.deletedAt) {
     // Chapters trashed with the part go with it; the others just leave the part (FK set null).
-    await db.delete(tables.chapters).where(and(eq(tables.chapters.partId, id), eq(tables.chapters.deletedAt, item.deletedAt)))
+    const gone = await db.delete(tables.chapters).where(and(eq(tables.chapters.partId, id), eq(tables.chapters.deletedAt, item.deletedAt))).returning({ id: tables.chapters.id })
+    await forgetChapters(projectId, gone.map(c => c.id), db)
   }
   const ownerType = IMAGE_OWNERS[collection]
   if (ownerType) {
@@ -426,6 +438,7 @@ export async function purgeItem(projectId: string, collection: Collection, id: s
   await db.delete(table).where(and(eq(table.id, id), eq(table.projectId, projectId)))
 
   if (collection === 'variables') await forgetVariable(projectId, id, db)
+  if (collection === 'chapters') await forgetChapters(projectId, [id], db)
   if (collection === 'scenes') {
     await db.execute(sql`update projects set start_scene_id = null where id = ${projectId} and start_scene_id = ${id}::uuid`)
     await db.execute(sql`update strands set quest = jsonb_set(quest, '{objectives}', (select coalesce(jsonb_agg(case when o->>'sceneId' = ${id} then o - 'sceneId' else o end), '[]'::jsonb) from jsonb_array_elements(quest->'objectives') o)) where project_id = ${projectId} and jsonb_typeof(quest->'objectives') = 'array' and quest::text like ${`%${id}%`}`)

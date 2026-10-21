@@ -186,6 +186,14 @@ const nullableTime = time.nullable().optional().catch(null).transform(v => v ?? 
 const str = (max: number) => z.string().catch('').transform(v => v.slice(0, max))
 const int = z.number().int().min(-1_000_000_000).max(1_000_000_000)
 const count = int.min(0).catch(0)
+/** A step of a relationship's evolution; a broken one is dropped by the filter after parsing. */
+const relationStep = z.object({
+  id: z.string().min(1).max(40),
+  side: z.enum(['source', 'target']),
+  chapterId: nullableUuid,
+  intensity: z.union([z.literal(1), z.literal(2), z.literal(3)]).catch(2),
+  note: str(500),
+}).nullable().catch(null)
 const bool = z.boolean().catch(false)
 const json = z.record(z.string(), z.unknown()).catch({})
 const doc = zNullableDoc.optional().catch(null).transform(v => v ?? null)
@@ -263,7 +271,7 @@ const ROW_SCHEMAS = {
     ...stamps,
   }),
   variables: z.object({ id: uuid, name: variableName, type: oneOf(VARIABLE_TYPES, 'boolean'), defaultValue: str(200), description: str(1000), position: count, ...stamps }),
-  relations: z.object({ id: uuid, sourceType: z.enum(WORLD_REF_TYPES), sourceId: uuid, targetType: z.enum(WORLD_REF_TYPES), targetId: uuid, kind: oneOf(RELATION_KINDS, 'other'), label: str(120), reverseLabel: str(120), description: str(2000), directed: bool, intensity: z.number().int().min(1).max(3).catch(2), meta: json, ...stamps }),
+  relations: z.object({ id: uuid, sourceType: z.enum(WORLD_REF_TYPES), sourceId: uuid, targetType: z.enum(WORLD_REF_TYPES), targetId: uuid, kind: oneOf(RELATION_KINDS, 'other'), label: str(120), reverseLabel: str(120), description: str(2000), directed: bool, intensity: z.number().int().min(1).max(3).catch(2), reverseIntensity: z.number().int().min(1).max(3).catch(2), evolution: z.array(relationStep).max(200).catch([]), meta: json, ...stamps }),
   maps: z.object({ id: uuid, name: str(200), nodes: z.record(z.string(), point).catch({}), settings: json, position: count, ...stamps }),
   events: z.object({ id: uuid, title: str(200), description: doc, kind: oneOf(EVENT_KINDS, 'story'), at: storyTime, timeLabel: str(120), durationValue: int.nullable().catch(null), durationUnit: nullableOneOf(DURATION_UNITS), color, refs: z.array(z.object({ type: z.enum(REF_TYPES), id: uuid })).catch([]), position: count, versions, meta: json, ...stamps }),
   notes: z.object({ id: uuid, title: str(300), content: doc, color, pinned: bool, refs: z.array(z.object({ type: z.enum(REF_TYPES), id: uuid })).catch([]), position: count, versions, meta: json, ...stamps }),
@@ -526,6 +534,9 @@ export async function restoreBackup(userId: string, input: unknown, files: Map<s
     l.effects = (l.effects as Row[]).filter(e => isVariable(e.variableId))
   }
   rows.relations = rows.relations.filter(r => owners[r.sourceType]?.(r.sourceId) && owners[r.targetType]?.(r.targetId))
+  for (const r of rows.relations) {
+    r.evolution = (r.evolution as (Row | null)[]).filter((s): s is Row => !!s).map(s => (s.chapterId && !isChapter(s.chapterId) ? { ...s, chapterId: null } : s))
+  }
   for (const m of rows.maps) {
     m.nodes = Object.fromEntries(Object.entries(m.nodes as Row).filter(([key]) => isRefKey(key)))
     const settings = m.settings as Row

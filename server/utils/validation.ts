@@ -255,6 +255,14 @@ export const collectionSchemas = {
     description: zText(2000),
     directed: z.boolean(),
     intensity: z.number().int().min(1).max(3),
+    reverseIntensity: z.number().int().min(1).max(3),
+    evolution: z.array(z.object({
+      id: z.string().min(1).max(40),
+      side: z.enum(['source', 'target']),
+      chapterId: zUuid.nullable(),
+      intensity: z.union([z.literal(1), z.literal(2), z.literal(3)]),
+      note: zText(500),
+    })).max(200),
     meta: zMeta,
   }),
   maps: z.object({

@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import type { RelationKind } from '#shared/types/domain'
-import type { Relation } from '#shared/types/entities'
-import { RELATION_KINDS } from '#shared/utils/constants'
+import type { RelationKind, WorldRefType } from '#shared/types/domain'
+import type { Character, Relation } from '#shared/types/entities'
+import { CHARACTER_IMPORTANCES, RELATION_KINDS, WORLD_REF_TYPES } from '#shared/utils/constants'
 
 /**
- * The Elenco (spec 4.4): every relationship as a row, grouped by kind, filterable by entity and kind.
- * It is the full keyboard and screen-reader alternative to the maps: everything a map edits about
- * relationships can be done here.
+ * The Elenco (spec 4.4, VRS-564): everyone with a relationship, each with their bonds beside their
+ * portrait, filterable by entity and kind. Characters first (main ones first), then groups, places and
+ * objects. A relationship shows with both its sides. It is the full keyboard and screen-reader
+ * alternative to the maps: everything a map edits about relationships can be done here.
  */
 const entity = defineModel<string | null>('entity', { default: null })
 const kinds = defineModel<RelationKind[]>('kinds', { default: () => [] })
@@ -18,8 +19,6 @@ const { label } = useEnums()
 const { number } = useFormat()
 
 const guidance = computed(() => store.project?.settings.guidance !== false)
-const nameOf = (r: Relation, side: 'source' | 'target') =>
-  side === 'source' ? store.refLabel({ type: r.sourceType, id: r.sourceId }) : store.refLabel({ type: r.targetType, id: r.targetId })
 
 /** A relationship whose side went to the trash is hidden until that side comes back (spec 7.0). */
 const all = computed(() => store.rows.relations.filter(r =>
@@ -30,14 +29,27 @@ const filtered = computed(() => all.value.filter((r) => {
   return true
 }))
 
-const groups = computed(() => RELATION_KINDS
-  .map(kind => ({
-    kind,
-    rows: filtered.value
-      .filter(r => r.kind === kind)
-      .sort((a, b) => nameOf(a, 'source').localeCompare(nameOf(b, 'source'), locale.value) || nameOf(a, 'target').localeCompare(nameOf(b, 'target'), locale.value)),
-  }))
-  .filter(g => g.rows.length))
+/** Everyone with a relationship among the filtered ones (only the chosen one, when filtering by entity). */
+const entries = computed(() => {
+  const byKey = new Map<string, { key: string, ref: { type: WorldRefType, id: string }, relations: Relation[] }>()
+  const add = (type: WorldRefType, id: string, r: Relation) => {
+    const key = `${type}:${id}`
+    if (entity.value && key !== entity.value) return
+    const entry = byKey.get(key)
+    if (entry) entry.relations.push(r)
+    else byKey.set(key, { key, ref: { type, id }, relations: [r] })
+  }
+  for (const r of filtered.value) {
+    add(r.sourceType, r.sourceId, r)
+    add(r.targetType, r.targetId, r)
+  }
+  const importance = (e: { ref: { type: WorldRefType, id: string } }) => (e.ref.type === 'character'
+    ? CHARACTER_IMPORTANCES.indexOf((store.get('characters', e.ref.id) as Character | undefined)?.importance ?? 'minor')
+    : 0)
+  return [...byKey.values()].sort((a, b) => WORLD_REF_TYPES.indexOf(a.ref.type) - WORLD_REF_TYPES.indexOf(b.ref.type)
+    || importance(a) - importance(b)
+    || store.refLabel(a.ref).localeCompare(store.refLabel(b.ref), locale.value))
+})
 
 const kindItems = computed(() => RELATION_KINDS
   .filter(kind => all.value.some(r => r.kind === kind))
@@ -53,9 +65,9 @@ function clear() {
 const root = ref<HTMLElement | null>(null)
 
 /** The row's menu closes on a row that is gone: the focus goes to the next row (or the previous one). */
-function onTrashed(id: string) {
+function onTrashed(row: HTMLElement) {
   const rows = [...(root.value?.querySelectorAll<HTMLElement>('[data-row-open]') ?? [])]
-  const index = rows.findIndex(el => el.closest('[data-relation]')?.getAttribute('data-relation') === id)
+  const index = rows.findIndex(el => row.contains(el))
   nextTick(() => {
     const left = root.value?.querySelectorAll<HTMLElement>('[data-row-open]') ?? []
     left[Math.max(0, Math.min(index, left.length - 1))]?.focus()
@@ -64,7 +76,7 @@ function onTrashed(id: string) {
 </script>
 
 <template>
-  <div ref="root" class="relations-list">
+  <div ref="root" class="relations-list @container">
     <template v-if="all.length">
       <div class="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
         <div class="sm:w-64">
@@ -89,27 +101,16 @@ function onTrashed(id: string) {
         <p class="tabular text-sm text-muted sm:ms-auto" aria-live="polite">{{ t('relations.list.count', { n: number(filtered.length) }, filtered.length) }}</p>
       </div>
 
-      <div v-if="groups.length" class="space-y-6">
-        <section v-for="group in groups" :key="group.kind" :aria-labelledby="`relations-kind-${group.kind}`">
-          <h2 :id="`relations-kind-${group.kind}`" class="mb-1 flex items-center gap-2 px-2 text-sm font-medium text-toned">
-            <RelationsKindLine :kind="group.kind" :width="18" />
-            <span class="flex min-w-0 flex-1 items-baseline gap-2">
-              <span>{{ label('relationKind', group.kind) }}</span>
-              <DLeader />
-              <span class="tabular font-normal text-muted">{{ number(group.rows.length) }}</span>
-            </span>
-          </h2>
-          <ul class="-mx-0" role="list">
-            <RelationsListRow
-              v-for="relation in group.rows"
-              :key="relation.id"
-              :data-relation="relation.id"
-              :relation="relation"
-              @open="emit('open', relation.id)"
-              @trashed="onTrashed(relation.id)"
-            />
-          </ul>
-        </section>
+      <div v-if="entries.length">
+        <p v-if="guidance" class="mb-3 text-sm text-muted">{{ t('relations.bonds.pick') }}</p>
+        <RelationsBonds
+          v-for="entry in entries"
+          :key="entry.key"
+          :viewer="entry.ref"
+          :relations="entry.relations"
+          @open="(id: string) => emit('open', id)"
+          @trashed="onTrashed"
+        />
       </div>
       <div v-else class="py-10 text-center">
         <p class="text-sm text-muted">{{ t('relations.list.noMatch') }}</p>

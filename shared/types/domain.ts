@@ -150,6 +150,23 @@ export interface QuestDetails {
   prerequisites?: string
 }
 
+/** How strong a relationship is, as one side feels it: 1 weak, 2 normal, 3 strong. */
+export type RelationIntensity = 1 | 2 | 3
+
+/** Whose point of view: the relationship's source or its target. */
+export type RelationSide = 'source' | 'target'
+
+/** A change in a relationship from one side's point of view: from this chapter on, this intensity. */
+export interface RelationStep {
+  id: string
+  side: RelationSide
+  /** null when the chapter is not chosen (or was deleted for good). */
+  chapterId: string | null
+  intensity: RelationIntensity
+  /** How it changes, in a few words. */
+  note: string
+}
+
 /** Mind map node positions keyed by "<refType>:<uuid>". */
 export type MapNodes = Record<string, { x: number, y: number }>
 

@@ -154,6 +154,19 @@ try {
   const after = await api('GET', `/api/projects/${pid}`)
   step('the rest of the batch came back', after.data?.scenes?.some(s => s.id === scene2.data.id))
 
+  // A relationship's evolution points to the project's own chapters; a chapter deleted for good leaves its steps.
+  const bond = await api('POST', `/api/projects/${pid}/relations`, { sourceType: 'character', sourceId: marco.data.id, targetType: 'location', targetId: place.data.id, kind: 'place' })
+  const later = await api('POST', `/api/projects/${pid}/chapters`, { title: 'Due' })
+  const stepAt = chapterId => [{ id: 'step-1', side: 'target', chapterId, intensity: 3, note: 'cambia' }]
+  expect('reject a foreign chapter in a step', await api('PATCH', `/api/projects/${pid}/relations/${bond.data.id}`, { evolution: stepAt('00000000-0000-4000-8000-000000000000') }), 400)
+  const evolved = await api('PATCH', `/api/projects/${pid}/relations/${bond.data.id}`, { evolution: stepAt(later.data.id), reverseIntensity: 1 })
+  step('evolution and intensity per side saved', evolved.data?.evolution?.[0]?.chapterId === later.data.id && evolved.data?.reverseIntensity === 1)
+  expect('chapter of the step to the trash', await api('DELETE', `/api/projects/${pid}/chapters/${later.data.id}`), 200)
+  expect('purge that chapter', await api('POST', `/api/projects/${pid}/trash/purge`, { collection: 'chapters', id: later.data.id }), 200)
+  const forgot = await api('GET', `/api/projects/${pid}`)
+  const kept = forgot.data?.relations?.find(r => r.id === bond.data.id)?.evolution?.[0]
+  step('the step lost the chapter and kept its intensity', kept?.chapterId === null && kept?.intensity === 3, JSON.stringify(kept))
+
   expect('character to the trash', await api('DELETE', `/api/projects/${pid}/characters/${anna.data.id}`), 200)
   const hidden = await api('GET', `/api/projects/${pid}`)
   step('its relationships are hidden', !hidden.data?.relations?.some(r => r.sourceId === anna.data.id || r.targetId === anna.data.id))
