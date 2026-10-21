@@ -219,9 +219,8 @@
       "openSheet": "Open the sheet"
     },
     "intensity": {
-      "1": "Weak",
-      "2": "Medium",
-      "3": "Strong"
+      "value": "{n}/10",
+      "valueText": "{n} out of 10"
     },
     "evolution": {
       "title": "How the bond evolves",

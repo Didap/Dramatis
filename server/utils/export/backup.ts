@@ -40,7 +40,8 @@ import { exportUnzip } from './limits'
  */
 
 export const BACKUP_FORMAT = 'dramatis-backup'
-export const BACKUP_VERSION = 1
+/** 2: a relationship's intensity goes from 1 to 10 (1 to 3 in version 1, which is still read). */
+export const BACKUP_VERSION = 2
 const JSON_NAME = 'dramatis.json'
 
 /** The project's tables in the order they are restored (every reference points backwards). */
@@ -192,7 +193,7 @@ const relationStep = z.object({
   id: z.string().min(1).max(40),
   side: z.enum(['source', 'target']),
   chapterId: nullableUuid,
-  intensity: z.union([z.literal(1), z.literal(2), z.literal(3)]).catch(2),
+  intensity: z.number().int().min(1).max(10).catch(5),
   note: str(500),
 }).nullable().catch(null)
 const bool = z.boolean().catch(false)
@@ -272,7 +273,7 @@ const ROW_SCHEMAS = {
     ...stamps,
   }),
   variables: z.object({ id: uuid, name: variableName, type: oneOf(VARIABLE_TYPES, 'boolean'), defaultValue: str(200), description: str(1000), position: count, ...stamps }),
-  relations: z.object({ id: uuid, sourceType: z.enum(WORLD_REF_TYPES), sourceId: uuid, targetType: z.enum(WORLD_REF_TYPES), targetId: uuid, kind: oneOf(RELATION_KINDS, 'other'), label: str(120), reverseLabel: str(120), description: str(2000), directed: bool, intensity: z.number().int().min(1).max(3).catch(2), reverseIntensity: z.number().int().min(1).max(3).catch(2), evolution: z.array(relationStep).max(200).catch([]), meta: json, ...stamps }),
+  relations: z.object({ id: uuid, sourceType: z.enum(WORLD_REF_TYPES), sourceId: uuid, targetType: z.enum(WORLD_REF_TYPES), targetId: uuid, kind: oneOf(RELATION_KINDS, 'other'), label: str(120), reverseLabel: str(120), description: str(2000), directed: bool, intensity: z.number().int().min(1).max(10).catch(5), reverseIntensity: z.number().int().min(1).max(10).catch(5), evolution: z.array(relationStep).max(200).catch([]), meta: json, ...stamps }),
   maps: z.object({ id: uuid, name: str(200), nodes: z.record(z.string(), point).catch({}), settings: json, position: count, ...stamps }),
   events: z.object({ id: uuid, title: str(200), description: doc, kind: oneOf(EVENT_KINDS, 'story'), at: storyTime, timeLabel: str(120), durationValue: int.nullable().catch(null), durationUnit: nullableOneOf(DURATION_UNITS), color, refs: z.array(z.object({ type: z.enum(REF_TYPES), id: uuid })).catch([]), position: count, versions, meta: json, ...stamps }),
   notes: z.object({ id: uuid, title: str(300), content: doc, color, pinned: bool, refs: z.array(z.object({ type: z.enum(REF_TYPES), id: uuid })).catch([]), position: count, versions, meta: json, ...stamps }),
@@ -428,6 +429,17 @@ function assertUnique(table: string, field: string, values: string[]) {
   }
 }
 
+/** Version 1 measured intensity 1 weak, 2 normal, 3 strong: on today's scale 3, 5 and 8. */
+const FROM_VERSION_1: Record<number, number> = { 1: 3, 2: 5, 3: 8 }
+
+function intensityFromVersion1(relation: Row) {
+  const convert = (n: unknown) => FROM_VERSION_1[n as number] ?? 5
+  relation.intensity = convert(relation.intensity)
+  relation.reverseIntensity = convert(relation.reverseIntensity)
+  // A broken step is null here, and the filter after parsing drops it.
+  relation.evolution = (relation.evolution as (Row | null)[]).map(step => (step ? { ...step, intensity: convert(step.intensity) } : step))
+}
+
 /**
  * Creates a new project of the user from a backup. Everything is validated, every id is new, and a
  * reference to anything outside the backup is dropped, so a crafted file cannot point into another project.
@@ -436,7 +448,7 @@ function assertUnique(table: string, field: string, values: string[]) {
 export async function restoreBackup(userId: string, input: unknown, files: Map<string, Uint8Array>, options: { untitled?: string } = {}) {
   const raw = input as Record<string, unknown> | null
   if (!raw || typeof raw !== 'object' || raw.format !== BACKUP_FORMAT) refuse('notBackup', 'The file is not a Dramatis backup')
-  if (raw.version !== BACKUP_VERSION) refuse('version', `Backup version ${String(raw.version)} is not supported`)
+  if (raw.version !== BACKUP_VERSION && raw.version !== 1) refuse('version', `Backup version ${String(raw.version)} is not supported`)
 
   const parsedProject = projectSchema.safeParse(raw.project)
   if (!parsedProject.success) refuse('invalid', 'The project in the backup is not valid', parsedProject.error.issues.slice(0, 5))
@@ -452,6 +464,7 @@ export async function restoreBackup(userId: string, input: unknown, files: Map<s
     }
     if (key !== 'writingLog') assertUnique(key, 'id', rows[key].map(r => r.id as string))
   }
+  if (raw.version === 1) for (const relation of rows.relations) intensityFromVersion1(relation)
   const mediaRows = (Array.isArray(raw.media) ? raw.media : []).flatMap((item) => {
     const parsed = mediaSchema.safeParse(item)
     return parsed.success ? [parsed.data] : []

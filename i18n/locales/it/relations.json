@@ -219,9 +219,8 @@
       "openSheet": "Apri la scheda"
     },
     "intensity": {
-      "1": "Debole",
-      "2": "Media",
-      "3": "Forte"
+      "value": "{n}/10",
+      "valueText": "{n} su 10"
     },
     "evolution": {
       "title": "Evoluzione del legame",

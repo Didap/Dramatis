@@ -159,8 +159,8 @@ export interface QuestDetails {
   prerequisites?: string
 }
 
-/** How strong a relationship is, as one side feels it: 1 weak, 2 normal, 3 strong. */
-export type RelationIntensity = 1 | 2 | 3
+/** How strong a relationship is, as one side feels it: from 1, barely there, to 10 (5 when nobody said). */
+export type RelationIntensity = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
 
 /** Whose point of view: the relationship's source or its target. */
 export type RelationSide = 'source' | 'target'

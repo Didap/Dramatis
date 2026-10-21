@@ -197,7 +197,7 @@ const menu = (bond: Bond) => [
             <li v-for="step in steps" :key="step.id" class="flex items-baseline gap-2">
               <span class="min-w-0 truncate text-default">{{ chapterLabel(step.chapterId) }}</span>
               <DLeader />
-              <span class="shrink-0 text-muted">{{ t(`relations.intensity.${step.intensity}`) }}</span>
+              <span class="tabular shrink-0 text-muted">{{ t('relations.intensity.value', { n: step.intensity }) }}</span>
             </li>
           </ul>
           <p v-else class="mt-1.5 text-xs text-muted">{{ t('relations.bonds.steps', 0) }}</p>

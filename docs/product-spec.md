@@ -514,7 +514,7 @@ Each screen: the primary task, key content, key actions, the empty state (what i
 
 **Relations** (`/p/[id]/relations`)
 - Task: see and edit who is tied to whom.
-- Content: two tabs. Mappe: the maps with name and number of nodes. Elenco: everyone with a relationship (characters first, main ones first, then groups, places, objects), each with the portrait on the left and a row per relationship on the right (the other, what the other is to them, the kind); a row opens the bond under the portrait: its name, its intensity as this side feels it (Debole, Media, Forte) and "Evoluzione del legame", the chapters where the bond changes for this side with the intensity from there on and a note. Filterable by kind and entity; this list is the full keyboard and screen-reader alternative to the maps.
+- Content: two tabs. Mappe: the maps with name and number of nodes. Elenco: everyone with a relationship (characters first, main ones first, then groups, places, objects), each with the portrait on the left and a row per relationship on the right (the other, what the other is to them, the kind); a row opens the bond under the portrait: its name, its intensity as this side feels it (a strip from 1 to 10) and "Evoluzione del legame", the chapters where the bond changes for this side with the intensity from there on (the same strip) and a note. Filterable by kind and entity; this list is the full keyboard and screen-reader alternative to the maps.
 - Actions: new map, new relationship (form: from, kind filtered to valid pairs, label, reverse label, mutual or directed, description), edit, trash.
 - Empty: "Una mappa mostra chi è legato a chi: crea una mappa, aggiungi due personaggi e collegali."
 - Phone: tabs as a segmented control; the list is the default tab.

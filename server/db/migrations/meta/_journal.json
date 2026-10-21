@@ -22,6 +22,13 @@
       "when": 1792565967160,
       "tag": "0002_fixed_malice",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1792593051768,
+      "tag": "0003_large_expediter",
+      "breakpoints": true
     }
   ]
 }

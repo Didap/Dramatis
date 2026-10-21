@@ -510,10 +510,10 @@ export const relations = pgTable(
     description: text('description').notNull().default(''),
     /** true when the relationship reads one way (source towards target). */
     directed: boolean('directed').notNull().default(false),
-    /** 1 weak, 2 normal, 3 strong: as the source feels it. */
-    intensity: smallint('intensity').notNull().default(2),
+    /** From 1 to 10: how strong it is, as the source feels it. */
+    intensity: smallint('intensity').notNull().default(5),
     /** The same, as the target feels it. */
-    reverseIntensity: smallint('reverse_intensity').notNull().default(2),
+    reverseIntensity: smallint('reverse_intensity').notNull().default(5),
     /** How the relationship changes along the story, chapter by chapter, from each side's point of view. */
     evolution: jsonb('evolution').$type<RelationStep[]>().notNull().default([]),
     meta: meta(),
