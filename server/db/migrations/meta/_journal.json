@@ -15,6 +15,13 @@
       "when": 1792565205035,
       "tag": "0001_next_prism",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792565967160,
+      "tag": "0002_fixed_malice",
+      "breakpoints": true
     }
   ]
 }

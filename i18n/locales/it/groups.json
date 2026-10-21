@@ -46,9 +46,24 @@
       "noMembers": "Nessuno, per ora: aggiungi i personaggi di questa razza, o sceglila dalla scheda di un personaggio.",
       "role": "note sul personaggio",
       "removeMember": "Togli {name} da questa razza",
-      "descriptionPlaceholder": "Com'è fatta: aspetto, quanto vive, dove abita, come la vedono gli altri.",
       "powersPlaceholder": "Che cosa sa fare che gli altri non sanno: doni, sensi, magie. E le sue debolezze.",
-      "members": "Chi ne fa parte"
+      "members": "Chi ne fa parte",
+      "describe": "Come la descrivi",
+      "describeFree": "Libera",
+      "describeGuided": "Guidata",
+      "describeFreeHelp": "Una descrizione sola, scritta come vuoi, e le sottorazze.",
+      "describeGuidedHelp": "Sezione per sezione: lingua, tradizioni, poteri, relazioni, immagini, scene dei membri, eventi.",
+      "freePlaceholder": "Scrivi liberamente della razza: com'è fatta, da dove viene, come vive, come la vedono gli altri.",
+      "subraces": "Sottorazze",
+      "subraceAdd": "Aggiungi sottorazza",
+      "subraceName": "Nome della sottorazza",
+      "subraceNamePlaceholder": "Nome della sottorazza (elfi dei boschi...)",
+      "subraceUntitled": "Sottorazza senza nome",
+      "subraceDescription": "Descrizione di {name}",
+      "subraceDescriptionPlaceholder": "In che cosa si distingue dal resto della razza.",
+      "subraceRemove": "Togli la sottorazza {name}",
+      "subraceRemoved": "{name} tolta dalle sottorazze",
+      "subracesEmpty": "Nessuna sottorazza: aggiungine una se la razza ha rami diversi, come gli elfi dei boschi e quelli del mare."
     }
   }
 }

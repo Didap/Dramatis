@@ -37,6 +37,8 @@ import type {
   QuestDetails,
   RelationKind,
   RelationStep,
+  RaceDescription,
+  Subrace,
   RichDoc,
   SceneKind,
   SceneStatus,
@@ -189,6 +191,10 @@ export const groups = pgTable(
     traditions: jsonb('traditions').$type<RichDoc | null>(),
     powers: jsonb('powers').$type<RichDoc | null>(),
     notes: jsonb('notes').$type<RichDoc | null>(),
+    /** Races: described freely (description and subraces) or guided (language, traditions, powers...). */
+    describe: text('describe').$type<RaceDescription>().notNull().default('free'),
+    /** Races: their branches, each with a name and a description. */
+    subraces: jsonb('subraces').$type<Subrace[]>().notNull().default([]),
     status: planning(),
     position: position(),
     versions: versions(),

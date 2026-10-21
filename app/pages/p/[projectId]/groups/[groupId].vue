@@ -6,7 +6,10 @@ import { useJustCreated } from '~/components/world/SheetHeader.vue'
  * Group sheet (a faction, in games; spec 4.4): name, kind, status, colour; description, members,
  * language, traditions, powers; relationships, images, the scenes of the members, events, notes.
  * From xl the list of groups stays on the left. A race (module races) is a group of kind race: the same
- * sheet, also at /races/:groupId, with the races list beside it and its own words.
+ * sheet, also at /races/:groupId, with the races list beside it and its own words. A race shows only
+ * its colour, then who belongs to it, then is described freely (a description and its subraces) or
+ * guided (language, traditions, powers, relationships, images, scenes, events), as its author chooses
+ * (VRS-565); the notes close both.
  */
 const route = useRoute()
 const store = useProjectStore()
@@ -22,6 +25,12 @@ const listPath = computed(() => `/p/${store.projectId}/${race.value ? 'races' : 
 const header = ref<{ focusName: () => void } | null>(null)
 const leaving = ref(false)
 const justCreated = useJustCreated()
+const guided = computed(() => !race.value || group.value?.describe === 'guided')
+
+const DESCRIBE = [
+  { value: 'free', icon: 'i-lucide-pen-line' },
+  { value: 'guided', icon: 'i-lucide-list-tree' },
+] as const
 
 /** Typing (name, long texts): sent after a pause. */
 function patch(values: Partial<Group>) {
@@ -61,7 +70,7 @@ onMounted(() => {
           @update:name="(name: string) => patch({ name })"
         >
           <div class="grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3">
-            <WorldField :label="t('common.fields.kind')">
+            <WorldField v-if="!race" :label="t('common.fields.kind')">
               <USelect
                 :model-value="group.kind"
                 :items="options('groupKind')"
@@ -73,7 +82,7 @@ onMounted(() => {
                 @update:model-value="(kind: string) => set({ kind: kind as Group['kind'] })"
               />
             </WorldField>
-            <WorldField :label="t('common.fields.status')">
+            <WorldField v-if="!race" :label="t('common.fields.status')">
               <DStatusSelect
                 :model-value="group.status"
                 kind="planning"
@@ -94,48 +103,73 @@ onMounted(() => {
         </WorldSheetHeader>
 
         <WorldLongText
+          v-if="!race"
           :title="t('groups.description')"
           :model-value="group.description"
-          :placeholder="race ? mt('descriptionPlaceholder') : t('groups.descriptionPlaceholder')"
+          :placeholder="t('groups.descriptionPlaceholder')"
           @update:model-value="description => patch({ description })"
         />
 
         <GroupsMembers :group-id="group.id" :race="race" />
 
-        <WorldLongText
-          :title="t('groups.language')"
-          :model-value="group.language"
-          :placeholder="t('groups.languagePlaceholder')"
-          @update:model-value="language => patch({ language })"
-        />
-        <WorldLongText
-          :title="t('groups.traditions')"
-          :model-value="group.traditions"
-          :placeholder="t('groups.traditionsPlaceholder')"
-          @update:model-value="traditions => patch({ traditions })"
-        />
-        <WorldLongText
-          :title="t('groups.powers')"
-          :model-value="group.powers"
-          :placeholder="mt('powersPlaceholder')"
-          @update:model-value="powers => patch({ powers })"
-        />
+        <fieldset v-if="race" class="min-w-0">
+          <legend class="text-lg font-semibold text-highlighted">{{ t('groups.race.describe') }}</legend>
+          <div class="mt-3 flex flex-wrap gap-1.5">
+            <label v-for="mode in DESCRIBE" :key="mode.value" class="choice-chip" :class="{ 'is-checked': group.describe === mode.value }">
+              <input type="radio" class="sr-only" name="race-describe" :value="mode.value" :checked="group.describe === mode.value" @change="set({ describe: mode.value })">
+              <UIcon :name="mode.icon" class="size-4 shrink-0" aria-hidden="true" />
+              <span>{{ t(mode.value === 'free' ? 'groups.race.describeFree' : 'groups.race.describeGuided') }}</span>
+            </label>
+          </div>
+          <p class="mt-2 text-sm text-muted">{{ t(guided ? 'groups.race.describeGuidedHelp' : 'groups.race.describeFreeHelp') }}</p>
+        </fieldset>
 
-        <WorldSection :title="t('groups.relations')">
-          <RelationsPanel entity-type="group" :entity-id="group.id" />
-        </WorldSection>
+        <template v-if="!guided">
+          <WorldLongText
+            :title="t('groups.description')"
+            :model-value="group.description"
+            :placeholder="t('groups.race.freePlaceholder')"
+            @update:model-value="description => patch({ description })"
+          />
+          <GroupsSubraces :group-id="group.id" />
+        </template>
 
-        <WorldSection :title="t('groups.images')">
-          <DImageGallery owner-type="group" :owner-id="group.id" :name="group.name" />
-        </WorldSection>
+        <template v-if="guided">
+          <WorldLongText
+            :title="t('groups.language')"
+            :model-value="group.language"
+            :placeholder="t('groups.languagePlaceholder')"
+            @update:model-value="language => patch({ language })"
+          />
+          <WorldLongText
+            :title="t('groups.traditions')"
+            :model-value="group.traditions"
+            :placeholder="t('groups.traditionsPlaceholder')"
+            @update:model-value="traditions => patch({ traditions })"
+          />
+          <WorldLongText
+            :title="t('groups.powers')"
+            :model-value="group.powers"
+            :placeholder="mt('powersPlaceholder')"
+            @update:model-value="powers => patch({ powers })"
+          />
 
-        <WorldSection :title="t('groups.scenes')">
-          <ManuscriptAppearances entity-type="group" :entity-id="group.id" />
-        </WorldSection>
+          <WorldSection :title="t('groups.relations')">
+            <RelationsPanel entity-type="group" :entity-id="group.id" />
+          </WorldSection>
 
-        <WorldSection :title="t('groups.events')">
-          <TimelineEntityEvents entity-type="group" :entity-id="group.id" />
-        </WorldSection>
+          <WorldSection :title="t('groups.images')">
+            <DImageGallery owner-type="group" :owner-id="group.id" :name="group.name" />
+          </WorldSection>
+
+          <WorldSection :title="t('groups.scenes')">
+            <ManuscriptAppearances entity-type="group" :entity-id="group.id" />
+          </WorldSection>
+
+          <WorldSection :title="t('groups.events')">
+            <TimelineEntityEvents entity-type="group" :entity-id="group.id" />
+          </WorldSection>
+        </template>
 
         <WorldLongText
           :title="t('groups.notes')"

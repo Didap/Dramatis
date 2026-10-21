@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { RichDoc } from '#shared/types/domain'
+import WorldSection from './Section.vue'
 
 /**
  * A long text of a world sheet (description, traditions, notes...) under its heading. It looks like
@@ -10,13 +11,15 @@ defineProps<{
   title: string
   modelValue: RichDoc | null | undefined
   placeholder?: string
+  /** Only the field, under a heading of the caller's (the title still names it for a screen reader). */
+  bare?: boolean
 }>()
 
 const emit = defineEmits<{ 'update:modelValue': [value: RichDoc] }>()
 </script>
 
 <template>
-  <WorldSection :title="title">
+  <component :is="bare ? 'div' : WorldSection" v-bind="bare ? {} : { title }">
     <div class="d-long-text -mx-3 px-3 py-2">
       <DRichText
         :model-value="modelValue"
@@ -26,7 +29,7 @@ const emit = defineEmits<{ 'update:modelValue': [value: RichDoc] }>()
         @update:model-value="(value: RichDoc) => emit('update:modelValue', value)"
       />
     </div>
-  </WorldSection>
+  </component>
 </template>
 
 <style scoped>

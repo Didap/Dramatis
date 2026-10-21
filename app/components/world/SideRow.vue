@@ -7,10 +7,11 @@
 const props = withDefaults(defineProps<{
   to: string
   name: string
-  status: string
+  /** None for an item without one (a race). */
+  status?: string
   detail?: string
   active?: boolean
-}>(), { detail: '', active: false })
+}>(), { status: undefined, detail: '', active: false })
 
 const { label } = useEnums()
 </script>
@@ -28,9 +29,9 @@ const { label } = useEnums()
       <span class="flex min-w-0 items-center gap-1.5 text-xs text-muted">
         <template v-if="props.detail">
           <span class="min-w-0 truncate">{{ props.detail }}</span>
-          <span aria-hidden="true">·</span>
+          <span v-if="props.status" aria-hidden="true">·</span>
         </template>
-        <span class="inline-flex shrink-0 items-center gap-1">
+        <span v-if="props.status" class="inline-flex shrink-0 items-center gap-1">
           <UIcon :name="statusIcon('planning', props.status)" class="size-3.5 shrink-0" :style="{ color: `var(--status-${props.status})` }" />
           {{ label('planningStatus', props.status) }}
         </span>

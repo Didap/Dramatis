@@ -61,6 +61,8 @@ export const RELATION_KINDS = [
 
 /** `race`: a race or species of the world, listed on its own page when the module races is on. */
 export const GROUP_KINDS = ['family', 'faction', 'organization', 'culture', 'race', 'other'] as const
+/** How a race is described: freely (a text and its subraces) or guided (section by section). */
+export const RACE_DESCRIPTIONS = ['free', 'guided'] as const
 
 export const SCENE_KINDS = ['scene', 'cutscene', 'dialogue', 'gameplay', 'exploration', 'combat', 'puzzle'] as const
 

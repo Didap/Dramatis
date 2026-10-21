@@ -10,6 +10,7 @@ import type {
   EVENT_KINDS,
   FLOW_ROLES,
   GROUP_KINDS,
+  RACE_DESCRIPTIONS,
   PLANNING_STATUSES,
   POINTS_OF_VIEW,
   PROJECT_KINDS,
@@ -32,6 +33,14 @@ export type PointOfView = (typeof POINTS_OF_VIEW)[number]
 export type StrandKind = (typeof STRAND_KINDS)[number]
 export type RelationKind = (typeof RELATION_KINDS)[number]
 export type GroupKind = (typeof GROUP_KINDS)[number]
+export type RaceDescription = (typeof RACE_DESCRIPTIONS)[number]
+
+/** A branch of a race (elfi dei boschi, elfi del mare): a name and a description. */
+export interface Subrace {
+  id: string
+  name: string
+  description: RichDoc | null
+}
 export type SceneKind = (typeof SCENE_KINDS)[number]
 export type FlowRole = (typeof FLOW_ROLES)[number]
 export type VariableType = (typeof VARIABLE_TYPES)[number]

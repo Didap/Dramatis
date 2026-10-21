@@ -13,6 +13,7 @@ import {
   EVENT_KINDS,
   EXPORT_WHATS,
   GROUP_KINDS,
+  RACE_DESCRIPTIONS,
   IMAGE_OWNER_TYPES,
   MAX_UPLOAD_BYTES,
   PLANNING_STATUSES,
@@ -216,7 +217,7 @@ const effect = z.object({ variableId: uuid, op: z.enum(EFFECT_OPS), value: z.str
 
 const ROW_SCHEMAS = {
   characters: z.object({ id: uuid, name: str(200), aliases: strings(100, 20), importance: oneOf(CHARACTER_IMPORTANCES, 'secondary'), role: z.union([z.enum(CHARACTER_ROLES), z.literal('')]).catch(''), tagline: str(140), color, description: doc, profile: json, traits: json, playable: bool, notes: doc, tags: strings(60, 40), status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
-  groups: z.object({ id: uuid, name: str(200), kind: oneOf(GROUP_KINDS, 'other'), color, description: doc, language: doc, traditions: doc, powers: doc, notes: doc, status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
+  groups: z.object({ id: uuid, name: str(200), kind: oneOf(GROUP_KINDS, 'other'), color, description: doc, language: doc, traditions: doc, powers: doc, notes: doc, describe: oneOf(RACE_DESCRIPTIONS, 'free'), subraces: z.array(z.object({ id: z.string().min(1).max(40), name: str(120), description: doc }).nullable().catch(null)).max(100).catch([]).transform(list => list.filter(s => !!s)), status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
   locations: z.object({ id: uuid, parentId: nullableUuid, name: str(200), kind: str(60), nation: str(120), region: str(120), city: str(120), color, description: doc, notes: doc, status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
   objects: z.object({ id: uuid, name: str(200), kind: str(60), color, description: doc, notes: doc, status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
   images: z.object({ id: uuid, ownerType: z.enum(IMAGE_OWNER_TYPES), ownerId: uuid, mediaId: uuid, caption: str(300), alt: str(300), position: count, ...stamps }),

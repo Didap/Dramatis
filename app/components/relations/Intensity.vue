@@ -26,7 +26,7 @@ const LEVELS = [
   <fieldset class="min-w-0">
     <legend :class="hideLabel ? 'sr-only' : 'mb-1.5 text-sm font-medium text-default'">{{ label }}</legend>
     <div class="flex flex-wrap gap-1.5">
-      <label v-for="level in LEVELS" :key="level.value" class="relations-chip" :class="{ 'is-checked': model === level.value }">
+      <label v-for="level in LEVELS" :key="level.value" class="choice-chip" :class="{ 'is-checked': model === level.value }">
         <input type="radio" class="sr-only" :name="uid" :value="level.value" :checked="model === level.value" @change="model = level.value">
         <UIcon :name="level.icon" class="size-4 shrink-0" aria-hidden="true" />
         <span>{{ t(`relations.intensity.${level.value}`) }}</span>

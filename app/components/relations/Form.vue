@@ -399,7 +399,7 @@ defineExpose({ focusFirst })
           <label
             v-for="option in offered"
             :key="option.kind"
-            class="relations-chip"
+            class="choice-chip"
             :class="{ 'is-checked': kind === option.kind }"
           >
             <input
@@ -421,12 +421,12 @@ defineExpose({ focusFirst })
       <fieldset v-if="kind">
         <legend class="mb-2 text-sm font-medium text-default">{{ t('relations.form.direction') }}</legend>
         <div class="flex flex-wrap items-center gap-1.5">
-          <label class="relations-chip" :class="{ 'is-checked': !directed }">
+          <label class="choice-chip" :class="{ 'is-checked': !directed }">
             <input type="radio" class="sr-only" :name="`${uid}-dir`" :checked="!directed" @change="chooseDirection(false)">
             <UIcon name="i-lucide-arrow-left-right" class="size-4 shrink-0" aria-hidden="true" />
             <span>{{ t('relations.form.mutual') }}</span>
           </label>
-          <label class="relations-chip" :class="{ 'is-checked': directed }">
+          <label class="choice-chip" :class="{ 'is-checked': directed }">
             <input type="radio" class="sr-only" :name="`${uid}-dir`" :checked="directed" @change="chooseDirection(true)">
             <UIcon name="i-lucide-move-right" class="size-4 shrink-0" aria-hidden="true" />
             <i18n-t scope="global" keypath="relations.form.directed" tag="span">
