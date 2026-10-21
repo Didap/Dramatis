@@ -201,6 +201,7 @@
       "both": "{label}, for both",
       "another": "Add another relationship between them",
       "help": "Select anyone or anything on the map to link it, open its sheet or take it off the map. To create a relationship, drag from its dot onto another.",
+      "arrows": "Each arrow points at the one its word describes: “daughter” points at the daughter. When the word is the same for both, the arrow has two heads.",
       "helpPhone": "Tap anyone, anything or a relationship to see what you can do. To link two of them use “Link to...”.",
       "keyboard": "With the keyboard: Tab moves from one to the next, the arrows follow the relationships, Enter opens the relationship just followed (otherwise the actions), Shift and an arrow move it, Esc closes.",
       "keyboardPhone": "Tab moves from one to the next, the arrows follow the relationships, Enter opens the relationship just followed, otherwise the actions."

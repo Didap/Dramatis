@@ -204,6 +204,7 @@ async function trash(id: string) {
       </p>
       <template v-if="guidance">
         <p class="mt-2 text-sm text-muted">{{ editable ? t('relations.selection.help') : t('relations.selection.helpPhone') }}</p>
+        <p class="mt-2 text-sm text-muted">{{ t('relations.selection.arrows') }}</p>
         <p v-if="editable" class="mt-2 text-sm text-muted">{{ t('relations.selection.keyboard') }}</p>
       </template>
       <div v-if="outside.length" class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1">

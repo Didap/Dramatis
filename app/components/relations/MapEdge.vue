@@ -1,19 +1,28 @@
 <script lang="ts">
-import type { RelationKind } from '#shared/types/domain'
+import type { RelationKind, WorldRefType } from '#shared/types/domain'
+import { NODE_SHAPES } from './MapNode.vue'
 
-/** One relationship drawn on an edge of the map. */
+/** Where a line's arrowheads go: at the edge's source end, its target end, both or neither. */
+export type EdgeArrows = 'source' | 'target' | 'both' | 'none'
+
+/**
+ * One line drawn on an edge of the map. A relationship with a different word for each side draws
+ * two lines, one per word, each pointing at the one its word describes.
+ */
 export interface EdgeRelation {
+  /** Unique on the edge (a relationship can draw two lines). */
+  key: string
+  /** The relationship's id. */
   id: string
   kind: RelationKind
-  /** The relationship's label, or the kind's name when the label is empty. */
+  /** The words of one side, or the kind's name when there are none. */
   text: string
   /** true when `text` is the author's label (manuscript face), false for the kind's name. */
   authored: boolean
   /** The kind's name: on the pill of an authored label it shows in the light and in the tooltip. */
   kindLabel: string
-  directed: boolean
-  /** The relationship reads from the edge's source to its target (where the arrow points). */
-  forward: boolean
+  /** The arrowheads point at the one the words describe ("figlia" points at the daughter). */
+  arrows: EdgeArrows
 }
 
 /** Every relationship between the same two nodes: one edge, parallel lines, stacked labels (spec 4.4). */
@@ -29,19 +38,61 @@ export interface MapEdgeData {
   /** Opens one relationship (a click on its label). */
   pick?: (relationId: string) => void
 }
+
+/** Estimated pill size (the map is not measured): height with its gap, width from the text. */
+export const PILL_H = 22
+export const pillWidth = (text: string) => Math.min(164, text.length * 6.6 + 16)
+
+/** Distance from a node's centre to its outline, along a unit direction. */
+export function outlineReach(type: WorldRefType, width: number, height: number, ux: number, uy: number): number {
+  const hw = width / 2
+  const hh = height / 2
+  if (NODE_SHAPES[type].outline === 'diamond') return 1 / (Math.abs(ux) / hw + Math.abs(uy) / hh || 1)
+  return Math.min(Math.abs(ux) > 1e-6 ? hw / Math.abs(ux) : Infinity, Math.abs(uy) > 1e-6 ? hh / Math.abs(uy) : Infinity)
+}
+
+export interface PillGroup<T extends { arrows: EdgeArrows, text: string }> { key: 'source' | 'mid' | 'target', d: number, lines: T[] }
+
+/**
+ * Where the pills of an edge sit, as distances from the source centre along the line (`at` is the
+ * edge's label spot, kept on the visible part between `startAt` and `endAt`). A word that points one
+ * way moves halfway towards the end it points at, when every group then fits without touching its
+ * neighbours; otherwise every pill stacks at the spot.
+ */
+export function placeLabels<T extends { arrows: EdgeArrows, text: string }>(lines: T[], ux: number, uy: number, at: number, startAt: number, endAt: number): PillGroup<T>[] {
+  const toSource = lines.filter(l => l.arrows === 'source')
+  const toTarget = lines.filter(l => l.arrows === 'target')
+  const together: PillGroup<T>[] = [{ key: 'mid', d: at, lines }]
+  if (!toSource.length && !toTarget.length) return together
+  const middle = lines.filter(l => l.arrows !== 'source' && l.arrows !== 'target')
+  // Half of a group's extent along the line.
+  const extent = (group: T[]) => (Math.max(...group.map(l => pillWidth(l.text))) / 2) * Math.abs(ux) + (group.length * PILL_H / 2) * Math.abs(uy)
+  const groups = ([
+    { key: 'source', d: (startAt + at) / 2, lines: toSource },
+    { key: 'mid', d: at, lines: middle },
+    { key: 'target', d: (at + endAt) / 2, lines: toTarget },
+  ] as PillGroup<T>[]).filter(g => g.lines.length)
+  const fits = groups.every((g, i) => {
+    const e = extent(g.lines)
+    const next = groups[i + 1]
+    return g.d - e >= startAt - 2 && g.d + e <= endAt + 2 && (!next || next.d - extent(next.lines) - (g.d + e) >= 6)
+  })
+  return fits ? groups : together
+}
 </script>
 
 <script setup lang="ts">
 import { EdgeLabelRenderer } from '@vue-flow/core'
 import type { GraphNode } from '@vue-flow/core'
 import { kindColor, kindStroke } from './KindLine.vue'
-import { NODE_SHAPES } from './MapNode.vue'
 import type { MapNodeData } from './MapNode.vue'
 
 /**
  * An edge of the relationship map (DESIGN.md): straight, from shape to shape; 1px (2px hovered or
- * selected) in the kind's colour with its dash family; a 6px arrow on directed kinds; the label on a
- * pill at the midpoint. Parallel relationships run side by side and stack their labels.
+ * selected) in the kind's colour with its dash family; 6px arrowheads on the ones the words describe
+ * (or the target of a directed kind without words); the labels on pills. Parallel lines run side by
+ * side; a word that points one way sits near the end it points at when there is room, the rest stack
+ * at the midpoint.
  */
 defineOptions({ inheritAttrs: false })
 const props = defineProps<{
@@ -55,14 +106,13 @@ const props = defineProps<{
 const GAP = 4
 const ARROW = 6
 const SPACING = 5
+type Point = { x: number, y: number }
+type Line = { relation: EdgeRelation, color: string }
+interface LabelGroup { key: string, at: Point, lines: Line[] }
 
-/** Distance from a node's centre to its outline, along a unit direction. */
 function reach(node: GraphNode<MapNodeData>, ux: number, uy: number): number {
-  const shape = NODE_SHAPES[node.data?.type ?? 'character']
-  const hw = (node.dimensions.width || shape.width) / 2
-  const hh = (node.dimensions.height || shape.height) / 2
-  if (shape.outline === 'diamond') return 1 / (Math.abs(ux) / hw + Math.abs(uy) / hh || 1)
-  return Math.min(Math.abs(ux) > 1e-6 ? hw / Math.abs(ux) : Infinity, Math.abs(uy) > 1e-6 ? hh / Math.abs(uy) : Infinity)
+  const type = node.data?.type ?? 'character'
+  return outlineReach(type, node.dimensions.width || NODE_SHAPES[type].width, node.dimensions.height || NODE_SHAPES[type].height, ux, uy)
 }
 
 function centre(node: GraphNode<MapNodeData>) {
@@ -73,18 +123,27 @@ function centre(node: GraphNode<MapNodeData>) {
   }
 }
 
+const allLines = () => props.data.relations.map(relation => ({ relation, color: kindColor(relation.kind) }))
+
 /**
  * Two nodes on top of each other leave no line to draw: the labels stay, beside the pair, so the
  * relationship never vanishes from the map.
  */
-function besideBoth(a: { x: number, y: number }, b: { x: number, y: number }) {
+function besideBoth(a: Point, b: Point) {
   const right = (node: GraphNode<MapNodeData>, c: { x: number }) => c.x + (node.dimensions.width || NODE_SHAPES[node.data?.type ?? 'character'].width) / 2
   return {
     lines: [],
     hit: null,
-    label: { x: Math.max(right(props.sourceNode, a), right(props.targetNode, b)) + 10, y: (a.y + b.y) / 2 },
+    groups: [{ key: 'mid', at: { x: Math.max(right(props.sourceNode, a), right(props.targetNode, b)) + 10, y: (a.y + b.y) / 2 }, lines: allLines() }] as LabelGroup[],
     beside: true,
   }
+}
+
+/** A 6px arrowhead with its tip on `tip`, its base `ARROW` back along (ux, uy) times `dir`. */
+function head(tip: Point, ux: number, uy: number, dir: 1 | -1) {
+  const bx = tip.x - ux * ARROW * dir
+  const by = tip.y - uy * ARROW * dir
+  return { path: `M ${tip.x} ${tip.y} L ${bx - uy * 3} ${by + ux * 3} L ${bx + uy * 3} ${by - ux * 3} Z`, base: { x: bx, y: by } }
 }
 
 const geometry = computed(() => {
@@ -107,36 +166,37 @@ const geometry = computed(() => {
   const count = props.data.relations.length
   const lines = props.data.relations.map((relation, i) => {
     const offset = (i - (count - 1) / 2) * SPACING
-    const s = { x: start.x + px * offset, y: start.y + py * offset }
-    const e = { x: end.x + px * offset, y: end.y + py * offset }
-    let arrow: string | null = null
-    let from = s
-    let to = e
-    if (relation.directed) {
-      // The arrow points where the relationship reads to: the line stops at the arrow's base.
-      const [tip, dir] = relation.forward ? [e, 1] : [s, -1]
-      const bx = tip.x - ux * ARROW * dir
-      const by = tip.y - uy * ARROW * dir
-      arrow = `M ${tip.x} ${tip.y} L ${bx + px * 3} ${by + py * 3} L ${bx - px * 3} ${by - py * 3} Z`
-      if (relation.forward) to = { x: bx, y: by }
-      else from = { x: bx, y: by }
+    let from = { x: start.x + px * offset, y: start.y + py * offset }
+    let to = { x: end.x + px * offset, y: end.y + py * offset }
+    // The line stops at each arrowhead's base.
+    const heads: string[] = []
+    if (relation.arrows === 'target' || relation.arrows === 'both') {
+      const h = head(to, ux, uy, 1)
+      heads.push(h.path)
+      to = h.base
     }
-    return { relation, path: `M ${from.x} ${from.y} L ${to.x} ${to.y}`, arrow, stroke: kindStroke(relation.kind), color: kindColor(relation.kind) }
+    if (relation.arrows === 'source' || relation.arrows === 'both') {
+      const h = head(from, ux, uy, -1)
+      heads.push(h.path)
+      from = h.base
+    }
+    return { relation, path: `M ${from.x} ${from.y} L ${to.x} ${to.y}`, heads, stroke: kindStroke(relation.kind), color: kindColor(relation.kind) }
   })
-  // The labels stay on the visible part of the line, wherever the map put them.
-  const at = Math.min(Math.max((props.data.labelAt ?? 0.5) * length, startAt), endAt)
   return {
     lines,
     hit: `M ${start.x} ${start.y} L ${end.x} ${end.y}` as string | null,
-    label: { x: a.x + ux * at, y: a.y + uy * at },
+    groups: labelGroups(a, ux, uy, length, startAt, endAt),
     beside: false,
   }
 })
 
-/** One pill per relationship, with its colour, whether or not a line can be drawn. */
-const pills = computed(() => (geometry.value.lines.length
-  ? geometry.value.lines
-  : props.data.relations.map(relation => ({ relation, color: kindColor(relation.kind) }))))
+/** The pill groups, placed on the line from the source centre `a`. */
+function labelGroups(a: Point, ux: number, uy: number, length: number, startAt: number, endAt: number): LabelGroup[] {
+  const at = Math.min(Math.max((props.data.labelAt ?? 0.5) * length, startAt), endAt)
+  const lines = allLines()
+  return placeLabels(lines.map(line => ({ ...line, arrows: line.relation.arrows, text: line.relation.text })), ux, uy, at, startAt, endAt)
+    .map(g => ({ key: g.key, at: { x: a.x + ux * g.d, y: a.y + uy * g.d }, lines: g.lines }))
+}
 
 /** In the followspot an authored label also names its kind ("padre · Famiglia"): the colour is never alone. */
 const showKinds = computed(() => !!(props.selected || props.data.lit || props.data.focused))
@@ -145,7 +205,7 @@ const showKinds = computed(() => !!(props.selected || props.data.lit || props.da
 <template>
   <g class="relations-edge" :class="{ 'is-selected': selected || data.lit || data.focused, 'is-faded': data.faded }">
     <path v-if="geometry.hit" :d="geometry.hit" class="relations-edge__hit" />
-    <template v-for="line in geometry.lines" :key="line.relation.id">
+    <template v-for="line in geometry.lines" :key="line.relation.key">
       <path
         :d="line.path"
         class="relations-edge__line"
@@ -153,19 +213,21 @@ const showKinds = computed(() => !!(props.selected || props.data.lit || props.da
         :stroke-dasharray="line.stroke.dasharray"
         :stroke-linecap="line.stroke.linecap"
       />
-      <path v-if="line.arrow" :d="line.arrow" class="relations-edge__arrow" :style="{ fill: line.color }" />
+      <path v-for="(arrow, i) in line.heads" :key="i" :d="arrow" class="relations-edge__arrow" :style="{ fill: line.color }" />
     </template>
   </g>
   <EdgeLabelRenderer>
     <div
+      v-for="group in geometry.groups"
+      :key="group.key"
       class="relations-edge__labels nodrag nopan"
       :class="{ 'is-selected': selected || data.focused, 'is-faded': data.faded, 'is-beside': geometry.beside }"
-      :style="{ transform: `${geometry.beside ? 'translate(0, -50%)' : 'translate(-50%, -50%)'} translate(${geometry.label.x}px, ${geometry.label.y}px)` }"
+      :style="{ transform: `${geometry.beside ? 'translate(0, -50%)' : 'translate(-50%, -50%)'} translate(${group.at.x}px, ${group.at.y}px)` }"
       aria-hidden="true"
     >
       <button
-        v-for="line in pills"
-        :key="line.relation.id"
+        v-for="line in group.lines"
+        :key="line.relation.key"
         type="button"
         tabindex="-1"
         class="relations-edge__pill"

@@ -9,6 +9,7 @@ import type { Relation, StoryMap } from '#shared/types/entities'
 import { parseMentionId } from '#shared/utils/richtext'
 import { NODE_SHAPES, centreOf, freeSpots, topLeft } from './MapNode.vue'
 import type { MapNodeData, Point } from './MapNode.vue'
+import { PILL_H, outlineReach, pillWidth, placeLabels } from './MapEdge.vue'
 import type { EdgeRelation, MapEdgeData } from './MapEdge.vue'
 import type { MapSelection } from './Selection.vue'
 
@@ -301,27 +302,37 @@ const labelSpots = computed(() => {
   const items = [...pairs.value].map(([id, pair]) => {
     const a = centre(pair.a)
     const b = centre(pair.b)
-    const texts = pair.relations.map(r => r.label || label('relationKind', r.kind))
-    const w = Math.min(164, Math.max(...texts.map(text => text.length * 6.6 + 16)))
-    const h = texts.length * 22
-    return { id, a, b, w, h, length: Math.hypot(b.x - a.x, b.y - a.y) }
+    const length = Math.hypot(b.x - a.x, b.y - a.y)
+    const ux = length ? (b.x - a.x) / length : 1
+    const uy = length ? (b.y - a.y) / length : 0
+    const shape = (key: string) => NODE_SHAPES[typeOf(key)]
+    const startAt = outlineReach(typeOf(pair.a), shape(pair.a).width, shape(pair.a).height, ux, uy) + 4
+    const endAt = length - outlineReach(typeOf(pair.b), shape(pair.b).width, shape(pair.b).height, -ux, -uy) - 4
+    const lines = pair.relations.flatMap(r => edgeLines(r, pair.a))
+    return { id, a, ux, uy, length, startAt, endAt, lines }
   }).sort((x, y) => x.length - y.length)
+  /** The boxes the pills of an edge cover with its labels at `spot`. */
+  const boxes = (item: typeof items[number], spot: number): Box[] =>
+    placeLabels(item.lines, item.ux, item.uy, Math.min(Math.max(spot * item.length, item.startAt), item.endAt), item.startAt, item.endAt)
+      .map((group) => {
+        const w = Math.max(...group.lines.map(line => pillWidth(line.text)))
+        const h = group.lines.length * PILL_H
+        return { x: item.a.x + item.ux * group.d - w / 2, y: item.a.y + item.uy * group.d - h / 2, w, h }
+      })
   for (const item of items) {
     let best = 0.5
     let bestCost = Infinity
     for (const spot of LABEL_SPOTS) {
-      const c = { x: item.a.x + (item.b.x - item.a.x) * spot, y: item.a.y + (item.b.y - item.a.y) * spot }
-      const box = { x: c.x - item.w / 2, y: c.y - item.h / 2, w: item.w, h: item.h }
-      const cost = nodes.reduce((n, other) => n + overlap(box, other) * 3, 0)
-        + placed.reduce((n, other) => n + overlap(box, other), 0)
+      const cost = boxes(item, spot).reduce((n, box) => n
+        + nodes.reduce((m, other) => m + overlap(box, other) * 3, 0)
+        + placed.reduce((m, other) => m + overlap(box, other), 0), 0)
         + Math.abs(spot - 0.5) * 120
       if (cost < bestCost) {
         bestCost = cost
         best = spot
       }
     }
-    const c = { x: item.a.x + (item.b.x - item.a.x) * best, y: item.a.y + (item.b.y - item.a.y) * best }
-    placed.push({ x: c.x - item.w / 2, y: c.y - item.h / 2, w: item.w, h: item.h })
+    placed.push(...boxes(item, best))
     out.set(item.id, best)
   }
   return out
@@ -337,6 +348,32 @@ function spoken(r: Relation) {
   return sides.length ? `${kind} (${sides.join('; ')})` : kind
 }
 
+/**
+ * The lines a relationship draws on its edge, whose source is `a`. Every arrowhead points at the one
+ * its words describe: two different words ("padre", "figlia") draw two lines in opposite directions,
+ * the same word for both ("sorella") one line with a head at each end, a single word on a one-way
+ * relationship one head. A single word on a mutual relationship ("sposi") names the bond and, like a
+ * relationship without words, draws no head; without words a directed kind points at its target.
+ */
+function edgeLines(r: Relation, a: string): EdgeRelation[] {
+  const atSource = sourceOf(r) === a ? 'source' : 'target'
+  const atTarget = atSource === 'source' ? 'target' : 'source'
+  const kindLabel = label('relationKind', r.kind)
+  const line = { id: r.id, kind: r.kind, kindLabel, authored: true }
+  const words = r.label.trim()
+  const reverse = r.reverseLabel.trim()
+  if (!words && !reverse) return [{ ...line, key: r.id, text: kindLabel, authored: false, arrows: r.directed ? atTarget : 'none' }]
+  if (words && reverse && words.toLocaleLowerCase() !== reverse.toLocaleLowerCase()) {
+    return [
+      { ...line, key: `${r.id}:source`, text: words, arrows: atSource },
+      { ...line, key: `${r.id}:target`, text: reverse, arrows: atTarget },
+    ]
+  }
+  if (words && reverse) return [{ ...line, key: r.id, text: words, arrows: 'both' }]
+  if (!r.directed) return [{ ...line, key: r.id, text: words || reverse, arrows: 'none' }]
+  return [{ ...line, key: r.id, text: words || reverse, arrows: words ? atSource : atTarget }]
+}
+
 const samePair = (x: { a: string, b: string }, a: string, b: string) => (x.a === a && x.b === b) || (x.a === b && x.b === a)
 
 const edges = computed<Edge<MapEdgeData>[]>(() => {
@@ -348,15 +385,7 @@ const edges = computed<Edge<MapEdgeData>[]>(() => {
     const inLight = !s || isSelected || (s.type === 'node' && (s.key === pair.a || s.key === pair.b))
     const relations: EdgeRelation[] = [...pair.relations]
       .sort((x, y) => x.createdAt.localeCompare(y.createdAt))
-      .map(r => ({
-        id: r.id,
-        kind: r.kind,
-        text: r.label || label('relationKind', r.kind),
-        authored: !!r.label,
-        kindLabel: label('relationKind', r.kind),
-        directed: r.directed,
-        forward: sourceOf(r) === pair.a,
-      }))
+      .flatMap(r => edgeLines(r, pair.a))
     return {
       id,
       type: 'relation',
