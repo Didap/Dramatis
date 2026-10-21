@@ -266,6 +266,7 @@ export const collectionSchemas = {
       intensity: z.number().int().min(1).max(10),
       note: zText(500),
     })).max(200),
+    subraceId: z.string().min(1).max(40).nullable(),
     meta: zMeta,
   }),
   maps: z.object({

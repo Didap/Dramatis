@@ -74,7 +74,12 @@
       "taglineLeft": "No characters left | {n} character left | {n} characters left",
       "race": "Race",
       "racePlaceholder": "None",
-      "raceCreate": "Create the race “{name}”"
+      "raceCreate": "Create the race “{name}”",
+      "subrace": "Subrace",
+      "subraceOf": "Subrace of {race}",
+      "subraceNone": "No subrace",
+      "subraceCreate": "Create the subrace “{name}”",
+      "fieldValue": "{field}: {value}"
     },
     "description": {
       "title": "Description",

@@ -74,7 +74,12 @@
       "taglineLeft": "Nessun carattere rimasto | Resta {n} carattere | Restano {n} caratteri",
       "race": "Razza",
       "racePlaceholder": "Nessuna",
-      "raceCreate": "Crea la razza «{name}»"
+      "raceCreate": "Crea la razza «{name}»",
+      "subrace": "Sottorazza",
+      "subraceOf": "Sottorazza di {race}",
+      "subraceNone": "Nessuna sottorazza",
+      "subraceCreate": "Crea la sottorazza «{name}»",
+      "fieldValue": "{field}: {value}"
     },
     "description": {
       "title": "Descrizione",

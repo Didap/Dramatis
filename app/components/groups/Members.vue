@@ -6,7 +6,7 @@ import { CHARACTER_IMPORTANCES } from '#shared/utils/constants'
  * The members of a group: membership relationships from characters, locations and objects to the
  * group (spec 0.3), the role being the relationship's label. Add (several in a row), edit the role in
  * place, remove (the relationship goes to the trash, with undo). Grouped by kind, in the order of
- * their own lists.
+ * their own lists. On a race each member also shows its subrace, chosen on its sheet.
  */
 const props = defineProps<{ groupId: string, race?: boolean }>()
 
@@ -51,6 +51,13 @@ const members = computed(() => {
   return byType
 })
 
+/** On a race, the subrace of each member that has one. */
+function subraceName(relation: Relation) {
+  if (!props.race || !relation.subraceId) return undefined
+  const subrace = store.get('groups', props.groupId)?.subraces.find(s => s.id === relation.subraceId)
+  return subrace ? subrace.name.trim() || t('groups.race.subraceUntitled') : undefined
+}
+
 const total = computed(() => MEMBER_TYPES.reduce((n, type) => n + members.value[type].length, 0))
 const exclude = computed(() => MEMBER_TYPES.flatMap(type => members.value[type].map(m => `${type}:${m.id}`)))
 const present = computed(() => MEMBER_TYPES.filter(type => members.value[type].length))
@@ -88,6 +95,7 @@ async function add(ref: { type: string, id: string }) {
             :label="member.relation.label"
             :label-placeholder="mt('role')"
             :remove-label="mt('removeMember', { name: member.name })"
+            :note="subraceName(member.relation)"
             @update:label="(label: string) => store.patchSoon('relations', member.relation.id, { label })"
             @remove="store.remove('relations', member.relation.id).catch(() => {})"
           />

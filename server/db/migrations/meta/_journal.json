@@ -29,6 +29,13 @@
       "when": 1792593051768,
       "tag": "0003_large_expediter",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1792593250441,
+      "tag": "0004_stormy_wong",
+      "breakpoints": true
     }
   ]
 }

@@ -4,8 +4,9 @@ import type { WorldRefType } from '#shared/types/domain'
 /**
  * One entity linked to a sheet through a relationship (a member of a group, the group of a place,
  * the owner of an object): its picture and name (a link to its sheet), the label of the relationship
- * edited in place ("Vito Didonna, capofamiglia"), and a button that moves the relationship to the
- * trash. On a phone the name and the label are two lines, each a 44px target.
+ * edited in place ("Vito Didonna, capofamiglia"), a note when there is one (the subrace of a member of
+ * a race), and a button that moves the relationship to the trash. On a phone the name and the label
+ * are two lines, each a 44px target.
  */
 const props = defineProps<{
   type: WorldRefType
@@ -16,6 +17,7 @@ const props = defineProps<{
   label: string
   labelPlaceholder: string
   removeLabel: string
+  note?: string
 }>()
 
 const emit = defineEmits<{ 'update:label': [value: string], 'remove': [] }>()
@@ -72,6 +74,7 @@ function remove() {
         @update:model-value="(value: string) => emit('update:label', value)"
       />
     </div>
+    <span v-if="note" class="voice-author max-w-28 shrink-0 truncate text-sm text-muted italic sm:max-w-44">{{ note }}</span>
     <UButton
       icon="i-lucide-x"
       color="neutral"

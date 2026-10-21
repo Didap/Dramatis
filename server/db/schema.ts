@@ -516,6 +516,8 @@ export const relations = pgTable(
     reverseIntensity: smallint('reverse_intensity').notNull().default(5),
     /** How the relationship changes along the story, chapter by chapter, from each side's point of view. */
     evolution: jsonb('evolution').$type<RelationStep[]>().notNull().default([]),
+    /** A character's membership in a race: the branch of the race (one of its `subraces`), or null. */
+    subraceId: text('subrace_id'),
     meta: meta(),
     createdAt: createdAt(),
     updatedAt: updatedAt(),
