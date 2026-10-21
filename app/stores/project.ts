@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia'
 import type { Collection, EntityRef, RefType, WorldRefType } from '#shared/types/domain'
-import { COLLECTIONS, COLLECTION_TO_REF, LONG_TEXT_FIELDS, REF_TO_COLLECTION } from '#shared/utils/constants'
+import { COLLECTIONS, COLLECTION_TO_REF, LONG_TEXT_FIELDS, REF_TO_COLLECTION, WORLD_REF_TYPES } from '#shared/utils/constants'
 import { resolveModules } from '#shared/utils/modules'
+import { parseMentionId } from '#shared/utils/richtext'
 import type {
   Chapter,
   CollectionMap,
@@ -149,6 +150,12 @@ export const useProjectStore = defineStore('project', () => {
   /** A group that is a race of the world, with its own page (module races). */
   function isRace(groupId: string | null | undefined): boolean {
     return modules.value.races && get('groups', groupId)?.kind === 'race'
+  }
+
+  /** "<type>:<id>" of an entity that can be a node of a relationship map: races are not (they show on the character sheet). */
+  function mappable(key: string): boolean {
+    const ref = parseMentionId(key)
+    return !!ref && (WORLD_REF_TYPES as readonly string[]).includes(ref.type) && !(ref.type === 'group' && isRace(ref.id))
   }
 
   /** Route of the page that shows an item. */
@@ -864,6 +871,7 @@ export const useProjectStore = defineStore('project', () => {
     refLabel,
     refPath,
     isRace,
+    mappable,
     imagesOf,
     primaryImage,
     worldEntities,

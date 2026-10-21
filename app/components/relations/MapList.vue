@@ -27,9 +27,9 @@ async function onDragEnd() {
   if (ids.join() !== maps.value.map(m => m.id).join()) await store.reorder('maps', ids).catch(() => {})
 }
 
-/** Nodes whose entity is in the trash are hidden (spec 7.13), so they are not counted either. */
+/** Nodes whose entity is in the trash are hidden (spec 7.13), and races never show: neither is counted. */
 function visibleKeys(map: StoryMap) {
-  return Object.keys(map.nodes).filter(key => !!store.getRef(parseMentionId(key)))
+  return Object.keys(map.nodes).filter(key => store.mappable(key) && !!store.getRef(parseMentionId(key)))
 }
 
 const stats = computed(() => new Map(maps.value.map((map) => {

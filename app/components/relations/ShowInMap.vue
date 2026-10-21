@@ -5,6 +5,7 @@ import { parseMentionId } from '#shared/utils/richtext'
 /**
  * "Mostra nella mappa": opens a map with the entity selected; when it is on no map (or on another
  * one), adds it. Nodes added from here wait at 0,0 and the map lays them out next to their relations.
+ * A race has no place on a map: nothing shows.
  */
 const props = defineProps<{
   /** The entity: "<type>:<id>". */
@@ -23,7 +24,7 @@ function mapPath(mapId: string) {
   return { path: `/p/${store.projectId}/relations/${mapId}`, query: { focus: props.entity } }
 }
 
-/** The entities tied to this one by a relationship (those in the trash left out). */
+/** The entities tied to this one by a relationship (those in the trash and races left out). */
 function linked(): string[] {
   const out = new Set<string>()
   for (const r of store.rows.relations) {
@@ -32,7 +33,7 @@ function linked(): string[] {
     if (source === props.entity) out.add(target)
     else if (target === props.entity) out.add(source)
   }
-  return [...out].filter(key => !!store.getRef(parseMentionId(key)))
+  return [...out].filter(key => store.mappable(key) && !!store.getRef(parseMentionId(key)))
 }
 
 async function addTo(mapId: string) {
@@ -59,8 +60,9 @@ const direct = computed(() => (containing.value.length === 1 && !others.value.le
 </script>
 
 <template>
+  <template v-if="!store.mappable(entity)" />
   <UButton
-    v-if="direct"
+    v-else-if="direct"
     :to="mapPath(direct.id)"
     icon="i-lucide-network"
     color="neutral"

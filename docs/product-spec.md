@@ -521,8 +521,8 @@ Each screen: the primary task, key content, key actions, the empty state (what i
 
 **Relation map** (`/p/[id]/relations/[mapId]`)
 - Task: draw and read the web of relationships.
-- Content: Vue Flow canvas. Nodes show image or type icon, name and type label. Edges show the kind colour and always a text label (the relationship label, or the kind label when empty); parallel relationships between the same pair are stacked labels on one edge. A legend lists the kinds in use.
-- Actions: add nodes (multi-select picker, with "Aggiungi anche i collegati"); drag from a node's handle to another node to create a relationship; select a node for "Collega a...", "Apri scheda", "Togli dalla mappa"; select an edge to edit or trash the relationship; fit to view; zoom. Node positions are saved per map.
+- Content: Vue Flow canvas. Nodes show image or type icon, name and type label; races are never nodes (a character's race is on the sheet). Edges show the kind colour and always a text label (the relationship label, or the kind label when empty); parallel relationships between the same pair are stacked labels on one edge. A legend lists the kinds in use.
+- Actions: add nodes (multi-select picker, with "Aggiungi anche i collegati"); drag from a node's handle to another node to create a relationship; select a node for "Collega a...", "Apri scheda", "Togli dalla mappa"; select an edge to edit or trash the relationship; drag a label to bend its line (or the sliders of the selected edge); fit to view; zoom. Node positions and bent lines are saved per map.
 - Empty: "Aggiungi personaggi, luoghi, oggetti o gruppi, poi trascina da uno all'altro per collegarli."
 - Phone: pan and pinch; tapping a node or edge opens a bottom drawer with the same actions; linking is done with "Collega a...".
 

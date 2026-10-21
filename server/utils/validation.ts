@@ -276,6 +276,7 @@ export const collectionSchemas = {
       kinds: z.array(z.enum(RELATION_KINDS)).optional(),
       refs: z.array(z.string().max(80)).max(2000).optional(),
       viewport: z.object({ x: z.number().finite(), y: z.number().finite(), zoom: z.number().finite() }).optional(),
+      lines: z.record(z.string().max(80), z.object({ at: z.number().min(0).max(1), bend: z.number().min(-1).max(1) })).optional(),
     }),
     position: zPosition,
   }),

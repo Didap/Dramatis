@@ -1,6 +1,8 @@
 <script lang="ts">
-import type { RelationKind, WorldRefType } from '#shared/types/domain'
+import type { MapLineShape, RelationKind, WorldRefType } from '#shared/types/domain'
+import type { Relation } from '#shared/types/entities'
 import { NODE_SHAPES } from './MapNode.vue'
+import type { Point } from './MapNode.vue'
 
 /** Where a line's arrowheads go: at the edge's source end, its target end, both or neither. */
 export type EdgeArrows = 'source' | 'target' | 'both' | 'none'
@@ -28,6 +30,8 @@ export interface EdgeRelation {
 /** Every relationship between the same two nodes: one edge, parallel lines, stacked labels (spec 4.4). */
 export interface MapEdgeData {
   relations: EdgeRelation[]
+  /** Lines bent by the author, by line key (the map's `settings.lines`). */
+  shapes?: Record<string, MapLineShape>
   faded: boolean
   /** In the followspot of a selected node: drawn thicker, like a selected edge. */
   lit?: boolean
@@ -37,6 +41,8 @@ export interface MapEdgeData {
   labelAt?: number
   /** Opens one relationship (a click on its label). */
   pick?: (relationId: string) => void
+  /** Desktop: a label dragged bends its line; null makes it straight again. */
+  reshape?: (key: string, shape: MapLineShape | null) => void
 }
 
 /** Estimated pill size (the map is not measured): height with its gap, width from the text. */
@@ -79,10 +85,60 @@ export function placeLabels<T extends { arrows: EdgeArrows, text: string }>(line
   })
   return fits ? groups : together
 }
+
+/**
+ * The lines a relationship draws on its edge, whose source is `a`. Every arrowhead points at the one
+ * its words describe: two different words ("padre", "figlia") draw two lines in opposite directions,
+ * the same word for both ("sorella") one line with a head at each end, a single word on a one-way
+ * relationship one head. A single word on a mutual relationship ("sposi") names the bond and, like a
+ * relationship without words, draws no head; without words a directed kind points at its target.
+ */
+export function edgeLines(r: Relation, a: string, kindLabel: string): EdgeRelation[] {
+  const atSource = `${r.sourceType}:${r.sourceId}` === a ? 'source' : 'target'
+  const atTarget = atSource === 'source' ? 'target' : 'source'
+  const line = { id: r.id, kind: r.kind, kindLabel, authored: true }
+  const words = r.label.trim()
+  const reverse = r.reverseLabel.trim()
+  if (!words && !reverse) return [{ ...line, key: r.id, text: kindLabel, authored: false, arrows: r.directed ? atTarget : 'none' }]
+  if (words && reverse && words.toLocaleLowerCase() !== reverse.toLocaleLowerCase()) {
+    return [
+      { ...line, key: `${r.id}:source`, text: words, arrows: atSource },
+      { ...line, key: `${r.id}:target`, text: reverse, arrows: atTarget },
+    ]
+  }
+  if (words && reverse) return [{ ...line, key: r.id, text: words, arrows: 'both' }]
+  if (!r.directed) return [{ ...line, key: r.id, text: words || reverse, arrows: 'none' }]
+  return [{ ...line, key: r.id, text: words || reverse, arrows: words ? atSource : atTarget }]
+}
+
+/** How far a line bends at most, as a fraction of its length, and how close to its ends its label goes. */
+export const MAX_BEND = 0.5
+const AT_MIN = 0.15
+
+/** Where the label of a bent line sits, from the two centres `a` and `b`. */
+export function handleOf(a: Point, b: Point, shape: MapLineShape): Point {
+  const dx = b.x - a.x
+  const dy = b.y - a.y
+  return { x: a.x + dx * shape.at - dy * shape.bend, y: a.y + dy * shape.at + dx * shape.bend }
+}
+
+/** The shape of a line whose label is taken to `p`, kept to what draws well. */
+export function shapeAt(a: Point, b: Point, p: Point): MapLineShape {
+  const dx = b.x - a.x
+  const dy = b.y - a.y
+  const squared = dx * dx + dy * dy || 1
+  const rx = p.x - a.x
+  const ry = p.y - a.y
+  const clamp = (v: number, min: number, max: number) => Math.min(Math.max(v, min), max)
+  return {
+    at: clamp((rx * dx + ry * dy) / squared, AT_MIN, 1 - AT_MIN),
+    bend: clamp((ry * dx - rx * dy) / squared, -MAX_BEND, MAX_BEND),
+  }
+}
 </script>
 
 <script setup lang="ts">
-import { EdgeLabelRenderer } from '@vue-flow/core'
+import { EdgeLabelRenderer, useVueFlow } from '@vue-flow/core'
 import type { GraphNode } from '@vue-flow/core'
 import { kindColor, kindStroke } from './KindLine.vue'
 import type { MapNodeData } from './MapNode.vue'
@@ -92,7 +148,8 @@ import type { MapNodeData } from './MapNode.vue'
  * selected) in the kind's colour with its dash family; 6px arrowheads on the ones the words describe
  * (or the target of a directed kind without words); the labels on pills. Parallel lines run side by
  * side; a word that points one way sits near the end it points at when there is room, the rest stack
- * at the midpoint.
+ * at the midpoint. On desktop a label dragged away takes its line with it: the line curves through it
+ * (let go near the straight line, it is straight again).
  */
 defineOptions({ inheritAttrs: false })
 const props = defineProps<{
@@ -106,7 +163,8 @@ const props = defineProps<{
 const GAP = 4
 const ARROW = 6
 const SPACING = 5
-type Point = { x: number, y: number }
+/** A label let go closer than this to the straight line (in pixels) makes it straight again. */
+const STRAIGHT = 10
 type Line = { relation: EdgeRelation, color: string }
 interface LabelGroup { key: string, at: Point, lines: Line[] }
 
@@ -133,7 +191,6 @@ function besideBoth(a: Point, b: Point) {
   const right = (node: GraphNode<MapNodeData>, c: { x: number }) => c.x + (node.dimensions.width || NODE_SHAPES[node.data?.type ?? 'character'].width) / 2
   return {
     lines: [],
-    hit: null,
     groups: [{ key: 'mid', at: { x: Math.max(right(props.sourceNode, a), right(props.targetNode, b)) + 10, y: (a.y + b.y) / 2 }, lines: allLines() }] as LabelGroup[],
     beside: true,
   }
@@ -145,6 +202,62 @@ function head(tip: Point, ux: number, uy: number, dir: 1 | -1) {
   const by = tip.y - uy * ARROW * dir
   return { path: `M ${tip.x} ${tip.y} L ${bx - uy * 3} ${by + ux * 3} L ${bx + uy * 3} ${by - ux * 3} Z`, base: { x: bx, y: by } }
 }
+
+function unit(from: Point, to: Point) {
+  const d = Math.hypot(to.x - from.x, to.y - from.y) || 1
+  return { x: (to.x - from.x) / d, y: (to.y - from.y) / d }
+}
+
+/** A point of the curve from `p0` to `p2` with control point `c`, at `s` (0 to 1). */
+function bezier(p0: Point, c: Point, p2: Point, s: number): Point {
+  const m = 1 - s
+  return { x: m * m * p0.x + 2 * m * s * c.x + s * s * p2.x, y: m * m * p0.y + 2 * m * s * c.y + s * s * p2.y }
+}
+
+/** Whether `p` falls on the node's shape or within the gap around it (`c` is its centre). */
+function covers(node: GraphNode<MapNodeData>, c: Point, p: Point) {
+  const d = Math.hypot(p.x - c.x, p.y - c.y)
+  return d < 1 || d < reach(node, (p.x - c.x) / d, (p.y - c.y) / d) + GAP
+}
+
+/**
+ * A bent line: the curve from centre to centre through its label (at `at` along it), cut where it
+ * leaves each shape. null when the label sits on one of the two shapes: the line is drawn straight.
+ */
+function curve(a: Point, b: Point, shape: MapLineShape) {
+  const h = handleOf(a, b, shape)
+  if (covers(props.sourceNode, a, h) || covers(props.targetNode, b, h)) return null
+  const t = shape.at
+  const k = 2 * t * (1 - t)
+  const c = { x: (h.x - (1 - t) ** 2 * a.x - t * t * b.x) / k, y: (h.y - (1 - t) ** 2 * a.y - t * t * b.y) / k }
+  // Where the curve leaves each shape, by halving.
+  let inside = 0
+  let outside = t
+  for (let i = 0; i < 14; i++) {
+    const s = (inside + outside) / 2
+    if (covers(props.sourceNode, a, bezier(a, c, b, s))) inside = s
+    else outside = s
+  }
+  const s0 = outside
+  outside = t
+  inside = 1
+  for (let i = 0; i < 14; i++) {
+    const s = (inside + outside) / 2
+    if (covers(props.targetNode, b, bezier(a, c, b, s))) inside = s
+    else outside = s
+  }
+  const s1 = outside
+  // The piece between the two is a curve of its own, with this control point.
+  const w = (1 - s0) * s1 + s0 * (1 - s1)
+  const q1 = { x: (1 - s0) * (1 - s1) * a.x + w * c.x + s0 * s1 * b.x, y: (1 - s0) * (1 - s1) * a.y + w * c.y + s0 * s1 * b.y }
+  return { label: h, q0: bezier(a, c, b, s0), q1, q2: bezier(a, c, b, s1) }
+}
+
+/** The line whose label is being dragged, with its shape so far (saved when it is let go). */
+const live = ref<{ key: string, shape: MapLineShape } | null>(null)
+
+/** The shape of a line: the one being dragged, else the one saved on the map. */
+const shapeOf = (key: string) => (live.value?.key === key ? live.value.shape : props.data.shapes?.[key])
 
 const geometry = computed(() => {
   const a = centre(props.sourceNode)
@@ -160,42 +273,133 @@ const geometry = computed(() => {
   if (endAt - startAt < 8) return besideBoth(a, b)
   const start = { x: a.x + ux * startAt, y: a.y + uy * startAt }
   const end = { x: a.x + ux * endAt, y: a.y + uy * endAt }
-  // Perpendicular, for parallel lines.
+  const curves = new Map(props.data.relations.flatMap((relation) => {
+    const shape = shapeOf(relation.key)
+    const bent = shape ? curve(a, b, shape) : null
+    return bent ? [[relation.key, bent] as const] : []
+  }))
+  // Perpendicular, for parallel lines: the straight ones run side by side.
   const px = -uy
   const py = ux
-  const count = props.data.relations.length
-  const lines = props.data.relations.map((relation, i) => {
-    const offset = (i - (count - 1) / 2) * SPACING
-    let from = { x: start.x + px * offset, y: start.y + py * offset }
-    let to = { x: end.x + px * offset, y: end.y + py * offset }
-    // The line stops at each arrowhead's base.
+  const straight = props.data.relations.filter(relation => !curves.has(relation.key))
+  const lines = props.data.relations.map((relation) => {
+    const bent = curves.get(relation.key)
+    const offset = (straight.indexOf(relation) - (straight.length - 1) / 2) * SPACING
+    let from = bent ? bent.q0 : { x: start.x + px * offset, y: start.y + py * offset }
+    let to = bent ? bent.q2 : { x: end.x + px * offset, y: end.y + py * offset }
+    const hit = bent ? `M ${from.x} ${from.y} Q ${bent.q1.x} ${bent.q1.y} ${to.x} ${to.y}` : `M ${from.x} ${from.y} L ${to.x} ${to.y}`
+    // The line stops at each arrowhead's base; on a curve the heads follow its direction at the ends.
     const heads: string[] = []
     if (relation.arrows === 'target' || relation.arrows === 'both') {
-      const h = head(to, ux, uy, 1)
+      const d = bent ? unit(bent.q1, bent.q2) : { x: ux, y: uy }
+      const h = head(to, d.x, d.y, 1)
       heads.push(h.path)
       to = h.base
     }
     if (relation.arrows === 'source' || relation.arrows === 'both') {
-      const h = head(from, ux, uy, -1)
+      const d = bent ? unit(bent.q0, bent.q1) : { x: ux, y: uy }
+      const h = head(from, d.x, d.y, -1)
       heads.push(h.path)
       from = h.base
     }
-    return { relation, path: `M ${from.x} ${from.y} L ${to.x} ${to.y}`, heads, stroke: kindStroke(relation.kind), color: kindColor(relation.kind) }
+    const path = bent ? `M ${from.x} ${from.y} Q ${bent.q1.x} ${bent.q1.y} ${to.x} ${to.y}` : `M ${from.x} ${from.y} L ${to.x} ${to.y}`
+    return { relation, path, hit, heads, stroke: kindStroke(relation.kind), color: kindColor(relation.kind) }
   })
+  const bentGroups: LabelGroup[] = [...curves].map(([key, bent]) => ({
+    key,
+    at: bent.label,
+    lines: allLines().filter(line => line.relation.key === key),
+  }))
   return {
     lines,
-    hit: `M ${start.x} ${start.y} L ${end.x} ${end.y}` as string | null,
-    groups: labelGroups(a, ux, uy, length, startAt, endAt),
+    groups: [...labelGroups(a, ux, uy, length, startAt, endAt, straight), ...bentGroups],
     beside: false,
   }
 })
 
-/** The pill groups, placed on the line from the source centre `a`. */
-function labelGroups(a: Point, ux: number, uy: number, length: number, startAt: number, endAt: number): LabelGroup[] {
+/** The pill groups of the straight lines, placed on the line from the source centre `a`. */
+function labelGroups(a: Point, ux: number, uy: number, length: number, startAt: number, endAt: number, straight: EdgeRelation[]): LabelGroup[] {
+  if (!straight.length) return []
   const at = Math.min(Math.max((props.data.labelAt ?? 0.5) * length, startAt), endAt)
-  const lines = allLines()
+  const lines = allLines().filter(line => straight.includes(line.relation))
   return placeLabels(lines.map(line => ({ ...line, arrows: line.relation.arrows, text: line.relation.text })), ux, uy, at, startAt, endAt)
     .map(g => ({ key: g.key, at: { x: a.x + ux * g.d, y: a.y + uy * g.d }, lines: g.lines }))
+}
+
+// ---------------------------------------------------------------- dragging a label
+
+const { screenToFlowCoordinate } = useVueFlow()
+
+let grab: { key: string, pointerId: number, x: number, y: number, label: Point, moved: boolean } | null = null
+/** A drag ends with a click on the label: it does not open the relationship. */
+let dragged = false
+
+/**
+ * The drag is followed on the window: once its line bends, the label moves to a group of its own and
+ * the pill under the pointer is a new element.
+ */
+function onPointerDown(event: PointerEvent, key: string) {
+  dragged = false
+  // Ctrl and a click is the context menu on a Mac: its release never reaches the page.
+  if (!props.data.reshape || event.button !== 0 || event.ctrlKey) return
+  event.preventDefault()
+  const box = (event.currentTarget as HTMLElement).getBoundingClientRect()
+  grab = { key, pointerId: event.pointerId, x: event.clientX, y: event.clientY, label: screenToFlowCoordinate({ x: box.left + box.width / 2, y: box.top + box.height / 2 }), moved: false }
+  window.addEventListener('pointermove', onPointerMove)
+  window.addEventListener('pointerup', onPointerUp)
+  window.addEventListener('pointercancel', onPointerCancel)
+}
+
+function stopFollowing() {
+  window.removeEventListener('pointermove', onPointerMove)
+  window.removeEventListener('pointerup', onPointerUp)
+  window.removeEventListener('pointercancel', onPointerCancel)
+}
+onBeforeUnmount(stopFollowing)
+
+function onPointerMove(event: PointerEvent) {
+  if (!grab || event.pointerId !== grab.pointerId) return
+  // No button held: the release was lost (a menu, another app); the drag ends and saves nothing.
+  if (!event.buttons) {
+    onPointerCancel()
+    return
+  }
+  if (!grab.moved && Math.hypot(event.clientX - grab.x, event.clientY - grab.y) < 4) return
+  grab.moved = true
+  const from = screenToFlowCoordinate({ x: grab.x, y: grab.y })
+  const to = screenToFlowCoordinate({ x: event.clientX, y: event.clientY })
+  const p = { x: grab.label.x + to.x - from.x, y: grab.label.y + to.y - from.y }
+  live.value = { key: grab.key, shape: shapeAt(centre(props.sourceNode), centre(props.targetNode), p) }
+}
+
+function onPointerUp(event: PointerEvent) {
+  if (!grab || event.pointerId !== grab.pointerId) return
+  const { key, moved } = grab
+  grab = null
+  stopFollowing()
+  const shape = live.value?.shape
+  if (moved && shape) {
+    dragged = true
+    const a = centre(props.sourceNode)
+    const b = centre(props.targetNode)
+    const near = Math.abs(shape.bend) * Math.hypot(b.x - a.x, b.y - a.y) < STRAIGHT
+    props.data.reshape?.(key, near ? null : shape)
+  }
+  live.value = null
+}
+
+function onPointerCancel() {
+  grab = null
+  live.value = null
+  stopFollowing()
+}
+
+function onPillClick(relationId: string) {
+  if (dragged) {
+    dragged = false
+    return
+  }
+  props.data.pick?.(relationId)
 }
 
 /** In the followspot an authored label also names its kind ("padre · Famiglia"): the colour is never alone. */
@@ -204,7 +408,7 @@ const showKinds = computed(() => !!(props.selected || props.data.lit || props.da
 
 <template>
   <g class="relations-edge" :class="{ 'is-selected': selected || data.lit || data.focused, 'is-faded': data.faded }">
-    <path v-if="geometry.hit" :d="geometry.hit" class="relations-edge__hit" />
+    <path v-for="line in geometry.lines" :key="`hit-${line.relation.key}`" :d="line.hit" class="relations-edge__hit" />
     <template v-for="line in geometry.lines" :key="line.relation.key">
       <path
         :d="line.path"
@@ -231,10 +435,11 @@ const showKinds = computed(() => !!(props.selected || props.data.lit || props.da
         type="button"
         tabindex="-1"
         class="relations-edge__pill"
-        :class="{ 'voice-author': line.relation.authored, 'is-lit': showKinds && line.relation.authored }"
+        :class="{ 'voice-author': line.relation.authored, 'is-lit': showKinds && line.relation.authored, 'is-draggable': !!data.reshape, 'is-dragging': live?.key === line.relation.key }"
         :style="{ borderColor: line.color }"
         :title="line.relation.authored ? `${line.relation.kindLabel}: ${line.relation.text}` : line.relation.text"
-        @click.stop="data.pick?.(line.relation.id)"
+        @pointerdown="onPointerDown($event, line.relation.key)"
+        @click.stop="onPillClick(line.relation.id)"
       >
         <span class="relations-edge__text min-w-0 truncate">{{ line.relation.text }}</span>
         <span v-if="showKinds && line.relation.authored" class="relations-edge__kind">· {{ line.relation.kindLabel }}</span>
@@ -325,6 +530,13 @@ const showKinds = computed(() => !!(props.selected || props.data.lit || props.da
 }
 .relations-edge__pill:hover {
   background: var(--ui-bg-elevated);
+}
+.relations-edge__pill.is-draggable {
+  /* A finger dragging a word bends its arrow instead of panning the page. */
+  touch-action: none;
+}
+.relations-edge__pill.is-dragging {
+  cursor: grabbing;
 }
 
 @media (prefers-reduced-motion: reduce) {

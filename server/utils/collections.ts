@@ -411,6 +411,13 @@ async function forgetChapters(projectId: string, ids: string[], db: DbOrTx) {
   }
 }
 
+/** Lines bent on the maps lose the relationships deleted for good (those in the trash keep theirs). */
+async function forgetLines(projectId: string, db: DbOrTx) {
+  await db.execute(sql`update maps m set settings = jsonb_set(m.settings, '{lines}', (select coalesce(jsonb_object_agg(e.key, e.value), '{}'::jsonb)
+      from jsonb_each(m.settings->'lines') e where exists (select 1 from relations r where r.project_id = m.project_id and r.id::text = split_part(e.key, ':', 1))))
+    where m.project_id = ${projectId} and jsonb_typeof(m.settings->'lines') = 'object'`)
+}
+
 /**
  * Deletes an item for good, with its batch, and removes every reference to it so nothing points to a
  * ghost. Foreign keys already cascade (scenes of a chapter, revisions and links of a scene, entries of a
@@ -438,6 +445,7 @@ export async function purgeItem(projectId: string, collection: Collection, id: s
   await db.delete(table).where(and(eq(table.id, id), eq(table.projectId, projectId)))
 
   if (collection === 'variables') await forgetVariable(projectId, id, db)
+  if (collection === 'relations') await forgetLines(projectId, db)
   if (collection === 'chapters') await forgetChapters(projectId, [id], db)
   if (collection === 'scenes') {
     await db.execute(sql`update projects set start_scene_id = null where id = ${projectId} and start_scene_id = ${id}::uuid`)
@@ -457,6 +465,7 @@ export async function purgeItem(projectId: string, collection: Collection, id: s
   if (collection === 'characters' || collection === 'groups' || collection === 'locations' || collection === 'objects') {
     await db.execute(sql`delete from relations where project_id = ${projectId} and ((source_type = ${ref} and source_id = ${id}::uuid) or (target_type = ${ref} and target_id = ${id}::uuid))`)
     await db.execute(sql`update maps set nodes = nodes - ${refKey}::text where project_id = ${projectId} and nodes ? ${refKey}::text`)
+    await forgetLines(projectId, db)
   }
   if (collection === 'characters') {
     await db.execute(sql`update strands set quest = jsonb_set(quest, '{giverId}', 'null'::jsonb) where project_id = ${projectId} and quest->>'giverId' = ${id}`)

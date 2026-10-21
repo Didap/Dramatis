@@ -377,6 +377,8 @@ function orderedIds(old: Iterable<string>): Map<string, string> {
 }
 
 const REF_STRING = /^(?:(character|group|location|object|strand|chapter|scene|event|note|codex):)?([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i
+/** A line bent on a map, one per side of a relationship ("<relationId>:source"). */
+const LINE_KEY = /^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}):(source|target)$/i
 
 /**
  * Gives every reference its new id: strings that are an id, a "<type>:<id>" reference (mentions, tags,
@@ -389,6 +391,8 @@ function remap(value: unknown, ids: Map<string, string>): unknown {
       const next = ids.get(ref[2]!.toLowerCase())
       return next ? `${ref[1] ? `${ref[1]}:` : ''}${next}` : text
     }
+    const line = LINE_KEY.exec(text)
+    if (line) return ids.has(line[1]!.toLowerCase()) ? `${ids.get(line[1]!.toLowerCase())}:${line[2]}` : text
     if (text.includes('/api/media/')) return text.replace(MEDIA_SRC_RE, (match, id: string) => (ids.has(id.toLowerCase()) ? `/api/media/${ids.get(id.toLowerCase())}` : match))
     return text
   }

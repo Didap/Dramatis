@@ -3,8 +3,8 @@ import type { WorldRefType } from '#shared/types/domain'
 import { CHARACTER_IMPORTANCES } from '#shared/utils/constants'
 
 /**
- * "Aggiungi" on a map (spec 5.4): characters, locations, objects and groups, searchable, several at
- * once, grouped by kind; "Aggiungi anche i collegati" also brings the entities they are tied to.
+ * "Aggiungi" on a map (spec 5.4): characters, locations, objects and groups (not races), searchable,
+ * several at once, grouped by kind; "Aggiungi anche i collegati" also brings the entities they are tied to.
  * In a project with nobody in it yet, it says so and leads to the sections where they are created.
  */
 const props = withDefaults(defineProps<{
@@ -39,7 +39,7 @@ const groups = computed<{ id: string, label: string, items: Item[] }[]>(() => {
     const rows = type === 'character'
       ? [...store.rows.characters].sort((a, b) => (IMPORTANCE[a.importance] ?? 9) - (IMPORTANCE[b.importance] ?? 9) || a.position - b.position)
       : (store.rows[`${type}s` as 'locations' | 'objects' | 'groups'] as { id: string, name: string }[])
-    const items = rows.map((row): Item => {
+    const items = rows.filter(row => store.mappable(`${type}:${row.id}`)).map((row): Item => {
       const key = `${type}:${row.id}`
       const image = store.primaryImage(type, row.id)
       const aliases = type === 'character' ? (row as { aliases?: string[] }).aliases ?? [] : []

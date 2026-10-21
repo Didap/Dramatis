@@ -4,14 +4,17 @@ export type MapSelection = { type: 'node', key: string } | { type: 'edge', a: st
 </script>
 
 <script setup lang="ts">
-import type { WorldRefType } from '#shared/types/domain'
+import type { MapLineShape, WorldRefType } from '#shared/types/domain'
 import type { Relation } from '#shared/types/entities'
 import { parseMentionId } from '#shared/utils/richtext'
+import { MAX_BEND, edgeLines } from './MapEdge.vue'
 
 /**
  * What is selected on a map, and what can be done with it (desktop inspector, phone drawer):
  * a node with "Collega a...", "Apri scheda", "Togli dalla mappa" and its relationships here; an edge
- * with its relationships, to edit or trash; nothing selected, the map in numbers and how to use it.
+ * with its relationships, to edit or trash, and on desktop how much each of its lines bends (what
+ * dragging a label on the map does, with the keyboard or a click); nothing selected, the map in
+ * numbers and how to use it.
  */
 const props = defineProps<{
   selection: MapSelection
@@ -23,6 +26,8 @@ const props = defineProps<{
   outside: Relation[]
   /** Desktop: the map can be edited by dragging. */
   editable: boolean
+  /** Lines bent on the map, by line key. */
+  shapes?: Record<string, MapLineShape>
 }>()
 
 const emit = defineEmits<{
@@ -33,6 +38,8 @@ const emit = defineEmits<{
   addLinked: [key: string | null]
   /** The last relationship of the selected pair went to the trash: the focus goes back to the map. */
   focusNode: [key: string]
+  /** A line bent, or straightened (null). */
+  reshape: [key: string, shape: MapLineShape | null]
 }>()
 
 const store = useProjectStore()
@@ -63,6 +70,27 @@ const edgeRelations = computed(() => {
   if (!e) return []
   return props.relations.filter(r => touches(r, e.a.key) && touches(r, e.b.key))
 })
+
+/** The lines the pair draws on the map, each with its words. */
+const edgeMapLines = computed(() => edgeRelations.value.flatMap(r => edgeLines(r, edge.value!.a.key, label('relationKind', r.kind))))
+
+/** A line's bend on the slider: ten steps to each side, 0 straight. */
+const STEPS = 10
+const bendStep = (key: string) => Math.round(((props.shapes?.[key]?.bend ?? 0) / MAX_BEND) * STEPS)
+
+function setBend(key: string, step: number) {
+  if (!step) {
+    emit('reshape', key, null)
+    return
+  }
+  emit('reshape', key, { at: props.shapes?.[key]?.at ?? 0.5, bend: (step / STEPS) * MAX_BEND })
+}
+
+/** The button goes with the last bent line: the focus stays in the section, on its heading. */
+function straightenAll() {
+  for (const line of edgeMapLines.value) if (props.shapes?.[line.key]) emit('reshape', line.key, null)
+  nextTick(() => focusIn('#relations-selection-curves'))
+}
 
 /**
  * "Tobia è padre di Elsa", from the relationship's labels: the label for the source, the reverse for
@@ -195,6 +223,36 @@ async function trash(id: string) {
         </li>
       </ul>
       <UButton class="-ms-2.5 max-lg:min-h-11" color="neutral" variant="ghost" icon="i-lucide-plus" :label="t('relations.selection.another')" @click="emit('create', edge.a.key, edge.b.key)" />
+
+      <section v-if="editable && edgeMapLines.length" class="mt-5 border-t border-default/70 pt-4" aria-labelledby="relations-selection-curves">
+        <h3 id="relations-selection-curves" tabindex="-1" class="text-sm font-medium text-default outline-none">{{ t('relations.selection.curves') }}</h3>
+        <p class="mt-0.5 text-xs text-muted">{{ t('relations.selection.curvesHelp') }}</p>
+        <div v-for="line in edgeMapLines" :key="line.key" class="mt-3 flex items-center gap-3">
+          <span class="w-24 shrink-0 truncate text-sm text-default" :class="{ 'voice-author': line.authored }">{{ line.text }}</span>
+          <USlider
+            :model-value="bendStep(line.key)"
+            :min="-STEPS"
+            :max="STEPS"
+            :step="1"
+            size="sm"
+            color="neutral"
+            class="flex-1"
+            :ui="{ range: 'bg-transparent' }"
+            :aria-label="t('relations.selection.curveOf', { words: line.text })"
+            @update:model-value="(value) => setBend(line.key, Number(value))"
+          />
+        </div>
+        <UButton
+          v-if="edgeMapLines.some(line => shapes?.[line.key])"
+          class="-ms-2.5 mt-2"
+          color="neutral"
+          variant="ghost"
+          size="sm"
+          icon="i-lucide-move-horizontal"
+          :label="t('relations.selection.straighten')"
+          @click="straightenAll"
+        />
+      </section>
     </template>
 
     <!-- Nothing selected -->

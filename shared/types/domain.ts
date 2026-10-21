@@ -179,6 +179,16 @@ export interface RelationStep {
 /** Mind map node positions keyed by "<refType>:<uuid>". */
 export type MapNodes = Record<string, { x: number, y: number }>
 
+/**
+ * A line of the relationship map bent by the author: its label sits at `at` along the straight line
+ * between the two centres (0 to 1) and `bend` of that line's length to its side, and the line curves
+ * through it. The side is the left of the pair's first node looking at the second (keys in order).
+ */
+export interface MapLineShape {
+  at: number
+  bend: number
+}
+
 export interface MapSettings {
   /** Entity kinds shown on the map. */
   include?: Partial<Record<WorldRefType, boolean>>
@@ -187,6 +197,8 @@ export interface MapSettings {
   /** Only these refs, when the map is a curated selection; missing = every entity of the included kinds. */
   refs?: string[]
   viewport?: { x: number, y: number, zoom: number }
+  /** Lines bent by the author, keyed "<relationId>" or "<relationId>:source|target" (one line per side). */
+  lines?: Record<string, MapLineShape>
 }
 
 export type ProjectModules = Partial<Record<ProjectModule, boolean>>

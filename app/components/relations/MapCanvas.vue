@@ -4,19 +4,20 @@ import type { Connection, Edge, EdgeMouseEvent, Node, NodeDragEvent, NodeMouseEv
 import '@vue-flow/core/dist/style.css'
 import { forceCollide, forceLink, forceManyBody, forceSimulation, forceX, forceY } from 'd3-force'
 import type { SimulationLinkDatum, SimulationNodeDatum } from 'd3-force'
-import type { WorldRefType } from '#shared/types/domain'
+import type { MapLineShape, WorldRefType } from '#shared/types/domain'
 import type { Relation, StoryMap } from '#shared/types/entities'
 import { parseMentionId } from '#shared/utils/richtext'
 import { NODE_SHAPES, centreOf, freeSpots, topLeft } from './MapNode.vue'
 import type { MapNodeData, Point } from './MapNode.vue'
-import { PILL_H, outlineReach, pillWidth, placeLabels } from './MapEdge.vue'
+import { PILL_H, edgeLines, handleOf, outlineReach, pillWidth, placeLabels } from './MapEdge.vue'
 import type { EdgeRelation, MapEdgeData } from './MapEdge.vue'
 import type { MapSelection } from './Selection.vue'
 
 /**
  * The relationship map (DESIGN.md "Relationship map"), on Vue Flow. Nodes are the map's entities at
  * their saved positions; edges are the relationships among them, one per pair. Selecting lights a
- * followspot. Desktop: drag to move (saved on the map), drag from a node's knob to another to link.
+ * followspot. Desktop: drag to move (saved on the map), drag from a node's knob to another to link,
+ * drag a label to bend its line (saved on the map too).
  * Keyboard: Tab through nodes, arrows along the relationships, Enter on a node just reached opens
  * the relationship followed (Enter elsewhere: the node's actions), Shift and an arrow to move a node,
  * Esc to let go. Nodes still at 0,0 get a force layout when the map opens.
@@ -269,6 +270,9 @@ const pairs = computed(() => {
   return out
 })
 
+/** The lines a relationship draws on the edge whose source is `a`. */
+const linesOf = (r: Relation, a: string) => edgeLines(r, a, label('relationKind', r.kind))
+
 // ---------------------------------------------------------------- where the labels sit
 
 interface Box { x: number, y: number, w: number, h: number }
@@ -291,14 +295,34 @@ function nodeBoxes(key: string): Box[] {
 
 const LABEL_SPOTS = [0.5, 0.45, 0.55, 0.4, 0.6, 0.35, 0.65, 0.3, 0.7, 0.25, 0.75, 0.2, 0.8]
 
+/** Lines bent by the author, by line key. */
+const shapes = computed<Record<string, MapLineShape>>(() => props.map.settings.lines ?? {})
+
+/** A line bent (or straightened, null) by the author, saved on the map. */
+function reshape(key: string, shape: MapLineShape | null) {
+  const { [key]: _before, ...lines } = shapes.value
+  if (shape) lines[key] = { at: Math.round(shape.at * 1000) / 1000, bend: Math.round(shape.bend * 1000) / 1000 }
+  store.patchSoon('maps', props.map.id, { settings: { ...props.map.settings, lines } }, 400)
+}
+
 /**
- * Where along each edge its labels sit, as a fraction of the line between the two centres: the
- * middle when it is free, otherwise the nearest spot that covers no name and no other label.
+ * Where along each edge the labels of its straight lines sit, as a fraction of the line between the
+ * two centres: the middle when it is free, otherwise the nearest spot that covers no name and no
+ * other label. The labels of bent lines stay where the author put them, and the others keep off them.
  */
 const labelSpots = computed(() => {
   const nodes = props.keys.flatMap(nodeBoxes)
   const placed: Box[] = []
   const out = new Map<string, number>()
+  for (const pair of pairs.value.values()) {
+    for (const line of pair.relations.flatMap(r => linesOf(r, pair.a))) {
+      const shape = shapes.value[line.key]
+      if (!shape) continue
+      const at = handleOf(centre(pair.a), centre(pair.b), shape)
+      const w = pillWidth(line.text)
+      placed.push({ x: at.x - w / 2, y: at.y - PILL_H / 2, w, h: PILL_H })
+    }
+  }
   const items = [...pairs.value].map(([id, pair]) => {
     const a = centre(pair.a)
     const b = centre(pair.b)
@@ -308,7 +332,7 @@ const labelSpots = computed(() => {
     const shape = (key: string) => NODE_SHAPES[typeOf(key)]
     const startAt = outlineReach(typeOf(pair.a), shape(pair.a).width, shape(pair.a).height, ux, uy) + 4
     const endAt = length - outlineReach(typeOf(pair.b), shape(pair.b).width, shape(pair.b).height, -ux, -uy) - 4
-    const lines = pair.relations.flatMap(r => edgeLines(r, pair.a))
+    const lines = pair.relations.flatMap(r => linesOf(r, pair.a)).filter(line => !shapes.value[line.key])
     return { id, a, ux, uy, length, startAt, endAt, lines }
   }).sort((x, y) => x.length - y.length)
   /** The boxes the pills of an edge cover with its labels at `spot`. */
@@ -320,6 +344,7 @@ const labelSpots = computed(() => {
         return { x: item.a.x + item.ux * group.d - w / 2, y: item.a.y + item.uy * group.d - h / 2, w, h }
       })
   for (const item of items) {
+    if (!item.lines.length) continue
     let best = 0.5
     let bestCost = Infinity
     for (const spot of LABEL_SPOTS) {
@@ -348,32 +373,6 @@ function spoken(r: Relation) {
   return sides.length ? `${kind} (${sides.join('; ')})` : kind
 }
 
-/**
- * The lines a relationship draws on its edge, whose source is `a`. Every arrowhead points at the one
- * its words describe: two different words ("padre", "figlia") draw two lines in opposite directions,
- * the same word for both ("sorella") one line with a head at each end, a single word on a one-way
- * relationship one head. A single word on a mutual relationship ("sposi") names the bond and, like a
- * relationship without words, draws no head; without words a directed kind points at its target.
- */
-function edgeLines(r: Relation, a: string): EdgeRelation[] {
-  const atSource = sourceOf(r) === a ? 'source' : 'target'
-  const atTarget = atSource === 'source' ? 'target' : 'source'
-  const kindLabel = label('relationKind', r.kind)
-  const line = { id: r.id, kind: r.kind, kindLabel, authored: true }
-  const words = r.label.trim()
-  const reverse = r.reverseLabel.trim()
-  if (!words && !reverse) return [{ ...line, key: r.id, text: kindLabel, authored: false, arrows: r.directed ? atTarget : 'none' }]
-  if (words && reverse && words.toLocaleLowerCase() !== reverse.toLocaleLowerCase()) {
-    return [
-      { ...line, key: `${r.id}:source`, text: words, arrows: atSource },
-      { ...line, key: `${r.id}:target`, text: reverse, arrows: atTarget },
-    ]
-  }
-  if (words && reverse) return [{ ...line, key: r.id, text: words, arrows: 'both' }]
-  if (!r.directed) return [{ ...line, key: r.id, text: words || reverse, arrows: 'none' }]
-  return [{ ...line, key: r.id, text: words || reverse, arrows: words ? atSource : atTarget }]
-}
-
 const samePair = (x: { a: string, b: string }, a: string, b: string) => (x.a === a && x.b === b) || (x.a === b && x.b === a)
 
 const edges = computed<Edge<MapEdgeData>[]>(() => {
@@ -385,7 +384,7 @@ const edges = computed<Edge<MapEdgeData>[]>(() => {
     const inLight = !s || isSelected || (s.type === 'node' && (s.key === pair.a || s.key === pair.b))
     const relations: EdgeRelation[] = [...pair.relations]
       .sort((x, y) => x.createdAt.localeCompare(y.createdAt))
-      .flatMap(r => edgeLines(r, pair.a))
+      .flatMap(r => linesOf(r, pair.a))
     return {
       id,
       type: 'relation',
@@ -395,11 +394,13 @@ const edges = computed<Edge<MapEdgeData>[]>(() => {
       focusable: false,
       data: {
         relations,
+        shapes: shapes.value,
         faded: !inLight,
         lit: s?.type === 'node' && inLight,
         focused: !!step && samePair({ a: step.from, b: step.to }, pair.a, pair.b),
         labelAt: spots.get(id) ?? 0.5,
         pick: (relationId: string) => onPick(pair.a, pair.b, relationId),
+        reshape: props.editable ? reshape : undefined,
       },
       ariaLabel: t('relations.map.edgeLabel', {
         a: nameOf(pair.a),
@@ -672,6 +673,7 @@ defineExpose({
   zoomOut: () => zoomOut({ duration: duration.value }),
   placeNew,
   layoutAll,
+  reshape,
   focusNode,
   reveal: (key: string) => nextTick(() => ensureVisible(key)),
 })

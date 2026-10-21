@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { MapNodes, RelationKind } from '#shared/types/domain'
+import type { MapLineShape, MapNodes, RelationKind } from '#shared/types/domain'
 import type { Relation } from '#shared/types/entities'
-import { RELATION_KINDS, WORLD_REF_TYPES } from '#shared/utils/constants'
+import { RELATION_KINDS } from '#shared/utils/constants'
 import { parseMentionId } from '#shared/utils/richtext'
 import type { MapSelection } from '~/components/relations/Selection.vue'
 import type { Point } from '~/components/relations/MapNode.vue'
@@ -31,6 +31,7 @@ const canvas = ref<{
   zoomOut: () => void
   placeNew: (keys: string[], anchor?: string | null) => Record<string, Point>
   layoutAll: () => void
+  reshape: (key: string, shape: MapLineShape | null) => void
   focusNode: (key: string) => void
   reveal: (key: string) => void
 } | null>(null)
@@ -41,18 +42,16 @@ const editor = ref<{ show: (state: { relationId?: string | null, a?: string | nu
 const sourceOf = (r: Relation) => `${r.sourceType}:${r.sourceId}`
 const targetOf = (r: Relation) => `${r.targetType}:${r.targetId}`
 
-/** The map's entities; those in the trash are hidden and come back on restore (spec 7.13). */
-const keys = computed(() => Object.keys(map.value?.nodes ?? {}).filter((key) => {
-  const ref = parseMentionId(key)
-  return !!ref && (WORLD_REF_TYPES as readonly string[]).includes(ref.type) && !!store.getRef(ref)
-}))
+/** The map's entities; those in the trash are hidden and come back on restore (spec 7.13). Races never show. */
+const keys = computed(() => Object.keys(map.value?.nodes ?? {}).filter(key => store.mappable(key) && !!store.getRef(parseMentionId(key))))
 const onMap = computed(() => new Set(keys.value))
 const mapRelations = computed(() => store.rows.relations.filter(r => onMap.value.has(sourceOf(r)) && onMap.value.has(targetOf(r))))
 const hidden = ref<RelationKind[]>([])
 const shown = computed(() => mapRelations.value.filter(r => !hidden.value.includes(r.kind)))
-/** Relationships from the map to entities outside it (and not in the trash). */
+/** Relationships from the map to entities outside it that could join it (not in the trash, not races). */
 const outside = computed(() => store.rows.relations.filter(r =>
   onMap.value.has(sourceOf(r)) !== onMap.value.has(targetOf(r))
+  && store.mappable(sourceOf(r)) && store.mappable(targetOf(r))
   && !!store.getRef({ type: r.sourceType, id: r.sourceId }) && !!store.getRef({ type: r.targetType, id: r.targetId })))
 const outsideCounts = computed(() => {
   const out: Record<string, number> = {}
@@ -185,7 +184,8 @@ async function onSaved(relation: Relation, created: boolean) {
   const source = sourceOf(relation)
   const target = targetOf(relation)
   const added = onMap.value.has(source) && !onMap.value.has(target) ? target : onMap.value.has(target) && !onMap.value.has(source) ? source : null
-  if (!added) return
+  // A race joins no map: the relationship saved is a character's race, shown on the sheet.
+  if (!added || !store.mappable(added)) return
   await place([added], added === target ? source : target)
   canvas.value?.reveal(added)
 }
@@ -359,12 +359,14 @@ const legend = ref(false)
             :relations="mapRelations"
             :outside="outside"
             :editable="desktop"
+            :shapes="map.settings.lines"
             @link="link"
             @remove="removeNode"
             @open="openRelation"
             @create="createBetween"
             @add-linked="addLinked"
             @focus-node="key => canvas?.focusNode(key)"
+            @reshape="(key, shape) => canvas?.reshape(key, shape)"
           />
         </div>
         <div class="max-h-[45%] shrink-0 overflow-y-auto border-t border-default/70 px-4 py-4">
