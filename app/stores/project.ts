@@ -158,6 +158,15 @@ export const useProjectStore = defineStore('project', () => {
     return !!ref && (WORLD_REF_TYPES as readonly string[]).includes(ref.type) && !(ref.type === 'group' && isRace(ref.id))
   }
 
+  /**
+   * The relationships of the Elenco: both sides exist (a side in the trash hides them, spec 7.0) and
+   * neither is a race (a character's race shows on the sheet, as on the maps).
+   */
+  const listedRelations = computed(() => {
+    const listed = (type: WorldRefType, id: string) => mappable(`${type}:${id}`) && !!getRef({ type, id })
+    return rows.relations.filter(r => listed(r.sourceType, r.sourceId) && listed(r.targetType, r.targetId))
+  })
+
   /** Route of the page that shows an item. */
   function refPath(ref: EntityRef): string {
     const base = `/p/${projectId.value}`
@@ -872,6 +881,7 @@ export const useProjectStore = defineStore('project', () => {
     refPath,
     isRace,
     mappable,
+    listedRelations,
     imagesOf,
     primaryImage,
     worldEntities,

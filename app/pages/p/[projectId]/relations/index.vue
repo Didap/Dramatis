@@ -41,9 +41,7 @@ const kinds = computed<RelationKind[]>({
 })
 
 const mapCount = computed(() => store.rows.maps.length)
-/** Relationships whose two sides exist (a side in the trash hides them). */
-const relationCount = computed(() => store.rows.relations.filter(r =>
-  !!store.getRef({ type: r.sourceType, id: r.sourceId }) && !!store.getRef({ type: r.targetType, id: r.targetId })).length)
+const relationCount = computed(() => store.listedRelations.length)
 
 const tabs = computed(() => [
   { label: t('relations.tabs.maps'), value: 'maps', slot: 'maps' as const, count: mapCount.value },

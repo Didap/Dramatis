@@ -20,10 +20,7 @@ const { number } = useFormat()
 
 const guidance = computed(() => store.project?.settings.guidance !== false)
 
-/** A relationship whose side went to the trash is hidden until that side comes back (spec 7.0). */
-const all = computed(() => store.rows.relations.filter(r =>
-  !!store.getRef({ type: r.sourceType, id: r.sourceId }) && !!store.getRef({ type: r.targetType, id: r.targetId })))
-const filtered = computed(() => all.value.filter((r) => {
+const filtered = computed(() => store.listedRelations.filter((r) => {
   if (kinds.value.length && !kinds.value.includes(r.kind)) return false
   if (entity.value && `${r.sourceType}:${r.sourceId}` !== entity.value && `${r.targetType}:${r.targetId}` !== entity.value) return false
   return true
@@ -52,7 +49,7 @@ const entries = computed(() => {
 })
 
 const kindItems = computed(() => RELATION_KINDS
-  .filter(kind => all.value.some(r => r.kind === kind))
+  .filter(kind => store.listedRelations.some(r => r.kind === kind))
   .map(kind => ({ value: kind, label: label('relationKind', kind) })))
 
 const filtering = computed(() => !!entity.value || kinds.value.length > 0)
@@ -77,7 +74,7 @@ function onTrashed(row: HTMLElement) {
 
 <template>
   <div ref="root" class="relations-list @container">
-    <template v-if="all.length">
+    <template v-if="store.listedRelations.length">
       <div class="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
         <div class="sm:w-64">
           <RelationsEntitySelect v-model="entity" :placeholder="t('relations.list.entityAll')" :aria-label="t('relations.list.entityFilter')" />

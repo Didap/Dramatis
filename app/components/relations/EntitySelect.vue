@@ -3,8 +3,9 @@ import type { WorldRefType } from '#shared/types/domain'
 import { CHARACTER_IMPORTANCES } from '#shared/utils/constants'
 
 /**
- * Picks one character, location, object or group of the project, grouped by kind, with search on
- * names and aliases. The value is the entity's key, "<type>:<id>" (as in map nodes and mentions).
+ * Picks one character, location, object or group of the project (not races, which belong on the
+ * character sheet), grouped by kind, with search on names and aliases. The value is the entity's key,
+ * "<type>:<id>" (as in map nodes and mentions).
  */
 const props = withDefaults(defineProps<{
   modelValue: string | null
@@ -57,7 +58,7 @@ const groups = computed(() => {
         })
     }
     else {
-      items = store.worldEntitiesOf(type).map(e => ({
+      items = store.worldEntitiesOf(type).filter(e => store.mappable(`${type}:${e.id}`)).map(e => ({
         label: e.name,
         value: `${type}:${e.id}`,
         search: e.name,
