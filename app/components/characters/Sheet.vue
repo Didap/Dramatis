@@ -78,6 +78,8 @@ onBeforeUnmount(() => clearTimeout(dropTimer))
 
       <CharactersTraits :character="character" />
 
+      <CharactersPowers :character="character" />
+
       <CharactersSection :title="term('relations')">
         <RelationsPanel entity-type="character" :entity-id="character.id" />
       </CharactersSection>

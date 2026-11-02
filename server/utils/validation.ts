@@ -95,6 +95,8 @@ const zTraits = z.object({
   contradictions: z.array(zText(200)).max(40).optional(),
 })
 
+const zPowers = z.array(z.object({ id: z.string().min(1).max(40), name: zText(100), description: zText(2000) })).max(40)
+
 const zQuest = z
   .object({
     giverId: zNullableUuid.optional(),
@@ -129,6 +131,8 @@ export const collectionSchemas = {
     description: zNullableDoc,
     profile: zProfile,
     traits: zTraits,
+    hasPowers: z.boolean(),
+    powers: zPowers,
     playable: z.boolean(),
     notes: zNullableDoc,
     tags: zTags,

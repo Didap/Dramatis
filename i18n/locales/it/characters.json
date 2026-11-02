@@ -114,6 +114,25 @@
       "edit": "Modifica",
       "actions": "Azioni per «{text}»"
     },
+    "powers": {
+      "title": "Poteri",
+      "question": "Ha dei poteri?",
+      "yes": "Sì",
+      "no": "No",
+      "list": "Poteri",
+      "add": "Aggiungi un potere",
+      "addHelp": "Scrivi il nome del potere e premi Invio; poi descrivi cosa fa.",
+      "namePlaceholder": "Nome del potere",
+      "nameLabel": "Nome del potere {n}",
+      "descriptionPlaceholder": "Cosa fa, da dove viene, che prezzo ha",
+      "descriptionLabel": "Cosa fa “{name}”",
+      "untitled": "Potere senza nome",
+      "removed": "Tolto: “{name}”",
+      "moved": "“{name}”, posizione {n} di {total}",
+      "remove": "Togli “{name}”",
+      "actions": "Azioni per “{name}”",
+      "kept": "Il potere scritto è conservato: torna se rispondi sì. | I {n} poteri scritti sono conservati: tornano se rispondi sì."
+    },
     "groups": {
       "rolePlaceholder": {
         "novel": "Ruolo nel gruppo",

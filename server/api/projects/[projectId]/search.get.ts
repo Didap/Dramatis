@@ -318,6 +318,7 @@ export default defineEventHandler(async (event): Promise<SearchResponse> => {
         { field: 'description', text: plain(c.description) },
         ...profile,
         { field: 'traits', text: [...(c.traits.qualities ?? []), ...(c.traits.flaws ?? []), ...(c.traits.contradictions ?? [])].join(' · ') },
+        { field: 'powers', text: c.hasPowers ? c.powers.map(power => [power.name, power.description].filter(Boolean).join(': ')).join(' · ') : '' },
         { field: 'notes', text: plain(c.notes) },
       ],
     })

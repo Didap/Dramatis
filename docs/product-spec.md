@@ -472,7 +472,7 @@ Each screen: the primary task, key content, key actions, the empty state (what i
 
 **Character sheet** (`/p/[id]/characters/[characterId]`)
 - Task: know everything about this person in one place.
-- Content: header (primary image, name, aliases, importance, status, one-line description; game: "Giocabile"); for `main`, the profile sections with their progress ("5 di 8 risposte"); for `secondary` and `minor`, a description field (game projects: also the `voice` section); qualities, flaws and contradictions (three short lists, every importance level); relationships (read from the global relationships: "Tobia · padre"); groups (membership relationships, with role); appearances (scenes where tagged, in manuscript order, "compare per la prima volta nel capitolo 2"); images (gallery with captions); notes; P1, game with `script`: lines spoken, with word count.
+- Content: header (primary image, name, aliases, importance, status, one-line description; game: "Giocabile"); for `main`, the profile sections with their progress ("5 di 8 risposte"); for `secondary` and `minor`, a description field (game projects: also the `voice` section); qualities, flaws and contradictions (three short lists, every importance level); powers ("Ha dei poteri?", no by default; a yes opens the list of the character's powers, each a name and what it does; back to no, the list is hidden and kept); relationships (read from the global relationships: "Tobia · padre"); groups (membership relationships, with role); appearances (scenes where tagged, in manuscript order, "compare per la prima volta nel capitolo 2"); images (gallery with captions); notes; P1, game with `script`: lines spoken, with word count.
 - Actions: edit inline, change importance (sections hide on demotion and come back on promotion), add images, add relationship, show in a map, trash.
 - Empty pieces teach in place: no relationships "Nessuna relazione: collega questo personaggio a qualcuno."; no appearances "Non compare ancora in nessuna scena: citalo con @ mentre scrivi."
 - Phone: header, then a vertical list of sections; each section opens as its own page.
@@ -640,7 +640,7 @@ Edge cases: the button is disabled while the request runs (no double projects); 
 4. Each answer autosaves one second after the last keystroke; the page header shows the save state.
 5. "Sezione successiva" at the bottom moves on; the sheet's progress updates.
 6. The mode switch moves a section to "Testo libero". The interview answers stay stored and come back when the author switches again; a note says when the other mode has content. P1: "Usa le risposte come traccia" copies the questions and answers into the free text as a starting point.
-7. Qualities, flaws and contradictions are three short lists on the sheet: type, Enter adds, drag or `Alt+Up/Down` reorders, delete removes with an undo toast. Field-level deletions use undo, not the trash; the trash holds entities.
+7. Qualities, flaws and contradictions are three short lists on the sheet: type, Enter adds, drag or `Alt+Up/Down` reorders, delete removes with an undo toast. Field-level deletions use undo, not the trash; the trash holds entities. Powers work the same way under "Ha dei poteri?": type a name, Enter adds it and goes on to what it does; the item's menu moves or removes it.
 8. Images: drop or choose files; the first becomes the primary image; captions are edited inline.
 9. When three sections are answered, one of them `conflict`, the path's second stage turns done.
 
@@ -876,7 +876,7 @@ Title; kind; colour; description (rich text); planning status; position. Kind `a
 Title; body (rich text); position; P1 pinned flag.
 
 ### 7.5 Character
-Name (required); aliases (list); importance; planning status; one-line description (up to 140 characters); description (rich text, for `secondary` and `minor`, kept for `main`); qualities, flaws, contradictions (three ordered lists of short texts up to 200 characters); playable (game); notes (rich text); position within its importance group; images. P1: born and died, as story dates.
+Name (required); aliases (list); importance; planning status; one-line description (up to 140 characters); description (rich text, for `secondary` and `minor`, kept for `main`); qualities, flaws, contradictions (three ordered lists of short texts up to 200 characters); has powers (yes or no, default no) and powers (an ordered list of up to 40, each a name up to 100 characters and a description up to 2000); playable (game); notes (rich text); position within its importance group; images. P1: born and died, as story dates.
 
 ### 7.6 Profile section
 One per character and section key: mode (`interview` or `free`); answers (question key from appendix A to plain text); free text (rich text). Availability: `main` and `secondary` characters see the nine shared sections, plus `gameplay` and `voice` in game projects; `minor` characters see `voice` in game projects and no section in novels. Content is never deleted when a section becomes unavailable.

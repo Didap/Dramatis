@@ -205,6 +205,11 @@ const nullableOneOf = <T extends readonly [string, ...string[]]>(values: T) => z
 /** A list of short texts, as the API keeps it: each one cut to `length`, at most `items` of them. */
 const strings = (length: number, items: number) => z.array(z.unknown()).catch([]).transform(list => list.filter((v): v is string => typeof v === 'string' && !!v).map(v => v.slice(0, length)).slice(0, items))
 const uuids = z.array(uuid).max(100_000).catch([])
+/** A character's powers; a broken one is dropped, the texts cut to the API's limits. */
+const powers = z.array(z.unknown()).catch([]).transform(list => list.flatMap((item) => {
+  const power = z.object({ id: z.string().min(1).max(40), name: str(100), description: str(2000) }).safeParse(item)
+  return power.success ? [power.data] : []
+}).slice(0, 40))
 /** One of the named entity colours, or none: anything else would reach a CSS variable name. */
 const color = z.union([z.enum(ENTITY_COLORS), z.literal('')]).catch('')
 const storyTime = z.string().regex(/^-?\d{1,4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12]\d|3[01])(T([01]\d|2[0-3]):[0-5]\d)?)?)?$/).nullable().catch(null)
@@ -217,7 +222,7 @@ const clause = z.object({ variableId: uuid, op: z.enum(CONDITION_OPS), value: z.
 const effect = z.object({ variableId: uuid, op: z.enum(EFFECT_OPS), value: z.string().max(200).optional() })
 
 const ROW_SCHEMAS = {
-  characters: z.object({ id: uuid, name: str(200), aliases: strings(100, 20), importance: oneOf(CHARACTER_IMPORTANCES, 'secondary'), role: z.union([z.enum(CHARACTER_ROLES), z.literal('')]).catch(''), tagline: str(140), color, description: doc, profile: json, traits: json, playable: bool, notes: doc, tags: strings(60, 40), status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
+  characters: z.object({ id: uuid, name: str(200), aliases: strings(100, 20), importance: oneOf(CHARACTER_IMPORTANCES, 'secondary'), role: z.union([z.enum(CHARACTER_ROLES), z.literal('')]).catch(''), tagline: str(140), color, description: doc, profile: json, traits: json, hasPowers: bool, powers, playable: bool, notes: doc, tags: strings(60, 40), status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
   groups: z.object({ id: uuid, name: str(200), kind: oneOf(GROUP_KINDS, 'other'), color, description: doc, language: doc, traditions: doc, powers: doc, notes: doc, describe: oneOf(RACE_DESCRIPTIONS, 'free'), subraces: z.array(z.object({ id: z.string().min(1).max(40), name: str(120), description: doc }).nullable().catch(null)).max(100).catch([]).transform(list => list.filter(s => !!s)), status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
   locations: z.object({ id: uuid, parentId: nullableUuid, name: str(200), kind: str(60), nation: str(120), region: str(120), city: str(120), color, description: doc, notes: doc, status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
   objects: z.object({ id: uuid, name: str(200), kind: str(60), color, description: doc, notes: doc, status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),

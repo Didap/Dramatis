@@ -16,6 +16,7 @@ import {
 } from 'drizzle-orm/pg-core'
 import type {
   CharacterImportance,
+  CharacterPower,
   CharacterProfile,
   CharacterTraits,
   DurationUnit,
@@ -162,6 +163,10 @@ export const characters = pgTable(
     profile: jsonb('profile').$type<CharacterProfile>().notNull().default({}),
     /** Qualities, flaws, contradictions: three ordered lists of short texts. */
     traits: jsonb('traits').$type<CharacterTraits>().notNull().default({}),
+    /** "Ha dei poteri?": the list below shows only with a yes, and stays when the answer goes back to no. */
+    hasPowers: boolean('has_powers').notNull().default(false),
+    /** The powers, in order: a name and a description each. */
+    powers: jsonb('powers').$type<CharacterPower[]>().notNull().default([]),
     /** Game projects: the player can control this character. */
     playable: boolean('playable').notNull().default(false),
     notes: jsonb('notes').$type<RichDoc | null>(),

@@ -96,6 +96,13 @@ export interface EntityRef {
 }
 
 /** Qualities, flaws and contradictions of a character: short items. */
+/** A power of a character (spec 4.4): its name and what it does, in the list under "Ha dei poteri?". */
+export interface CharacterPower {
+  id: string
+  name: string
+  description: string
+}
+
 export interface CharacterTraits {
   qualities?: string[]
   flaws?: string[]

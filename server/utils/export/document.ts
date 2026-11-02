@@ -267,6 +267,11 @@ export function buildProjectDocument(model: ExportModel): ProjectDocument {
       subheading(t(`export.doc.traits.${key}`))
       list(items)
     }
+    const powers = character.hasPowers ? character.powers.filter(power => power.name.trim() || power.description.trim()) : []
+    if (powers.length) {
+      subheading(t('export.doc.powers'))
+      list(powers.map(power => [power.name.trim(), power.description.trim()].filter(Boolean).join(': ')))
+    }
     const relationships = relationLines('character', character.id, { skip: 'membership' })
     if (relationships.length) {
       subheading(t('export.doc.relationships'))

@@ -114,6 +114,25 @@
       "edit": "Edit",
       "actions": "Actions for “{text}”"
     },
+    "powers": {
+      "title": "Powers",
+      "question": "Does this character have powers?",
+      "yes": "Yes",
+      "no": "No",
+      "list": "Powers",
+      "add": "Add a power",
+      "addHelp": "Type the name of the power and press Enter, then describe what it does.",
+      "namePlaceholder": "Name of the power",
+      "nameLabel": "Name of power {n}",
+      "descriptionPlaceholder": "What it does, where it comes from, what it costs",
+      "descriptionLabel": "What “{name}” does",
+      "untitled": "Untitled power",
+      "removed": "Removed: “{name}”",
+      "moved": "“{name}”, position {n} of {total}",
+      "remove": "Remove “{name}”",
+      "actions": "Actions for “{name}”",
+      "kept": "The power written is kept: it comes back if you answer yes. | The {n} powers written are kept: they come back if you answer yes."
+    },
     "groups": {
       "rolePlaceholder": {
         "novel": "Role in the group",
