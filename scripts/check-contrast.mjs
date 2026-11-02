@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Checks the Verified Rule of DESIGN.md against app/assets/css/main.css: every text role at 4.5:1 on
 // bg, bg-muted, bg-elevated and bg-floating in both themes; border-accented and entity colours at 3:1;
-// initials (ink) at 4.5:1 on their tint; inverted text on the primary and its hover. Exit 1 on failure.
+// initials (ink) at 4.5:1 on their tint and on the page (a character's mention while writing); inverted text
+// on the primary and its hover. Exit 1 on failure.
 import { readFileSync } from 'node:fs'
 
 const css = readFileSync(new URL('../app/assets/css/main.css', import.meta.url), 'utf8')
@@ -45,6 +46,7 @@ for (const [theme, v] of [['light', light], ['dark', dark]]) {
   need(theme, 'inverted text on primary hover', v['ui-text-inverted'], v['ui-primary-hover'], 4.5)
   need(theme, 'highlighted text on selection', v['ui-text-highlighted'], v['ui-selection'], 4.5)
   for (const e of ENTITIES) need(theme, `entity-${e} ink on tint`, v[`entity-${e}-ink`], v[`entity-${e}-tint`], 4.5)
+  for (const e of ENTITIES) need(theme, `entity-${e} ink on ui-bg`, v[`entity-${e}-ink`], v['ui-bg'], 4.5)
 }
 console.log(`check-contrast: ${checked} pairs, ${failures.length} failures`)
 for (const f of failures.slice(0, 20)) console.log(`  ✗ ${f}`)

@@ -140,6 +140,13 @@ const fontKey = (event: KeyboardEvent) => onRadioKey(event, fonts.value.map(f =>
         size="sm"
         @update:model-value="(v) => update({ spellcheck: v })"
       />
+      <USwitch
+        :model-value="prefs.nameTags !== false"
+        :label="t('editor.names.setting')"
+        :description="t('editor.names.settingHint')"
+        size="sm"
+        @update:model-value="(v) => update({ nameTags: v })"
+      />
     </div>
 
     <p class="text-xs text-muted">{{ t('editor.typography.savedToAccount') }}</p>

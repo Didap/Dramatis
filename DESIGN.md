@@ -230,7 +230,7 @@ The position line and the speaker labels are the only uppercase in the app. No u
 - **Paragraphs** indented 1.5em with no space between, as in the printed book, flush after a title or a break.
 - **Dialogue in prose** stays prose; the project's punctuation («caporali», “alte”, lineetta) is inserted and closed by the toolbar.
 - **Script lines** (*battute*): speaker in the manuscript face, uppercase, 0.8125em, 600, +0.08em, toned; direction in italic, muted, in parentheses; the line in roman; wrapped lines hang 2em, 0.25em between lines. Line ids in Plex Mono caption size, dimmed, in the right margin on wide screens like line numbers in a critical edition; on a phone they are in the line's details. On a very wide window with the inspector closed, the speaker may hang in the left margin with its entity dot.
-- **Mentions** are plain text with a 1px dotted underline that turns to the accent on hover. Never a pill.
+- **Mentions** are plain text with a 1px dotted underline that turns to the accent on hover. Never a pill. In the editor a character's mention takes the character's ink (`--entity-<key>-ink`, 4.5:1 on the page) and its colour on the underline; the reading view drops the underline too, a printed page. A name that more characters answer to, waiting for a choice, has a dashed underline in muted ink.
 - **Numerals**: tabular figures for every computed count, formatted by locale (1.240, 1,240); proportional in the manuscript.
 
 ## 4. Elevation

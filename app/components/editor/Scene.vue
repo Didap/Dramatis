@@ -728,6 +728,7 @@ const narrow = computed(() => !desktop.value || (mainWidth.value - columnWidth.v
                   :narrow="narrow"
                   :spellcheck="spelling.enabled.value"
                   :spell-checker="spelling.checker.value"
+                  :name-tags="prefs.nameTags !== false"
                   @ready="onReady"
                   @destroy="onDestroy"
                   @change="onChange"

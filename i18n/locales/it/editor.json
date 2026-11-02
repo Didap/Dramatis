@@ -320,6 +320,14 @@
       "addDirection": "Aggiungi un'indicazione",
       "mentions": "Chi o cosa citare"
     },
+    "names": {
+      "who": "Chi è «{name}»?",
+      "none": "Nessuno: lascia il testo",
+      "keys": "Tab sceglie · Esc lascia così",
+      "announce": "«{name}» è il nome di {n} personaggi. Premi Tab per scegliere chi è.",
+      "setting": "Riconosci i personaggi",
+      "settingHint": "Nomi, cognomi e altri nomi diventano menzioni mentre scrivi, senza la chiocciola."
+    },
     "spelling": {
       "title": "Ortografia",
       "menu": "Correzioni per «{word}»",

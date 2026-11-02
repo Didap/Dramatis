@@ -21,6 +21,7 @@ const schema = z
           noteWidth: z.enum(PAGE_WIDTHS).optional(),
           readingJustify: z.boolean().optional(),
           spellcheck: z.boolean().optional(),
+          nameTags: z.boolean().optional(),
         })
         .optional(),
       guidance: z.boolean().optional(),

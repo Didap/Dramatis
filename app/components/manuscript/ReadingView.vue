@@ -213,6 +213,10 @@ const nextLabel = computed(() => {
   font-size: var(--reading-size, 1rem);
   max-width: var(--reading-width, 40rem);
 }
+/* A printed page: the tags of the writing (underline, the characters' colours) stay in the editor. */
+.manuscript-reading .mention {
+  text-decoration: none;
+}
 /* Justified and hyphenated in the work's language, as in a printed book; dialogue lines keep their hang. */
 .manuscript-reading[data-justify] .manuscript-prose p:not(.prose-line, .prose-break) {
   text-align: justify;

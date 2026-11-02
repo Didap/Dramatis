@@ -320,6 +320,14 @@
       "addDirection": "Add a direction",
       "mentions": "Who or what to mention"
     },
+    "names": {
+      "who": "Who is “{name}”?",
+      "none": "No one: keep the text",
+      "keys": "Tab chooses · Esc leaves it",
+      "announce": "{n} characters are called “{name}”. Press Tab to choose who it is.",
+      "setting": "Recognise characters",
+      "settingHint": "First names, surnames and other names become mentions as you write, without the at sign."
+    },
     "spelling": {
       "title": "Spelling",
       "menu": "Corrections for “{word}”",

@@ -257,6 +257,8 @@ export interface EditorPreferences {
   readingJustify?: boolean
   /** Spell check in the editor, in the work's language when there is a dictionary for it. Default true. */
   spellcheck?: boolean
+  /** Characters' names (first name, surname, other names) become mentions as they are typed, without the @. Default true. */
+  nameTags?: boolean
 }
 
 export interface UserPreferences {

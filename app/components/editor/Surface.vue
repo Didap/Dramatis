@@ -297,18 +297,23 @@ const TabOut = Extension.create({
 
 const mentionStateKey = new PluginKey<DecorationSet>('sceneMentionState')
 
-/** Mentions of an entity that is gone (trashed, or from another project) read as plain text. */
-const MentionState = Extension.create<{ nameOf: (refId: string) => string | null }>({
+/**
+ * Mentions of an entity that is gone (trashed, or from another project) read as plain text; while
+ * writing, a character's mention takes the character's colour (the reading view keeps the page plain).
+ */
+const MentionState = Extension.create<{ nameOf: (refId: string) => string | null, inkOf: (refId: string) => string | null }>({
   name: 'mentionState',
-  addOptions: () => ({ nameOf: () => null }),
+  addOptions: () => ({ nameOf: () => null, inkOf: () => null }),
   addProseMirrorPlugins() {
-    const nameOf = this.options.nameOf
+    const { nameOf, inkOf } = this.options
     const build = (doc: PMNode) => {
       const decorations: Decoration[] = []
       doc.descendants((node, pos) => {
-        if (node.type.name === 'mention' && nameOf(String(node.attrs.id ?? '')) === null) {
-          decorations.push(Decoration.node(pos, pos + node.nodeSize, { class: 'is-missing' }))
-        }
+        if (node.type.name !== 'mention') return
+        const id = String(node.attrs.id ?? '')
+        if (nameOf(id) === null) return void decorations.push(Decoration.node(pos, pos + node.nodeSize, { class: 'is-missing' }))
+        const ink = inkOf(id)
+        if (ink) decorations.push(Decoration.node(pos, pos + node.nodeSize, { class: 'has-ink', style: `--mention-ink: var(--entity-${ink}); --mention-ink-text: var(--entity-${ink}-ink)` }))
       })
       return DecorationSet.create(doc, decorations)
     }
@@ -532,6 +537,8 @@ const props = defineProps<{
   touch: boolean
   /** No room in the margin for line ids. */
   narrow: boolean
+  /** Characters' names become mentions as they are typed, without the @. */
+  nameTags: boolean
 }>()
 
 const emit = defineEmits<{
@@ -556,13 +563,19 @@ function nameOf(refId: string): string | null {
   return item ? (item.name ?? item.title ?? '') : null
 }
 
+/** The colour of a mentioned character, or null (another kind of entity, or no colour). */
+function inkOf(refId: string): string | null {
+  const ref = parseMentionId(refId)
+  return ref?.type === 'character' ? store.get('characters', ref.id)?.color || null : null
+}
+
 const extensions = [
   SmartTypography.configure({ settings: () => ({ enabled: props.smartTypography, style: props.quoteStyle }) }),
   TextAlign,
   ManuscriptBreak,
   ScriptLine,
   SceneMention,
-  MentionState.configure({ nameOf }),
+  MentionState.configure({ nameOf, inkOf }),
   PasteCleanup.configure({ isLive: refId => nameOf(refId) !== null }),
   WritingFocus.configure({ settings: () => ({ paragraph: props.focusParagraph, typewriter: props.typewriter }) }),
   FindReplace,
@@ -691,9 +704,9 @@ onBeforeUnmount(() => {
   emit('destroy')
 })
 
-/** Renames, trash and restores elsewhere show at once in the text. */
+/** Renames, colours, trash and restores elsewhere show at once in the text. */
 const names = computed(() => [store.rows.characters, store.rows.locations, store.rows.objects, store.rows.groups, store.rows.codexEntries]
-  .map(list => (list as { id: string, name?: string, title?: string }[]).map(e => `${e.id}:${e.name ?? e.title}`).join('|'))
+  .map(list => (list as { id: string, name?: string, title?: string, color?: string }[]).map(e => `${e.id}:${e.name ?? e.title}:${e.color ?? ''}`).join('|'))
   .join('/'))
 watch(names, () => {
   if (editor) syncNames(editor, nameOf)
@@ -812,6 +825,7 @@ function openEntity(ref: EntityRef) {
         :ui="{ content: 'bg-(--ui-bg-floating) shadow-(--shadow-floating) rounded-[6px]' }"
       />
       <EditorMentionMenu :editor="instance" @open-entity="openEntity" />
+      <EditorNameTags v-if="nameTags && editable" :editor="instance" />
     </UEditor>
 
     <EditorMentionCard
@@ -855,8 +869,25 @@ function openEntity(ref: EntityRef) {
   color: var(--ui-text-dimmed);
 }
 .d-surface--focus-paragraph .tiptap > :not(.is-current) .d-line__speaker,
-.d-surface--focus-paragraph .tiptap > :not(.is-current) .d-line__direction {
+.d-surface--focus-paragraph .tiptap > :not(.is-current) .d-line__direction,
+.d-surface--focus-paragraph .tiptap > :not(.is-current) .mention.has-ink {
   color: var(--ui-text-dimmed);
+}
+/* While writing, a character's mention is in the character's ink, its underline in its colour (VRS-577);
+   the reading view and the exports keep the page plain. */
+.d-surface .mention.has-ink {
+  color: var(--mention-ink-text);
+  text-decoration-color: var(--mention-ink);
+}
+.d-surface .mention.has-ink:hover {
+  text-decoration-color: var(--ui-primary);
+}
+/* A name more characters answer to, waiting for the author to say who it is (a click or Tab asks). */
+.d-surface .d-name-undecided {
+  text-decoration: underline dashed var(--ui-text-muted);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  cursor: pointer;
 }
 .d-surface .ProseMirror-selectednode.scene-break,
 .d-surface hr.scene-break.ProseMirror-selectednode {
