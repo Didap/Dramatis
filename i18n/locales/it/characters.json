@@ -52,6 +52,8 @@
       "duplicate": "Esiste già un personaggio di nome {name}."
     },
     "sheet": {
+      "hideList": "Nascondi l’elenco dei personaggi",
+      "showList": "Mostra l’elenco dei personaggi",
       "name": "Nome",
       "duplicate": "C'è un altro personaggio di nome {name}.",
       "tagline": "In una riga",

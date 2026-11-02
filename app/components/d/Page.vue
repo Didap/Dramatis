@@ -33,6 +33,7 @@ const widthClass = computed(() => ({
 <template>
   <div class="d-page flex min-h-full shrink-0 flex-col">
     <header class="sticky top-0 z-20 flex h-14 shrink-0 items-center gap-2 border-b border-default/60 bg-default/95 px-2 backdrop-blur-none sm:px-4 lg:px-6">
+      <slot name="leading" />
       <UButton
         v-if="back"
         :to="back"

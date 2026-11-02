@@ -52,6 +52,8 @@
       "duplicate": "There is already a character called {name}."
     },
     "sheet": {
+      "hideList": "Hide the list of characters",
+      "showList": "Show the list of characters",
       "name": "Name",
       "duplicate": "Another character is called {name}.",
       "tagline": "In one line",

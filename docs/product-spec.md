@@ -155,7 +155,7 @@ The route language is English and fixed. Panels, tabs and slideovers that the us
 
 ### 1.6 Layout rules
 
-- Entity sections (characters, groups, locations, objects, strands, notes, codex) use list and detail. From `xl`, the list stays on the left while `/[id]` is open on the right (the Nuxt UI inbox pattern). Below `xl`, the list and the detail are separate pages.
+- Entity sections (characters, groups, locations, objects, strands, notes, codex) use list and detail. From `xl`, the list stays on the left while `/[id]` is open on the right (the Nuxt UI inbox pattern). Below `xl`, the list and the detail are separate pages. On a character, a button at the start of the sheet's bar folds the list away towards the sidebar and the sheet widens; it stays folded on that device until opened again.
 - The scene editor is a single centred column; details, revisions and find open in a right-hand panel (desktop) or a bottom drawer (phone). The editor never shares the screen with the outline below `xl`.
 - Dialogs are reserved for confirmations that destroy or replace something, and for project creation. Editing happens in place, in slideovers or on pages.
 - Every list that has an order supports drag and drop plus `Alt+Up/Down` and a "Sposta" menu.

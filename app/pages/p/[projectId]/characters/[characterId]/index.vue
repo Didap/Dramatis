@@ -1,10 +1,17 @@
 <script setup lang="ts">
-/** The page of a character (spec 4.4): the sheet, with the way back and the trash. */
+import { useCharacterListFolded } from '~/components/characters/listPanel'
+
+/**
+ * The page of a character (spec 4.4): the sheet, with the way back and the trash. From xl, beside the
+ * list, a button folds the list away and the sheet widens.
+ */
 const route = useRoute()
 const store = useProjectStore()
 const { t } = useI18n()
 const { term } = useTerms()
 const wide = useMediaQuery('(min-width: 1280px)')
+const folded = useCharacterListFolded()
+const foldLabel = computed(() => t(folded.value ? 'characters.sheet.showList' : 'characters.sheet.hideList'))
 
 const character = computed(() => store.get('characters', String(route.params.characterId)))
 const listPath = computed(() => `/p/${store.projectId}/characters`)
@@ -28,8 +35,22 @@ async function trash() {
     :title="character.name"
     :back="wide ? undefined : listPath"
     :back-label="wide ? undefined : term('characters')"
-    width="prose"
+    :width="wide && folded ? 'default' : 'prose'"
   >
+    <template v-if="wide" #leading>
+      <UTooltip :text="foldLabel">
+        <UButton
+          :icon="folded ? 'i-lucide-panel-left-open' : 'i-lucide-panel-left-close'"
+          color="neutral"
+          variant="ghost"
+          class="-ms-1"
+          :aria-label="foldLabel"
+          :aria-expanded="!folded"
+          aria-controls="characters-list"
+          @click="folded = !folded"
+        />
+      </UTooltip>
+    </template>
     <template #actions>
       <UTooltip :text="t('characters.sheet.menu')">
         <UDropdownMenu :items="menu" :content="{ align: 'end' }">
