@@ -233,12 +233,6 @@
       "nextChapter": "Continua a leggere: {title}",
       "empty": "Questo capitolo non ha ancora scene da leggere.",
       "typography": "Aspetto della pagina",
-      "widthLabel": "Larghezza della pagina",
-      "width": {
-        "book": "Libro",
-        "wide": "Ampia",
-        "full": "Tutta"
-      },
       "justify": "Giustificato",
       "justifyHint": "Righe allineate ai due margini e parole divise in sillabe, come in un libro stampato."
     },

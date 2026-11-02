@@ -45,13 +45,6 @@
       "sizeValue": "{n} pixel",
       "lineHeight": "Interlinea",
       "lineHeightValue": "{n} volte la dimensione",
-      "width": "Larghezza della riga",
-      "widths": {
-        "narrow": "Stretta",
-        "medium": "Media",
-        "wide": "Larga"
-      },
-      "widthHelp": "circa {n} caratteri",
       "preview": "Anteprima",
       "sampleLang": "it",
       "sample": "Il treno delle diciotto e dodici rallentò sul ponte, e per un momento il fiume si fece d'oro. Elena chiuse il taccuino sulle ginocchia: la scena era lì, intera, e non voleva perderla prima di arrivare a casa."

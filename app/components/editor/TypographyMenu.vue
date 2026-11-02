@@ -4,7 +4,7 @@ import { spellLanguage } from '~/utils/spelling'
 
 /**
  * "Aa": the typography of the manuscript (spec 7.1), saved to the account so it follows the author on
- * every device: the face, the size, the line height, the line width; paragraph focus and typewriter
+ * every device: the face, the size, the line height, the width of the page; paragraph focus and typewriter
  * scrolling for focus mode; the spell check.
  */
 const props = defineProps<{
@@ -33,13 +33,11 @@ const spellLanguageName = computed(() => {
 const font = computed(() => prefs.value.font ?? 'serif')
 const size = computed(() => prefs.value.size ?? props.defaultSize)
 const lineHeight = computed(() => prefs.value.lineHeight ?? props.defaultLineHeight)
-const width = computed(() => prefs.value.width ?? 'medium')
 
 const fonts = computed(() => [
   { value: 'serif', label: t('editor.typography.serif'), class: 'font-serif' },
   { value: 'sans', label: t('editor.typography.sans'), class: 'font-readable' },
 ] as const)
-const widths = computed(() => (['narrow', 'medium', 'wide'] as const).map(value => ({ value, label: t(`editor.typography.width.${value}`) })))
 
 function update(patch: Partial<EditorPreferences>) {
   set(patch)
@@ -59,7 +57,6 @@ function onRadioKey<V extends string>(event: KeyboardEvent, values: readonly V[]
   nextTick(() => group?.querySelector<HTMLElement>(`[data-value="${next}"]`)?.focus())
 }
 const fontKey = (event: KeyboardEvent) => onRadioKey(event, fonts.value.map(f => f.value), font.value, value => update({ font: value }))
-const widthKey = (event: KeyboardEvent) => onRadioKey(event, widths.value.map(w => w.value), width.value, value => update({ width: value }))
 </script>
 
 <template>
@@ -118,26 +115,7 @@ const widthKey = (event: KeyboardEvent) => onRadioKey(event, widths.value.map(w 
       />
     </div>
 
-    <fieldset>
-      <legend class="mb-1.5 text-sm font-medium text-default">{{ t('editor.typography.widthLabel') }}</legend>
-      <div class="grid grid-cols-3 gap-1.5" role="radiogroup" :aria-label="t('editor.typography.widthLabel')">
-        <button
-          v-for="option in widths"
-          :key="option.value"
-          type="button"
-          role="radio"
-          :aria-checked="width === option.value"
-          :tabindex="width === option.value ? 0 : -1"
-          :data-value="option.value"
-          class="rounded-[calc(var(--ui-radius)*1.5)] px-2 py-1.5 text-xs ring-1 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-(--ui-primary)"
-          :class="width === option.value ? 'bg-elevated text-highlighted ring-(--ui-primary)' : 'text-default ring-(--ui-border-accented) hover:bg-elevated/60'"
-          @click="update({ width: option.value })"
-          @keydown="widthKey"
-        >
-          {{ option.label }}
-        </button>
-      </div>
-    </fieldset>
+    <DPageWidth :model-value="prefs.width" @update:model-value="(v) => update({ width: v })" />
 
     <div class="space-y-3 border-t border-default pt-4">
       <USwitch

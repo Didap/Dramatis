@@ -2,6 +2,7 @@ import type {
   DURATION_UNITS,
   EXPORT_WHATS,
   IMAGE_OWNER_TYPES,
+  PAGE_WIDTHS,
   SNAPSHOT_REASONS,
   CHARACTER_IMPORTANCES,
   CHARACTER_ROLES,
@@ -34,6 +35,7 @@ export type StrandKind = (typeof STRAND_KINDS)[number]
 export type RelationKind = (typeof RELATION_KINDS)[number]
 export type GroupKind = (typeof GROUP_KINDS)[number]
 export type RaceDescription = (typeof RACE_DESCRIPTIONS)[number]
+export type PageWidth = (typeof PAGE_WIDTHS)[number]
 
 /** A branch of a race (elfi dei boschi, elfi del mare): a name and a description. */
 export interface Subrace {
@@ -234,14 +236,16 @@ export interface EditorPreferences {
   size?: number
   /** 1.4 to 2.0 (default 1.6). */
   lineHeight?: number
-  /** narrow 60ch, medium 70ch (default), wide 80ch. */
-  width?: 'narrow' | 'medium' | 'wide'
+  /** Width of the writing page, apart from the size (book by default; the old narrow and medium read as book). */
+  width?: PageWidth
   typewriter?: boolean
   focusParagraph?: boolean
   /** The chapter's reading view: font size in px, 13 to 22 (default 16 on a desktop, 17 on a phone). */
   readingSize?: number
-  /** Width of the reading page: book 40rem (default), wide 50rem, full the whole page. */
-  readingWidth?: 'book' | 'wide' | 'full'
+  /** Width of the reading page (book by default). */
+  readingWidth?: PageWidth
+  /** Width of a note's page (book by default). */
+  noteWidth?: PageWidth
   /** Justified lines with hyphenation, as in a printed book. Default true. */
   readingJustify?: boolean
   /** Spell check in the editor, in the work's language when there is a dictionary for it. Default true. */

@@ -45,13 +45,6 @@
       "sizeValue": "{n} pixels",
       "lineHeight": "Line height",
       "lineHeightValue": "{n} times the size",
-      "width": "Line width",
-      "widths": {
-        "narrow": "Narrow",
-        "medium": "Medium",
-        "wide": "Wide"
-      },
-      "widthHelp": "about {n} characters",
       "preview": "Preview",
       "sampleLang": "en",
       "sample": "The six-twelve train slowed on the bridge, and for a moment the river turned to gold. Elena closed the notebook on her knees: the scene was there, whole, and she did not want to lose it before she got home."

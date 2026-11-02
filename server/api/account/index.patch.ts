@@ -1,5 +1,6 @@
 import { eq } from 'drizzle-orm'
 import { z } from 'zod'
+import { PAGE_WIDTHS } from '#shared/utils/constants'
 
 const schema = z
   .object({
@@ -12,11 +13,12 @@ const schema = z
           font: z.enum(['serif', 'sans']).optional(),
           size: z.number().int().min(14).max(24).optional(),
           lineHeight: z.number().min(1.4).max(2).optional(),
-          width: z.enum(['narrow', 'medium', 'wide']).optional(),
+          width: z.enum(PAGE_WIDTHS).optional(),
           typewriter: z.boolean().optional(),
           focusParagraph: z.boolean().optional(),
           readingSize: z.number().int().min(13).max(22).optional(),
-          readingWidth: z.enum(['book', 'wide', 'full']).optional(),
+          readingWidth: z.enum(PAGE_WIDTHS).optional(),
+          noteWidth: z.enum(PAGE_WIDTHS).optional(),
           readingJustify: z.boolean().optional(),
           spellcheck: z.boolean().optional(),
         })

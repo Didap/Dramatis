@@ -127,6 +127,12 @@
       "minutes": "{n} minuto | {n} minuti",
       "days": "{n} giorno | {n} giorni"
     },
+    "pageWidth": {
+      "label": "Larghezza della pagina",
+      "book": "Libro",
+      "wide": "Ampia",
+      "full": "Tutta"
+    },
     "theme": {
       "label": "Tema",
       "light": "Chiaro",

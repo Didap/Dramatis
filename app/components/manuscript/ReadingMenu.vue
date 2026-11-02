@@ -17,10 +17,7 @@ const { number } = useFormat()
 const { prefs, set } = useEditorTypography()
 
 const size = computed(() => prefs.value.readingSize ?? props.defaultSize)
-const width = computed(() => prefs.value.readingWidth ?? 'book')
 const justify = computed(() => prefs.value.readingJustify !== false)
-
-const widths = computed(() => (['book', 'wide', 'full'] as const).map(value => ({ value, label: t(`manuscript.reading.width.${value}`) })))
 
 function update(patch: Partial<EditorPreferences>) {
   set(patch)
@@ -44,17 +41,7 @@ function update(patch: Partial<EditorPreferences>) {
         @update:model-value="(v) => update({ readingSize: Number(v) })"
       />
     </div>
-    <URadioGroup
-      :model-value="width"
-      :legend="t('manuscript.reading.widthLabel')"
-      :items="widths"
-      value-key="value"
-      variant="table"
-      orientation="horizontal"
-      class="max-sm:hidden"
-      :ui="{ legend: 'mb-1.5 text-sm font-medium text-default', fieldset: 'gap-0', item: 'flex-1 basis-0 p-2 first-of-type:rounded-s-[calc(var(--ui-radius)*1.5)] last-of-type:rounded-e-[calc(var(--ui-radius)*1.5)]', label: 'text-xs' }"
-      @update:model-value="(v) => update({ readingWidth: v as EditorPreferences['readingWidth'] })"
-    />
+    <DPageWidth :model-value="prefs.readingWidth" @update:model-value="(v) => update({ readingWidth: v })" />
     <USwitch
       :model-value="justify"
       :label="t('manuscript.reading.justify')"

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Scene, SceneContent } from '#shared/types/entities'
 import { useManuscriptStructure } from './Structure.vue'
+import { pageWidthLength } from '~/utils/page-width'
 
 /**
  * The reading view of a chapter (spec 4.5, `?view=read`): the active text of every scene in order,
@@ -50,7 +51,6 @@ onMounted(() => { void loadTypography() })
 
 const wide = useMediaQuery('(min-width: 640px)')
 const defaultSize = computed(() => (wide.value ? 16 : 17))
-const WIDTH = { book: '40rem', wide: '50rem', full: 'none' } as const
 const style = computed(() => {
   const prefs = typography.value
   const sans = prefs.font === 'sans'
@@ -58,7 +58,7 @@ const style = computed(() => {
     ...(prefs.font ? { '--manuscript-font': sans ? 'var(--font-readable)' : 'var(--font-serif)' } : {}),
     ...(prefs.lineHeight ? { '--manuscript-leading': String(prefs.lineHeight) } : {}),
     '--reading-size': `${(prefs.readingSize ?? defaultSize.value) / 16}rem`,
-    '--reading-width': WIDTH[prefs.readingWidth ?? 'book'] ?? WIDTH.book,
+    '--reading-width': pageWidthLength(prefs.readingWidth),
   }
 })
 const justify = computed(() => typography.value.readingJustify !== false)

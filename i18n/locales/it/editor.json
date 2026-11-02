@@ -275,12 +275,6 @@
       "size": "Dimensione",
       "px": "{n} px",
       "lineHeight": "Interlinea",
-      "widthLabel": "Larghezza della riga",
-      "width": {
-        "narrow": "Stretta",
-        "medium": "Media",
-        "wide": "Larga"
-      },
       "focusParagraph": "Evidenzia il paragrafo",
       "focusParagraphHint": "In concentrazione, gli altri paragrafi si attenuano.",
       "typewriter": "Scrittura a macchina",

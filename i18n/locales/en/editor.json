@@ -275,12 +275,6 @@
       "size": "Size",
       "px": "{n} px",
       "lineHeight": "Line height",
-      "widthLabel": "Line width",
-      "width": {
-        "narrow": "Narrow",
-        "medium": "Medium",
-        "wide": "Wide"
-      },
       "focusParagraph": "Highlight the paragraph",
       "focusParagraphHint": "In focus mode, the other paragraphs fade.",
       "typewriter": "Typewriter scrolling",

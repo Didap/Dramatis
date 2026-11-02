@@ -3,11 +3,13 @@ import type { Editor } from '@tiptap/core'
 import type { RichDoc } from '#shared/types/domain'
 import type { UpdateInput } from '#shared/types/entities'
 import { docWordCount, isEmptyDoc } from '#shared/utils/richtext'
+import { pageWidthLength } from '~/utils/page-width'
 
 /**
  * A note (spec 4.3): a title and a text with mentions, written in the author's face. A new note opens
  * with the title ready (the phone keyboard up); Enter goes on to the text. A new note left empty is
- * not kept. Conflict copies saved by the server are ordinary notes.
+ * not kept. Conflict copies saved by the server are ordinary notes. The width of the page (book, wide,
+ * full) is the author's, saved to the account like the editor's and the reading view's.
  */
 const route = useRoute()
 const router = useRouter()
@@ -21,6 +23,10 @@ const note = computed(() => store.get('notes', id))
 const list = computed(() => `/p/${store.projectId}/notes`)
 const editedAt = computed(() => (typeof note.value?.meta?.editedAt === 'string' ? note.value.meta.editedAt : note.value?.createdAt ?? ''))
 const count = computed(() => docWordCount(note.value?.content))
+
+const { prefs: typography, load: loadTypography, set: setTypography } = useEditorTypography()
+onMounted(() => { void loadTypography() })
+const pageWidth = computed(() => ({ book: 'prose', wide: 'default', full: 'full' } as const)[typography.value.noteWidth ?? 'book'])
 
 const fresh = route.query.new === '1'
 const titleField = ref<{ $el: HTMLElement } | null>(null)
@@ -73,8 +79,18 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <DPage v-if="note" :title="note.title.trim() || t('common.untitled.note')" :back="list" :back-label="term('notes')" width="prose">
+  <DPage v-if="note" :title="note.title.trim() || t('common.untitled.note')" :back="list" :back-label="term('notes')" :width="pageWidth">
     <template #actions>
+      <UPopover :content="{ align: 'end', sideOffset: 6 }">
+        <UTooltip :text="t('common.pageWidth.label')">
+          <UButton icon="i-lucide-move-horizontal" color="neutral" variant="ghost" :aria-label="t('common.pageWidth.label')" class="max-sm:hidden max-lg:size-11 max-lg:justify-center" />
+        </UTooltip>
+        <template #content>
+          <div class="w-72 p-4">
+            <DPageWidth :model-value="typography.noteWidth" @update:model-value="(v) => setTypography({ noteWidth: v })" />
+          </div>
+        </template>
+      </UPopover>
       <UTooltip :text="note.pinned ? t('notes.unpin') : t('notes.pin')">
         <UButton
           :icon="note.pinned ? 'i-lucide-pin-off' : 'i-lucide-pin'"
@@ -113,7 +129,7 @@ onBeforeUnmount(() => {
       </p>
     </header>
 
-    <div ref="body">
+    <div ref="body" :style="{ '--long-text-width': pageWidthLength(typography.noteWidth) }">
       <ArchitectureLongText
         :model-value="note.content"
         :placeholder="t('notes.bodyPlaceholder')"

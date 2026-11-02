@@ -8,6 +8,7 @@ import { applyLineIds, centerCaret, scrollParent } from './Surface.vue'
 import type { EditorPanel } from './TopBar.vue'
 import type { PreviewRequest } from './RevisionsPanel.vue'
 import { spellState, type SpellError } from '~/utils/spelling'
+import { pageWidthLength } from '~/utils/page-width'
 
 /**
  * The scene editor (spec 4.5, DESIGN.md "Scene editor"): the page is the canvas. A top bar and a slim
@@ -51,10 +52,9 @@ const defaultSize = computed(() => (desktop.value ? 19 : 18))
 const defaultLineHeight = computed(() => Math.round(((sans.value ? 1.55 : 1.6) - (desktop.value ? 0 : 0.05)) * 100) / 100)
 const manuscriptStyle = computed(() => ({
   '--manuscript-font': sans.value ? 'var(--font-readable)' : 'var(--font-serif)',
-  '--manuscript-avg-char': sans.value ? '0.433em' : '0.462em',
   '--manuscript-size': `${(prefs.value.size ?? defaultSize.value) / 16}rem`,
   '--manuscript-leading': String(prefs.value.lineHeight ?? defaultLineHeight.value),
-  '--manuscript-measure': String({ narrow: 60, medium: 70, wide: 80 }[prefs.value.width ?? 'medium']),
+  '--page-width': pageWidthLength(prefs.value.width),
   // A break looks as the reading view and the exports print it (Settings, Writing).
   ...(settings.value.sceneSeparator?.trim() ? { '--scene-break': JSON.stringify(settings.value.sceneSeparator.trim()) } : {}),
 }))
@@ -931,11 +931,11 @@ const narrow = computed(() => !desktop.value || (mainWidth.value - columnWidth.v
 </template>
 
 <style>
-/* The manuscript column: the measure in real characters at the manuscript size (DESIGN.md "The
-   manuscript"), plus the gutters. */
+/* The manuscript column: the page the author chose (book, wide, full), apart from the size of the type
+   (DESIGN.md "The manuscript"), plus the gutters. */
 .d-column {
   font-size: var(--manuscript-size);
-  max-width: calc(var(--manuscript-measure) * var(--manuscript-avg-char) + 3rem);
+  max-width: calc(var(--page-width, 40rem) + 3rem);
 }
 
 /* Focus mode: the page alone, above the sidebar. */

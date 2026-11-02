@@ -398,7 +398,7 @@ Each screen: the primary task, key content, key actions, the empty state (what i
 
 **Account** (`/account`)
 - Task: change who you are and how the app behaves for you.
-- Content: profile (name, email), password, language, theme (light, dark, system), timezone, editor defaults (serif or sans, size, line height, line width), "Guida nei nuovi progetti", backup of all projects (P1), delete account.
+- Content: profile (name, email), password, language, theme (light, dark, system), timezone, editor defaults (serif or sans, size, line height, page width), "Guida nei nuovi progetti", backup of all projects (P1), delete account.
 - Actions: save per section; delete account requires typing the email and offers the backup first.
 - Phone: one column, sections as anchors at the top.
 
@@ -864,7 +864,7 @@ Product requirements, not a schema: what each entity must hold and link to. Engi
 - **Colours** come from a named palette shared by strands, groups and relationship kinds: `brick` (Mattone, Brick), `amber` (Ambra, Amber), `ochre` (Ocra, Ochre), `olive` (Oliva, Olive), `green` (Verde, Green), `teal` (Verde acqua, Teal), `blue` (Blu, Blue), `indigo` (Indaco, Indigo), `plum` (Prugna, Plum), `slate` (Ardesia, Slate). Design sets the shades for both themes at 3:1 against the background.
 
 ### 7.1 Account
-Email (unique, case-insensitive); password (hashed); name; UI language (`it`, `en`); theme (`light`, `dark`, `system`); timezone (IANA, from the browser at sign-up); editor typography (font `serif` or `sans`; size 14 to 24 px, default 18; line height 1.4 to 2.0, default 1.6; line width narrow 60ch, medium 70ch default, wide 80ch); guidance default (yes); last opened project.
+Email (unique, case-insensitive); password (hashed); name; UI language (`it`, `en`); theme (`light`, `dark`, `system`); timezone (IANA, from the browser at sign-up); editor typography (font `serif` or `sans`; size 14 to 24 px, default 18; line height 1.4 to 2.0, default 1.6; page width book 40rem default, wide 50rem, full; the reading view and notes keep their own width with the same three choices); guidance default (yes); last opened project.
 
 ### 7.2 Project
 Owner; title; subtitle; author name for exports; type (`novel`, `game`); enabled modules (subset of the six keys); manuscript language (BCP 47, default the UI language); dialogue punctuation (`guillemets`, `double_quotes`, `dash`); smart typography (yes); uses parts (no for novels, yes for games); guidance shown; start scene (with `branching`); IFID (a UUID generated once, used by the Twee export); premise, fabula and setting, each a rich text with planning status; goals (total words, daily words, deadline date, each optional); next scene code number; last opened time; deleted time (deleted projects stay restorable until deleted forever).

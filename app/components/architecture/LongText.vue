@@ -65,8 +65,9 @@ watch(() => props.ariaLabel, () => labelEditable())
 </template>
 
 <style scoped>
+/* The measure in characters, unless the page sets its own width (a note: book, wide, full). */
 .d-long-text {
-  max-width: calc(var(--manuscript-measure) * var(--manuscript-avg-char));
+  max-width: var(--long-text-width, calc(var(--manuscript-measure) * var(--manuscript-avg-char)));
 }
 .d-long-text :deep(.tiptap) {
   padding-inline: 0;

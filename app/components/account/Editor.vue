@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import type { EditorPreferences } from '#shared/types/domain'
+import { pageWidthLength } from '~/utils/page-width'
 
 /**
- * The defaults of the writing surface (spec 7.1): typeface, size, line height and line width,
+ * The defaults of the writing surface (spec 7.1): typeface, size, line height and page width,
  * with a passage set exactly as the editor will set it. The "Aa" menu of the editor changes the same
  * preferences.
  */
@@ -15,7 +16,6 @@ const { number } = useFormat()
 const font = computed(() => props.modelValue.font ?? 'serif')
 const size = computed(() => props.modelValue.size ?? 18)
 const lineHeight = computed(() => props.modelValue.lineHeight ?? 1.6)
-const width = computed(() => props.modelValue.width ?? 'medium')
 
 const set = (patch: EditorPreferences) => emit('update:modelValue', { ...props.modelValue, ...patch })
 
@@ -23,21 +23,14 @@ const fonts = computed(() => [
   { value: 'serif', label: t('account.editor.serif'), description: t('account.editor.serifHelp') },
   { value: 'sans', label: t('account.editor.sans'), description: t('account.editor.sansHelp') },
 ])
-const widths = computed(() => (['narrow', 'medium', 'wide'] as const).map(value => ({
-  value,
-  label: t(`account.editor.widths.${value}`),
-  description: t('account.editor.widthHelp', { n: { narrow: 60, medium: 70, wide: 80 }[value] }),
-})))
-
-const MEASURE = { narrow: 60, medium: 70, wide: 80 } as const
 const preview = computed<Record<string, string>>(() => ({
   fontFamily: font.value === 'sans' ? 'var(--font-readable)' : 'var(--font-serif)',
   fontWeight: 'var(--manuscript-weight)',
   fontOpticalSizing: 'auto',
   fontSize: `${size.value}px`,
   lineHeight: String(lineHeight.value),
-  // The measure in real characters (DESIGN.md "The manuscript").
-  maxWidth: `calc(${MEASURE[width.value]} * ${font.value === 'sans' ? 0.433 : 0.462}em)`,
+  // The page the author chose, apart from the size of the type (DESIGN.md "The manuscript").
+  maxWidth: pageWidthLength(props.modelValue.width),
 }))
 </script>
 
@@ -76,14 +69,7 @@ const preview = computed<Record<string, string>>(() => ({
       </UFormField>
     </div>
 
-    <URadioGroup
-      :model-value="width"
-      :items="widths"
-      :legend="t('account.editor.width')"
-      orientation="horizontal"
-      :ui="{ legend: 'text-sm font-medium text-default mb-2', fieldset: 'flex-wrap gap-x-6 gap-y-2' }"
-      @update:model-value="(value) => set({ width: value as EditorPreferences['width'] })"
-    />
+    <DPageWidth :model-value="modelValue.width" @update:model-value="(value) => set({ width: value })" />
 
     <figure class="rounded-[calc(var(--ui-radius)*2)] border border-default px-5 py-6 sm:px-8">
       <figcaption class="mb-3 text-xs font-medium text-muted">{{ t('account.editor.preview') }}</figcaption>
