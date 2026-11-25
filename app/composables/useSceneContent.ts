@@ -292,7 +292,7 @@ export function useSceneContent(sceneId: string) {
   const recovered = ref(false)
   /** Words of the active revision as the server last counted them. */
   const savedWords = ref(0)
-  /** Words written by this visit's saves (positive deltas, as the server counts them). */
+  /** Net words of this visit's saves (written minus removed, as the server counts them). */
   const writtenHere = ref(0)
 
   const now = ref(Date.now())
@@ -503,8 +503,9 @@ export function useSceneContent(sceneId: string) {
     // Kept on this device while it travels. Nothing is awaited before the request leaves: a closing page has no time.
     void pendingTexts.put(entry(doc, startedAt))
     try {
-      const answer = await send({ content: doc, ...basis, ...(bulkNext ? { snapshot: 'before_bulk' } : {}) }, !!options.keepalive)
-      return settle(answer, doc, sentGeneration, startedAt)
+      const bulk = bulkNext
+      const answer = await send({ content: doc, ...basis, ...(bulk ? { snapshot: 'before_bulk' } : {}) }, !!options.keepalive)
+      return settle(answer, doc, sentGeneration, startedAt, bulk)
     }
     catch (error) {
       const info = errorStatus(error) === 409 ? conflictOf(error) : null
@@ -523,11 +524,12 @@ export function useSceneContent(sceneId: string) {
   }
 
   /** A save arrived: counts, tags and line ids follow; text written meanwhile goes next, on the new version. */
-  function settle(answer: SavedAnswer, doc: RichDoc, sentGeneration: number, startedAt: number): boolean {
+  function settle(answer: SavedAnswer, doc: RichDoc, sentGeneration: number, startedAt: number, bulk = false): boolean {
     revisionId.value = answer.revisionId
     version.value = answer.version
     savedAt.value = answer.updatedAt
-    if (answer.wordCount > savedWords.value) writtenHere.value += answer.wordCount - savedWords.value
+    // A replace all is not writing: the server leaves it out of the day too.
+    if (!bulk) writtenHere.value += answer.wordCount - savedWords.value
     savedWords.value = answer.wordCount
     store.patchLocal('scenes', sceneId, savedFields(answer.scene))
     if (answer.content) applyLineIds?.(doc, answer.content)

@@ -108,7 +108,8 @@ export default defineEventHandler(async (event) => {
       .where(eq(tables.scenes.id, scene.id))
       .returning()
 
-    await logWords(project.id, dayIn(user.timezone, now), measured.wordCount - scene.wordCount, tx)
+    // A replace all is not writing: it neither adds to the day nor takes from it (spec 7.23).
+    if (body.snapshot !== 'before_bulk') await logWords(project.id, dayIn(user.timezone, now), measured.wordCount - scene.wordCount, tx)
     await touchProject(project.id, tx)
 
     return {

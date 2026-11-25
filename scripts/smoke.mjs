@@ -142,9 +142,13 @@ try {
   step('purged variable left the choice', cleaned && cleaned.conditions.clauses.length === 0 && cleaned.effects.length === 0)
 
   expect('reorder scenes', await api('POST', `/api/projects/${pid}/reorder`, { collection: 'scenes', ids: [scene2.data.id, scene.data.id], chapterId: chapter.data.id }), 200)
+  const current = await api('GET', `/api/projects/${pid}/scenes/${scene.data.id}/content`)
+  const cut = { type: 'doc', content: [{ type: 'paragraph', content: [{ type: 'text', text: 'Il mare era fermo. ' }, { type: 'mention', attrs: { id: `location:${place.data.id}`, label: 'Porto' } }, { type: 'text', text: ' dormiva.' }] }] }
+  expect('save a shorter text', await api('PUT', `/api/projects/${pid}/scenes/${scene.data.id}/content`, { content: cut, revisionId: current.data?.revisionId, version: current.data?.version }), 200)
   const stats = await api('GET', `/api/projects/${pid}/stats`)
   expect('writing stats', stats, 200)
-  step('words written today', stats.data?.todayAdded === 14, `got ${stats.data?.todayAdded}`)
+  // 14 words written, 2 cut, the replace all left out: the day counts the 12 that stayed.
+  step('words written today, net of words removed', stats.data?.todayAdded === 12 && stats.data?.todayRemoved === 0, `got ${stats.data?.todayAdded} written, ${stats.data?.todayRemoved} removed`)
 
   const trashed = await api('DELETE', `/api/projects/${pid}/chapters/${chapter.data.id}`)
   expect('chapter to the trash', trashed, 200)

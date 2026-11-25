@@ -13,6 +13,9 @@ function shiftDay(day: string, delta: number): string {
 /**
  * The writing log of the project: words written and removed per day (account time zone),
  * today, the current streak of writing days and the average of the last 30 days.
+ *
+ * Words written in a day are the words that stayed (spec rule 12): the day's saves net of what they
+ * removed. A day that removed more than it wrote has only words removed. The log keeps both sums.
  */
 export default defineEventHandler(async (event): Promise<WritingStats> => {
   const { user, project } = await requireProject(event)
@@ -20,11 +23,12 @@ export default defineEventHandler(async (event): Promise<WritingStats> => {
   const today = dayIn(user.timezone)
   const db = useDb()
 
-  const days = await db
+  const log = await db
     .select({ day: tables.writingLog.day, added: tables.writingLog.added, removed: tables.writingLog.removed, total: tables.writingLog.total })
     .from(tables.writingLog)
     .where(and(eq(tables.writingLog.projectId, project.id), gte(tables.writingLog.day, shiftDay(today, -span))))
     .orderBy(asc(tables.writingLog.day))
+  const days = log.map(d => ({ ...d, added: Math.max(d.added - d.removed, 0), removed: Math.max(d.removed - d.added, 0) }))
 
   const [total] = await db
     .select({ words: sum(tables.scenes.wordCount) })

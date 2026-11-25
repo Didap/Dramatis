@@ -202,14 +202,15 @@ function onChange() {
 
 const session = computed(() => (openedWords.value === null ? 0 : counts.words - openedWords.value))
 const todayBase = ref(0)
-const today = computed(() => todayBase.value + content.writtenHere.value)
+/** The day's net words: below zero the day removed more than it wrote, and nothing was written. */
+const today = computed(() => Math.max(todayBase.value + content.writtenHere.value, 0))
 
 onMounted(async () => {
   void typography.load()
   await content.load()
   try {
     const stats = await $fetch<WritingStats>(`/api/projects/${store.projectId}/stats`, { query: { days: 7 } })
-    todayBase.value = stats.todayAdded - content.writtenHere.value
+    todayBase.value = stats.todayAdded - stats.todayRemoved - content.writtenHere.value
   }
   catch {}
 })

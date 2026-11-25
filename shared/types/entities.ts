@@ -140,9 +140,9 @@ export interface SceneContent {
 export interface WritingDay {
   /** YYYY-MM-DD in the account time zone. */
   day: string
-  /** Words written (sum of positive deltas). */
+  /** Words written: what the day's saves added net of what they removed, never below zero. */
   added: number
-  /** Words removed (sum of negative deltas, positive number). */
+  /** Words removed: what the day's saves removed beyond what they added (positive number), else zero. */
   removed: number
   /** Total words of the project at the last save of the day. */
   total: number

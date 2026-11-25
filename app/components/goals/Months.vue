@@ -10,18 +10,20 @@ const { number, date } = useFormat()
 const months = computed(() => {
   const byMonth = new Map<string, { days: number, written: number }>()
   for (const day of props.stats?.days ?? []) {
-    if (!day.added) continue
     const key = day.day.slice(0, 7)
     const month = byMonth.get(key) ?? { days: 0, written: 0 }
-    month.days++
-    month.written += day.added
+    if (day.added) month.days++
+    // The words that stayed over the month: a day that cut more than it wrote takes from the others.
+    month.written += day.added - day.removed
     byMonth.set(key, month)
   }
   return [...byMonth.entries()]
+    .filter(([, month]) => month.days)
     .sort((a, b) => b[0].localeCompare(a[0]))
     .map(([key, month]) => {
       const [y, m] = key.split('-').map(Number)
-      return { key, label: date(new Date(y!, m! - 1, 1), { month: 'long', year: 'numeric' }), ...month, average: Math.round(month.written / month.days) }
+      const written = Math.max(month.written, 0)
+      return { key, label: date(new Date(y!, m! - 1, 1), { month: 'long', year: 'numeric' }), days: month.days, written, average: Math.round(written / month.days) }
     })
 })
 </script>
