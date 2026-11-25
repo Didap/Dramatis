@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<{
   flashback?: boolean
   /** Where the scene sits in the manuscript ("Capitolo 3, scena 2"), when narrative order is shown. */
   narrative?: string
-  /** A card on a timeline that runs across the page: the date above the marker, the line through it. */
+  /** A column of a timeline that runs across the page: the date above the marker, the line through it. */
   horizontal?: boolean
 }>(), { editing: false, draft: null, suggest: () => null, overlaps: () => [], shown: null, flashback: false, narrative: undefined, horizontal: false })
 
@@ -129,7 +129,7 @@ const menu = computed<DropdownMenuItem[][]>(() => {
 
 <template>
   <!--
-    scroll-mt: a row brought into view stays clear of the sticky period headings; scroll-ms, a card
+    scroll-mt: a row brought into view stays clear of the sticky period headings; scroll-ms, a column
     clear of the year that stays at the start of the strip.
   -->
   <li
@@ -137,10 +137,10 @@ const menu = computed<DropdownMenuItem[][]>(() => {
     :data-timeline-key="entry.key"
     class="group/item relative rounded-[calc(var(--ui-radius)*2)] py-2 transition-colors duration-150 hover:bg-elevated/60"
     :class="horizontal
-      ? ['tl-card flex shrink-0 scroll-ms-20 scroll-mt-36 flex-col gap-y-1.5 px-2', editing ? 'w-80' : 'w-64']
+      ? ['tl-col flex shrink-0 scroll-ms-20 scroll-mt-36 flex-col gap-y-1.5 px-2', editing ? 'w-80' : 'w-64']
       : 'tl-item grid scroll-mt-36 grid-cols-[1.5rem_minmax(0,1fr)] gap-x-2.5 pe-1 sm:grid-cols-[var(--tl-when,5.5rem)_1.5rem_minmax(0,1fr)] sm:gap-x-3 sm:pe-2'"
   >
-    <!-- Above the marker, two lines high on every card so that the markers stay on one line. -->
+    <!-- Above the marker, two lines high in every column so that the markers stay on one line. -->
     <div
       class="text-sm leading-5 text-muted"
       :class="horizontal ? 'h-10 pe-4' : 'hidden pt-0.5 text-end sm:block'"
@@ -286,10 +286,10 @@ const menu = computed<DropdownMenuItem[][]>(() => {
 }
 
 /*
- * Across the page one line runs from the first marker to the last, through the card's padding (px-2)
+ * Across the page one line runs from the first marker to the last, through the column's padding (px-2)
  * and, at the end of a year, across the gap to the next one (gap-x-6 on the strip).
  */
-.tl-card .tl-spine::before {
+.tl-col .tl-spine::before {
   content: '';
   position: absolute;
   inset-block-start: 50%;
@@ -297,17 +297,17 @@ const menu = computed<DropdownMenuItem[][]>(() => {
   height: 1px;
   background: var(--ui-border);
 }
-.tl-card:last-child .tl-spine::before {
+.tl-col:last-child .tl-spine::before {
   inset-inline-end: -2rem;
 }
-section:first-child > ol > .tl-card:first-child .tl-spine::before {
+section:first-child > ol > .tl-col:first-child .tl-spine::before {
   inset-inline-start: 0.75rem;
 }
-section:last-child > ol > .tl-card:last-child .tl-spine::before {
+section:last-child > ol > .tl-col:last-child .tl-spine::before {
   inset-inline-end: auto;
   width: calc(0.75rem + 0.5rem);
 }
-section:only-child > ol > .tl-card:only-child .tl-spine::before {
+section:only-child > ol > .tl-col:only-child .tl-spine::before {
   display: none;
 }
 </style>

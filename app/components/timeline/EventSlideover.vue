@@ -20,9 +20,9 @@ const props = withDefaults(defineProps<{
   /** Offer a link to the timeline (when shown on another page). */
   timelineLink?: boolean
   /**
-   * The panel closed on an event (`created` in this panel): the page that shows it takes the keyboard
-   * there and answers true, or false to let it go back where it was. A new event saved on closing is
-   * handed over once it exists.
+   * The panel closed on an event (`created`: new in this panel). The page that shows it takes the
+   * keyboard there and answers true, or false to let it go back where it was. A new event saved as the
+   * panel closes is handed over once it exists, unless the panel has opened again meanwhile.
    */
   onPlaced?: (id: string, created: boolean) => boolean
 }>(), { eventId: null, defaults: () => ({}), timelineLink: false, onPlaced: undefined })
@@ -65,8 +65,6 @@ let closing = false
 let discarded = false
 /** The last new event could not be saved: the next open shows its draft again. */
 let unsaved = false
-/** The panel closed before its new event existed: `onPlaced` waits for it. */
-let placeWhenCreated = false
 
 const refKey = (ref: EntityRef) => `${ref.type}:${ref.id}`
 
@@ -77,7 +75,6 @@ function startDraft() {
   createdId.value = null
   creating.value = false
   discarded = false
-  placeWhenCreated = false
 }
 
 /**
@@ -94,6 +91,11 @@ const missing = computed(() => !!props.eventId && !event.value)
 
 watch(() => [open.value, props.eventId] as const, ([isOpen, eventId], previous) => {
   if (isOpen) closing = false
+  // Opening on an event ends the last draft: a save still on its way no longer speaks for this panel.
+  if (isOpen && eventId && !previous?.[0]) {
+    session++
+    createdId.value = null
+  }
   if (isOpen && !eventId && (!previous?.[0] || previous[1])) {
     if (unsaved) unsaved = false
     else startDraft()
@@ -125,7 +127,7 @@ function hasContent(d: Draft) {
 }
 
 async function create(title?: string) {
-  if (creating.value || event.value) return
+  if (creating.value || createdId.value || event.value) return
   const mine = session
   creating.value = true
   const sent = { ...draft, refs: [...draft.refs], title: (title ?? draft.title).trim() || t('common.untitled.event') }
@@ -151,10 +153,7 @@ async function create(title?: string) {
   createdId.value = row.id
   creating.value = false
   if (!closing && open.value) emit('created', row.id)
-  if (placeWhenCreated) {
-    placeWhenCreated = false
-    props.onPlaced?.(row.id, true)
-  }
+  if (!open.value) props.onPlaced?.(row.id, true)
   // Changes made while the request was on its way.
   const late: Partial<Draft> = {}
   for (const key of Object.keys(draft) as (keyof Draft)[]) {
@@ -172,8 +171,9 @@ function change(patch: Partial<Draft>, soon = true) {
   else Object.assign(draft, patch)
 }
 
+// Only a draft is saved on closing: an event on show that went to the trash meanwhile stays there.
 watch(open, (isOpen) => {
-  if (!isOpen && !event.value && !discarded && hasContent(draft)) void create()
+  if (!isOpen && !id.value && !discarded && hasContent(draft)) void create()
 })
 
 function commitTitle(value: string) {
@@ -226,14 +226,13 @@ function closeKeepingTitle(keyEvent: KeyboardEvent) {
   setOpen(false)
 }
 
-/** Closing hands the keyboard to the page that shows the event, when there is one (see `onPlaced`). */
+/**
+ * Closing hands the keyboard to the page that shows the event (see `onPlaced`): the one on show, or
+ * the new one saved as the panel closed, when its save came back first.
+ */
 function onCloseAutoFocus(focusEvent: Event) {
-  if (!props.onPlaced) return
-  if (!event.value) {
-    placeWhenCreated = !discarded
-    return
-  }
-  if (props.onPlaced(event.value.id, createdId.value === event.value.id)) focusEvent.preventDefault()
+  const placed = event.value ?? (createdId.value ? store.get('events', createdId.value) : undefined)
+  if (placed && props.onPlaced?.(placed.id, placed.id === createdId.value)) focusEvent.preventDefault()
 }
 
 /** A new event starts from its title; an existing one opens on the close button, as dialogs do. */

@@ -955,5 +955,5 @@ export function useEditorTypography() {
     void send()
   }
 
-  return { prefs, load, set }
+  return { prefs, loaded, load, set }
 }

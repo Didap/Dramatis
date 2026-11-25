@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<{
   shown?: Set<string> | null
   flashbacks?: Set<string>
   narrative?: (entry: TimelineEntry) => string | undefined
-  /** The timeline runs across the page (a year only: months and days are said on the cards). */
+  /** The timeline runs across the page (a year only: months and days are said in the columns). */
   horizontal?: boolean
 }>(), { depth: 0, editing: null, draft: null, suggest: () => null, overlaps: () => new Map(), shown: null, flashbacks: () => new Set(), narrative: () => undefined, horizontal: false })
 

@@ -33,8 +33,13 @@ const { analysis } = useFlow()
 const { yearText, fullDate } = useStoryCalendar()
 /** One solid control per view: on a phone it is the bar's "Aggiungi". */
 const desktop = useIsDesktop()
-const { prefs, load: loadPrefs, set: setPrefs } = useEditorTypography()
-onMounted(loadPrefs)
+const { prefs, loaded: prefsLoaded, load: loadPrefs, set: setPrefs } = useEditorTypography()
+/** The timeline waits for the saved layout (once a session), rather than redraw itself across the page. */
+const prefsReady = ref(prefsLoaded.value)
+onMounted(async () => {
+  await loadPrefs()
+  prefsReady.value = true
+})
 
 const layout = computed({
   get: (): TimelineLayout => prefs.value.timelineLayout ?? 'vertical',
@@ -236,11 +241,12 @@ function onCreated(id: string) {
 
 /**
  * The panel closed on an event: the keyboard follows it to where its date has put it (on the line or
- * in the tray), and a new one says where that is. False when the filters hide it: focus goes back.
+ * in the tray), and a new one says where that is. A row that is not on screen (the filters hide it,
+ * the tray is folded) leaves the keyboard where it was; one still on its way gets it when it shows.
  */
 function onPlaced(id: string, created: boolean) {
   const event = store.get('events', id)
-  if (!event || !matchesFilters(eventEntry(event), filters.value)) return false
+  if (!event) return false
   if (created) {
     const title = titleOf('event', event)
     announcement.value = event.at
@@ -248,7 +254,7 @@ function onPlaced(id: string, created: boolean) {
       : t('timeline.dating.cleared', { title })
   }
   void focusRow(`event:${id}`, 'center')
-  return true
+  return !!document.querySelector(`[data-timeline-key="event:${id}"]`)
 }
 
 // ---------------------------------------------------------------- what the header says
@@ -355,7 +361,7 @@ function showFirstOverlap() {
       />
     </div>
 
-    <div class="grid gap-x-12 gap-y-10" :class="horizontal ? '' : 'xl:grid-cols-[minmax(0,1fr)_19rem]'">
+    <div v-if="prefsReady" class="grid gap-x-12 gap-y-10" :class="horizontal ? '' : 'xl:grid-cols-[minmax(0,1fr)_19rem]'">
       <div class="min-w-0" :style="{ '--tl-when': labelled ? '9rem' : '5.5rem' }">
         <template v-if="sections.length">
           <!--
