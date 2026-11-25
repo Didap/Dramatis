@@ -17,8 +17,11 @@ const more = ref(false)
 const shortcuts = ref(false)
 const collapsed = ref(false)
 let loadedAt = 0
+const { load: loadPreferences } = useEditorTypography()
 
 async function open(id: string) {
+  // The account's preferences arrive with the project, not after it: pages read them on first render.
+  void loadPreferences()
   await store.load(id)
   loadedAt = Date.now()
   if (store.status === 'ready') void $fetch(`/api/projects/${id}/opened`, { method: 'POST' }).catch(() => {})

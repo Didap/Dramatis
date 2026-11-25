@@ -135,10 +135,10 @@ const menu = computed<DropdownMenuItem[][]>(() => {
   <li
     ref="root"
     :data-timeline-key="entry.key"
-    class="group/item relative rounded-[calc(var(--ui-radius)*2)] py-2 transition-colors duration-150 hover:bg-elevated/60"
+    class="group/item relative scroll-mt-36 rounded-[calc(var(--ui-radius)*2)] py-2 transition-colors duration-150 hover:bg-elevated/60"
     :class="horizontal
-      ? ['tl-col flex shrink-0 scroll-ms-20 scroll-mt-36 flex-col gap-y-1.5 px-2', editing ? 'w-80' : 'w-64']
-      : 'tl-item grid scroll-mt-36 grid-cols-[1.5rem_minmax(0,1fr)] gap-x-2.5 pe-1 sm:grid-cols-[var(--tl-when,5.5rem)_1.5rem_minmax(0,1fr)] sm:gap-x-3 sm:pe-2'"
+      ? ['tl-col flex shrink-0 scroll-ms-20 flex-col gap-y-1.5 px-2', editing ? 'w-80' : 'w-64']
+      : 'tl-item grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-2.5 pe-1 sm:grid-cols-[var(--tl-when,5.5rem)_1.5rem_minmax(0,1fr)] sm:gap-x-3 sm:pe-2'"
   >
     <!-- Above the marker, two lines high in every column so that the markers stay on one line. -->
     <div
@@ -153,7 +153,7 @@ const menu = computed<DropdownMenuItem[][]>(() => {
       </template>
     </div>
 
-    <div class="tl-spine relative flex" :class="horizontal ? 'justify-start' : 'justify-center'" aria-hidden="true">
+    <div class="tl-spine relative flex" :class="{ 'justify-center': !horizontal }" aria-hidden="true">
       <span
         class="relative z-10 grid size-6 place-items-center border bg-default text-muted"
         :class="entry.type === 'scene' ? 'rounded-full border-default' : 'rounded-[calc(var(--ui-radius)*1.5)] border-(--ui-border-accented)'"
@@ -162,7 +162,7 @@ const menu = computed<DropdownMenuItem[][]>(() => {
       </span>
     </div>
 
-    <div class="min-w-0 pb-0.5" :class="horizontal ? 'pe-4' : ''">
+    <div class="min-w-0 pb-0.5" :class="{ 'pe-4': horizontal }">
       <p v-if="!horizontal && (entry.label || whenLine)" class="pt-0.5 text-[0.8125rem] leading-5 text-muted sm:hidden" aria-hidden="true">
         <span v-if="entry.label" class="voice-author italic">{{ entry.label }}</span>
         <template v-else>{{ whenLine }}</template>
@@ -213,7 +213,7 @@ const menu = computed<DropdownMenuItem[][]>(() => {
       </p>
 
       <p v-if="duration || people.length || places.length" class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
-        <span v-if="duration" :class="horizontal ? '' : 'sm:hidden'">{{ duration }}</span>
+        <span v-if="duration" :class="{ 'sm:hidden': !horizontal }">{{ duration }}</span>
         <span v-if="people.length" class="inline-flex flex-wrap items-center gap-x-2.5 gap-y-1">
           <span class="sr-only">{{ term('characters') }}:</span>
           <span v-for="person in people.slice(0, MAX_PEOPLE)" :key="person.id" class="inline-flex items-center gap-1.5">
@@ -265,14 +265,17 @@ const menu = computed<DropdownMenuItem[][]>(() => {
 </template>
 
 <style scoped>
-/* The spine joins the markers of a period, from its first marker to its last. */
-.tl-item .tl-spine::before {
+.tl-spine::before {
   content: '';
   position: absolute;
+  background: var(--ui-border);
+}
+
+/* The spine joins the markers of a period, from its first marker to its last. */
+.tl-item .tl-spine::before {
   inset-block: -0.5rem;
   inset-inline-start: 50%;
   width: 1px;
-  background: var(--ui-border);
 }
 .tl-item:first-child .tl-spine::before {
   inset-block-start: 0.75rem;
@@ -287,18 +290,15 @@ const menu = computed<DropdownMenuItem[][]>(() => {
 
 /*
  * Across the page one line runs from the first marker to the last, through the column's padding (px-2)
- * and, at the end of a year, across the gap to the next one (gap-x-6 on the strip).
+ * and, at the end of a year, across the gap to the next one (--tl-gap, set on the strip).
  */
 .tl-col .tl-spine::before {
-  content: '';
-  position: absolute;
   inset-block-start: 50%;
   inset-inline: -0.5rem;
   height: 1px;
-  background: var(--ui-border);
 }
 .tl-col:last-child .tl-spine::before {
-  inset-inline-end: -2rem;
+  inset-inline-end: calc(-0.5rem - var(--tl-gap, 1.5rem));
 }
 section:first-child > ol > .tl-col:first-child .tl-spine::before {
   inset-inline-start: 0.75rem;

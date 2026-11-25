@@ -170,8 +170,9 @@ function monthSection(year: number, month: number, list: TimelineEntry[]): Timel
   return { id: `y${year}-m${month}`, level: 'month', year, month, entries: split?.entries ?? list, sections: split?.sections ?? [], count: list.length }
 }
 
-function yearSection(year: number, list: TimelineEntry[]): TimelineSection {
+function yearSection(year: number, list: TimelineEntry[], split: boolean): TimelineSection {
   const section: TimelineSection = { id: `y${year}`, level: 'year', year, entries: list, sections: [], count: list.length }
+  if (!split) return section
   const monthly = list.filter(e => e.parts!.month !== undefined)
   const months = distinct(monthly.map(e => e.parts!.month!))
   if (worthSplitting(list.length, months.length)) {
@@ -189,10 +190,13 @@ function yearSection(year: number, list: TimelineEntry[]): TimelineSection {
   return section
 }
 
-/** Groups dated entries (already in story order) by year, then month and day where they are dense. */
-export function groupEntries(sorted: TimelineEntry[]): TimelineSection[] {
+/**
+ * Groups dated entries (already in story order) by year, then month and day where they are dense.
+ * `split: false` keeps each year in one piece (the timeline across the page says months on the items).
+ */
+export function groupEntries(sorted: TimelineEntry[], split = true): TimelineSection[] {
   const years = distinct(sorted.map(e => e.parts!.year))
-  return years.map(year => yearSection(year, sorted.filter(e => e.parts!.year === year)))
+  return years.map(year => yearSection(year, sorted.filter(e => e.parts!.year === year), split))
 }
 
 export interface Overlap {

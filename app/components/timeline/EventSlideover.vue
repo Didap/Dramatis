@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<{
    * panel closes is handed over once it exists, unless the panel has opened again meanwhile.
    */
   onPlaced?: (id: string, created: boolean) => boolean
-}>(), { eventId: null, defaults: () => ({}), timelineLink: false, onPlaced: undefined })
+}>(), { eventId: null, defaults: () => ({}), timelineLink: false })
 /** `created` only while the panel is still open: once closed, the event must not come back on screen. */
 const emit = defineEmits<{ created: [id: string] }>()
 

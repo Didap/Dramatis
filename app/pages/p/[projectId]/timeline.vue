@@ -63,7 +63,8 @@ const eventEntries = computed(() => store.rows.events.map(eventEntry))
 const visible = computed(() => [...sceneEntries.value, ...eventEntries.value].filter(entry => matchesFilters(entry, filters.value)))
 const dated = computed(() => visible.value.filter(entry => entry.sortKey !== null).sort(compareEntries))
 const undated = computed(() => visible.value.filter(entry => entry.sortKey === null))
-const sections = computed(() => groupEntries(dated.value))
+/** Across the page a year stays in one piece: its items say their month and day. */
+const sections = computed(() => groupEntries(dated.value, !horizontal.value))
 const filtered = computed(() => activeFilters(filters.value) > 0)
 const shownKeys = computed(() => new Set(dated.value.map(entry => entry.key)))
 /** Dates written in the story's own words need a wider column than "lun 12". */
@@ -119,15 +120,23 @@ function edit(sceneId: string) {
 /** Smooth scrolling, unless the author asked for less motion. */
 const scrollBehavior = (): ScrollBehavior => (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth')
 
+/** The row of a scene or an event ("scene:<id>", "event:<id>"), when it is on screen. */
+const rowOf = (key: string) => document.querySelector<HTMLElement>(`[data-timeline-key="${key}"]`)
+
 /** Focuses a row after it moved, so the keyboard stays where the author is looking. */
 async function focusRow(key: string, block: ScrollLogicalPosition = 'nearest') {
   await nextTick()
-  const row = document.querySelector<HTMLElement>(`[data-timeline-key="${key}"]`)
+  const row = rowOf(key)
   row?.scrollIntoView({ block, behavior: scrollBehavior() })
   row?.querySelector<HTMLElement>('a, button')?.focus({ preventScroll: true })
 }
 
 const titleOf = (type: 'scene' | 'event', item: { title: string }) => item.title || t(type === 'scene' ? 'common.untitled.scene' : 'common.untitled.event')
+
+/** Where an item now is, said the way its row says it: the date as written in the story, when there is one. */
+function sayWhere(title: string, at: string | null | undefined, label: string | undefined) {
+  announcement.value = at ? t('timeline.dating.moved', { title, date: label || fullDate(at) }) : t('timeline.dating.cleared', { title })
+}
 
 /** The editor closes first: the optimistic change moves the scene, and the editor with it. */
 async function saveDate(sceneId: string, patch: SceneDatePatch) {
@@ -145,10 +154,7 @@ async function saveDate(sceneId: string, patch: SceneDatePatch) {
     editing.value = sceneId
     return
   }
-  // Said the way the row says it: the date as written in the story, when there is one.
-  announcement.value = patch.storyAt
-    ? t('timeline.dating.moved', { title, date: patch.storyTimeLabel || fullDate(patch.storyAt) })
-    : t('timeline.dating.cleared', { title })
+  sayWhere(title, patch.storyAt, patch.storyTimeLabel)
   await focusRow(`scene:${sceneId}`)
 }
 
@@ -190,8 +196,7 @@ async function redate(type: 'scene' | 'event', id: string, value: string | null)
   catch {
     return
   }
-  const label = 'storyTimeLabel' in item ? item.storyTimeLabel : item.timeLabel
-  announcement.value = t('timeline.dating.moved', { title: titleOf(type, item), date: label || fullDate(value) })
+  sayWhere(titleOf(type, item), value, 'storyTimeLabel' in item ? item.storyTimeLabel : item.timeLabel)
   await focusRow(`${type}:${id}`)
 }
 
@@ -247,24 +252,18 @@ function onCreated(id: string) {
 function onPlaced(id: string, created: boolean) {
   const event = store.get('events', id)
   if (!event) return false
-  if (created) {
-    const title = titleOf('event', event)
-    announcement.value = event.at
-      ? t('timeline.dating.moved', { title, date: event.timeLabel || fullDate(event.at) })
-      : t('timeline.dating.cleared', { title })
-  }
+  if (created) sayWhere(titleOf('event', event), event.at, event.timeLabel)
   void focusRow(`event:${id}`, 'center')
-  return !!document.querySelector(`[data-timeline-key="event:${id}"]`)
+  return !!rowOf(`event:${id}`)
 }
 
 // ---------------------------------------------------------------- what the header says
 
 const hasScenes = computed(() => store.orderedScenes.length > 0)
 const nothingYet = computed(() => !hasScenes.value && !store.rows.events.length)
-const emptyTimeline = computed(() => !dated.value.length)
 const firstUndatedScene = computed(() => undated.value.find(entry => entry.type === 'scene'))
 /** An empty timeline offers its two ways in, a date for a scene and a new event, below its words. */
-const emptyStart = computed(() => emptyTimeline.value && !filtered.value)
+const emptyStart = computed(() => !dated.value.length && !filtered.value)
 
 const summary = computed(() => {
   if (!dated.value.length) return ''
@@ -370,7 +369,7 @@ function showFirstOverlap() {
           -->
           <div
             v-bind="horizontal ? { role: 'region', tabindex: 0, 'aria-label': t('timeline.layout.strip') } : {}"
-            :class="horizontal ? '-mx-2 flex gap-x-6 overflow-x-auto overscroll-x-contain px-2 pb-3' : ''"
+            :class="{ '-mx-2 flex gap-x-(--tl-gap) overflow-x-auto overscroll-x-contain px-2 pb-3 [--tl-gap:1.5rem]': horizontal }"
           >
             <TimelinePeriod
               v-for="section in sections"

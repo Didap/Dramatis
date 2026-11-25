@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<{
   shown?: Set<string> | null
   flashbacks?: Set<string>
   narrative?: (entry: TimelineEntry) => string | undefined
-  /** The timeline runs across the page (a year only: months and days are said in the columns). */
+  /** The timeline runs across the page: a year in one piece, its items side by side. */
   horizontal?: boolean
 }>(), { depth: 0, editing: null, draft: null, suggest: () => null, overlaps: () => new Map(), shown: null, flashbacks: () => new Set(), narrative: () => undefined, horizontal: false })
 
@@ -35,23 +35,16 @@ const headingId = computed(() => `tl-${props.section.id}`)
 /** Items dated in the story's own words: the weekday of the real calendar would contradict them. */
 const title = computed(() => heading(props.section, { weekday: !props.section.entries.some(entry => entry.label) }))
 
-/** Every item of the period, its own and its months' and days', in story order. */
-const all = computed(() => {
-  const list: TimelineEntry[] = []
-  const walk = (section: TimelineSection) => {
-    list.push(...section.entries)
-    section.sections.forEach(walk)
-  }
-  walk(props.section)
-  return list
-})
 /** Scenes and events in the period, for the year line. */
 const totals = computed(() => {
   const count = { scene: 0, event: 0 }
-  for (const entry of all.value) count[entry.type]++
+  const walk = (section: TimelineSection) => {
+    for (const entry of section.entries) count[entry.type]++
+    section.sections.forEach(walk)
+  }
+  walk(props.section)
   return count
 })
-const entries = computed(() => (props.horizontal ? all.value : props.section.entries))
 const totalsText = computed(() => [
   totals.value.scene ? scenes(totals.value.scene) : '',
   totals.value.event ? t('timeline.units.events', { n: totals.value.event }, totals.value.event) : '',
@@ -63,14 +56,14 @@ const totalsText = computed(() => [
     <!-- Sticky under the page bar (3.5rem); the year line is 2.625rem tall, a month or day heading 1.75rem. -->
     <div
       v-if="depth === 0"
-      class="flex items-baseline gap-3 bg-default pt-2 pb-1.5"
-      :class="horizontal ? 'px-2' : 'sticky top-14 z-15 -mx-2 px-2'"
+      class="flex items-baseline gap-3 bg-default px-2 pt-2 pb-1.5"
+      :class="{ 'sticky top-14 z-15 -mx-2': !horizontal }"
     >
       <component
         :is="tag"
         :id="headingId"
         class="text-lg font-semibold text-highlighted"
-        :class="horizontal ? 'sticky start-0 z-10 -ms-2 bg-default ps-2 pe-1' : ''"
+        :class="{ 'sticky start-0 z-10 -ms-2 bg-default ps-2 pe-1': horizontal }"
       >{{ title }}</component>
       <DLeader />
       <span class="shrink-0 text-sm text-muted">{{ totalsText }}</span>
@@ -88,12 +81,12 @@ const totalsText = computed(() => [
       {{ title }}
     </component>
 
-    <ol v-if="entries.length" class="mt-1" :class="horizontal ? 'flex items-start' : ''">
+    <ol v-if="section.entries.length" class="mt-1" :class="{ 'flex items-start': horizontal }">
       <TimelineItem
-        v-for="entry in entries"
+        v-for="entry in section.entries"
         :key="entry.key"
         :entry="entry"
-        :context="horizontal ? 'year' : section.level"
+        :context="section.level"
         :horizontal="horizontal"
         :editing="editing === entry.id"
         :draft="editing === entry.id ? draft : null"
@@ -111,7 +104,7 @@ const totalsText = computed(() => [
     </ol>
 
     <TimelinePeriod
-      v-for="child in horizontal ? [] : section.sections"
+      v-for="child in section.sections"
       :key="child.id"
       :section="child"
       :depth="depth + 1"
