@@ -513,6 +513,7 @@ import type { EntityRef } from '#shared/types/domain'
 import { parseMentionId } from '#shared/utils/richtext'
 import { FindReplace } from './FindPanel.vue'
 import { SceneMention, TextAlign } from './RichView.vue'
+import { Highlighter } from '~/utils/editor-extensions'
 import { refreshSpelling, Spelling, type SpellChecker, type SpellError } from '~/utils/spelling'
 
 /**
@@ -582,6 +583,7 @@ const extensions = [
   Spelling.configure({ checker: () => props.spellChecker, onPick: (error, anchor) => emit('spell', error, anchor) }),
   TabOut,
   ManuscriptOnly,
+  Highlighter.configure({ onNote: openNote }),
 ]
 
 const ueditor = useTemplateRef<{ editor?: VueEditor }>('ueditor')
@@ -733,6 +735,34 @@ function onKeydown(event: KeyboardEvent) {
 
 // ---------------------------------------------------------------- the mention card
 
+// ------------------------------------------------------------------ the note of a highlight
+
+const note = reactive({ open: false, anchor: null as HTMLElement | null, text: '', excerpt: '', range: { from: 0, to: 0 } })
+
+/** Asked by the highlighter's menu ("Aggiungi una nota"): the card opens under the highlighted words. */
+function openNote(range: { from: number, to: number }, text: string) {
+  const instance = ueditor.value?.editor
+  if (!instance) return
+  const words = instance.state.doc.textBetween(range.from, range.to, ' ')
+  Object.assign(note, { range, text, excerpt: words.length > 80 ? `${words.slice(0, 79)}…` : words })
+  // A plain selection is highlighted by the same command: its mark is drawn once the command is done.
+  void nextTick(() => {
+    const { node } = instance.view.domAtPos(Math.min(range.from + 1, range.to))
+    const element = node.nodeType === Node.TEXT_NODE ? node.parentElement : node as HTMLElement
+    note.anchor = element?.closest<HTMLElement>('mark.d-highlight') ?? instance.view.dom
+    note.open = true
+  })
+}
+
+/** The card closed: the note is kept (or removed, when emptied) and the caret goes back after the words. */
+function closeNote(text: string) {
+  const instance = ueditor.value?.editor
+  if (!instance) return
+  const chain = instance.chain()
+  if (text !== note.text) chain.setHighlightNote(note.range, text)
+  chain.setTextSelection(Math.min(note.range.to, instance.state.doc.content.size)).focus().run()
+}
+
 const card = reactive({ open: false, refId: '', anchor: null as HTMLElement | null })
 let showTimer: ReturnType<typeof setTimeout> | undefined
 let hideTimer: ReturnType<typeof setTimeout> | undefined
@@ -828,6 +858,7 @@ function openEntity(ref: EntityRef) {
       <EditorNameTags v-if="nameTags && editable" :editor="instance" />
     </UEditor>
 
+    <EditorHighlightNote v-model:open="note.open" :anchor="note.anchor" :note="note.text" :excerpt="note.excerpt" @close="closeNote" />
     <EditorMentionCard
       v-model:open="card.open"
       :ref-id="card.refId"

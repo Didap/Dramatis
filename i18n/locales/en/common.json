@@ -467,7 +467,8 @@
       "moveDown": "Move the selected item down",
       "escape": "Close the topmost panel or leave focus mode",
       "sheet": "This list",
-      "rename": "Rename the selected item"
+      "rename": "Rename the selected item",
+      "highlight": "Highlights the chosen words, or takes the highlighter off"
     },
     "format": {
       "bold": "Bold",

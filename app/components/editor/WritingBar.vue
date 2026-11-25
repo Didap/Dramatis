@@ -45,7 +45,7 @@ import { QUOTES } from './Surface.vue'
 
 /**
  * The slim writing bar under the top bar (spec 4.5): the project's dialogue punctuation, the dash, the
- * ellipsis, the scene break ("Fine scena"), and with `script` a line of dialogue. The buttons never take the caret away from the text.
+ * ellipsis, the highlighters ("Evidenzia"), the scene break ("Fine scena"), and with `script` a line of dialogue. The buttons never take the caret away from the text.
  */
 const props = defineProps<{
   editor: Editor | null
@@ -99,6 +99,9 @@ const { onKeydown, onFocusin } = useToolbarFocus(bar)
       </UButton>
     </UTooltip>
     <span class="mx-1.5 h-4 w-px bg-(--ui-border)" aria-hidden="true" />
+    <EditorHighlighterMenu :editor="editor">
+      <UButton size="sm" icon="i-lucide-highlighter" :label="t('editor.highlight.label')" :title="t('editor.highlight.hint')" :disabled="!editor" @mousedown.prevent />
+    </EditorHighlighterMenu>
     <UTooltip :text="t('editor.writingBar.breakHint')">
       <UButton size="sm" icon="i-lucide-separator-horizontal" :label="t('editor.writingBar.break')" :disabled="!editor || linesOnly" @mousedown.prevent @click="sceneBreak" />
     </UTooltip>

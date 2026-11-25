@@ -355,6 +355,23 @@
       "spellcheck": "Controllo ortografico",
       "spellcheckHint": "Sottolinea le parole che non sono nel dizionario della lingua dell'opera ({language}).",
       "spellcheckUnavailable": "Non c'è ancora un dizionario per la lingua dell'opera: resta quello del browser."
+    },
+    "highlight": {
+      "label": "Evidenzia",
+      "hint": "Evidenzia le parole scelte (⌘⇧H), con una nota se serve",
+      "colors": {
+        "yellow": "Giallo",
+        "green": "Verde",
+        "blue": "Azzurro",
+        "pink": "Rosa"
+      },
+      "addNote": "Aggiungi una nota",
+      "editNote": "Modifica la nota",
+      "remove": "Togli l'evidenziatore",
+      "noteOn": "Nota su",
+      "notePlaceholder": "Un promemoria su questo passo",
+      "done": "Fatto",
+      "removeNote": "Togli la nota"
     }
   }
 }

@@ -7,6 +7,7 @@ const rows = computed(() => [
   { keys: ['meta', 'F'], label: t('common.shortcuts.find') },
   { keys: ['meta', 'shift', 'F'], label: t('common.shortcuts.search') },
   { keys: ['meta', 'J'], label: t('common.shortcuts.details') },
+  { keys: ['meta', 'shift', 'H'], label: t('common.shortcuts.highlight') },
   { keys: ['meta', 'shift', 'enter'], label: t('common.shortcuts.focus') },
   { keys: ['meta', '\\'], label: t('common.shortcuts.sidebar') },
   { keys: ['F2'], label: t('common.shortcuts.rename') },

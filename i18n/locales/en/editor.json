@@ -355,6 +355,23 @@
       "spellcheck": "Spell check",
       "spellcheckHint": "Underlines the words that are not in the dictionary of the work's language ({language}).",
       "spellcheckUnavailable": "There is no dictionary yet for the work's language: the browser's spell check stays on."
+    },
+    "highlight": {
+      "label": "Highlight",
+      "hint": "Highlight the chosen words (⌘⇧H), with a note if you need one",
+      "colors": {
+        "yellow": "Yellow",
+        "green": "Green",
+        "blue": "Blue",
+        "pink": "Pink"
+      },
+      "addNote": "Add a note",
+      "editNote": "Edit the note",
+      "remove": "Remove the highlighter",
+      "noteOn": "Note on",
+      "notePlaceholder": "A reminder about this passage",
+      "done": "Done",
+      "removeNote": "Remove the note"
     }
   }
 }

@@ -113,7 +113,12 @@ const ViewLine = DialogueLine.extend({
   },
 })
 
-const viewExtensions = [StarterKit.configure({ undoRedo: false, trailingNode: false, dropcursor: false, gapcursor: false }), SceneMention, ViewLine, SceneBreak, TextAlign]
+/** Read back, the author's highlights are gone: a reading page carries the words, not the working marks. */
+const ViewHighlight = Highlighter.extend({
+  renderHTML: () => ['span', 0],
+})
+
+const viewExtensions = [StarterKit.configure({ undoRedo: false, trailingNode: false, dropcursor: false, gapcursor: false }), SceneMention, ViewLine, SceneBreak, TextAlign, ViewHighlight]
 
 /** HTML of a stored text, for reading only. Falls back to plain paragraphs if the text has unknown parts. */
 export function docHtml(doc: RichDoc | null | undefined): string {

@@ -4,6 +4,7 @@ import type {
   IMAGE_OWNER_TYPES,
   PAGE_WIDTHS,
   TIMELINE_LAYOUTS,
+  HIGHLIGHTERS,
   SNAPSHOT_REASONS,
   CHARACTER_IMPORTANCES,
   CHARACTER_ROLES,
@@ -38,6 +39,7 @@ export type GroupKind = (typeof GROUP_KINDS)[number]
 export type RaceDescription = (typeof RACE_DESCRIPTIONS)[number]
 export type PageWidth = (typeof PAGE_WIDTHS)[number]
 export type TimelineLayout = (typeof TIMELINE_LAYOUTS)[number]
+export type HighlighterColor = (typeof HIGHLIGHTERS)[number]
 
 /** A branch of a race (elfi dei boschi, elfi del mare): a name and a description. */
 export interface Subrace {

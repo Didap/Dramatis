@@ -118,6 +118,12 @@
   --entity-slate-tint: #eaeff0;
   --entity-slate-ink: #3e4547;
 
+  /* The author's highlighters: pale as a felt-tip on paper, the text stays in its own ink (4.5:1). */
+  --highlight-yellow: #f8eba0;
+  --highlight-green: #d3ecc0;
+  --highlight-blue: #cde3f5;
+  --highlight-pink: #f5d3e2;
+
   /* Scene statuses gain colour as they mature; planning statuses are quieter rings. */
   --status-planned: var(--ui-text-dimmed);
   --status-draft: var(--ui-text-toned);
@@ -196,6 +202,11 @@
   --entity-slate: #8a9294;
   --entity-slate-tint: #303738;
   --entity-slate-ink: #d2dbdd;
+
+  --highlight-yellow: #423a13;
+  --highlight-green: #26432c;
+  --highlight-blue: #213d55;
+  --highlight-pink: #50293b;
 
   /* The manuscript loses a little weight to cancel the glow of light text on dark. */
   --manuscript-weight: 370;
@@ -337,6 +348,34 @@
   color: var(--ui-text-dimmed);
   white-space: normal;
 }
+
+/*
+ * Highlighters (DESIGN.md): a fill behind the author's words in their own ink. A highlight with a note
+ * also has a dashed underline, so the note never rests on colour alone.
+ */
+.d-highlight {
+  background: var(--highlight-yellow);
+  color: inherit;
+  border-radius: 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.d-highlight[data-highlight='green'] {
+  background: var(--highlight-green);
+}
+.d-highlight[data-highlight='blue'] {
+  background: var(--highlight-blue);
+}
+.d-highlight[data-highlight='pink'] {
+  background: var(--highlight-pink);
+}
+.d-highlight[data-note] {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: var(--ui-text-muted);
+  text-underline-offset: 0.22em;
+}
+
 
 /* Mentions are plain text with a dotted underline, never a pill; the entity's ink on hover. */
 .tiptap .mention,

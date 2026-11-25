@@ -467,7 +467,8 @@
       "moveDown": "Sposta giù l'elemento selezionato",
       "escape": "Chiude il pannello in primo piano o esce dalla concentrazione",
       "sheet": "Questo elenco",
-      "rename": "Rinomina l'elemento selezionato"
+      "rename": "Rinomina l'elemento selezionato",
+      "highlight": "Evidenzia le parole scelte, o toglie l'evidenziatore"
     },
     "format": {
       "bold": "Grassetto",

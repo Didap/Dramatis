@@ -5,7 +5,7 @@ import { QUOTES } from './Surface.vue'
 import { useToolbarFocus } from './WritingBar.vue'
 
 /**
- * The phone's toolbar above the keyboard (spec 4.5, DESIGN.md): bold, italic, the project's quotes, the
+ * The phone's toolbar above the keyboard (spec 4.5, DESIGN.md): bold, italic, the highlighters, the project's quotes, the
  * dash, the ellipsis, the scene break, @, with `script` a line of dialogue, with `branching` a choice, undo and redo,
  * the details. It takes the place of the bottom bar and rides on the keyboard.
  */
@@ -67,6 +67,8 @@ function mention() {
 const buttons = computed(() => [
   { key: 'bold', label: t('editor.format.bold'), icon: 'i-lucide-bold', pressed: isActive('bold'), run: () => chain()?.toggleBold().run() },
   { key: 'italic', label: t('editor.format.italic'), icon: 'i-lucide-italic', pressed: isActive('italic'), run: () => chain()?.toggleItalic().run() },
+  // Opens the "Evidenzia" menu (EditorHighlighterMenu) rather than acting at once.
+  { key: 'highlight', label: t('editor.highlight.label'), icon: 'i-lucide-highlighter', pressed: isActive('highlight'), run: () => {} },
   { key: 'quotes', label: t('editor.writingBar.quotes', { quotes: quotes.value }), text: quotes.value, run: () => chain()?.insertDialoguePunctuation('quotes').run() },
   { key: 'dash', label: t('editor.writingBar.dash'), text: '—', run: () => chain()?.insertDialoguePunctuation('dash').run() },
   { key: 'ellipsis', label: t('editor.writingBar.ellipsis'), text: '…', run: () => chain()?.insertDialoguePunctuation('ellipsis').run() },
@@ -78,6 +80,8 @@ const buttons = computed(() => [
   { key: 'redo', label: t('common.actions.redo'), icon: 'i-lucide-redo-2', run: () => chain()?.redo().run() },
   { key: 'details', label: t('editor.bar.details'), icon: 'i-lucide-panel-bottom-open', run: () => emit('details') },
 ])
+
+const BUTTON = 'grid min-w-11 shrink-0 place-items-center rounded-[calc(var(--ui-radius)*1.5)] px-1.5 text-default outline-none active:bg-elevated focus-visible:ring-2 focus-visible:ring-(--ui-primary)'
 
 const bar = useTemplateRef<HTMLElement>('bar')
 const { onKeydown, onFocusin } = useToolbarFocus(bar)
@@ -99,21 +103,32 @@ const { onKeydown, onFocusin } = useToolbarFocus(bar)
       @keydown="onKeydown"
       @focusin="onFocusin"
     >
-      <button
-        v-for="button in buttons"
-        :key="button.key"
-        type="button"
-        class="grid min-w-11 shrink-0 place-items-center rounded-[calc(var(--ui-radius)*1.5)] px-1.5 text-default outline-none active:bg-elevated focus-visible:ring-2 focus-visible:ring-(--ui-primary)"
-        :class="'pressed' in button && button.pressed ? 'bg-elevated text-primary' : ''"
-        :aria-label="button.label"
-        :aria-pressed="'pressed' in button ? button.pressed : undefined"
-        :disabled="!editor"
-        @pointerdown.prevent
-        @click="button.run()"
-      >
-        <UIcon v-if="'icon' in button && button.icon" :name="button.icon" class="size-5" aria-hidden="true" />
-        <span v-else class="voice-author text-lg leading-none" aria-hidden="true">{{ 'text' in button ? button.text : '' }}</span>
-      </button>
+      <template v-for="button in buttons" :key="button.key">
+        <EditorHighlighterMenu v-if="button.key === 'highlight'" :editor="editor">
+          <button
+            type="button"
+            :class="[BUTTON, button.pressed ? 'bg-elevated text-primary' : '']"
+            :aria-label="button.label"
+            :disabled="!editor"
+            @pointerdown.prevent
+          >
+            <UIcon :name="button.icon!" class="size-5" aria-hidden="true" />
+          </button>
+        </EditorHighlighterMenu>
+        <button
+          v-else
+          type="button"
+          :class="[BUTTON, 'pressed' in button && button.pressed ? 'bg-elevated text-primary' : '']"
+          :aria-label="button.label"
+          :aria-pressed="'pressed' in button ? button.pressed : undefined"
+          :disabled="!editor"
+          @pointerdown.prevent
+          @click="button.run()"
+        >
+          <UIcon v-if="'icon' in button && button.icon" :name="button.icon" class="size-5" aria-hidden="true" />
+          <span v-else class="voice-author text-lg leading-none" aria-hidden="true">{{ 'text' in button ? button.text : '' }}</span>
+        </button>
+      </template>
     </div>
   </div>
 </template>

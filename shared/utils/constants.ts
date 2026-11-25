@@ -156,6 +156,9 @@ export const DIALOGUE_STYLES = ['guillemets', 'double_quotes', 'dash'] as const
 /** The width of a page of text (writing, reading, notes): book 40rem, wide 50rem, full the whole page. */
 export const PAGE_WIDTHS = ['book', 'wide', 'full'] as const
 
+/** The author's highlighters in the manuscript (DESIGN.md "Highlighters"): colours of the author's own, never exported. */
+export const HIGHLIGHTERS = ['yellow', 'green', 'blue', 'pink'] as const
+
 /** How the timeline runs: down the page (the default) or across it. */
 export const TIMELINE_LAYOUTS = ['vertical', 'horizontal'] as const
 
