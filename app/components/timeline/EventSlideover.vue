@@ -19,7 +19,13 @@ const props = withDefaults(defineProps<{
   defaults?: CreateInput<'events'>
   /** Offer a link to the timeline (when shown on another page). */
   timelineLink?: boolean
-}>(), { eventId: null, defaults: () => ({}), timelineLink: false })
+  /**
+   * The panel closed on an event (`created` in this panel): the page that shows it takes the keyboard
+   * there and answers true, or false to let it go back where it was. A new event saved on closing is
+   * handed over once it exists.
+   */
+  onPlaced?: (id: string, created: boolean) => boolean
+}>(), { eventId: null, defaults: () => ({}), timelineLink: false, onPlaced: undefined })
 /** `created` only while the panel is still open: once closed, the event must not come back on screen. */
 const emit = defineEmits<{ created: [id: string] }>()
 
@@ -59,6 +65,8 @@ let closing = false
 let discarded = false
 /** The last new event could not be saved: the next open shows its draft again. */
 let unsaved = false
+/** The panel closed before its new event existed: `onPlaced` waits for it. */
+let placeWhenCreated = false
 
 const refKey = (ref: EntityRef) => `${ref.type}:${ref.id}`
 
@@ -69,9 +77,17 @@ function startDraft() {
   createdId.value = null
   creating.value = false
   discarded = false
+  placeWhenCreated = false
 }
 
-const id = computed(() => props.eventId ?? createdId.value)
+/**
+ * The event on show. It stays put while the panel closes: the address may already have dropped it,
+ * and the panel would show, and hand over, the last event it created instead.
+ */
+const id = ref<string | null>(null)
+watchEffect(() => {
+  if (open.value) id.value = props.eventId ?? createdId.value
+})
 const event = computed(() => (id.value ? store.get('events', id.value) : undefined))
 const current = computed<Draft>(() => event.value ?? draft)
 const missing = computed(() => !!props.eventId && !event.value)
@@ -135,6 +151,10 @@ async function create(title?: string) {
   createdId.value = row.id
   creating.value = false
   if (!closing && open.value) emit('created', row.id)
+  if (placeWhenCreated) {
+    placeWhenCreated = false
+    props.onPlaced?.(row.id, true)
+  }
   // Changes made while the request was on its way.
   const late: Partial<Draft> = {}
   for (const key of Object.keys(draft) as (keyof Draft)[]) {
@@ -206,6 +226,16 @@ function closeKeepingTitle(keyEvent: KeyboardEvent) {
   setOpen(false)
 }
 
+/** Closing hands the keyboard to the page that shows the event, when there is one (see `onPlaced`). */
+function onCloseAutoFocus(focusEvent: Event) {
+  if (!props.onPlaced) return
+  if (!event.value) {
+    placeWhenCreated = !discarded
+    return
+  }
+  if (props.onPlaced(event.value.id, createdId.value === event.value.id)) focusEvent.preventDefault()
+}
+
 /** A new event starts from its title; an existing one opens on the close button, as dialogs do. */
 function onOpenAutoFocus(focusEvent: Event) {
   if (focusEvent.defaultPrevented || (props.eventId && !justCaptured.value)) return
@@ -222,7 +252,7 @@ function onOpenAutoFocus(focusEvent: Event) {
     :title="event ? term('event') : t('timeline.event.new')"
     :description="t('timeline.event.panelDescription')"
     :ui="{ description: 'sr-only', body: 'space-y-6', footer: 'justify-between gap-2', close: 'max-lg:size-11 max-lg:justify-center' }"
-    :content="{ onOpenAutoFocus }"
+    :content="{ onOpenAutoFocus, onCloseAutoFocus }"
     @update:open="setOpen"
   >
     <template #actions>

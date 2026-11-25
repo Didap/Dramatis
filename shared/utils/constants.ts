@@ -156,6 +156,9 @@ export const DIALOGUE_STYLES = ['guillemets', 'double_quotes', 'dash'] as const
 /** The width of a page of text (writing, reading, notes): book 40rem, wide 50rem, full the whole page. */
 export const PAGE_WIDTHS = ['book', 'wide', 'full'] as const
 
+/** How the timeline runs: down the page (the default) or across it. */
+export const TIMELINE_LAYOUTS = ['vertical', 'horizontal'] as const
+
 /**
  * The entity palette: twelve named hues for characters, strands, groups, notes and relation kinds.
  * The actual colours are CSS variables (--entity-<key>) defined in app/assets/css/main.css for both themes.

@@ -2,6 +2,13 @@
   "timeline": {
     "description": "Le scene e gli eventi nell'ordine in cui accadono nella storia, che non è sempre quello in cui li racconti.",
     "newEvent": "Nuovo evento",
+    "addEvent": "Aggiungi un nuovo evento",
+    "layout": {
+      "label": "Disposizione",
+      "vertical": "Verticale",
+      "horizontal": "Orizzontale",
+      "strip": "Linea del tempo, scorre in orizzontale"
+    },
     "summary": {
       "both": "{scenes} e {events}",
       "single": "nel {year}",
@@ -122,7 +129,7 @@
       "showInTimeline": "Mostra nella linea del tempo"
     },
     "empty": {
-      "title": "La linea del tempo mette in ordine scene ed eventi: dai una data a una scena e la vedrai qui.",
+      "title": "La linea del tempo mette in ordine scene ed eventi: dai una data a una scena o aggiungi un evento, e li vedrai qui.",
       "guide": "Una data può essere un anno, un mese, un giorno o un momento preciso: «1953» e «14 novembre 1953, 22:10» si mettono in fila da sole. Per un calendario inventato scrivi anche la data come appare nella storia.",
       "dateFirst": "Dai una data alla prima scena",
       "toManuscript": "Vai al {manuscript}",

@@ -1,6 +1,6 @@
 import { eq } from 'drizzle-orm'
 import { z } from 'zod'
-import { PAGE_WIDTHS } from '#shared/utils/constants'
+import { PAGE_WIDTHS, TIMELINE_LAYOUTS } from '#shared/utils/constants'
 
 const schema = z
   .object({
@@ -22,6 +22,7 @@ const schema = z
           readingJustify: z.boolean().optional(),
           spellcheck: z.boolean().optional(),
           nameTags: z.boolean().optional(),
+          timelineLayout: z.enum(TIMELINE_LAYOUTS).optional(),
         })
         .optional(),
       guidance: z.boolean().optional(),

@@ -27,7 +27,9 @@ const props = withDefaults(defineProps<{
   flashback?: boolean
   /** Where the scene sits in the manuscript ("Capitolo 3, scena 2"), when narrative order is shown. */
   narrative?: string
-}>(), { editing: false, draft: null, suggest: () => null, overlaps: () => [], shown: null, flashback: false, narrative: undefined })
+  /** A card on a timeline that runs across the page: the date above the marker, the line through it. */
+  horizontal?: boolean
+}>(), { editing: false, draft: null, suggest: () => null, overlaps: () => [], shown: null, flashback: false, narrative: undefined, horizontal: false })
 
 const emit = defineEmits<{ edit: [], save: [patch: SceneDatePatch], cancel: [], open: [], undate: [] }>()
 
@@ -126,21 +128,32 @@ const menu = computed<DropdownMenuItem[][]>(() => {
 </script>
 
 <template>
-  <!-- scroll-mt: a row brought into view stays clear of the sticky period headings. -->
+  <!--
+    scroll-mt: a row brought into view stays clear of the sticky period headings; scroll-ms, a card
+    clear of the year that stays at the start of the strip.
+  -->
   <li
     ref="root"
     :data-timeline-key="entry.key"
-    class="tl-item group/item relative grid scroll-mt-36 grid-cols-[1.5rem_minmax(0,1fr)] gap-x-2.5 rounded-[calc(var(--ui-radius)*2)] py-2 pe-1 transition-colors duration-150 hover:bg-elevated/60 sm:grid-cols-[var(--tl-when,5.5rem)_1.5rem_minmax(0,1fr)] sm:gap-x-3 sm:pe-2"
+    class="group/item relative rounded-[calc(var(--ui-radius)*2)] py-2 transition-colors duration-150 hover:bg-elevated/60"
+    :class="horizontal
+      ? ['tl-card flex shrink-0 scroll-ms-20 scroll-mt-36 flex-col gap-y-1.5 px-2', editing ? 'w-80' : 'w-64']
+      : 'tl-item grid scroll-mt-36 grid-cols-[1.5rem_minmax(0,1fr)] gap-x-2.5 pe-1 sm:grid-cols-[var(--tl-when,5.5rem)_1.5rem_minmax(0,1fr)] sm:gap-x-3 sm:pe-2'"
   >
-    <div class="hidden pt-0.5 text-end text-sm leading-5 text-muted sm:block" aria-hidden="true">
-      <p v-if="entry.label" class="voice-author line-clamp-3 text-[0.8125rem] italic" :title="entry.label">{{ entry.label }}</p>
+    <!-- Above the marker, two lines high on every card so that the markers stay on one line. -->
+    <div
+      class="text-sm leading-5 text-muted"
+      :class="horizontal ? 'h-10 pe-4' : 'hidden pt-0.5 text-end sm:block'"
+      aria-hidden="true"
+    >
+      <p v-if="entry.label" class="voice-author text-[0.8125rem] italic" :class="horizontal ? 'line-clamp-2' : 'line-clamp-3'" :title="entry.label">{{ entry.label }}</p>
       <template v-else>
         <p v-if="when.main">{{ when.main }}</p>
         <p v-if="when.time" :class="when.main ? 'text-dimmed' : ''">{{ when.time }}</p>
       </template>
     </div>
 
-    <div class="tl-spine relative flex justify-center" aria-hidden="true">
+    <div class="tl-spine relative flex" :class="horizontal ? 'justify-start' : 'justify-center'" aria-hidden="true">
       <span
         class="relative z-10 grid size-6 place-items-center border bg-default text-muted"
         :class="entry.type === 'scene' ? 'rounded-full border-default' : 'rounded-[calc(var(--ui-radius)*1.5)] border-(--ui-border-accented)'"
@@ -149,8 +162,8 @@ const menu = computed<DropdownMenuItem[][]>(() => {
       </span>
     </div>
 
-    <div class="min-w-0 pb-0.5">
-      <p v-if="entry.label || whenLine" class="pt-0.5 text-[0.8125rem] leading-5 text-muted sm:hidden" aria-hidden="true">
+    <div class="min-w-0 pb-0.5" :class="horizontal ? 'pe-4' : ''">
+      <p v-if="!horizontal && (entry.label || whenLine)" class="pt-0.5 text-[0.8125rem] leading-5 text-muted sm:hidden" aria-hidden="true">
         <span v-if="entry.label" class="voice-author italic">{{ entry.label }}</span>
         <template v-else>{{ whenLine }}</template>
       </p>
@@ -175,7 +188,7 @@ const menu = computed<DropdownMenuItem[][]>(() => {
             <template v-if="showsKind(entry)">{{ ' ' }}<span class="text-xs whitespace-nowrap text-muted">{{ kindLabel(entry) }}</span></template>
             <span class="sr-only">. {{ showsKind(entry) ? '' : `${kindLabel(entry)}, ` }}{{ entry.label || fullDate(entry.at) }}</span>
           </p>
-          <template v-if="duration">
+          <template v-if="duration && !horizontal">
             <DLeader class="hidden sm:block" />
             <span class="hidden shrink-0 text-sm text-muted sm:inline">{{ duration }}</span>
           </template>
@@ -200,7 +213,7 @@ const menu = computed<DropdownMenuItem[][]>(() => {
       </p>
 
       <p v-if="duration || people.length || places.length" class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
-        <span v-if="duration" class="sm:hidden">{{ duration }}</span>
+        <span v-if="duration" :class="horizontal ? '' : 'sm:hidden'">{{ duration }}</span>
         <span v-if="people.length" class="inline-flex flex-wrap items-center gap-x-2.5 gap-y-1">
           <span class="sr-only">{{ term('characters') }}:</span>
           <span v-for="person in people.slice(0, MAX_PEOPLE)" :key="person.id" class="inline-flex items-center gap-1.5">
@@ -253,7 +266,7 @@ const menu = computed<DropdownMenuItem[][]>(() => {
 
 <style scoped>
 /* The spine joins the markers of a period, from its first marker to its last. */
-.tl-spine::before {
+.tl-item .tl-spine::before {
   content: '';
   position: absolute;
   inset-block: -0.5rem;
@@ -269,6 +282,32 @@ const menu = computed<DropdownMenuItem[][]>(() => {
   height: calc(0.75rem + 0.5rem);
 }
 .tl-item:first-child:last-child .tl-spine::before {
+  display: none;
+}
+
+/*
+ * Across the page one line runs from the first marker to the last, through the card's padding (px-2)
+ * and, at the end of a year, across the gap to the next one (gap-x-6 on the strip).
+ */
+.tl-card .tl-spine::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline: -0.5rem;
+  height: 1px;
+  background: var(--ui-border);
+}
+.tl-card:last-child .tl-spine::before {
+  inset-inline-end: -2rem;
+}
+section:first-child > ol > .tl-card:first-child .tl-spine::before {
+  inset-inline-start: 0.75rem;
+}
+section:last-child > ol > .tl-card:last-child .tl-spine::before {
+  inset-inline-end: auto;
+  width: calc(0.75rem + 0.5rem);
+}
+section:only-child > ol > .tl-card:only-child .tl-spine::before {
   display: none;
 }
 </style>

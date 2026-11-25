@@ -2,6 +2,13 @@
   "timeline": {
     "description": "Scenes and events in the order they happen in the story, which is not always the order you tell them in.",
     "newEvent": "New event",
+    "addEvent": "Add a new event",
+    "layout": {
+      "label": "Layout",
+      "vertical": "Vertical",
+      "horizontal": "Horizontal",
+      "strip": "Timeline, scrolls sideways"
+    },
     "summary": {
       "both": "{scenes} and {events}",
       "single": "in {year}",
@@ -122,7 +129,7 @@
       "showInTimeline": "Show in the timeline"
     },
     "empty": {
-      "title": "The timeline puts scenes and events in order: give a scene a date and you will see it here.",
+      "title": "The timeline puts scenes and events in order: give a scene a date or add an event, and you will see them here.",
       "guide": "A date can be a year, a month, a day or an exact moment: “1953” and “14 November 1953, 22:10” fall into line by themselves. For an invented calendar, also write the date as it appears in the story.",
       "dateFirst": "Give the first scene a date",
       "toManuscript": "Go to the {manuscript}",

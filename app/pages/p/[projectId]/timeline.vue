@@ -13,11 +13,14 @@ import {
   sceneEntry,
 } from '~/components/timeline/timeline-model'
 import type { SceneDatePatch, TimelineEntry, TimelineFilters } from '~/components/timeline/timeline-model'
+import type { TimelineLayout } from '#shared/types/domain'
+import { TIMELINE_LAYOUTS } from '#shared/utils/constants'
 
 /**
  * The timeline (spec 4.5): scenes and events in story order, grouped by year, month and day as density
  * requires, with filters, the undated tray, dates given inline, the event panel (?event=), and two
  * checks: a character in two places at once, and the order of the telling beside the order of the story.
+ * It runs down the page or across it, as the author prefers (saved to the account).
  */
 const route = useRoute()
 const router = useRouter()
@@ -30,6 +33,15 @@ const { analysis } = useFlow()
 const { yearText, fullDate } = useStoryCalendar()
 /** One solid control per view: on a phone it is the bar's "Aggiungi". */
 const desktop = useIsDesktop()
+const { prefs, load: loadPrefs, set: setPrefs } = useEditorTypography()
+onMounted(loadPrefs)
+
+const layout = computed({
+  get: (): TimelineLayout => prefs.value.timelineLayout ?? 'vertical',
+  set: (value: TimelineLayout) => setPrefs({ timelineLayout: value }),
+})
+const horizontal = computed(() => layout.value === 'horizontal')
+const layoutItems = computed(() => TIMELINE_LAYOUTS.map(value => ({ value, label: t(`timeline.layout.${value}`) })))
 
 const guidance = computed(() => store.project?.settings.guidance !== false)
 
@@ -222,14 +234,31 @@ function onCreated(id: string) {
   if (eventParam.value === 'new') void router.replace({ query: { ...route.query, event: id } })
 }
 
+/**
+ * The panel closed on an event: the keyboard follows it to where its date has put it (on the line or
+ * in the tray), and a new one says where that is. False when the filters hide it: focus goes back.
+ */
+function onPlaced(id: string, created: boolean) {
+  const event = store.get('events', id)
+  if (!event || !matchesFilters(eventEntry(event), filters.value)) return false
+  if (created) {
+    const title = titleOf('event', event)
+    announcement.value = event.at
+      ? t('timeline.dating.moved', { title, date: event.timeLabel || fullDate(event.at) })
+      : t('timeline.dating.cleared', { title })
+  }
+  void focusRow(`event:${id}`, 'center')
+  return true
+}
+
 // ---------------------------------------------------------------- what the header says
 
 const hasScenes = computed(() => store.orderedScenes.length > 0)
 const nothingYet = computed(() => !hasScenes.value && !store.rows.events.length)
 const emptyTimeline = computed(() => !dated.value.length)
 const firstUndatedScene = computed(() => undated.value.find(entry => entry.type === 'scene'))
-/** One solid button per view: the empty state's own action wins when it has one, the bar's "Aggiungi" on a phone. */
-const headerPrimary = computed(() => desktop.value && (!emptyTimeline.value || filtered.value || !firstUndatedScene.value))
+/** An empty timeline offers its two ways in, a date for a scene and a new event, below its words. */
+const emptyStart = computed(() => emptyTimeline.value && !filtered.value)
 
 const summary = computed(() => {
   if (!dated.value.length) return ''
@@ -278,11 +307,28 @@ function showFirstOverlap() {
           {{ t('timeline.checks.count', { n: overlapCount }, overlapCount) }}
         </button>
       </template>
-      <template v-if="!nothingYet" #actions>
+      <template v-if="!emptyStart" #actions>
+        <URadioGroup
+          v-model="layout"
+          :legend="t('timeline.layout.label')"
+          :items="layoutItems"
+          value-key="value"
+          variant="table"
+          indicator="hidden"
+          orientation="horizontal"
+          color="neutral"
+          size="sm"
+          :ui="{
+            legend: 'sr-only',
+            fieldset: 'gap-0',
+            item: 'px-3 py-1.5 max-lg:min-h-11 max-lg:items-center first-of-type:rounded-s-[calc(var(--ui-radius)*1.5)] last-of-type:rounded-e-[calc(var(--ui-radius)*1.5)] has-data-[state=checked]:bg-elevated',
+            label: 'text-sm',
+          }"
+        />
         <UButton
           icon="i-lucide-calendar-plus"
-          :color="headerPrimary || !desktop ? 'primary' : 'neutral'"
-          :variant="headerPrimary ? 'solid' : 'outline'"
+          color="primary"
+          :variant="desktop ? 'solid' : 'outline'"
           :label="t('timeline.newEvent')"
           class="max-lg:min-h-11"
           @click="openEvent('new')"
@@ -309,26 +355,48 @@ function showFirstOverlap() {
       />
     </div>
 
-    <div class="grid gap-x-12 gap-y-10 xl:grid-cols-[minmax(0,1fr)_19rem]">
+    <div class="grid gap-x-12 gap-y-10" :class="horizontal ? '' : 'xl:grid-cols-[minmax(0,1fr)_19rem]'">
       <div class="min-w-0" :style="{ '--tl-when': labelled ? '9rem' : '5.5rem' }">
         <template v-if="sections.length">
-          <TimelinePeriod
-            v-for="section in sections"
-            :key="section.id"
-            :section="section"
-            :editing="editing"
-            :draft="editingDraft"
-            :suggest="suggest"
-            :overlaps="overlaps"
-            :shown="filtered ? shownKeys : null"
-            :flashbacks="flashbacks"
-            :narrative="narrative"
-            @edit="edit"
-            @save="saveDate"
-            @cancel="cancelDate"
-            @open="openEvent"
-            @undate="undate"
-          />
+          <!--
+            Across the page the strip scrolls on its own: focusable, so that the arrows move it too,
+            and named for the screen reader that lands on it.
+          -->
+          <div
+            v-bind="horizontal ? { role: 'region', tabindex: 0, 'aria-label': t('timeline.layout.strip') } : {}"
+            :class="horizontal ? '-mx-2 flex gap-x-6 overflow-x-auto overscroll-x-contain px-2 pb-3' : ''"
+          >
+            <TimelinePeriod
+              v-for="section in sections"
+              :key="section.id"
+              :section="section"
+              :editing="editing"
+              :draft="editingDraft"
+              :suggest="suggest"
+              :overlaps="overlaps"
+              :shown="filtered ? shownKeys : null"
+              :flashbacks="flashbacks"
+              :narrative="narrative"
+              :horizontal="horizontal"
+              @edit="edit"
+              @save="saveDate"
+              @cancel="cancelDate"
+              @open="openEvent"
+              @undate="undate"
+            />
+          </div>
+          <!-- At the end of the line, where the next event would go: its date decides where it lands. -->
+          <button
+            type="button"
+            class="group/add mt-3 flex items-center gap-x-2.5 rounded-[calc(var(--ui-radius)*2)] py-2 pe-3 text-sm text-muted transition-colors duration-150 hover:bg-elevated/60 hover:text-highlighted max-lg:min-h-11 sm:gap-x-3"
+            :class="horizontal ? 'ps-2' : 'sm:ps-[calc(var(--tl-when)+0.75rem)]'"
+            @click="openEvent('new')"
+          >
+            <span class="grid size-6 shrink-0 place-items-center rounded-[calc(var(--ui-radius)*1.5)] border border-dashed border-(--ui-border-accented) group-hover/add:border-solid" aria-hidden="true">
+              <UIcon name="i-lucide-plus" class="size-3.5" />
+            </span>
+            {{ t('timeline.addEvent') }}
+          </button>
         </template>
 
         <div v-else-if="filtered" class="py-6">
@@ -354,6 +422,7 @@ function showFirstOverlap() {
           </ol>
           <p class="text-pretty text-highlighted">{{ t('timeline.empty.title') }}</p>
           <p v-if="guidance" class="mt-2 max-w-prose text-pretty text-sm text-muted">{{ t('timeline.empty.guide') }}</p>
+          <!-- Either way in: the first scene to hand, or an event at any date (the tray dates any other scene). -->
           <div class="mt-5 flex flex-wrap items-center gap-3">
             <UButton
               v-if="firstUndatedScene"
@@ -365,11 +434,10 @@ function showFirstOverlap() {
               @click="giveFirstDate"
             />
             <UButton
-              v-else-if="nothingYet"
-              color="primary"
-              :variant="desktop ? 'solid' : 'outline'"
+              :color="firstUndatedScene ? 'neutral' : 'primary'"
+              :variant="desktop && !firstUndatedScene ? 'solid' : 'outline'"
               icon="i-lucide-calendar-plus"
-              :label="t('timeline.newEvent')"
+              :label="t('timeline.addEvent')"
               class="max-lg:min-h-11"
               @click="openEvent('new')"
             />
@@ -420,6 +488,6 @@ function showFirstOverlap() {
       </template>
     </UDrawer>
 
-    <TimelineEventSlideover v-model:open="panelOpen" :event-id="panelEventId" @created="onCreated" />
+    <TimelineEventSlideover v-model:open="panelOpen" :event-id="panelEventId" :on-placed="onPlaced" @created="onCreated" />
   </DPage>
 </template>

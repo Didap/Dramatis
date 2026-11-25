@@ -3,6 +3,7 @@ import type {
   EXPORT_WHATS,
   IMAGE_OWNER_TYPES,
   PAGE_WIDTHS,
+  TIMELINE_LAYOUTS,
   SNAPSHOT_REASONS,
   CHARACTER_IMPORTANCES,
   CHARACTER_ROLES,
@@ -36,6 +37,7 @@ export type RelationKind = (typeof RELATION_KINDS)[number]
 export type GroupKind = (typeof GROUP_KINDS)[number]
 export type RaceDescription = (typeof RACE_DESCRIPTIONS)[number]
 export type PageWidth = (typeof PAGE_WIDTHS)[number]
+export type TimelineLayout = (typeof TIMELINE_LAYOUTS)[number]
 
 /** A branch of a race (elfi dei boschi, elfi del mare): a name and a description. */
 export interface Subrace {
@@ -259,6 +261,8 @@ export interface EditorPreferences {
   spellcheck?: boolean
   /** Characters' names (first name, surname, other names) become mentions as they are typed, without the @. Default true. */
   nameTags?: boolean
+  /** The timeline down the page or across it. Default vertical. */
+  timelineLayout?: TimelineLayout
 }
 
 export interface UserPreferences {
