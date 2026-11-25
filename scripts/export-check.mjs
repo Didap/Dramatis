@@ -438,8 +438,15 @@ async function project(kind) {
   console.log(`-- ${kind}: ${demo.data.title}`)
   await addImages(id)
 
-  for (const layout of ['manuscript', 'book']) {
+  // Every layout of shared/utils/constants.ts MANUSCRIPT_LAYOUTS, as a DOCX and as the print page's data.
+  for (const layout of ['a4', 'book', 'manuscript']) {
     await check(`${kind} manuscript DOCX ${layout}`, async () => docxCheck((await download('POST', `${api}/manuscript`, { format: 'docx', layout, sceneTitles: true })).bytes))
+    await check(`${kind} manuscript PDF data ${layout}`, async () => {
+      const { status, data } = await json('GET', `${api}/print?layout=${layout}&titlePage=true`)
+      assert(status === 200 && data.sceneCount > 0, `print answered ${status}`)
+      assert(data.options?.layout === layout, `layout came back as ${data.options?.layout}`)
+      return `${data.sceneCount} scenes, ${data.parts.reduce((n, p) => n + p.chapters.length, 0)} chapters`
+    })
   }
   await check(`${kind} manuscript EPUB`, async () => {
     const file = await download('POST', `${api}/manuscript`, { format: 'epub' })
@@ -448,11 +455,6 @@ async function project(kind) {
   await check(`${kind} manuscript TXT`, async () => {
     const file = await download('POST', `${api}/manuscript`, { format: 'txt', separator: 'blank' })
     return txtCheck(file.bytes, file.text())
-  })
-  await check(`${kind} manuscript PDF data`, async () => {
-    const { status, data } = await json('GET', `${api}/print?layout=manuscript&titlePage=true`)
-    assert(status === 200 && data.sceneCount > 0, `print answered ${status}`)
-    return `${data.sceneCount} scenes, ${data.parts.reduce((n, p) => n + p.chapters.length, 0)} chapters`
   })
   await check(`${kind} project document DOCX`, async () => {
     const { bytes } = await download('POST', `${api}/document`, { includeImages: true })

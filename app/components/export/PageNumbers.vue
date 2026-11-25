@@ -29,13 +29,13 @@ export function printsPageNumbers(): boolean {
  * book, maybe not on A5): Chrome or Edge print it as laid out, and the DOCX has real page numbers. With
  * `action`, a button offers the DOCX. Nothing is shown in Chromium.
  */
-const props = withDefaults(defineProps<{ layout?: 'manuscript' | 'book', action?: boolean }>(), { layout: 'manuscript', action: false })
+const props = withDefaults(defineProps<{ book?: boolean, action?: boolean }>(), { book: false, action: false })
 defineEmits<{ docx: [] }>()
 
 const { t } = useI18n()
 const missing = ref(false)
 onMounted(() => { missing.value = !printsPageNumbers() })
-const message = computed(() => t(props.layout === 'book' ? 'export.pageNumbers.missingBook' : 'export.pageNumbers.missing'))
+const message = computed(() => t(props.book ? 'export.pageNumbers.missingBook' : 'export.pageNumbers.missing'))
 </script>
 
 <template>

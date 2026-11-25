@@ -734,7 +734,7 @@ Revisions never change the scene status.
 
 1. Export, from the sidebar or the palette.
 2. Choose "Manoscritto" (game: "Copione"), then the format: DOCX (default), PDF, EPUB, TXT.
-3. Options (appendix D): title page; part and chapter titles; scene titles (off by default for novels); scene separator; which scenes (every scene with text by default, or only `revised` and `final`, or only `final`); for DOCX and PDF the layout "Cartella editoriale" (the Italian standard manuscript page) or "Libro".
+3. Options (appendix D): title page; part and chapter titles; scene titles (off by default for novels); scene separator; which scenes (every scene with text by default, or only `revised` and `final`, or only `final`); for DOCX and PDF the layout "Pagina A4" (the default: Arial 12, 1.5 lines, 2.5 cm margins, set as a book), "Libro" or "Cartella editoriale" (the Italian standard manuscript page).
 4. "Esporta": the server builds the file and the browser downloads `titolo-2026-10-18.docx`. The export is recorded with its format, date and whether every scene was `final` and the flow checks were clean (the path's last stage reads this).
 5. Game projects also offer "Formati per il team" (JSON, Twee 3, Ink, voice-over CSV) and the narrative design document; every project offers "Backup del progetto".
 6. Errors: a failure shows the reason with "Riprova" and "Scarica un backup"; a selection with nothing in it disables the button and says why ("Nessuna scena con testo con questi criteri").
@@ -967,7 +967,7 @@ Not in this build, and not to be started. Where an item is P2 above, it is liste
 - **Invented calendars** with their own months and years. The date label covers how a date reads; ordering uses the real-calendar date the author enters.
 - **Full offline use**, installable app, native apps.
 - **Payments, plans, quotas**, admin console.
-- **Publishing**: store distribution, ISBN, print typesetting beyond the two layouts, cover design.
+- **Publishing**: store distribution, ISBN, print typesetting beyond the three layouts, cover design.
 - **Grammar and style checking** beyond the browser's spell check; custom dictionaries.
 - **Scrivener import**, Fountain and Final Draft export, tracked changes, inline comments (all P2).
 - **Corkboard** and other card-grid views of the manuscript.
@@ -1285,7 +1285,7 @@ Every export reads the active revisions of non-trashed scenes, in manuscript ord
 - **Title page** (option, on): title, subtitle, author name, and the word count rounded to the hundred ("circa 38.400 parole").
 - **Headings**: part titles and chapter titles start a new page (options, on); scene titles optional (off for novels, on for games). DOCX uses real styles (Title, Heading 1 for parts, Heading 2 for chapters, Heading 3 for scenes, Normal) so an editor can restyle the whole file.
 - **Scene separator**: "***" centred (default), "#", or a blank line.
-- **Layouts**: "Cartella editoriale", A4, Courier New 12 pt, 60 characters per line and 30 lines per page (the Italian standard page of 1.800 characters), page numbers; "Libro", the app's manuscript serif, 11 pt, justified, first-line indent, no indent after headings and separators, A5 for PDF.
+- **Layouts**: "Pagina A4", the default, A4, Arial 12 pt, 1.5 lines, 2.5 cm margins, justified, first-line indent, no indent after headings and separators, chapters on a new page (it reads like a book and prints on ordinary paper); "Cartella editoriale", A4, Courier New 12 pt, 60 characters per line and 30 lines per page (the Italian standard page of 1.800 characters), page numbers; "Libro", the app's manuscript serif, 11 pt, justified, first-line indent, no indent after headings and separators, A5 for PDF.
 - **Dialogue lines** (`script`): the speaker in small capitals, the direction in parentheses, then the line.
 - Bold, italic, underline, quotes and alignment are kept.
 - Test: the DOCX opens in Word and LibreOffice with the navigation pane showing parts and chapters; the PDF of a 50-scene project is produced in under a minute.

@@ -1,4 +1,6 @@
 <script lang="ts">
+import { MANUSCRIPT_LAYOUTS, type ManuscriptLayout } from '#shared/utils/constants'
+
 export type ManuscriptSeparator = 'stars' | 'hash' | 'blank' | 'custom'
 
 /**
@@ -25,7 +27,7 @@ export const OPTION_ROW = 'border-0 rounded-[calc(var(--ui-radius)*2)] -mx-2 px-
 /**
  * The options of the manuscript (appendix D.1): title page, the titles of parts, chapters and scenes,
  * the chapter numbering, the separator between scenes, which scenes, and for DOCX and PDF the layout
- * ("Cartella editoriale" or "Libro").
+ * ("Pagina A4", "Libro" or "Cartella editoriale").
  */
 export interface ManuscriptExportOptions {
   titlePage: boolean
@@ -36,7 +38,7 @@ export interface ManuscriptExportOptions {
   numbering: 'arabic' | 'roman' | 'words' | 'none'
   separator: ManuscriptSeparator
   scenes: 'text' | 'revised' | 'final'
-  layout: 'manuscript' | 'book'
+  layout: ManuscriptLayout
 }
 
 const props = defineProps<{ format: 'docx' | 'pdf' | 'epub' | 'txt' }>()
@@ -59,10 +61,10 @@ const separators = computed(() => [
   ...(props.format === 'txt' ? [] : [{ value: 'blank', label: t('export.options.separators.blank') }]),
 ])
 const rules = computed(() => (['text', 'revised', 'final'] as const).map(value => ({ value, label: t(`export.options.scenes.${value}`) })))
-const layouts = computed(() => (['manuscript', 'book'] as const).map(value => ({
+const layouts = computed(() => MANUSCRIPT_LAYOUTS.map(value => ({
   value,
   label: t(`export.options.layouts.${value}.label`),
-  description: t(`export.options.layouts.${value}.${props.format === 'pdf' ? 'pdf' : 'docx'}`),
+  description: t(`export.options.layouts.${value}.description`),
 })))
 
 const separator = computed(() => effectiveSeparator(options.value.separator, custom.value, props.format))

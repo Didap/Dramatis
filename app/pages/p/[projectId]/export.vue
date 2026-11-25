@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { MANUSCRIPT_LAYOUTS } from '#shared/utils/constants'
 import type { ExportCover } from '~/components/export/CoverField.vue'
 import type { ExportRecord } from '~/components/export/History.vue'
 import { effectiveSeparator, OPTION_ROW, type ManuscriptExportOptions } from '~/components/export/ManuscriptOptions.vue'
@@ -47,7 +48,7 @@ function defaults(): Saved {
       numbering: settings.chapterNumbering ?? 'arabic',
       separator: custom && custom !== '***' && custom !== '#' ? 'custom' : custom === '#' ? 'hash' : 'stars',
       scenes: 'text',
-      layout: 'manuscript',
+      layout: MANUSCRIPT_LAYOUTS[0],
     },
     includeImages: true,
     tweeFormat: 'harlowe',
@@ -56,22 +57,23 @@ function defaults(): Saved {
 }
 
 const storageKey = `dramatis:export:${store.projectId}`
+/** 2: the A4 page became the default layout. */
+const STORAGE_VERSION = 2
 const saved = reactive<Saved>(defaults())
 onMounted(() => {
   try {
     const raw = localStorage.getItem(storageKey)
     if (!raw) return
-    const value = JSON.parse(raw) as Partial<Saved>
-    Object.assign(saved, {
-      ...value,
-      manuscript: { ...saved.manuscript, ...value.manuscript },
-      voice: { ...saved.voice, ...value.voice },
-    })
+    const { version, ...value } = JSON.parse(raw) as Partial<Saved> & { version?: number }
+    const manuscript = { ...saved.manuscript, ...value.manuscript }
+    // Before version 2 the page stored the cartella, then the default, whether chosen or not.
+    if (!MANUSCRIPT_LAYOUTS.includes(manuscript.layout) || (!version && manuscript.layout === 'manuscript')) manuscript.layout = MANUSCRIPT_LAYOUTS[0]
+    Object.assign(saved, { ...value, manuscript, voice: { ...saved.voice, ...value.voice } })
   }
   catch {}
 })
 watch(saved, (value) => {
-  try { localStorage.setItem(storageKey, JSON.stringify(value)) }
+  try { localStorage.setItem(storageKey, JSON.stringify({ ...value, version: STORAGE_VERSION })) }
   catch {}
 }, { deep: true })
 
@@ -437,7 +439,7 @@ const reasonId = useId()
 
             <ExportPageNumbers
               v-if="printing"
-              :layout="selected === 'pdf' ? saved.manuscript.layout : 'manuscript'"
+              :book="selected === 'pdf' && saved.manuscript.layout === 'book'"
               action
               @docx="chooseDocx"
             />

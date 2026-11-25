@@ -232,6 +232,13 @@ export const MENTION_ID_SEPARATOR = ':'
 /** Uploads are resized on the client; this is the ceiling of what the server accepts. */
 export const MAX_UPLOAD_BYTES = 10 * 1024 * 1024
 
+/**
+ * Layouts of the manuscript in DOCX and PDF, the default first: an A4 page that reads like a book
+ * (Arial 12, 1.5 lines, 2.5 cm margins), the book (A5), the cartella editoriale (Courier, 30 by 60).
+ */
+export const MANUSCRIPT_LAYOUTS = ['a4', 'book', 'manuscript'] as const
+export type ManuscriptLayout = (typeof MANUSCRIPT_LAYOUTS)[number]
+
 /** Longest side of stored images and of their thumbnails. */
 export const IMAGE_MAX_SIDE = 2400
 export const THUMB_MAX_SIDE = 320

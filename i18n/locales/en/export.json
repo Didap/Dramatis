@@ -105,15 +105,17 @@
       },
       "layout": "Layout",
       "layouts": {
+        "a4": {
+          "label": "A4 page",
+          "description": "A4, Arial 12, 1.5 line spacing, 2.5 cm margins, justified with first-line indents and each chapter on a new page: reads like a book, prints on ordinary paper."
+        },
         "manuscript": {
           "label": "Standard manuscript",
-          "docx": "A4, Courier New 12, 30 lines of 60 characters, numbered pages: the Italian publishers' standard page.",
-          "pdf": "A4, Courier New 12, 30 lines of 60 characters, numbered pages: the Italian publishers' standard page."
+          "description": "A4, Courier New 12, 30 lines of 60 characters, numbered pages: the Italian publishers' standard page."
         },
         "book": {
           "label": "Book",
-          "docx": "The manuscript typeface at 11 points, justified, with first-line indents, on A5 pages.",
-          "pdf": "The manuscript typeface at 11 points, justified, with first-line indents, on A5 pages."
+          "description": "The manuscript typeface at 11 points, justified, with first-line indents, on A5 pages."
         }
       },
       "images": "With the primary images",
@@ -209,6 +211,7 @@
       "print": "Print or save as PDF",
       "hint": "In the print dialog choose Save as PDF: the pages are already set up.",
       "layout": {
+        "a4": "A4 page, Arial 12",
         "manuscript": "Standard manuscript, A4",
         "book": "Book, A5"
       },

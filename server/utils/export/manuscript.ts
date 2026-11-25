@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import type { RichDoc } from '#shared/types/domain'
+import { MANUSCRIPT_LAYOUTS, type ManuscriptLayout } from '#shared/utils/constants'
 import { exportNumber, type ExportLang, type ExportTranslator } from './i18n'
 import type { ExportModel } from './model'
 
@@ -22,7 +23,7 @@ export const manuscriptOptionsSchema = z.object({
   separator: z.enum(['stars', 'hash', 'blank', 'custom']).optional(),
   /** text: every scene with text; revised: only revised and final; final: only final. */
   scenes: z.enum(['text', 'revised', 'final']).optional(),
-  layout: z.enum(['manuscript', 'book']).optional(),
+  layout: z.enum(MANUSCRIPT_LAYOUTS).optional(),
 })
 
 export type ManuscriptOptionsInput = z.output<typeof manuscriptOptionsSchema>
@@ -36,7 +37,7 @@ export interface ManuscriptOptions {
   numbering: 'arabic' | 'roman' | 'words' | 'none'
   separator: 'stars' | 'hash' | 'blank' | 'custom'
   scenes: 'text' | 'revised' | 'final'
-  layout: 'manuscript' | 'book'
+  layout: ManuscriptLayout
 }
 
 export interface MsScene {
@@ -100,7 +101,7 @@ export function resolveManuscriptOptions(model: ExportModel, input: ManuscriptOp
     numbering: input.numbering ?? settings.chapterNumbering ?? 'arabic',
     separator: input.separator ?? (custom ? 'custom' : 'stars'),
     scenes: input.scenes ?? 'text',
-    layout: input.layout ?? 'manuscript',
+    layout: input.layout ?? MANUSCRIPT_LAYOUTS[0],
   }
 }
 

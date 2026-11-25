@@ -259,7 +259,7 @@ Files: `app/pages/p/[projectId]/export.vue`, `app/pages/print/**`, `app/componen
 `server/api/projects/[projectId]/export/**`, `server/api/projects/import.post.ts`,
 `server/utils/export/**`.
 - Spec 5.10, 7.24, 7.25 and section 6 "Export and import": manuscript as DOCX (`docx`), PDF (the print
-  page `/print/[projectId]` with `@page` CSS, two layouts: manuscript and book), EPUB 3 (`fflate`), TXT;
+  page `/print/[projectId]` with `@page` CSS, three layouts: a4, the default, book and manuscript), EPUB 3 (`fflate`), TXT;
   the project document as DOCX (story bible / narrative design document); JSON, Twee 3 (Harlowe 3),
   Ink, voice-over CSV (line id, scene code, speaker, line, direction); project backup (.zip with one
   JSON and the image files) and its import as a new project, lossless (scene codes and line ids kept);

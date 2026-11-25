@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import { MANUSCRIPT_LAYOUTS, type ManuscriptLayout } from '#shared/utils/constants'
 import type { PrintDocumentData } from '~/components/export/PrintDocument.vue'
 import type { PrintManuscriptData } from '~/components/export/PrintManuscript.vue'
 
 /**
  * The print page: the browser turns it into the PDF. With what=manuscript (the default) the manuscript
- * (appendix D.1) in one of its two layouts, "Cartella editoriale" (A4, Courier New 12 pt, 60 characters by
- * 30 lines, page numbers) or "Libro" (A5, the manuscript serif at 11 pt, justified); with what=document the
+ * (appendix D.1) in one of its three layouts, "Pagina A4" (Arial 12 pt, 1.5 lines, 2.5 cm margins, set as
+ * the book is), "Libro" (A5, the manuscript serif at 11 pt, justified) or "Cartella editoriale" (A4,
+ * Courier New 12 pt, 60 characters by 30 lines, page numbers); with what=document the
  * project document (P1). The options come in the query string from the export page; with autoprint=1 the
  * print dialog opens as soon as the pages and their fonts are ready. Opening the dialog records the export.
  * Page numbers come from @page margin boxes, which only Chromium lays out: elsewhere a note says so and
@@ -51,7 +53,7 @@ async function load() {
   }
 }
 
-const layout = computed(() => manuscript.value?.options.layout ?? (route.query.layout === 'book' ? 'book' : 'manuscript'))
+const layout = computed<ManuscriptLayout>(() => manuscript.value?.options.layout ?? MANUSCRIPT_LAYOUTS.find(l => l === route.query.layout) ?? MANUSCRIPT_LAYOUTS[0])
 const ready = computed(() => (what.value === 'document' ? !!projectDocument.value : !!manuscript.value?.sceneCount))
 const title = computed(() => projectDocument.value?.title ?? manuscript.value?.title ?? '')
 const language = computed(() => projectDocument.value?.language ?? manuscript.value?.language)
@@ -100,12 +102,15 @@ onMounted(async () => {
 
 // The page rules follow what is printed; they leave with the page. The title page is not numbered and does
 // not count (counter-increment: page 0), so the text starts on page 1, as in the DOCX.
+const MANUSCRIPT_PAGES: Record<ManuscriptLayout, string> = {
+  a4: `@page { size: A4; margin: 2.5cm; @bottom-center { content: counter(page); font-family: Arial, 'Liberation Sans', Helvetica, sans-serif; font-size: 12pt; } }`,
+  book: `@page { size: A5; margin: 18mm 16mm 21mm 16mm; @bottom-center { content: counter(page); font-family: Literata, Georgia, serif; font-size: 9pt; } }`,
+  manuscript: `@page { size: A4; margin: 2.15cm 2.88cm 2.15cm 2.88cm; @bottom-right { content: counter(page); font-family: 'Courier New', Courier, monospace; font-size: 12pt; } }`,
+}
 const pageRules = computed(() => {
   if (what.value === 'document') return `@page { size: A4; margin: 2cm 2.2cm 2.2cm 2.2cm; @bottom-center { content: counter(page); font-family: 'Schibsted Grotesk', Arial, sans-serif; font-size: 8.5pt; } } @page :first { counter-increment: page 0; @bottom-center { content: none; } }`
   const first = manuscript.value?.options.titlePage ? '@page :first { counter-increment: page 0; @bottom-center { content: none; } @bottom-right { content: none; } }' : ''
-  return layout.value === 'book'
-    ? `@page { size: A5; margin: 18mm 16mm 21mm 16mm; @bottom-center { content: counter(page); font-family: Literata, Georgia, serif; font-size: 9pt; } } ${first}`
-    : `@page { size: A4; margin: 2.15cm 2.88cm 2.15cm 2.88cm; @bottom-right { content: counter(page); font-family: 'Courier New', Courier, monospace; font-size: 12pt; } } ${first}`
+  return `${MANUSCRIPT_PAGES[layout.value]} ${first}`
 })
 
 /**
@@ -169,7 +174,7 @@ useHead(() => ({
     <main id="main" class="px-4 py-6 sm:px-6 sm:py-10">
       <div v-if="ready" class="print-hint mx-auto mb-6 max-w-prose space-y-2 text-center">
         <p class="text-sm text-pretty text-muted">{{ t('export.print.hint') }}</p>
-        <ExportPageNumbers :layout="what === 'manuscript' ? layout : 'manuscript'" class="justify-center text-start" />
+        <ExportPageNumbers :book="what === 'manuscript' && layout === 'book'" class="justify-center text-start" />
       </div>
 
       <div v-if="loading" class="mx-auto max-w-[15.24cm] space-y-3" aria-busy="true">

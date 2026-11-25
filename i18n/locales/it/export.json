@@ -105,15 +105,17 @@
       },
       "layout": "Impaginazione",
       "layouts": {
+        "a4": {
+          "label": "Pagina A4",
+          "description": "A4, Arial 12, interlinea 1,5, margini di 2,5 cm, giustificato con il rientro di prima riga e i capitoli su pagina nuova: si legge come un libro e si stampa su un foglio comune."
+        },
         "manuscript": {
           "label": "Cartella editoriale",
-          "docx": "A4, Courier New 12, 30 righe da 60 battute, pagine numerate: lo standard delle case editrici.",
-          "pdf": "A4, Courier New 12, 30 righe da 60 battute, pagine numerate: lo standard delle case editrici."
+          "description": "A4, Courier New 12, 30 righe da 60 battute, pagine numerate: lo standard delle case editrici."
         },
         "book": {
           "label": "Libro",
-          "docx": "Il carattere del manoscritto a 11 punti, giustificato, con il rientro di prima riga, in formato A5.",
-          "pdf": "Il carattere del manoscritto a 11 punti, giustificato, con il rientro di prima riga, su pagine A5."
+          "description": "Il carattere del manoscritto a 11 punti, giustificato, con il rientro di prima riga, su pagine A5."
         }
       },
       "images": "Con le immagini principali",
@@ -209,6 +211,7 @@
       "print": "Stampa o salva in PDF",
       "hint": "Nella finestra di stampa scegli Salva come PDF: le pagine sono già impostate.",
       "layout": {
+        "a4": "Pagina A4, Arial 12",
         "manuscript": "Cartella editoriale, A4",
         "book": "Libro, A5"
       },

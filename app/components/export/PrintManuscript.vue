@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import type { ManuscriptLayout } from '#shared/utils/constants'
+
 /**
  * The manuscript set for paper (appendix D.1), for the print page: title page, parts and chapters each on
- * a new page, scenes with their separators. Layout "manuscript" is the cartella editoriale (Courier New
- * 12 pt on a 24 pt line, 60 characters to the line), "book" the manuscript serif at 11 pt, justified.
+ * a new page, scenes with their separators. Layout "a4" is Arial 12 pt on 1.5 lines, "book" the manuscript
+ * serif at 11 pt; both are set as a book (justified, indents, headings: the print-ms--typeset rules).
+ * "manuscript" is the cartella editoriale (Courier New 12 pt on a 24 pt line, 60 characters to the line).
  */
 export interface PrintScene { id: string, heading: string | null, separatorBefore: boolean, html: string }
 export interface PrintChapter { id: string, heading: string | null, scenes: PrintScene[] }
@@ -17,7 +20,7 @@ export interface PrintManuscriptData {
   sceneCount: number
   language: string
   kind: 'novel' | 'game'
-  options: { titlePage: boolean, layout: 'manuscript' | 'book' }
+  options: { titlePage: boolean, layout: ManuscriptLayout }
   separator: string
   parts: PrintPart[]
 }
@@ -26,7 +29,7 @@ defineProps<{ data: PrintManuscriptData }>()
 </script>
 
 <template>
-  <article class="print-doc print-ms mx-auto" :class="`print-ms--${data.options.layout}`" :lang="data.language">
+  <article class="print-doc print-ms mx-auto" :class="[`print-ms--${data.options.layout}`, { 'print-ms--typeset': data.options.layout !== 'manuscript' }]" :lang="data.language">
     <section v-if="data.options.titlePage" class="print-title-page">
       <h1 class="ms-title">{{ data.title }}</h1>
       <p v-if="data.subtitle" class="ms-subtitle">{{ data.subtitle }}</p>
@@ -60,16 +63,25 @@ defineProps<{ data: PrintManuscriptData }>()
   font-size: 12pt;
   line-height: 24pt;
 }
+/* Word's 1.5 lines are 1.5 of Arial's own line (1.15 em): 1.725, so the PDF and the DOCX run alike. */
+.print-ms--a4 {
+  max-width: 16cm;
+  font-family: Arial, 'Liberation Sans', Helvetica, sans-serif;
+  font-size: 12pt;
+  line-height: 1.725;
+}
 .print-ms--book {
   max-width: 11.6cm;
   font-family: Literata, Georgia, serif;
   font-size: 11pt;
   line-height: 1.42;
+}
+.print-ms--typeset {
   text-align: justify;
   hyphens: auto;
 }
 .print-ms p { margin: 0; text-indent: 3em; }
-.print-ms--book p { text-indent: 1.2em; }
+.print-ms--typeset p { text-indent: 1.2em; }
 .print-ms p.first,
 .print-ms p.blank,
 .print-ms p.sep,
@@ -82,9 +94,9 @@ defineProps<{ data: PrintManuscriptData }>()
 .print-ms p.align-justify { text-align: justify; }
 .print-ms p.subhead { font-weight: 700; }
 .print-ms p.sep { text-align: center; }
-.print-ms--book p.sep { margin: 0.7em 0; }
+.print-ms--typeset p.sep { margin: 0.7em 0; }
 .print-ms p.line { padding-inline-start: 2em; text-indent: -2em; text-align: start; }
-.print-ms--book p.line { margin: 0.2em 0; }
+.print-ms--typeset p.line { margin: 0.2em 0; }
 .print-ms .speaker { font-variant: small-caps; font-weight: 600; letter-spacing: 0.02em; }
 .print-ms .direction { font-style: italic; }
 .print-ms blockquote { margin: 0 2em; }
@@ -105,10 +117,10 @@ defineProps<{ data: PrintManuscriptData }>()
 .print-ms--manuscript .ms-chapter-title,
 .print-ms--manuscript .ms-part-title { margin-bottom: 24pt; }
 .print-ms--manuscript .ms-scene-title { margin-top: 24pt; }
-.print-ms--book .ms-title { font-size: 22pt; font-weight: 600; line-height: 1.2; }
-.print-ms--book .ms-part-title { font-size: 17pt; font-weight: 600; padding-top: 4cm; }
-.print-ms--book .ms-chapter-title { font-size: 14pt; font-weight: 600; padding-top: 2.5cm; margin-bottom: 1.2cm; }
-.print-ms--book .ms-scene-title { font-style: italic; font-weight: 400; margin: 1.2em 0 0.6em; }
+.print-ms--typeset .ms-title { font-size: 22pt; font-weight: 600; line-height: 1.2; }
+.print-ms--typeset .ms-part-title { font-size: 17pt; font-weight: 600; padding-top: 4cm; }
+.print-ms--typeset .ms-chapter-title { font-size: 14pt; font-weight: 600; padding-top: 2.5cm; margin-bottom: 1.2cm; }
+.print-ms--typeset .ms-scene-title { font-style: italic; font-weight: 400; margin: 1.2em 0 0.6em; }
 
 .print-ms .print-title-page { text-align: center; padding: 3cm 0 2cm; }
 .print-ms .ms-subtitle { font-style: italic; text-indent: 0; margin-top: 12pt; }

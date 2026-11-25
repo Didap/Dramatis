@@ -13,15 +13,17 @@ import {
 } from 'docx'
 import { DOCX_NUMBERING, docxListCounter, docxParagraphs, docxSeparator, type DocxRichContext } from './docx-rich'
 import { exportCleanText } from './files'
+import type { ManuscriptLayout } from '#shared/utils/constants'
 import type { Manuscript } from './manuscript'
 
 /*
  * The manuscript as DOCX (appendix D.1), with real styles (Title, Heading 1 parts, Heading 2 chapters,
- * Heading 3 scenes, Normal) so an editor can restyle the whole file, and the two layouts:
- * - "Cartella editoriale": A4, Courier New 12 pt, 60 characters per line and 30 lines per page
- *   (the Italian standard page of 1,800 characters), page numbers;
+ * Heading 3 scenes, Normal) so an editor can restyle the whole file, and the three layouts:
+ * - "Pagina A4" (the default): A4, Arial 12 pt, 1.5 lines, 2.5 cm margins, set as the book is;
  * - "Libro": A5, the manuscript serif at 11 pt, justified, first-line indent, no indent after
- *   headings and separators.
+ *   headings and separators;
+ * - "Cartella editoriale": A4, Courier New 12 pt, 60 characters per line and 30 lines per page
+ *   (the Italian standard page of 1,800 characters), page numbers.
  */
 
 interface Layout {
@@ -41,7 +43,26 @@ interface Layout {
   scene: number
 }
 
-const LAYOUTS: Record<'manuscript' | 'book', Layout> = {
+/** A4 in twips. */
+const A4 = { width: 11906, height: 16838 }
+
+const LAYOUTS: Record<ManuscriptLayout, Layout> = {
+  // 2.5 cm is 1417 twips; 1.5 lines is 360 in Word's 240ths of a line; the indent is 1.2 em, as in the PDF.
+  a4: {
+    font: 'Arial',
+    size: 24,
+    line: 360,
+    lineRule: LineRuleType.AUTO,
+    indent: 288,
+    align: AlignmentType.JUSTIFIED,
+    page: A4,
+    margin: { top: 1417, bottom: 1417, left: 1417, right: 1417, header: 709, footer: 709 },
+    pageNumber: AlignmentType.CENTER,
+    title: 44,
+    part: 34,
+    chapter: 28,
+    scene: 24,
+  },
   // 60 Courier characters of 7.2 pt fill 432 pt; 30 exact lines of 24 pt fill 720 pt of the A4 page.
   manuscript: {
     font: 'Courier New',
@@ -50,7 +71,7 @@ const LAYOUTS: Record<'manuscript' | 'book', Layout> = {
     lineRule: LineRuleType.EXACT,
     indent: 720,
     align: AlignmentType.LEFT,
-    page: { width: 11906, height: 16838 },
+    page: A4,
     margin: { top: 1219, bottom: 1219, left: 1633, right: 1633, header: 567, footer: 567 },
     pageNumber: AlignmentType.RIGHT,
     title: 24,
