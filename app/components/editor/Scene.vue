@@ -66,6 +66,8 @@ const PANEL_KEY = 'dramatis:editor-panel'
 const panel = computed<EditorPanel | null>(() => PANELS.find(p => p === route.query.panel) ?? null)
 
 function setPanel(next: EditorPanel | null, options: { replace?: boolean } = {}) {
+  // Focus mode keeps the page alone, find aside: the other margins wait until it ends.
+  if (focusMode.value && desktop.value && next && next !== 'find') return
   const query = { ...route.query }
   if (next) query.panel = next
   else delete query.panel
@@ -260,6 +262,8 @@ onBeforeUnmount(remember)
 const typing = ref(false)
 /** Focus mode survives the move to the previous or next scene; leaving the editor ends it. */
 const focusMode = useState('dramatis:editor-focus', () => false)
+/** The panel in the desktop margin: in focus mode only find shows, and the strip and corner leave it room. */
+const margin = computed(() => (desktop.value && panel.value && (!focusMode.value || panel.value === 'find') ? panel.value : null))
 onBeforeRouteLeave(() => {
   focusMode.value = false
   if (document.fullscreenElement) void document.exitFullscreen().catch(() => {})
@@ -310,7 +314,7 @@ useEventListener(document, 'pointermove', (event: PointerEvent) => {
   if (!moved) return
   typing.value = false
   if (focusMode.value && desktop.value) {
-    if (event.clientY < 56) holdStrip()
+    if (event.clientY < 56 && !(event.target as Element | null)?.closest?.('.d-inspector')) holdStrip()
     else if (strip.value) showStrip()
   }
 })
@@ -342,16 +346,17 @@ useEventListener(window, 'keydown', (event: KeyboardEvent) => {
   // A menu, a popover, a drawer, the speaker list or the find field takes its own Escape first.
   if (document.querySelector('[data-dismissable-layer], .d-mention-menu, [role="listbox"][data-state="open"]')) return
   if ((document.activeElement as HTMLElement | null)?.closest('.d-line__meta, .d-find')) return
+  // The margin is above the page: from it, Esc closes the margin first (find stays open in focus mode).
+  if (panel.value && desktop.value && (document.activeElement as HTMLElement | null)?.closest('.d-inspector')) {
+    closePanel()
+    return
+  }
   if (focusMode.value) {
     event.preventDefault()
     exitFocus()
     return
   }
-  if (typing.value) {
-    typing.value = false
-    return
-  }
-  if (panel.value && desktop.value && (document.activeElement as HTMLElement | null)?.closest('.d-inspector')) closePanel()
+  if (typing.value) typing.value = false
 }, { capture: true })
 
 // Alt+Enter opens the details everywhere; ⌘J only on a Mac, because Ctrl+J opens the browser's downloads.
@@ -581,8 +586,8 @@ const narrow = computed(() => !desktop.value || (mainWidth.value - columnWidth.v
       <template v-if="focusMode">
         <div
           v-if="desktop"
-          class="d-focus-strip fixed inset-x-0 top-0 z-30 flex h-12 items-center gap-2 border-b border-default/60 bg-default px-4 transition-opacity duration-150 motion-reduce:transition-none"
-          :class="strip ? 'opacity-100' : 'pointer-events-none opacity-0'"
+          class="d-focus-strip fixed start-0 top-0 z-30 flex h-12 items-center gap-2 border-b border-default/60 bg-default px-4 transition-opacity duration-150 motion-reduce:transition-none"
+          :class="[strip ? 'opacity-100' : 'pointer-events-none opacity-0', margin ? 'end-80' : 'end-0']"
           @focusin="holdStrip"
           @focusout="showStrip"
           @mouseenter="holdStrip"
@@ -612,7 +617,7 @@ const narrow = computed(() => !desktop.value || (mainWidth.value - columnWidth.v
           <EditorSaveState compact class="pointer-events-auto min-h-8 max-w-44 rounded-[calc(var(--ui-radius)*1.5)] bg-default/90 px-2" />
           <UButton class="pointer-events-auto min-h-11 px-4" variant="outline" :label="t('editor.focus.done')" @click="exitFocus" />
         </div>
-        <div v-if="desktop" class="pointer-events-none fixed end-5 bottom-4 z-30 flex items-center gap-3 text-xs text-dimmed">
+        <div v-if="desktop" class="pointer-events-none fixed bottom-4 z-30 flex items-center gap-3 text-xs text-dimmed" :class="margin ? 'end-85' : 'end-5'">
           <span v-if="cornerWords" class="tabular">{{ session > 0 ? `+${number(session)}` : session < 0 ? `−${number(-session)}` : number(0) }}</span>
           <EditorSaveState v-if="cornerSave || content.failure.value || content.conflict.value || content.stale.value" class="pointer-events-auto" />
         </div>
@@ -777,7 +782,7 @@ const narrow = computed(() => !desktop.value || (mainWidth.value - columnWidth.v
 
     <!-- Desktop: the margin with details, revisions or find -->
     <aside
-      v-if="desktop && panel && !focusMode"
+      v-if="margin"
       class="d-inspector d-chrome sticky top-0 flex h-dvh w-80 shrink-0 flex-col border-s border-default/70 bg-muted"
       :aria-label="panel === 'details' ? t('editor.details.title') : panel === 'revisions' ? term('revision', 2) : panel === 'spelling' ? t('editor.spelling.title') : t('editor.find.title')"
     >

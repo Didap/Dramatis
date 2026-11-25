@@ -2,30 +2,19 @@
 import type { Editor } from '@tiptap/core'
 import { Extension } from '@tiptap/core'
 import type { Node as PMNode } from '@tiptap/pm/model'
+import type { Transaction } from '@tiptap/pm/state'
 import { Plugin, PluginKey, TextSelection } from '@tiptap/pm/state'
 import { Decoration, DecorationSet } from '@tiptap/pm/view'
 import { parseMentionId } from '#shared/utils/richtext'
+import type { FindMatch, FindQuery } from '~/utils/find'
+import { findMatches, replacedLabel } from '~/utils/find'
 
 /*
  * Find and replace in the open scene (spec 5.9): match case, whole word, "3 di 12", Enter and
- * Shift+Enter to move, replace one or all. Mentions and speakers are never touched: they are not
- * text. "Trova nel testo" from a tag highlights the mentions of an entity (and its lines) instead.
+ * Shift+Enter to move, replace one or all. A tag whose name matches is found too: replacing changes the
+ * name it shows and the tag stays. Speakers are never touched. "Trova nel testo" from a tag highlights
+ * the mentions of an entity (and its lines) instead. The matching is in utils/find.ts.
  */
-
-export interface FindQuery {
-  text: string
-  matchCase: boolean
-  wholeWord: boolean
-  /** Mentions of this entity ("character:uuid") instead of a text. */
-  refId: string | null
-}
-
-export interface FindMatch {
-  from: number
-  to: number
-  /** A whole dialogue line (the entity speaks it). */
-  node?: boolean
-}
 
 export interface FindState extends FindQuery {
   matches: FindMatch[]
@@ -38,37 +27,6 @@ type FindMeta = Partial<FindQuery> & { current?: number, close?: boolean }
 export const findKey = new PluginKey<FindState>('sceneFind')
 
 const EMPTY: FindState = { text: '', matchCase: false, wholeWord: false, refId: null, matches: [], current: -1, decorations: DecorationSet.empty }
-
-const escapeRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-
-export function findMatches(doc: PMNode, query: FindQuery): FindMatch[] {
-  const matches: FindMatch[] = []
-  if (query.refId) {
-    const speaker = query.refId.startsWith('character:') ? query.refId.slice('character:'.length) : null
-    doc.descendants((node, pos) => {
-      if (node.type.name === 'mention' && node.attrs.id === query.refId) matches.push({ from: pos, to: pos + node.nodeSize })
-      else if (speaker && node.type.name === 'dialogueLine' && node.attrs.speakerId === speaker) matches.push({ from: pos, to: pos + node.nodeSize, node: true })
-    })
-    return matches
-  }
-  if (!query.text) return matches
-  const source = escapeRegExp(query.text)
-  const pattern = query.wholeWord ? `(?<![\\p{L}\\p{N}_])${source}(?![\\p{L}\\p{N}_])` : source
-  const regexp = new RegExp(pattern, query.matchCase ? 'gu' : 'giu')
-  doc.descendants((node, pos) => {
-    if (!node.isTextblock) return true
-    // Inline atoms (mentions, line breaks) become a character that never matches.
-    let text = ''
-    node.forEach((child) => { text += child.isText ? child.text! : '￼'.repeat(child.nodeSize) })
-    for (const match of text.matchAll(regexp)) {
-      if (!match[0]) continue
-      const from = pos + 1 + match.index!
-      matches.push({ from, to: from + match[0].length })
-    }
-    return false
-  })
-  return matches
-}
 
 function decorate(doc: PMNode, matches: FindMatch[], current: number) {
   return DecorationSet.create(doc, matches.map((m, i) => {
@@ -163,14 +121,25 @@ export function findStep(editor: Editor, direction: 1 | -1) {
   goToMatch(editor, (current + direction + matches.length) % matches.length)
 }
 
+/** One match takes the new text. A tag keeps its link and shows the new name; a blank name removes it. */
+function replaceMatch(tr: Transaction, match: FindMatch, text: string, query: FindQuery) {
+  if (match.tag) {
+    const node = tr.doc.nodeAt(match.from)!
+    const label = replacedLabel(String(node.attrs.label ?? ''), query, text)
+    // followsName null: syncNames lets it follow renames again only if it reads as the entity's name.
+    if (label.trim()) return void tr.setNodeMarkup(match.from, undefined, { ...node.attrs, label, followsName: null })
+  }
+  else if (text) return void tr.insertText(text, match.from, match.to)
+  tr.delete(match.from, match.to)
+}
+
 export function replaceCurrent(editor: Editor, text: string): boolean {
-  const { matches, current, refId } = findState(editor)
-  const match = matches[current]
-  if (!match || refId) return false
+  const state = findState(editor)
+  const match = state.matches[state.current]
+  if (!match || state.refId) return false
   const tr = editor.state.tr
-  if (text) tr.insertText(text, match.from, match.to)
-  else tr.delete(match.from, match.to)
-  editor.view.dispatch(tr.setMeta(findKey, { current }))
+  replaceMatch(tr, match, text, state)
+  editor.view.dispatch(tr.setMeta(findKey, { current: state.current }))
   const next = findState(editor)
   if (next.current >= 0) goToMatch(editor, next.current)
   return true
@@ -178,15 +147,12 @@ export function replaceCurrent(editor: Editor, text: string): boolean {
 
 /** Replaces every occurrence in one step (a single undo). Returns how many. */
 export function replaceAll(editor: Editor, text: string): number {
-  const { matches, refId } = findState(editor)
-  if (!matches.length || refId) return 0
+  const state = findState(editor)
+  if (!state.matches.length || state.refId) return 0
   const tr = editor.state.tr
-  for (const match of [...matches].reverse()) {
-    if (text) tr.insertText(text, match.from, match.to)
-    else tr.delete(match.from, match.to)
-  }
+  for (const match of [...state.matches].reverse()) replaceMatch(tr, match, text, state)
   editor.view.dispatch(tr.setMeta(findKey, { current: 0 }))
-  return matches.length
+  return state.matches.length
 }
 </script>
 

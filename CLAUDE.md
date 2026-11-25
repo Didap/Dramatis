@@ -27,6 +27,7 @@ node scripts/page-check.mjs "/p/{novel}/characters" [--mobile] [--dark]   # a pa
 node scripts/check-icons.mjs   # every i-lucide-* icon used exists
 node scripts/check-contrast.mjs   # the palette in main.css passes WCAG AA (DESIGN.md "The Verified Rule")
 node scripts/check-shortcuts.mjs  # ⌘K opens one search palette from the page, a field and the editor
+node scripts/check-find.mjs       # ⌘F opens find in focus mode, and finds a tag by its name
 node scripts/check-pages.mjs      # every page of both demo projects, desktop and phone (DRAMATIS_BASE_URL for another server)
 ```
 
