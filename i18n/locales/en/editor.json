@@ -358,7 +358,7 @@
     },
     "highlight": {
       "label": "Highlight",
-      "hint": "Highlight the chosen words (⌘⇧H), with a note if you need one",
+      "hint": "Highlight the chosen words, with a note if you need one",
       "colors": {
         "yellow": "Yellow",
         "green": "Green",

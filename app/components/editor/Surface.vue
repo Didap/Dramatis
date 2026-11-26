@@ -385,8 +385,11 @@ export function applyLineIds(editor: Editor, sent: RichDoc, saved: RichDoc) {
   if (tr.docChanged) editor.view.dispatch(tr.setMeta('addToHistory', false).setMeta(SYNC, true))
 }
 
-/** The marks of the manuscript (spec 6): links and code may be in the schema for old texts, never added. */
-const MANUSCRIPT_MARKS = new Set(['bold', 'italic', 'underline', 'strike'])
+/**
+ * The marks of the manuscript (spec 6): links and code may be in the schema for old texts, never added.
+ * Highlights only come from the manuscript itself (mark[data-highlight]): cut and pasted, they keep their note.
+ */
+const MANUSCRIPT_MARKS = new Set(['bold', 'italic', 'underline', 'strike', 'highlight'])
 
 /**
  * Paste cleanup (spec 6): paragraphs, bold, italic, underline and strikethrough stay; fonts and colours
@@ -583,7 +586,7 @@ const extensions = [
   Spelling.configure({ checker: () => props.spellChecker, onPick: (error, anchor) => emit('spell', error, anchor) }),
   TabOut,
   ManuscriptOnly,
-  Highlighter.configure({ onNote: openNote }),
+  Highlighter.configure({ onNote: openNote, colorName: color => t(`editor.highlight.colors.${color}`) }),
 ]
 
 const ueditor = useTemplateRef<{ editor?: VueEditor }>('ueditor')
@@ -733,8 +736,6 @@ function onKeydown(event: KeyboardEvent) {
   if (!event.metaKey && !event.ctrlKey && !QUIET_KEYS.has(event.key)) emit('typing')
 }
 
-// ---------------------------------------------------------------- the mention card
-
 // ------------------------------------------------------------------ the note of a highlight
 
 const note = reactive({ open: false, anchor: null as HTMLElement | null, text: '', excerpt: '', range: { from: 0, to: 0 } })
@@ -743,7 +744,8 @@ const note = reactive({ open: false, anchor: null as HTMLElement | null, text: '
 function openNote(range: { from: number, to: number }, text: string) {
   const instance = ueditor.value?.editor
   if (!instance) return
-  const words = instance.state.doc.textBetween(range.from, range.to, ' ')
+  // Mentions are leaves: their names are read from their labels.
+  const words = instance.state.doc.textBetween(range.from, range.to, ' ', node => String(node.attrs.label ?? ''))
   Object.assign(note, { range, text, excerpt: words.length > 80 ? `${words.slice(0, 79)}…` : words })
   // A plain selection is highlighted by the same command: its mark is drawn once the command is done.
   void nextTick(() => {
@@ -754,14 +756,21 @@ function openNote(range: { from: number, to: number }, text: string) {
   })
 }
 
-/** The card closed: the note is kept (or removed, when emptied) and the caret goes back after the words. */
-function closeNote(text: string) {
+/**
+ * The card closed: the note is kept (or removed, when emptied). Closed from the card itself (Fatto,
+ * ⌘Enter, Esc), the caret goes back after the words; closed by a click elsewhere, it stays there.
+ */
+function closeNote(text: string, back: boolean) {
   const instance = ueditor.value?.editor
   if (!instance) return
   const chain = instance.chain()
   if (text !== note.text) chain.setHighlightNote(note.range, text)
-  chain.setTextSelection(Math.min(note.range.to, instance.state.doc.content.size)).focus().run()
+  if (back) chain.setTextSelection(Math.min(note.range.to, instance.state.doc.content.size)).focus()
+  chain.run()
 }
+
+
+// ---------------------------------------------------------------- the mention card
 
 const card = reactive({ open: false, refId: '', anchor: null as HTMLElement | null })
 let showTimer: ReturnType<typeof setTimeout> | undefined

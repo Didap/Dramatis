@@ -358,7 +358,7 @@
     },
     "highlight": {
       "label": "Evidenzia",
-      "hint": "Evidenzia le parole scelte (⌘⇧H), con una nota se serve",
+      "hint": "Evidenzia le parole scelte, con una nota se serve",
       "colors": {
         "yellow": "Giallo",
         "green": "Verde",
