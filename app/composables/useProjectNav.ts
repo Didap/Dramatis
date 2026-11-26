@@ -1,4 +1,9 @@
+import type { ObjectCategory } from '#shared/types/domain'
+import { ENEMY_CATEGORIES } from '#shared/utils/constants'
 import type { TermKey } from './useTerms'
+import { OBJECT_SHELVES } from '~/utils/bestiary'
+
+type ObjectShelf = (typeof OBJECT_SHELVES)[ObjectCategory]
 
 export interface NavItem {
   key: string
@@ -10,8 +15,11 @@ export interface NavItem {
   badge?: number
   /** Accessible text of the badge ("2 problemi nel flusso"). */
   badgeLabel?: string
-  /** Set when the path alone cannot tell (an enemy's sheet lives under /characters). */
-  active?: boolean
+  /**
+   * A bestiary section (VRS-683): its items' sheets live under another path (an enemy's under
+   * /characters), so it is lit on those of its categories only.
+   */
+  sheets?: { collection: 'characters' | 'objects', categories: readonly string[] }
 }
 
 export interface NavGroup {
@@ -59,17 +67,7 @@ export function useProjectNav() {
   const store = useProjectStore()
   const { term } = useTerms()
   const { t } = useI18n()
-  const route = useRoute()
   const { problems } = useFlow()
-
-  /** In a game with a bestiary, the category of the character or object open, which picks the section to light up. */
-  const openCategory = computed(() => {
-    if (!store.bestiary) return null
-    const { characterId, objectId } = route.params
-    if (characterId) return store.get('characters', String(characterId))?.category ?? null
-    if (objectId) return store.get('objects', String(objectId))?.category ?? null
-    return null
-  })
 
   const groups = computed<NavGroup[]>(() => {
     const base = `/p/${store.projectId}`
@@ -80,11 +78,10 @@ export function useProjectNav() {
       to: path ? `${base}/${path}` : base,
       ...extra,
     })
-    /** A bestiary section: lit on its list and on the sheets of its categories. */
-    const shelf = (key: string, label: TermKey, path: string, sheets: 'characters' | 'objects', categories: readonly string[]): NavItem => {
-      const under = route.path.startsWith(`${base}/${sheets}/`)
-      return item(key, label, path, { active: route.path === `${base}/${path}` || (under && categories.includes(openCategory.value ?? '')) })
-    }
+    /** A bestiary section: its key is its path and its term. */
+    const shelf = (key: 'characters' | 'enemies' | ObjectShelf, collection: 'characters' | 'objects', categories: readonly string[]) =>
+      item(key, key, key, { sheets: { collection, categories } })
+    const objectShelf = (category: ObjectCategory) => shelf(OBJECT_SHELVES[category], 'objects', [category])
     const flowProblems = problems.value
     const top: NavGroup = { key: 'top', items: [item('overview', 'overview', '', { exact: true }), item('goals', 'goals', 'goals')] }
     const work: NavGroup = {
@@ -128,12 +125,12 @@ export function useProjectNav() {
           key: 'bestiary',
           label: t('common.nav.bestiary'),
           items: [
-            shelf('characters', 'characters', 'characters', 'characters', ['person']),
-            shelf('enemies', 'enemies', 'enemies', 'characters', ['enemy', 'boss']),
-            shelf('equipment', 'equipment', 'equipment', 'objects', ['equipment']),
-            shelf('abilities', 'abilities', 'abilities', 'objects', ['ability']),
-            shelf('collectibles', 'collectibles', 'collectibles', 'objects', ['collectible']),
-            ...(rows.objects.some(o => o.category === 'object') ? [shelf('objects', 'objects', 'objects', 'objects', ['object'])] : []),
+            shelf('characters', 'characters', ['person']),
+            shelf('enemies', 'characters', ENEMY_CATEGORIES),
+            objectShelf('equipment'),
+            objectShelf('ability'),
+            objectShelf('collectible'),
+            ...(store.objectsOf('object').length ? [objectShelf('object')] : []),
             ...(races ? [item('races', 'races', 'races')] : []),
             ...(rows.groups.length > races ? [item('groups', 'groups', 'groups')] : []),
             ...(rows.relations.length || store.relationMaps.length ? [item('relations', 'relations', 'relations')] : []),

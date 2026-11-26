@@ -15,7 +15,7 @@ const foldLabel = computed(() => t(folded.value ? 'characters.sheet.showList' : 
 
 const character = computed(() => store.get('characters', String(route.params.characterId)))
 /** An enemy or a boss of a game with a bestiary (VRS-683) goes back to its own list. */
-const enemy = computed(() => store.bestiary && (character.value?.category === 'enemy' || character.value?.category === 'boss'))
+const enemy = computed(() => store.bestiary && !!character.value && isEnemy(character.value))
 const listPath = computed(() => `/p/${store.projectId}/${enemy.value ? 'enemies' : 'characters'}`)
 
 const menu = computed(() => [[

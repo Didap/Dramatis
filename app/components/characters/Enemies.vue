@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { CharacterCategory } from '#shared/types/domain'
-import type { Character } from '#shared/types/entities'
 
 /**
  * The bosses and enemies of a game with a bestiary (VRS-683): characters of those two categories,
@@ -18,29 +16,22 @@ const creating = defineModel<'enemy' | 'boss' | null>('creating', { default: nul
 const store = useProjectStore()
 const { t } = useI18n()
 const { term } = useTerms()
-const { scenes: scenesText } = useFormat()
 const query = ref('')
 const filter = ref<{ focus: () => void } | null>(null)
 
 const GROUPS = ['boss', 'enemy'] as const
+/** The copy of each group: its heading, its add button, the name it asks for. */
+const COPY = {
+  boss: { title: 'characters.enemies.bosses', add: 'characters.enemies.addBoss', placeholder: 'characters.enemies.bossPlaceholder' },
+  enemy: { title: 'characters.enemies.enemies', add: 'characters.enemies.addEnemy', placeholder: 'characters.enemies.enemyPlaceholder' },
+} as const
 
-const all = computed(() => store.rows.characters.filter(c => c.category === 'enemy' || c.category === 'boss'))
+const all = computed(() => store.enemies)
 const needle = computed(() => query.value.trim().toLocaleLowerCase())
 const visible = computed(() => needle.value ? all.value.filter(c => c.name.toLocaleLowerCase().includes(needle.value)) : all.value)
 const groups = computed(() => GROUPS
   .map(category => ({ category, items: visible.value.filter(c => c.category === category) }))
   .filter(group => group.items.length))
-
-/** Scenes where each one appears (tags, manual or from mentions). */
-const scenes = computed(() => {
-  const counts = new Map<string, number>()
-  for (const scene of store.rows.scenes) {
-    for (const id of scene.characterIds) counts.set(id, (counts.get(id) ?? 0) + 1)
-  }
-  return counts
-})
-
-const to = (character: Character) => store.refPath({ type: 'character', id: character.id })
 
 function clearFilter() {
   query.value = ''
@@ -48,7 +39,7 @@ function clearFilter() {
 }
 
 async function create(name: string) {
-  const category: CharacterCategory = creating.value ?? 'enemy'
+  const category = creating.value ?? 'enemy'
   const row = await store.create('characters', { name, category, importance: category === 'boss' ? 'secondary' : 'minor' })
   creating.value = null
   query.value = ''
@@ -76,7 +67,7 @@ async function create(name: string) {
 
     <WorldCreateRow
       v-if="creating"
-      :placeholder="t(creating === 'boss' ? 'characters.enemies.bossPlaceholder' : 'characters.enemies.enemyPlaceholder')"
+      :placeholder="t(COPY[creating].placeholder)"
       :create="create"
       icon="i-lucide-skull"
       @cancel="creating = null"
@@ -85,7 +76,7 @@ async function create(name: string) {
     <section v-for="group in groups" :key="group.category" class="mb-6" :aria-labelledby="`enemies-${group.category}`">
       <div class="mb-1 flex items-center justify-between gap-2 px-2">
         <h2 :id="`enemies-${group.category}`" class="text-xs font-medium text-muted">
-          {{ t(group.category === 'boss' ? 'characters.enemies.bosses' : 'characters.enemies.enemies') }}
+          {{ t(COPY[group.category].title) }}
         </h2>
         <UButton
           v-if="!props.compact"
@@ -94,26 +85,13 @@ async function create(name: string) {
           color="neutral"
           variant="ghost"
           class="max-lg:size-11 max-lg:justify-center"
-          :aria-label="t(group.category === 'boss' ? 'characters.enemies.addBoss' : 'characters.enemies.addEnemy')"
+          :aria-label="t(COPY[group.category].add)"
           @click="creating = group.category"
         />
       </div>
-      <WorldList collection="characters" :items="group.items" :label="t(group.category === 'boss' ? 'characters.enemies.bosses' : 'characters.enemies.enemies')" :compact="props.compact">
+      <WorldList collection="characters" :items="group.items" :label="t(COPY[group.category].title)" :compact="props.compact">
         <template #row="{ item }">
-          <WorldSideRow v-if="props.compact" :to="to(item)" :name="item.name" :status="item.status" :detail="item.tagline" :active="item.id === props.activeId">
-            <template #leading>
-              <DEntityAvatar :name="item.name" :image-id="store.primaryImage('character', item.id)" :color="item.color || null" icon="i-lucide-skull" size="sm" alt="" />
-            </template>
-          </WorldSideRow>
-          <DRow v-else :to="to(item)" :name="item.name" :epithet="item.tagline || undefined">
-            <template #leading>
-              <DEntityAvatar :name="item.name" :image-id="store.primaryImage('character', item.id)" :color="item.color || null" icon="i-lucide-skull" size="sm" alt="" />
-            </template>
-            <template #numbers>
-              <span class="whitespace-nowrap">{{ scenesText(scenes.get(item.id) ?? 0) }}</span>
-              <DStatusBadge :value="item.status" kind="planning" />
-            </template>
-          </DRow>
+          <CharactersEnemyRow :character="item" :compact="props.compact" :active="item.id === props.activeId" />
         </template>
       </WorldList>
     </section>

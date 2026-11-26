@@ -27,11 +27,6 @@ const leaving = ref(false)
 const justCreated = useJustCreated()
 const guided = computed(() => !race.value || group.value?.describe === 'guided')
 
-const DESCRIBE = [
-  { value: 'free', icon: 'i-lucide-pen-line' },
-  { value: 'guided', icon: 'i-lucide-list-tree' },
-] as const
-
 /** Typing (name, long texts): sent after a pause. */
 function patch(values: Partial<Group>) {
   store.patchSoon('groups', groupId.value, values)
@@ -112,17 +107,7 @@ onMounted(() => {
 
         <GroupsMembers :group-id="group.id" :race="race" />
 
-        <fieldset v-if="race" class="min-w-0">
-          <legend class="text-lg font-semibold text-highlighted">{{ t('groups.race.describe') }}</legend>
-          <div class="mt-3 flex flex-wrap gap-1.5">
-            <label v-for="mode in DESCRIBE" :key="mode.value" class="choice-chip" :class="{ 'is-checked': group.describe === mode.value }">
-              <input type="radio" class="sr-only" name="race-describe" :value="mode.value" :checked="group.describe === mode.value" @change="set({ describe: mode.value })">
-              <UIcon :name="mode.icon" class="size-4 shrink-0" aria-hidden="true" />
-              <span>{{ t(mode.value === 'free' ? 'groups.race.describeFree' : 'groups.race.describeGuided') }}</span>
-            </label>
-          </div>
-          <p class="mt-2 text-sm text-muted">{{ t(guided ? 'groups.race.describeGuidedHelp' : 'groups.race.describeFreeHelp') }}</p>
-        </fieldset>
+        <WorldDescribeMode v-if="race" :model-value="group.describe" copy="groups.race" name="race-describe" @update:model-value="describe => set({ describe })" />
 
         <template v-if="!guided">
           <WorldLongText

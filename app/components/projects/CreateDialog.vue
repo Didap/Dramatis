@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { UDrawer, UModal } from '#components'
 import { STRUCTURES, type StructureDef } from '#shared/content/structures'
-import { GENRES } from '#shared/content/genres'
+import { genreOf } from '#shared/content/genres'
 import type { GameGenre, ProjectKind } from '#shared/types/domain'
 import type { Project } from '#shared/types/entities'
 
@@ -81,7 +81,7 @@ const startItems = computed(() => [
 
 /** A game's structure is its genre's. */
 const genreStructure = computed(() => {
-  const key = GENRES.find(g => g.key === form.genre)?.structure
+  const key = genreOf('game', form.genre)?.structure
   return STRUCTURES.find(s => s.key === key)
 })
 const asksGenre = computed(() => form.kind === 'game' && form.start !== 'demo')

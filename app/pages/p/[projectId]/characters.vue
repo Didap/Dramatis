@@ -14,8 +14,8 @@ const openId = computed(() => (route.params.characterId ? String(route.params.ch
 const folded = useCharacterListFolded()
 /** An enemy or a boss of a game with a bestiary (VRS-683) sits beside its own list. */
 const enemy = computed(() => {
-  const category = openId.value && store.bestiary ? store.get('characters', openId.value)?.category : undefined
-  return category === 'enemy' || category === 'boss'
+  const open = openId.value && store.bestiary ? store.get('characters', openId.value) : undefined
+  return !!open && isEnemy(open)
 })
 </script>
 

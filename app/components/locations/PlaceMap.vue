@@ -28,11 +28,11 @@ interface Pin { key: string, ref: EntityRef, at: At, name: string, icon: string 
 function pinOf(ref: EntityRef | null): { name: string, icon: string } | null {
   if (ref?.type === 'location') {
     const place = store.get('locations', ref.id)
-    return place ? { name: place.name, icon: 'i-lucide-map-pin' } : null
+    return place ? { name: place.name, icon: REF_ICONS.location! } : null
   }
   if (ref?.type === 'object') {
     const object = store.get('objects', ref.id)
-    return object ? { name: object.name, icon: OBJECT_SHELVES[object.category].icon } : null
+    return object ? { name: object.name, icon: SECTION_ICONS[OBJECT_SHELVES[object.category]] } : null
   }
   return null
 }
@@ -104,16 +104,14 @@ function onFrameClick(event: MouseEvent) {
   ask(pointOf(event))
 }
 
-watch(picked, (id) => {
+/** The answer to the question: a pin for that place or collectible, where the question pointed. */
+const onPick = (type: 'location' | 'object') => (id: string | null) => {
   if (!id) return
   asking.open = false
-  void place(mentionId('location', id), asking.at, true)
-})
-watch(pickedCollectible, (id) => {
-  if (!id) return
-  asking.open = false
-  void place(mentionId('object', id), asking.at, true)
-})
+  void place(mentionId(type, id), asking.at, true)
+}
+watch(picked, onPick('location'))
+watch(pickedCollectible, onPick('object'))
 
 // ---------------------------------------------------------------- moving and removing pins
 
@@ -189,7 +187,6 @@ function onPinKeydown(event: KeyboardEvent, pin: Pin) {
 
 async function unpin(pin: Pin) {
   const { [pin.key]: at, ...rest } = nodesNow()
-  const name = pin.name
   try {
     await store.update('maps', props.map.id, { nodes: rest })
   }
@@ -198,7 +195,7 @@ async function unpin(pin: Pin) {
   }
   frame.value?.focus()
   toast.add({
-    title: t('locations.map.unpinned', { name }),
+    title: t('locations.map.unpinned', { name: pin.name }),
     icon: 'i-lucide-map-pin-off',
     actions: [{
       label: t('common.actions.undo'),

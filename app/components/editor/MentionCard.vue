@@ -3,7 +3,6 @@ import type { Editor } from '@tiptap/core'
 import { NodeSelection } from '@tiptap/pm/state'
 import type { EntityRef } from '#shared/types/domain'
 import { PROFILE_SECTIONS } from '#shared/content/profile'
-import { PLACE_QUESTIONS } from '#shared/utils/constants'
 import { excerpt, isEmptyDoc, parseMentionId } from '#shared/utils/richtext'
 
 /**
@@ -138,7 +137,7 @@ const view = computed(() => {
     case 'location': {
       const l = store.get('locations', target.id)
       if (!l) return null
-      return { name: l.name, kind: [term('location'), [l.city, l.region, l.nation].filter(Boolean).join(', ')].filter(Boolean).join(' · '), tagline: '', aliases: [], answers: [], text: excerpt(l.describe === 'guided' ? PLACE_QUESTIONS.map(q => l[q]).find(doc => doc && !isEmptyDoc(doc)) ?? null : l.description, 260), imageId: store.primaryImage('location', l.id), color: l.color, shape: 'square' as const, icon: REF_ICONS.location }
+      return { name: l.name, kind: [term('location'), [l.city, l.region, l.nation].filter(Boolean).join(', ')].filter(Boolean).join(' · '), tagline: '', aliases: [], answers: [], text: excerpt(placeTexts(l)[0]?.doc ?? null, 260), imageId: store.primaryImage('location', l.id), color: l.color, shape: 'square' as const, icon: REF_ICONS.location }
     }
     case 'object': {
       const o = store.get('objects', target.id)

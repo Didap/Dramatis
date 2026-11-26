@@ -25,15 +25,7 @@ function latest<T extends { updatedAt: string }>(rows: readonly T[]): T | undefi
 }
 
 /** Scenes where each character appears: tagged (manual, mentioned, speaking) or as point of view. */
-const sceneCounts = computed(() => {
-  const counts = new Map<string, number>()
-  for (const scene of store.rows.scenes) {
-    const ids = new Set(scene.characterIds)
-    if (scene.povCharacterId) ids.add(scene.povCharacterId)
-    for (const id of ids) counts.set(id, (counts.get(id) ?? 0) + 1)
-  }
-  return counts
-})
+const sceneCounts = computed(() => store.characterScenes)
 
 const CAST_SIZE = 6
 
@@ -77,14 +69,14 @@ const relationsSection = computed(() => section('relations', term('relations'), 
 
 /** A game with a bestiary (VRS-683): its shelves and its map, then what the genre leaves out while it holds something. */
 const bestiarySections = computed<HubSection[]>(() => {
-  const objects = store.objectsIn(['object'])
+  const objects = store.objectsOf('object')
   const races = store.rows.groups.filter(g => store.isRace(g.id))
   const groups = store.rows.groups.filter(g => !store.isRace(g.id))
   return [
-    section('enemies', term('enemies'), store.rows.characters.filter(c => c.category === 'enemy' || c.category === 'boss'), c => c.name),
-    section('equipment', term('equipment'), store.objectsIn(['equipment']), o => o.name),
-    section('abilities', term('abilities'), store.objectsIn(['ability']), o => o.name),
-    section('collectibles', term('collectibles'), store.objectsIn(['collectible']), o => o.name),
+    section('enemies', term('enemies'), store.enemies, c => c.name),
+    section('equipment', term('equipment'), store.objectsOf('equipment'), o => o.name),
+    section('abilities', term('abilities'), store.objectsOf('ability'), o => o.name),
+    section('collectibles', term('collectibles'), store.objectsOf('collectible'), o => o.name),
     section('placeMap', term('placeMap'), store.placeMaps, m => m.name, 'map'),
     section('locations', term('locations'), store.rows.locations, l => l.name),
     ...(objects.length ? [section('objects', term('objects'), objects, o => o.name)] : []),

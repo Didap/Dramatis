@@ -18,6 +18,10 @@ export interface GenreDef {
   /** The structure laid out by "Da una struttura" (shared/content/structures.ts). */
   structure: string
   layout: NavLayout
+  /** Characters split into characters, enemies and bosses, objects by category (VRS-683). */
+  bestiary?: boolean
+  /** The maps of places have a page of their own (the Metroidvania "Planimetria"), not the places page. */
+  mapPage?: boolean
   /** Modules a new game of the genre starts with, over the game defaults. */
   modules?: ProjectModules
 }
@@ -27,7 +31,7 @@ const DEFS: Record<GameGenre, Omit<GenreDef, 'key'>> = {
   adventure: { structure: 'branching_endings', layout: 'standard' },
   rpg: { structure: 'hub_and_quests', layout: 'standard' },
   // Its sidebar has no codex (VRS-683): it starts off, and shows once switched on in Settings.
-  metroidvania: { structure: 'metroidvania', layout: 'metroidvania', modules: { codex: false } },
+  metroidvania: { structure: 'metroidvania', layout: 'metroidvania', bestiary: true, mapPage: true, modules: { codex: false } },
   soulslike: { structure: 'heros_journey', layout: 'standard' },
   shooter: { structure: 'game_three_acts', layout: 'standard' },
   strategy: { structure: 'hub_and_quests', layout: 'standard' },
@@ -46,4 +50,4 @@ export function genreOf(kind: string, gameGenre: string | null | undefined): Gen
 }
 
 /** Whether the genre splits characters and objects by category (its bestiary). */
-export const hasBestiary = (genre: GenreDef | null) => genre?.layout === 'metroidvania'
+export const hasBestiary = (genre: GenreDef | null) => !!genre?.bestiary

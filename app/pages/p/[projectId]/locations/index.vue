@@ -15,7 +15,7 @@ const mt = (key: string) => t(`locations.${store.kind}.${key}`)
 const desktop = useIsDesktop()
 const creating = useCreating()
 const { visible: introVisible } = useWorldIntro('locations')
-const ownMapPage = computed(() => store.genre?.layout === 'metroidvania')
+const ownMapPage = computed(() => !!store.genre?.mapPage)
 </script>
 
 <template>

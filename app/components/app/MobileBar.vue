@@ -9,10 +9,15 @@ const route = useRoute()
 const { term } = useTerms()
 const { t } = useI18n()
 
+const { groups } = useProjectNav()
+
 const base = computed(() => `/p/${store.projectId}`)
-const WORLD = ['world', 'characters', 'groups', 'races', 'locations', 'objects', 'relations', 'codex', 'enemies', 'equipment', 'abilities', 'collectibles', 'map']
+/** The sections under "Mondo": the hub and those of the sidebar's world groups (a genre's bestiary and map too). */
+const world = computed(() => new Set(['world', ...groups.value
+  .filter(group => group.key === 'world' || group.key === 'bestiary' || group.key === 'map')
+  .flatMap(group => group.items.map(item => item.to.slice(base.value.length + 1)))]))
 const section = computed(() => route.path.slice(base.value.length + 1).split('/')[0] ?? '')
-const isWorld = computed(() => WORLD.includes(section.value))
+const isWorld = computed(() => world.value.has(section.value))
 </script>
 
 <template>

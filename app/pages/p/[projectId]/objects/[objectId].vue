@@ -19,8 +19,8 @@ const object = computed(() => store.get('objects', objectId.value))
 /** Its category in a game with a bestiary, which picks its list. */
 const category = computed(() => (store.bestiary ? object.value?.category : undefined))
 const shelf = computed(() => OBJECT_SHELVES[category.value ?? 'object'])
-const mt = (key: string) => t(category.value && category.value !== 'object' ? `objects.shelf.${category.value}.${key}` : `objects.${store.kind}.${key}`)
-const listPath = computed(() => `/p/${store.projectId}/${shelf.value.path}`)
+const mt = (key: string) => t(`${objectCopy(category.value, store.kind)}.${key}`)
+const listPath = computed(() => `/p/${store.projectId}/${shelf.value}`)
 const header = ref<{ focusName: () => void } | null>(null)
 const leaving = ref(false)
 const uid = useId()
@@ -55,12 +55,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <DPage :title="object?.name ?? term('object')" :back="listPath" :back-label="term(shelf.term)" width="full" bare>
+  <DPage :title="object?.name ?? term('object')" :back="listPath" :back-label="term(shelf)" width="full" bare>
     <template v-if="object || leaving" #actions>
       <WorldSheetMenu v-model:leaving="leaving" collection="objects" :id="objectId" :list-path="listPath" />
     </template>
 
-    <WorldSheetLayout :list-label="term(shelf.term)">
+    <WorldSheetLayout :list-label="term(shelf)">
       <template #list>
         <ObjectsList compact :active-id="objectId" :category="category" />
       </template>
@@ -73,7 +73,7 @@ onMounted(() => {
           :owner-id="object.id"
           :name="object.name"
           :color="object.color"
-          :icon="shelf.icon"
+          :icon="SECTION_ICONS[shelf]"
           @update:name="(name: string) => patch({ name })"
         >
           <div

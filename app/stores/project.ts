@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import type { Collection, EntityRef, ObjectCategory, RefType, WorldRefType } from '#shared/types/domain'
-import { COLLECTIONS, COLLECTION_TO_REF, LONG_TEXT_FIELDS, REF_TO_COLLECTION, WORLD_REF_TYPES } from '#shared/utils/constants'
+import { COLLECTIONS, COLLECTION_TO_REF, ENEMY_CATEGORIES, LONG_TEXT_FIELDS, REF_TO_COLLECTION, WORLD_REF_TYPES } from '#shared/utils/constants'
 import { resolveModules } from '#shared/utils/modules'
 import { genreOf, hasBestiary } from '#shared/content/genres'
 import { parseMentionId } from '#shared/utils/richtext'
@@ -12,6 +12,7 @@ import type {
   Project,
   ProjectBundle,
   Scene,
+  StoryObject,
   UpdateInput,
   WorldEntity,
 } from '#shared/types/entities'
@@ -234,13 +235,29 @@ export const useProjectStore = defineStore('project', () => {
   const placeMaps = computed(() => orderedMaps.value.filter(isPlaceMap))
   /** The characters of the characters page: in a game with a bestiary, not its enemies and bosses (VRS-683). */
   const people = computed(() => bestiary.value ? rows.characters.filter(c => c.category === 'person') : rows.characters)
-  /** The objects of these categories, in a game with a bestiary. */
-  const objectsIn = (categories: readonly ObjectCategory[]) => rows.objects.filter(o => categories.includes(o.category))
-  /** Where a map opens: a map of places on its page of places, a relationship map on its canvas. */
-  /** Where a map opens: a map of places on the places page, or on the world map page of a genre that has one (VRS-683). */
+  /** A bestiary's enemies and bosses. */
+  const enemies = computed(() => rows.characters.filter(c => (ENEMY_CATEGORIES as readonly string[]).includes(c.category)))
+  const objectsByCategory = computed(() => {
+    const map = new Map<ObjectCategory, StoryObject[]>()
+    for (const object of rows.objects) map.set(object.category, [...(map.get(object.category) ?? []), object])
+    return map
+  })
+  /** The objects of a category in a game with a bestiary, or every object without one. */
+  const objectsOf = (category?: ObjectCategory) => (category ? objectsByCategory.value.get(category) ?? [] : rows.objects)
+  /** Scenes where each character is tagged (manually, mentioned, speaking) or is the point of view. */
+  const characterScenes = computed(() => {
+    const counts = new Map<string, number>()
+    for (const scene of rows.scenes) {
+      const ids = new Set(scene.characterIds)
+      if (scene.povCharacterId) ids.add(scene.povCharacterId)
+      for (const id of ids) counts.set(id, (counts.get(id) ?? 0) + 1)
+    }
+    return counts
+  })
+  /** Where a map opens: a map of places on the places page (or the genre's own map page, VRS-683), a relationship map on its canvas. */
   const mapPath = (id: string, place: boolean) => {
     if (!place) return `/p/${projectId.value}/relations/${id}`
-    return `/p/${projectId.value}/${genre.value?.layout === 'metroidvania' ? 'map' : 'locations'}?map=${id}`
+    return `/p/${projectId.value}/${genre.value?.mapPage ? 'map' : 'locations'}?map=${id}`
   }
 
   /** Chapters in reading order: those outside any part first, then part by part. */
@@ -913,7 +930,9 @@ export const useProjectStore = defineStore('project', () => {
     relationMaps,
     placeMaps,
     people,
-    objectsIn,
+    enemies,
+    objectsOf,
+    characterScenes,
     mapPath,
     orderedChapters,
     orderedScenes,

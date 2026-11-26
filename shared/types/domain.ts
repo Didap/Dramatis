@@ -20,6 +20,7 @@ import type {
   GAME_GENRES,
   CHARACTER_CATEGORIES,
   OBJECT_CATEGORIES,
+  PLACE_QUESTIONS,
   PROJECT_MODULES,
   REF_TYPES,
   RELATION_KINDS,
@@ -34,6 +35,7 @@ export type ProjectKind = (typeof PROJECT_KINDS)[number]
 export type GameGenre = (typeof GAME_GENRES)[number]
 export type CharacterCategory = (typeof CHARACTER_CATEGORIES)[number]
 export type ObjectCategory = (typeof OBJECT_CATEGORIES)[number]
+export type PlaceQuestion = (typeof PLACE_QUESTIONS)[number]
 export type SceneStatus = (typeof SCENE_STATUSES)[number]
 export type PlanningStatus = (typeof PLANNING_STATUSES)[number]
 export type CharacterImportance = (typeof CHARACTER_IMPORTANCES)[number]

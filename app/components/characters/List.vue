@@ -39,15 +39,7 @@ const base = computed(() => `/p/${store.projectId}`)
 // ---------------------------------------------------------------- facts per character
 
 /** Scenes where each character is tagged (manually, mentioned, speaking) or is the point of view. */
-const appearances = computed(() => {
-  const counts = new Map<string, number>()
-  for (const scene of store.rows.scenes) {
-    const ids = new Set(scene.characterIds)
-    if (scene.povCharacterId) ids.add(scene.povCharacterId)
-    for (const id of ids) counts.set(id, (counts.get(id) ?? 0) + 1)
-  }
-  return counts
-})
+const appearances = computed(() => store.characterScenes)
 
 /** Groups of each character, from its membership relationships. */
 const groupsOf = computed(() => {

@@ -16,6 +16,8 @@ export const GAME_GENRES = ['action', 'adventure', 'rpg', 'metroidvania', 'souls
 
 /** What a character is in a game with a bestiary (VRS-683): a character, an enemy or a boss. */
 export const CHARACTER_CATEGORIES = ['person', 'enemy', 'boss'] as const
+/** The categories of the characters fought rather than met: the bestiary's "Boss e nemici". */
+export const ENEMY_CATEGORIES = ['enemy', 'boss'] as const
 /** What an object is in a game with a bestiary (VRS-683): an object, equipment, an unlockable ability, a collectible. */
 export const OBJECT_CATEGORIES = ['object', 'equipment', 'ability', 'collectible'] as const
 
@@ -225,7 +227,7 @@ export const LONG_TEXT_FIELDS: Record<Collection | 'project', readonly string[]>
   project: ['premise', 'fabula', 'setting'],
   characters: ['description', 'notes'],
   groups: ['description', 'language', 'traditions', 'powers', 'notes'],
-  locations: ['description', 'firstSight', 'history', 'inhabitants', 'access', 'secrets', 'notes'],
+  locations: ['description', ...PLACE_QUESTIONS, 'notes'],
   objects: ['description', 'notes'],
   images: [],
   strands: ['description'],

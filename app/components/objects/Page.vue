@@ -13,18 +13,18 @@ const store = useProjectStore()
 const { t } = useI18n()
 const { term } = useTerms()
 const shelf = computed(() => OBJECT_SHELVES[props.category ?? 'object'])
-const mt = (key: string) => t(props.category && props.category !== 'object' ? `objects.shelf.${props.category}.${key}` : `objects.${store.kind}.${key}`)
-const count = computed(() => (props.category ? store.objectsIn([props.category]) : store.rows.objects).length)
+const mt = (key: string) => t(`${objectCopy(props.category, store.kind)}.${key}`)
+const count = computed(() => store.objectsOf(props.category).length)
 const desktop = useIsDesktop()
 const creating = useCreating()
-const { visible: introVisible } = useWorldIntro(shelf.value.path)
+const { visible: introVisible } = useWorldIntro(shelf.value)
 </script>
 
 <template>
-  <DPage :title="term(shelf.term)">
-    <DPageHeader :title="term(shelf.term)">
+  <DPage :title="term(shelf)">
+    <DPageHeader :title="term(shelf)">
       <template v-if="introVisible && count" #description>
-        <WorldIntro :topic="shelf.path" :text="mt('intro')" />
+        <WorldIntro :topic="shelf" :text="mt('intro')" />
       </template>
       <template v-if="count" #actions>
         <UButton

@@ -18,11 +18,12 @@ const creating = defineModel<boolean>('creating', { default: false })
 const store = useProjectStore()
 const { t } = useI18n()
 const { term } = useTerms()
-const mt = (key: string) => t(props.category && props.category !== 'object' ? `objects.shelf.${props.category}.${key}` : `objects.${store.kind}.${key}`)
+const mt = (key: string) => t(`${objectCopy(props.category, store.kind)}.${key}`)
+/** Its section: page, term and icon. */
 const shelf = computed(() => OBJECT_SHELVES[props.category ?? 'object'])
-const icon = computed(() => shelf.value.icon)
+const icon = computed(() => SECTION_ICONS[shelf.value])
 /** The objects of this list: every one, or those of its category. */
-const pool = computed(() => props.category ? store.objectsIn([props.category]) : store.rows.objects)
+const pool = computed(() => store.objectsOf(props.category))
 const query = ref('')
 const filter = ref<{ focus: () => void } | null>(null)
 
@@ -57,8 +58,8 @@ async function create(name: string) {
 <template>
   <div class="d-objects-list">
     <div v-if="props.compact" class="mb-2 flex items-center justify-between gap-2 ps-2">
-      <NuxtLink :to="`/p/${store.projectId}/${shelf.path}`" class="text-sm font-medium text-muted hover:text-default">
-        {{ term(shelf.term) }}
+      <NuxtLink :to="`/p/${store.projectId}/${shelf}`" class="text-sm font-medium text-muted hover:text-default">
+        {{ term(shelf) }}
       </NuxtLink>
       <UButton icon="i-lucide-plus" size="sm" color="neutral" variant="ghost" :aria-label="mt('add')" data-world-create @click="creating = true" />
     </div>
@@ -80,7 +81,7 @@ async function create(name: string) {
       @cancel="creating = false"
     />
 
-    <WorldList v-if="visible.length" collection="objects" :items="visible" :label="term(shelf.term)" :compact="props.compact">
+    <WorldList v-if="visible.length" collection="objects" :items="visible" :label="term(shelf)" :compact="props.compact">
       <template #row="{ item }">
         <ObjectsRow :object="item" :scenes="scenes.get(item.id) ?? 0" :compact="props.compact" :active="item.id === props.activeId" :icon="icon" />
       </template>

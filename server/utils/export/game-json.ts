@@ -1,5 +1,5 @@
 import { CHARACTER_CATEGORIES, GAME_GENRES, GROUP_KINDS, OBJECT_CATEGORIES, PLACE_QUESTIONS, PROJECT_MODULES } from '#shared/utils/constants'
-import type { CharacterCategory, GameGenre, ObjectCategory } from '#shared/types/domain'
+import type { CharacterCategory, GameGenre, ObjectCategory, PlaceQuestion } from '#shared/types/domain'
 import { exportChoices, exportIsEnding, exportLines, exportPlaceOf, exportStartScene, exportTypedValue, type GameChoice } from './game'
 import { exportPlainText, type ExportModel } from './model'
 
@@ -14,8 +14,6 @@ export const DRAMATIS_GAME_FORMAT = 'dramatis-game'
 export const DRAMATIS_GAME_VERSION = 1
 
 type Value = boolean | number | string
-
-type PlaceQuestion = (typeof PLACE_QUESTIONS)[number]
 
 export interface DramatisGame {
   format: 'dramatis-game'

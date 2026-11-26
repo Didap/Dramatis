@@ -13,7 +13,7 @@ watch(fromLink, (open) => {
   if (open) creating.value = 'enemy'
 }, { immediate: true })
 const { visible: introVisible } = useWorldIntro('enemies')
-const count = computed(() => store.rows.characters.filter(c => c.category === 'enemy' || c.category === 'boss').length)
+const count = computed(() => store.enemies.length)
 </script>
 
 <template>

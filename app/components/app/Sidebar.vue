@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
-import type { NavGroup } from '~/composables/useProjectNav'
+import type { NavGroup, NavItem } from '~/composables/useProjectNav'
 
 /** The desktop sidebar of the workspace (spec 1.3, DESIGN.md "Desktop shell"). */
 const collapsed = defineModel<boolean>('collapsed', { default: false })
@@ -8,6 +8,22 @@ const { groups } = useProjectNav()
 const { t } = useI18n()
 const route = useRoute()
 const search = useState('dramatis:search-open', () => false)
+const store = useProjectStore()
+
+/** The category of the character or object open: a bestiary section lights up on its own sheets only. */
+const openCategory = computed(() => {
+  const { characterId, objectId } = route.params
+  if (characterId) return store.get('characters', String(characterId))?.category
+  if (objectId) return store.get('objects', String(objectId))?.category
+  return undefined
+})
+
+function isActive(item: NavItem): boolean {
+  if (item.exact) return route.path === item.to
+  if (route.path === item.to) return true
+  if (!item.sheets) return route.path.startsWith(`${item.to}/`)
+  return route.path.startsWith(`/p/${store.projectId}/${item.sheets.collection}/`) && item.sheets.categories.includes(openCategory.value ?? '')
+}
 
 function toMenu(group: NavGroup): NavigationMenuItem[] {
   const items: NavigationMenuItem[] = group.items.map(item => ({
@@ -15,7 +31,7 @@ function toMenu(group: NavGroup): NavigationMenuItem[] {
     icon: item.icon,
     to: item.to,
     exact: item.exact,
-    active: item.active ?? (item.exact ? route.path === item.to : route.path === item.to || route.path.startsWith(`${item.to}/`)),
+    active: isActive(item),
     ...(item.badge ? { badge: { label: String(item.badge), color: item.key === 'flow' ? 'warning' as const : 'neutral' as const, variant: 'subtle' as const, 'aria-label': item.badgeLabel } } : {}),
     tooltip: true,
   }))
