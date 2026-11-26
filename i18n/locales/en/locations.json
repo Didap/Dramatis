@@ -33,6 +33,25 @@
       "empty": "Locations give the game a body: from the continent down to the room where the scene plays out.",
       "emptyQuestion": "Where does the game begin?",
       "kindPlaceholder": "city, hub, dungeon"
+    },
+    "map": {
+      "label": "Maps",
+      "upload": "Upload your map here",
+      "uploadHint": "A picture of your world’s map, as PNG, JPEG or WebP. Then tap a spot to put a place there: one you already have or a new one.",
+      "another": "Upload another map",
+      "trash": "Move the map to the trash",
+      "firstName": "Map",
+      "nthName": "Map {n}",
+      "choose": "Map",
+      "more": "More on the map",
+      "addPin": "Add a pin",
+      "whichPlace": "Which place is here?",
+      "pick": "Choose a place or type a new name",
+      "open": "Open the place",
+      "unpin": "Remove the pin",
+      "unpinned": "“{name}” is no longer on the map",
+      "pinActions": "Actions for “{name}”",
+      "pinHint": "Enter opens the place. The arrow keys move the pin, with Shift in long steps; Delete takes it off the map."
     }
   }
 }

@@ -40,7 +40,7 @@ const kinds = computed<RelationKind[]>({
   set: value => setQuery({ kind: value.length ? value.join(',') : undefined }),
 })
 
-const mapCount = computed(() => store.rows.maps.length)
+const mapCount = computed(() => store.relationMaps.length)
 const relationCount = computed(() => store.listedRelations.length)
 
 const tabs = computed(() => [

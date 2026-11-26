@@ -74,7 +74,7 @@ export function useProjectNav() {
           item('characters', 'characters', 'characters'),
           ...(store.modules.races ? [item('races', 'races', 'races')] : []),
           item('groups', 'groups', 'groups'),
-          item('locations', 'locations', 'locations'),
+          item('locations', 'placesSection', 'locations'),
           item('objects', 'objects', 'objects'),
           item('relations', 'relations', 'relations'),
           ...(store.modules.codex ? [item('codex', 'codex', 'codex')] : []),

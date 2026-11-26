@@ -203,6 +203,11 @@ export interface MapLineShape {
 }
 
 export interface MapSettings {
+  /**
+   * A map of places (VRS-598): the picture (a media id) the pins sit on. Its nodes are then pins, at
+   * fractions of the picture (0 to 1) from the top left. Without it the map is a relationship map.
+   */
+  image?: string
   /** Entity kinds shown on the map. */
   include?: Partial<Record<WorldRefType, boolean>>
   /** Relation kinds shown; empty or missing = all. */

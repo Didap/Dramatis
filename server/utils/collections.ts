@@ -104,6 +104,9 @@ export function referencesOf(collection: Collection, data: Record<string, any>):
       }
     case 'locations':
       return { refs: [{ collection: 'locations', ids: [data.parentId] }], media: [] }
+    case 'maps':
+      // A map of places: its picture must be one of the project's own uploads.
+      return { refs: [], media: [data.settings?.image] }
     case 'strands':
       return {
         refs: [

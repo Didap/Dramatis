@@ -16,7 +16,7 @@ const store = useProjectStore()
 const { t } = useI18n()
 
 const name = computed(() => store.refLabel(parseMentionId(props.entity)))
-const maps = computed(() => [...store.rows.maps].sort((a, b) => a.position - b.position || a.createdAt.localeCompare(b.createdAt)))
+const maps = computed(() => store.relationMaps)
 const containing = computed(() => maps.value.filter(m => props.entity in m.nodes))
 const others = computed(() => maps.value.filter(m => !(props.entity in m.nodes)))
 

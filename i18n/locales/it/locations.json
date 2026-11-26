@@ -33,6 +33,25 @@
       "empty": "I luoghi danno corpo al gioco: dal continente alla stanza in cui si svolge la scena.",
       "emptyQuestion": "Dove comincia il gioco?",
       "kindPlaceholder": "città, hub, sotterraneo"
+    },
+    "map": {
+      "label": "Mappe",
+      "upload": "Carica qui la tua mappa",
+      "uploadHint": "Un'immagine della mappa del tuo mondo, in PNG, JPEG o WebP. Poi tocca un punto per metterci un luogo: uno di quelli che hai già o uno nuovo.",
+      "another": "Carica un'altra mappa",
+      "trash": "Sposta la mappa nel cestino",
+      "firstName": "Mappa",
+      "nthName": "Mappa {n}",
+      "choose": "Mappa",
+      "more": "Altro sulla mappa",
+      "addPin": "Aggiungi un segnaposto",
+      "whichPlace": "Che luogo è qui?",
+      "pick": "Scegli un luogo o scrivi un nome nuovo",
+      "open": "Apri il luogo",
+      "unpin": "Togli il segnaposto",
+      "unpinned": "«{name}» non è più sulla mappa",
+      "pinActions": "Azioni per «{name}»",
+      "pinHint": "Invio apre il luogo. Le frecce spostano il segnaposto, con Maiuscolo a passi lunghi; Canc lo toglie dalla mappa."
     }
   }
 }

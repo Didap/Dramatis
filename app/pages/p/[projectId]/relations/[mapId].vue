@@ -22,6 +22,10 @@ const desktop = computed(() => width.value >= 1024)
 
 const mapId = computed(() => String(route.params.mapId))
 const map = computed(() => store.get('maps', mapId.value))
+// A map of places lives on its own page, with its picture.
+watchEffect(() => {
+  if (map.value?.settings.image) void navigateTo(`/p/${store.projectId}/locations?map=${map.value.id}`, { replace: true })
+})
 const relationsPath = computed(() => `/p/${store.projectId}/relations`)
 const mapName = computed(() => map.value?.name || t('common.untitled.map'))
 

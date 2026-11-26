@@ -5,7 +5,7 @@
 export type TermKey =
   | 'projectType' | 'overview' | 'goals' | 'architecture' | 'premise' | 'fabula' | 'setting'
   | 'strands' | 'strand' | 'notes' | 'world' | 'characters' | 'character' | 'groups' | 'group' | 'races' | 'race'
-  | 'locations' | 'location' | 'objects' | 'object' | 'relations' | 'relationMap' | 'codex' | 'codexEntry'
+  | 'locations' | 'location' | 'placesSection' | 'objects' | 'object' | 'relations' | 'relationMap' | 'codex' | 'codexEntry'
   | 'manuscript' | 'part' | 'chapter' | 'scene' | 'synopsis' | 'chapterPurpose' | 'revision' | 'history'
   | 'timeline' | 'event' | 'analysis' | 'export' | 'trash' | 'settings' | 'audience' | 'firstDraft'
   | 'projectDocument' | 'flow' | 'variables' | 'variable' | 'ending'

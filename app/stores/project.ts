@@ -222,6 +222,11 @@ export const useProjectStore = defineStore('project', () => {
 
   const orderedParts = computed(() => [...rows.parts].sort(byPosition))
 
+  /** Maps in their order: the relationship maps, and the maps of places (a picture with pins, VRS-598). */
+  const orderedMaps = computed(() => [...rows.maps].sort((a, b) => a.position - b.position || a.createdAt.localeCompare(b.createdAt)))
+  const relationMaps = computed(() => orderedMaps.value.filter(map => !map.settings.image))
+  const placeMaps = computed(() => orderedMaps.value.filter(map => !!map.settings.image))
+
   /** Chapters in reading order: those outside any part first, then part by part. */
   const orderedChapters = computed<Chapter[]>(() => {
     const partOrder = new Map(orderedParts.value.map((p, i) => [p.id, i]))
@@ -887,6 +892,8 @@ export const useProjectStore = defineStore('project', () => {
     worldEntities,
     worldEntitiesOf,
     orderedParts,
+    relationMaps,
+    placeMaps,
     orderedChapters,
     orderedScenes,
     scenesByChapter,

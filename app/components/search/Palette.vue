@@ -146,7 +146,7 @@ function entity(ref: EntityRef): Candidate | null {
 
 const all = (type: RefType, ids: string[]) => ids.map(id => entity({ type, id })).filter((c): c is Candidate => !!c)
 
-const maps = computed<Candidate[]>(() => store.rows.maps.map(m => ({
+const maps = computed<Candidate[]>(() => store.relationMaps.map(m => ({
   id: m.id, type: 'map', label: m.name, suffix: kind('relationMap'), icon: 'i-lucide-waypoints', to: `${base.value}/relations/${m.id}`, onSelect: close,
 })))
 const variables = computed<Candidate[]>(() => store.modules.variables

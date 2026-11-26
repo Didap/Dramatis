@@ -277,6 +277,7 @@ export const collectionSchemas = {
     name: zName,
     nodes: z.record(z.string().max(80), z.object({ x: z.number().finite(), y: z.number().finite() })),
     settings: z.object({
+      image: zUuid.optional(),
       include: z.partialRecord(z.enum(WORLD_REF_TYPES), z.boolean()).optional(),
       kinds: z.array(z.enum(RELATION_KINDS)).optional(),
       refs: z.array(z.string().max(80)).max(2000).optional(),

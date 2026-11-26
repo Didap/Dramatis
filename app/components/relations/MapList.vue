@@ -15,7 +15,7 @@ const { t } = useI18n()
 const { number } = useFormat()
 
 const guidance = computed(() => store.project?.settings.guidance !== false)
-const maps = computed(() => [...store.rows.maps].sort((a, b) => a.position - b.position || a.createdAt.localeCompare(b.createdAt)))
+const maps = computed(() => store.relationMaps)
 
 /** The working order, rearranged by the drag and drop. */
 const order = ref<StoryMap[]>([])
