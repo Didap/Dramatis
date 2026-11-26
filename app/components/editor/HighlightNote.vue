@@ -11,7 +11,7 @@ const props = defineProps<{
   /** The highlighted words, for the card's label. */
   excerpt: string
 }>()
-/** The card closed, with the note as it now reads; `back`: closed from the card, the text takes the keyboard. */
+/** The card closed, with the note as it now reads, and whether it was closed from the card itself. */
 const emit = defineEmits<{ close: [note: string, back: boolean] }>()
 
 const { t } = useI18n()

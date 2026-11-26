@@ -325,6 +325,12 @@
         "add": "increases by",
         "subtract": "decreases by",
         "toggle": "flips"
+      },
+      "highlighter": {
+        "yellow": "Yellow",
+        "green": "Green",
+        "blue": "Blue",
+        "pink": "Pink"
       }
     },
     "image": {

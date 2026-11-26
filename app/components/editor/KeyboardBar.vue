@@ -67,8 +67,8 @@ function mention() {
 const buttons = computed(() => [
   { key: 'bold', label: t('editor.format.bold'), icon: 'i-lucide-bold', pressed: isActive('bold'), run: () => chain()?.toggleBold().run() },
   { key: 'italic', label: t('editor.format.italic'), icon: 'i-lucide-italic', pressed: isActive('italic'), run: () => chain()?.toggleItalic().run() },
-  // Opens the "Evidenzia" menu (EditorHighlighterMenu) rather than acting at once.
-  { key: 'highlight', label: t('editor.highlight.label'), icon: 'i-lucide-highlighter', pressed: isActive('highlight'), run: () => {} },
+  // No action of its own: it opens the "Evidenzia" menu (EditorHighlighterMenu).
+  { key: 'highlight', label: t('editor.highlight.label'), icon: 'i-lucide-highlighter', pressed: isActive('highlight') },
   { key: 'quotes', label: t('editor.writingBar.quotes', { quotes: quotes.value }), text: quotes.value, run: () => chain()?.insertDialoguePunctuation('quotes').run() },
   { key: 'dash', label: t('editor.writingBar.dash'), text: '—', run: () => chain()?.insertDialoguePunctuation('dash').run() },
   { key: 'ellipsis', label: t('editor.writingBar.ellipsis'), text: '…', run: () => chain()?.insertDialoguePunctuation('ellipsis').run() },
@@ -123,7 +123,7 @@ const { onKeydown, onFocusin } = useToolbarFocus(bar)
           :aria-pressed="'pressed' in button ? button.pressed : undefined"
           :disabled="!editor"
           @pointerdown.prevent
-          @click="button.run()"
+          @click="button.run?.()"
         >
           <UIcon v-if="'icon' in button && button.icon" :name="button.icon" class="size-5" aria-hidden="true" />
           <span v-else class="voice-author text-lg leading-none" aria-hidden="true">{{ 'text' in button ? button.text : '' }}</span>

@@ -12,13 +12,14 @@ import { highlightAt } from '~/utils/editor-extensions'
 const props = defineProps<{ editor: Editor | null }>()
 
 const { t } = useI18n()
+const { label: enumLabel } = useEnums()
 const open = ref(false)
 const items = ref<DropdownMenuItem[][]>([])
 /** An item ran: it placed the keyboard itself (the text, or the note card). */
 let chosen = false
 
 function build(editor: Editor): DropdownMenuItem[][] {
-  const found = highlightAt(editor.state)
+  const found = highlightAt(editor.state.doc, editor.state.selection)
   const active = !!found
   const { color, note } = (found?.mark.attrs ?? {}) as { color?: string, note?: string }
   // Something to act on: words chosen, or a highlight at the caret.
@@ -29,7 +30,7 @@ function build(editor: Editor): DropdownMenuItem[][] {
   }
   return [
     HIGHLIGHTERS.map(value => ({
-      label: t(`editor.highlight.colors.${value}`),
+      label: enumLabel('highlighter', value),
       type: 'checkbox' as const,
       checked: active && color === value,
       slot: 'swatch' as const,
@@ -71,7 +72,7 @@ const content = {
 </script>
 
 <template>
-  <UDropdownMenu v-model:open="open" :items="items" :content="content" :disabled="!editor">
+  <UDropdownMenu v-model:open="open" :items="items" :content="content">
     <slot />
     <template #swatch-leading="{ item }">
       <span

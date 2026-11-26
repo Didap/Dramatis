@@ -1,5 +1,6 @@
-import { Mark, mergeAttributes, Node } from '@tiptap/core'
-import type { Mark as PMMark } from '@tiptap/pm/model'
+import { getMarkRange, isMarkActive, Mark, mergeAttributes, Node } from '@tiptap/core'
+import type { Mark as PMMark, Node as PMNode } from '@tiptap/pm/model'
+import { Selection } from '@tiptap/pm/state'
 import type { EditorState, Transaction } from '@tiptap/pm/state'
 import type { HighlighterColor } from '#shared/types/domain'
 
@@ -99,33 +100,47 @@ export interface HighlighterOptions {
 }
 
 /**
- * The highlight at the caret or under the selection, whole: across paragraphs as long as the same
- * highlight (colour and note) runs on, mentions included. Null when there is none.
+ * The highlight at the caret (after it, else before it) or the first one under the selection, whole:
+ * the stretch of the same highlight (colour and note) in its paragraph, mentions included, carried on
+ * into the next paragraphs while it runs from one edge to the other. Null when there is none.
  */
-export function highlightAt(state: EditorState): { from: number, to: number, mark: PMMark } | null {
-  const type = state.schema.marks.highlight
+export function highlightAt(doc: PMNode, selection: Selection): { from: number, to: number, mark: PMMark } | null {
+  const type = doc.type.schema.marks.highlight
   if (!type) return null
-  const { from, to, empty } = state.selection
+  let at = selection.from
   let mark: PMMark | undefined
-  state.doc.nodesBetween(from, empty ? Math.min(to + 1, state.doc.content.size) : to, (node) => {
-    mark ??= node.isInline ? type.isInSet(node.marks) ?? undefined : undefined
-  })
-  // A caret just after a highlight counts: it is where the author lands having made one.
-  if (!mark && empty && from > 0) mark = type.isInSet(state.doc.resolve(from).nodeBefore?.marks ?? []) ?? undefined
-  if (!mark) return null
-  // Inline runs in reading order, with whether they carry this very highlight.
-  const runs: { from: number, to: number, on: boolean }[] = []
-  state.doc.descendants((node, pos) => {
-    if (!node.isInline) return true
-    runs.push({ from: pos, to: pos + node.nodeSize, on: !!mark!.isInSet(node.marks) })
-    return false
-  })
-  let first = runs.findIndex(run => run.on && run.to >= from && (empty || run.from < to))
-  if (first < 0) return null
-  let last = first
-  while (first > 0 && runs[first - 1]!.on) first--
-  while (last < runs.length - 1 && runs[last + 1]!.on) last++
-  return { from: runs[first]!.from, to: runs[last]!.to, mark }
+  if (selection.empty) {
+    mark = type.isInSet(selection.$from.nodeAfter?.marks ?? []) ?? type.isInSet(selection.$from.nodeBefore?.marks ?? []) ?? undefined
+  }
+  else {
+    doc.nodesBetween(selection.from, selection.to, (node, pos) => {
+      if (mark) return false
+      if (!node.isInline) return true
+      mark = type.isInSet(node.marks) ?? undefined
+      if (mark) at = Math.max(pos, selection.from)
+      return false
+    })
+  }
+  const range = mark && getMarkRange(doc.resolve(at), type, mark.attrs)
+  if (!mark || !range) return null
+  // Across paragraphs: the next text position past an edge still carries the same highlight.
+  const carries = (pos: number, side: 'before' | 'after') => {
+    const node = side === 'after' ? doc.resolve(pos).nodeAfter : doc.resolve(pos).nodeBefore
+    return !!node && !!mark!.isInSet(node.marks)
+  }
+  for (let $start = doc.resolve(range.from); $start.parentOffset === 0 && $start.depth > 0;) {
+    const previous = Selection.findFrom(doc.resolve($start.before()), -1, true)
+    if (!previous || !carries(previous.from, 'before')) break
+    range.from = getMarkRange(previous.$from, type, mark.attrs)!.from
+    $start = doc.resolve(range.from)
+  }
+  for (let $end = doc.resolve(range.to); $end.parentOffset === $end.parent.content.size && $end.depth > 0;) {
+    const next = Selection.findFrom(doc.resolve($end.after()), 1, true)
+    if (!next || !carries(next.from, 'after')) break
+    range.to = getMarkRange(next.$from, type, mark.attrs)!.to
+    $end = doc.resolve(range.to)
+  }
+  return { ...range, mark }
 }
 
 /**
@@ -181,7 +196,7 @@ export const Highlighter = Mark.create<HighlighterOptions>({
       })
     }
     /** What a command acts on: the selection, or the whole highlight at the caret. */
-    const target = (state: EditorState) => (state.selection.empty ? highlightAt(state) : state.selection)
+    const target = (state: EditorState) => (state.selection.empty ? highlightAt(state.doc, state.selection) : state.selection)
 
     return {
       setHighlighter: color => ({ state, tr, dispatch }) => {
@@ -197,12 +212,8 @@ export const Highlighter = Mark.create<HighlighterOptions>({
         return true
       },
       toggleHighlighter: color => ({ state, commands }) => {
-        const { from, to, empty } = state.selection
-        let covered = !empty
-        state.doc.nodesBetween(from, to, (node) => {
-          if (node.isInline && !this.type.isInSet(node.marks)) covered = false
-        })
-        return (empty ? highlightAt(state) : covered) ? commands.unsetHighlighter() : commands.setHighlighter(color)
+        const on = state.selection.empty ? !!highlightAt(state.doc, state.selection) : isMarkActive(state, this.type)
+        return on ? commands.unsetHighlighter() : commands.setHighlighter(color)
       },
       openHighlightNote: () => ({ state, tr, dispatch }) => {
         const range = target(state)
@@ -210,7 +221,7 @@ export const Highlighter = Mark.create<HighlighterOptions>({
         if (!dispatch) return true
         // Plain words are highlighted in yellow; highlights already there keep their colour and note.
         paint(tr, range.from, range.to, existing => (existing ? null : { color: 'yellow', note: '' }))
-        const whole = highlightAt(state.apply(tr))
+        const whole = highlightAt(tr.doc, tr.selection)
         const stretch = { from: Math.min(range.from, whole?.from ?? range.from), to: Math.max(range.to, whole?.to ?? range.to) }
         this.options.onNote(stretch, String(whole?.mark.attrs.note ?? ''))
         return true

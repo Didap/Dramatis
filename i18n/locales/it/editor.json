@@ -359,12 +359,6 @@
     "highlight": {
       "label": "Evidenzia",
       "hint": "Evidenzia le parole scelte, con una nota se serve",
-      "colors": {
-        "yellow": "Giallo",
-        "green": "Verde",
-        "blue": "Azzurro",
-        "pink": "Rosa"
-      },
       "addNote": "Aggiungi una nota",
       "editNote": "Modifica la nota",
       "remove": "Togli l'evidenziatore",

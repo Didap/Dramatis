@@ -18,6 +18,7 @@ import {
   SCENE_STATUSES,
   STRAND_KINDS,
   VARIABLE_TYPES,
+  HIGHLIGHTERS,
 } from '#shared/utils/constants'
 
 /** The fixed enumerations, by the name of their labels in common.enums (common.json). */
@@ -42,6 +43,7 @@ export const ENUMS = {
   effectOp: EFFECT_OPS,
   color: ENTITY_COLORS,
   refType: REF_TYPES,
+  highlighter: HIGHLIGHTERS,
 } as const
 
 export type EnumName = keyof typeof ENUMS

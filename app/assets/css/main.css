@@ -376,7 +376,6 @@
   text-underline-offset: 0.22em;
 }
 
-
 /* Mentions are plain text with a dotted underline, never a pill; the entity's ink on hover. */
 .tiptap .mention,
 .mention {

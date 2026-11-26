@@ -1,6 +1,6 @@
 <script lang="ts">
 import type { Editor } from '@tiptap/core'
-import { Extension, InputRule, canInsertNode, isNodeSelection, nodeInputRule } from '@tiptap/core'
+import { Extension, InputRule, canInsertNode, getTextBetween, getTextSerializersFromSchema, isNodeSelection, nodeInputRule } from '@tiptap/core'
 import { Fragment, Slice } from '@tiptap/pm/model'
 import type { Node as PMNode, Schema } from '@tiptap/pm/model'
 import { NodeSelection, Plugin, PluginKey, TextSelection } from '@tiptap/pm/state'
@@ -557,6 +557,7 @@ const emit = defineEmits<{
 }>()
 
 const { t } = useI18n()
+const { label: enumLabel } = useEnums()
 const store = useProjectStore()
 
 /** Name of a live entity of the project ("character:uuid"), or null when it does not exist or is trashed. */
@@ -586,7 +587,7 @@ const extensions = [
   Spelling.configure({ checker: () => props.spellChecker, onPick: (error, anchor) => emit('spell', error, anchor) }),
   TabOut,
   ManuscriptOnly,
-  Highlighter.configure({ onNote: openNote, colorName: color => t(`editor.highlight.colors.${color}`) }),
+  Highlighter.configure({ onNote: openNote, colorName: color => enumLabel('highlighter', color) }),
 ]
 
 const ueditor = useTemplateRef<{ editor?: VueEditor }>('ueditor')
@@ -744,8 +745,8 @@ const note = reactive({ open: false, anchor: null as HTMLElement | null, text: '
 function openNote(range: { from: number, to: number }, text: string) {
   const instance = ueditor.value?.editor
   if (!instance) return
-  // Mentions are leaves: their names are read from their labels.
-  const words = instance.state.doc.textBetween(range.from, range.to, ' ', node => String(node.attrs.label ?? ''))
+  // Mentions are read by their names (their renderText), as everywhere text is taken from the editor.
+  const words = getTextBetween(instance.state.doc, range, { blockSeparator: ' ', textSerializers: getTextSerializersFromSchema(instance.schema) })
   Object.assign(note, { range, text, excerpt: words.length > 80 ? `${words.slice(0, 79)}…` : words })
   // A plain selection is highlighted by the same command: its mark is drawn once the command is done.
   void nextTick(() => {
@@ -768,7 +769,6 @@ function closeNote(text: string, back: boolean) {
   if (back) chain.setTextSelection(Math.min(note.range.to, instance.state.doc.content.size)).focus()
   chain.run()
 }
-
 
 // ---------------------------------------------------------------- the mention card
 

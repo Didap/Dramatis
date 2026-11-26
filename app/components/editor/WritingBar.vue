@@ -100,7 +100,9 @@ const { onKeydown, onFocusin } = useToolbarFocus(bar)
     </UTooltip>
     <span class="mx-1.5 h-4 w-px bg-(--ui-border)" aria-hidden="true" />
     <EditorHighlighterMenu :editor="editor">
-      <UButton size="sm" icon="i-lucide-highlighter" :label="t('editor.highlight.label')" :title="t('editor.highlight.hint')" :disabled="!editor" @mousedown.prevent />
+      <UTooltip :text="t('editor.highlight.hint')">
+        <UButton size="sm" icon="i-lucide-highlighter" :label="t('editor.highlight.label')" :disabled="!editor" @mousedown.prevent />
+      </UTooltip>
     </EditorHighlighterMenu>
     <UTooltip :text="t('editor.writingBar.breakHint')">
       <UButton size="sm" icon="i-lucide-separator-horizontal" :label="t('editor.writingBar.break')" :disabled="!editor || linesOnly" @mousedown.prevent @click="sceneBreak" />

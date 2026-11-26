@@ -359,12 +359,6 @@
     "highlight": {
       "label": "Highlight",
       "hint": "Highlight the chosen words, with a note if you need one",
-      "colors": {
-        "yellow": "Yellow",
-        "green": "Green",
-        "blue": "Blue",
-        "pink": "Pink"
-      },
       "addNote": "Add a note",
       "editNote": "Edit the note",
       "remove": "Remove the highlighter",

@@ -1,5 +1,5 @@
 <script lang="ts">
-import { Extension, generateHTML } from '@tiptap/core'
+import { Extension, generateHTML, getSchema } from '@tiptap/core'
 import type { DOMOutputSpec } from '@tiptap/pm/model'
 import Mention from '@tiptap/extension-mention'
 import StarterKit from '@tiptap/starter-kit'
@@ -113,18 +113,23 @@ const ViewLine = DialogueLine.extend({
   },
 })
 
-/** Read back, the author's highlights are gone: a reading page carries the words, not the working marks. */
-const ViewHighlight = Highlighter.extend({
-  renderHTML: () => ['span', 0],
-})
+const viewExtensions = [StarterKit.configure({ undoRedo: false, trailingNode: false, dropcursor: false, gapcursor: false }), SceneMention, ViewLine, SceneBreak, TextAlign]
+const viewMarks = new Set(Object.keys(getSchema(viewExtensions).marks))
 
-const viewExtensions = [StarterKit.configure({ undoRedo: false, trailingNode: false, dropcursor: false, gapcursor: false }), SceneMention, ViewLine, SceneBreak, TextAlign, ViewHighlight]
+/** The marks a reading page does not carry (the author's highlights, working marks to come) go, the words stay. */
+function readable(node: RichDoc): RichDoc {
+  return {
+    ...node,
+    ...(node.marks ? { marks: node.marks.filter(mark => viewMarks.has(mark.type)) } : {}),
+    ...(node.content ? { content: node.content.map(readable) } : {}),
+  }
+}
 
 /** HTML of a stored text, for reading only. Falls back to plain paragraphs if the text has unknown parts. */
 export function docHtml(doc: RichDoc | null | undefined): string {
   if (!doc) return ''
   try {
-    return generateHTML(doc, viewExtensions)
+    return generateHTML(readable(doc), viewExtensions)
   }
   catch {
     const escape = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
