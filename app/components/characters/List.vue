@@ -68,7 +68,7 @@ const collator = computed(() => new Intl.Collator(locale.value, { sensitivity: '
 
 const roleOptions = computed(() => CHARACTER_ROLES.filter(role => store.people.some(c => c.role === role)))
 const groupOptions = computed(() => {
-  const used = new Set([...groupsOf.value.values()].flatMap(set => [...set]))
+  const used = new Set(store.people.flatMap(c => [...(groupsOf.value.get(c.id) ?? [])]))
   return [...store.rows.groups].filter(g => used.has(g.id)).sort((a, b) => a.position - b.position)
 })
 const tagOptions = computed(() =>

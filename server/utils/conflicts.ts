@@ -15,6 +15,11 @@ const FIELD_LABELS: Record<'it' | 'en', Record<string, string>> = {
     content: 'testo',
     body: 'testo',
     profile: 'profilo',
+    firstSight: 'primo sguardo',
+    history: 'storia del luogo',
+    inhabitants: 'chi lo abita',
+    access: 'come ci si arriva',
+    secrets: 'che cosa nasconde',
   },
   en: {
     premise: 'Premise',
@@ -29,6 +34,11 @@ const FIELD_LABELS: Record<'it' | 'en', Record<string, string>> = {
     content: 'text',
     body: 'text',
     profile: 'profile',
+    firstSight: 'first look',
+    history: 'history of the place',
+    inhabitants: 'who lives there',
+    access: 'how to get there',
+    secrets: 'what it hides',
   },
 }
 

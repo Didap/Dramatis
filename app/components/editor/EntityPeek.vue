@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { RichDoc } from '#shared/types/domain'
+import type { StoryLocation } from '#shared/types/entities'
 import { PROFILE_SECTIONS } from '#shared/content/profile'
+import { PLACE_QUESTIONS } from '#shared/utils/constants'
 import { isEmptyDoc, parseMentionId } from '#shared/utils/richtext'
 
 /**
@@ -20,6 +22,12 @@ const open = computed({
 })
 
 const target = computed(() => parseMentionId(refId.value))
+
+/** What a place says of itself: its description, or its answers when it is described guided (VRS-683). */
+function placeDocs(l: StoryLocation): { label: string, doc: RichDoc }[] {
+  if (l.describe !== 'guided') return l.description ? [{ label: t('common.fields.description'), doc: l.description }] : []
+  return PLACE_QUESTIONS.flatMap(q => (l[q] && !isEmptyDoc(l[q]) ? [{ label: t(`locations.guide.titles.${q}`), doc: l[q]! }] : []))
+}
 
 const view = computed(() => {
   const ref = target.value
@@ -54,7 +62,7 @@ const view = computed(() => {
     case 'location': {
       const l = store.get('locations', ref.id)
       if (!l) return null
-      return { ...base, name: l.name, kind: [term('location'), [l.city, l.region, l.nation].filter(Boolean).join(', ')].filter(Boolean).join(' · '), imageId: store.primaryImage('location', l.id), color: l.color, docs: l.description ? [{ label: t('common.fields.description'), doc: l.description }] : [] }
+      return { ...base, name: l.name, kind: [term('location'), [l.city, l.region, l.nation].filter(Boolean).join(', ')].filter(Boolean).join(' · '), imageId: store.primaryImage('location', l.id), color: l.color, docs: placeDocs(l) }
     }
     case 'object': {
       const o = store.get('objects', ref.id)

@@ -2,6 +2,7 @@ import { and, asc, eq, isNull, ne } from 'drizzle-orm'
 import { z } from 'zod'
 import type { RichDoc } from '#shared/types/domain'
 import { PROFILE_SECTIONS } from '#shared/content/profile'
+import { PLACE_QUESTIONS } from '#shared/utils/constants'
 import { resolveModules } from '#shared/utils/modules'
 import { richToPlainText } from '#shared/utils/richtext'
 
@@ -346,6 +347,7 @@ export default defineEventHandler(async (event): Promise<SearchResponse> => {
         { field: 'place', text: [l.city, l.region, l.nation].filter(Boolean).join(', ') },
         { field: 'kind', text: l.kind },
         { field: 'description', text: plain(l.description) },
+        ...PLACE_QUESTIONS.map(field => ({ field, text: plain(l[field]) })),
         { field: 'notes', text: plain(l.notes) },
       ],
     })

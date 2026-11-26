@@ -111,7 +111,7 @@ export function useProjectNav() {
     if (store.genre?.layout === 'metroidvania') {
       // The sections the genre leaves out still show while they hold something, so a change of genre hides nothing.
       const rows = store.rows
-      const races = rows.groups.filter(g => g.kind === 'race').length
+      const races = rows.groups.filter(g => store.isRace(g.id)).length
       return [
         top,
         {
@@ -121,7 +121,7 @@ export function useProjectNav() {
             item('architecture', 'architecture', 'architecture'),
             item('strands', 'strands', 'strands'),
             item('notes', 'notes', 'notes'),
-            ...(store.modules.codex && rows.codexEntries.length ? [item('codex', 'codex', 'codex')] : []),
+            ...(store.modules.codex ? [item('codex', 'codex', 'codex')] : []),
           ],
         },
         {
@@ -134,9 +134,9 @@ export function useProjectNav() {
             shelf('abilities', 'abilities', 'abilities', 'objects', ['ability']),
             shelf('collectibles', 'collectibles', 'collectibles', 'objects', ['collectible']),
             ...(rows.objects.some(o => o.category === 'object') ? [shelf('objects', 'objects', 'objects', 'objects', ['object'])] : []),
-            ...(store.modules.races && races ? [item('races', 'races', 'races')] : []),
+            ...(races ? [item('races', 'races', 'races')] : []),
             ...(rows.groups.length > races ? [item('groups', 'groups', 'groups')] : []),
-            ...(rows.relations.length ? [item('relations', 'relations', 'relations')] : []),
+            ...(rows.relations.length || store.relationMaps.length ? [item('relations', 'relations', 'relations')] : []),
           ],
         },
         {

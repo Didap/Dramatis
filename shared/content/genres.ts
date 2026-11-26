@@ -8,7 +8,7 @@
  */
 
 import { GAME_GENRES } from '../utils/constants'
-import type { GameGenre } from '../types/domain'
+import type { GameGenre, ProjectModules } from '../types/domain'
 
 /** The sidebars a game can have: the standard one, or a genre's own. */
 export type NavLayout = 'standard' | 'metroidvania'
@@ -18,13 +18,16 @@ export interface GenreDef {
   /** The structure laid out by "Da una struttura" (shared/content/structures.ts). */
   structure: string
   layout: NavLayout
+  /** Modules a new game of the genre starts with, over the game defaults. */
+  modules?: ProjectModules
 }
 
 const DEFS: Record<GameGenre, Omit<GenreDef, 'key'>> = {
   action: { structure: 'game_three_acts', layout: 'standard' },
   adventure: { structure: 'branching_endings', layout: 'standard' },
   rpg: { structure: 'hub_and_quests', layout: 'standard' },
-  metroidvania: { structure: 'metroidvania', layout: 'metroidvania' },
+  // Its sidebar has no codex (VRS-683): it starts off, and shows once switched on in Settings.
+  metroidvania: { structure: 'metroidvania', layout: 'metroidvania', modules: { codex: false } },
   soulslike: { structure: 'heros_journey', layout: 'standard' },
   shooter: { structure: 'game_three_acts', layout: 'standard' },
   strategy: { structure: 'hub_and_quests', layout: 'standard' },

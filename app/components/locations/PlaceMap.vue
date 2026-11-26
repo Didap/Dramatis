@@ -22,19 +22,25 @@ const toast = useToast()
 
 type At = { x: number, y: number }
 /** A pin, keyed in the map's nodes as everywhere ("location:<id>", "object:<id>"): a purge takes its pins off by it. */
-interface Pin { key: string, ref: EntityRef, at: At, name: string }
+interface Pin { key: string, ref: EntityRef, at: At, name: string, icon: string }
 
-/** The name of what a pin stands for, or null when it is gone (or not a place or an object). */
-function nameOf(ref: EntityRef | null): string | null {
-  if (ref?.type === 'location') return store.get('locations', ref.id)?.name ?? null
-  if (ref?.type === 'object') return store.get('objects', ref.id)?.name ?? null
+/** What a pin stands for (its name and its icon), or null when it is gone or is neither a place nor an object. */
+function pinOf(ref: EntityRef | null): { name: string, icon: string } | null {
+  if (ref?.type === 'location') {
+    const place = store.get('locations', ref.id)
+    return place ? { name: place.name, icon: 'i-lucide-map-pin' } : null
+  }
+  if (ref?.type === 'object') {
+    const object = store.get('objects', ref.id)
+    return object ? { name: object.name, icon: OBJECT_SHELVES[object.category].icon } : null
+  }
   return null
 }
 
 const pins = computed<Pin[]>(() => Object.entries(props.map.nodes).flatMap(([key, at]) => {
   const ref = parseMentionId(key)
-  const name = nameOf(ref)
-  return ref && name !== null ? [{ key, ref, at, name }] : []
+  const shown = pinOf(ref)
+  return ref && shown ? [{ key, ref, at, ...shown }] : []
 }))
 const placedOf = (type: EntityRef['type']) => pins.value.filter(pin => pin.ref.type === type).map(pin => pin.ref.id)
 const placedPlaces = computed(() => placedOf('location'))
@@ -205,7 +211,7 @@ async function unpin(pin: Pin) {
 
 const PIN_MENU = { align: 'start' as const }
 const menuOf = (pin: Pin): DropdownMenuItem[][] => [[
-  { label: t(pin.ref.type === 'object' ? 'locations.map.openCollectible' : 'locations.map.open'), icon: 'i-lucide-arrow-right', to: store.refPath(pin.ref) },
+  { label: t(pin.ref.type === 'object' ? 'locations.map.openObject' : 'locations.map.open'), icon: 'i-lucide-arrow-right', to: store.refPath(pin.ref) },
   { label: t('locations.map.move'), icon: 'i-lucide-move', onSelect: () => { moving.value = pin.key } },
   { label: t('locations.map.unpin'), icon: 'i-lucide-map-pin-off', onSelect: () => void unpin(pin) },
 ]]
@@ -271,7 +277,7 @@ defineExpose({
             />
           </UDropdownMenu>
         </span>
-        <UIcon :name="pin.ref.type === 'object' ? OBJECT_SHELVES.collectible.icon : 'i-lucide-map-pin'" class="-mt-0.5 size-6 text-primary drop-shadow-sm" aria-hidden="true" />
+        <UIcon :name="pin.icon" class="-mt-0.5 size-6 text-primary drop-shadow-sm" aria-hidden="true" />
       </div>
 
       <!-- Where the question points: the popover hangs from here. -->

@@ -59,9 +59,9 @@
       "uploadHintPlan": "The whole map, as the player will see it once every place is open: a PNG, JPEG or WebP image. Then tap a spot to put a place or a collectible there.",
       "planIntro": "The game's map with everything open. Each pin leads to a place or a collectible.",
       "whichPin": "What is here?",
-      "openCollectible": "Open the collectible",
       "pickCollectible": "A collectible",
-      "pickPlace": "A place"
+      "pickPlace": "A place",
+      "openObject": "Open its sheet"
     },
     "guide": {
       "describe": "How you describe it",

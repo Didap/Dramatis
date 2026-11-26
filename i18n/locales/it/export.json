@@ -304,7 +304,14 @@
       "badRules": "Condizioni o effetti da correggere",
       "emptyChoices": "Scelte senza testo",
       "trashedTarget": "scena nel cestino",
-      "choiceIn": "{scene}: «{choice}»"
+      "choiceIn": "{scene}: «{choice}»",
+      "place": {
+        "firstSight": "Il primo sguardo",
+        "history": "La sua storia",
+        "inhabitants": "Chi lo abita",
+        "access": "Come ci si arriva",
+        "secrets": "Che cosa nasconde"
+      }
     },
     "pageNumbers": {
       "missing": "In questo browser le pagine del PDF escono senza numeri. Per averli apri l'anteprima in Chrome o Edge, oppure esporta in DOCX.",

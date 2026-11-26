@@ -17,7 +17,7 @@ import {
 import type { EntityRef, RichDoc, WorldRefType } from '#shared/types/domain'
 import type { Character, Scene } from '#shared/types/entities'
 import { PROFILE_SECTIONS, hasFullProfile } from '#shared/content/profile'
-import { CHARACTER_IMPORTANCES } from '#shared/utils/constants'
+import { CHARACTER_IMPORTANCES, PLACE_QUESTIONS } from '#shared/utils/constants'
 import { variableUsage, type FlowCheck, type FlowCheckKind } from '#shared/utils/flow'
 import { isEmptyDoc } from '#shared/utils/richtext'
 import { compareStoryTime, parseStoryTime } from '#shared/utils/time'
@@ -326,6 +326,11 @@ export function buildProjectDocument(model: ExportModel): ProjectDocument {
     image('location', location.id, false)
     meta(location.kind, [location.city, location.region, location.nation].filter(s => s.trim()).join(', '), label('planningStatus', location.status))
     text(location.description)
+    for (const key of PLACE_QUESTIONS) {
+      if (isEmptyDoc(location[key])) continue
+      subheading(t(`export.doc.place.${key}`))
+      text(location[key])
+    }
     const relationships = relationLines('location', location.id)
     if (relationships.length) {
       subheading(t('export.doc.relationships'))

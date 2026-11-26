@@ -70,6 +70,11 @@ function section<T extends { updatedAt: string }>(key: keyof typeof SECTION_ICON
   }
 }
 
+const relationsSection = computed(() => section('relations', term('relations'), relations.value, r => t('world.hub.relation', {
+  from: store.refLabel({ type: r.sourceType, id: r.sourceId }),
+  to: store.refLabel({ type: r.targetType, id: r.targetId }),
+})))
+
 /** A game with a bestiary (VRS-683): its shelves and its map, then what the genre leaves out while it holds something. */
 const bestiarySections = computed<HubSection[]>(() => {
   const objects = store.objectsIn(['object'])
@@ -83,9 +88,10 @@ const bestiarySections = computed<HubSection[]>(() => {
     section('placeMap', term('placeMap'), store.placeMaps, m => m.name, 'map'),
     section('locations', term('locations'), store.rows.locations, l => l.name),
     ...(objects.length ? [section('objects', term('objects'), objects, o => o.name)] : []),
-    ...(store.modules.races && races.length ? [section('races', term('races'), races, g => g.name)] : []),
+    ...(races.length ? [section('races', term('races'), races, g => g.name)] : []),
     ...(groups.length ? [section('groups', term('groups'), groups, g => g.name)] : []),
-    ...(store.modules.codex && store.rows.codexEntries.length ? [section('codex', term('codex'), store.rows.codexEntries, e => e.title)] : []),
+    ...(relations.value.length || store.relationMaps.length ? [relationsSection.value] : []),
+    ...(store.modules.codex ? [section('codex', term('codex'), store.rows.codexEntries, e => e.title)] : []),
   ]
 })
 
@@ -94,10 +100,7 @@ const sections = computed<HubSection[]>(() => store.bestiary ? bestiarySections.
   section('groups', term('groups'), store.rows.groups.filter(g => !store.isRace(g.id)), g => g.name),
   section('locations', term('locations'), store.rows.locations, l => l.name),
   section('objects', term('objects'), store.rows.objects, o => o.name),
-  section('relations', term('relations'), relations.value, r => t('world.hub.relation', {
-    from: store.refLabel({ type: r.sourceType, id: r.sourceId }),
-    to: store.refLabel({ type: r.targetType, id: r.targetId }),
-  })),
+  relationsSection.value,
   ...(store.modules.codex ? [section('codex', term('codex'), store.rows.codexEntries, e => e.title)] : []),
 ])
 

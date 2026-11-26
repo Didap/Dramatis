@@ -1,4 +1,5 @@
 import { eq } from 'drizzle-orm'
+import { genreOf } from '#shared/content/genres'
 
 /** Creates a project: blank, or from a structure template. Games get the default codex categories, and keep their genre (VRS-682). */
 export default defineEventHandler(async (event) => {
@@ -15,6 +16,7 @@ export default defineEventHandler(async (event) => {
       .values({
         ...fields,
         gameGenre: fields.kind === 'game' ? fields.gameGenre ?? '' : '',
+        modules: genreOf(fields.kind, fields.gameGenre)?.modules ?? {},
         title: fields.title?.trim() || (locale === 'en' ? 'Untitled' : 'Senza titolo'),
         ownerId: user.id,
         language,

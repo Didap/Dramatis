@@ -237,7 +237,11 @@ export const useProjectStore = defineStore('project', () => {
   /** The objects of these categories, in a game with a bestiary. */
   const objectsIn = (categories: readonly ObjectCategory[]) => rows.objects.filter(o => categories.includes(o.category))
   /** Where a map opens: a map of places on its page of places, a relationship map on its canvas. */
-  const mapPath = (id: string, place: boolean) => (place ? `/p/${projectId.value}/locations?map=${id}` : `/p/${projectId.value}/relations/${id}`)
+  /** Where a map opens: a map of places on the places page, or on the world map page of a genre that has one (VRS-683). */
+  const mapPath = (id: string, place: boolean) => {
+    if (!place) return `/p/${projectId.value}/relations/${id}`
+    return `/p/${projectId.value}/${genre.value?.layout === 'metroidvania' ? 'map' : 'locations'}?map=${id}`
+  }
 
   /** Chapters in reading order: those outside any part first, then part by part. */
   const orderedChapters = computed<Chapter[]>(() => {

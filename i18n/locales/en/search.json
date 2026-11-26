@@ -47,7 +47,12 @@
       "objective": "in an objective",
       "reward": "in a reward",
       "purpose": "in the purpose",
-      "date": "in the date"
+      "date": "in the date",
+      "firstSight": "The first look",
+      "history": "Its history",
+      "inhabitants": "Who lives there",
+      "access": "How to get there",
+      "secrets": "What it hides"
     },
     "filters": {
       "title": "Filters",

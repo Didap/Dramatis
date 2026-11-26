@@ -59,9 +59,9 @@
       "uploadHintPlan": "La mappa intera, come la vedrà il giocatore quando avrà aperto tutti i luoghi: un'immagine PNG, JPEG o WebP. Poi tocca un punto per metterci un luogo o un collezionabile.",
       "planIntro": "La mappa del gioco tutta aperta. Ogni segnaposto porta a un luogo o a un collezionabile.",
       "whichPin": "Che cosa c'è qui?",
-      "openCollectible": "Apri il collezionabile",
       "pickCollectible": "Un collezionabile",
-      "pickPlace": "Un luogo"
+      "pickPlace": "Un luogo",
+      "openObject": "Apri la scheda"
     },
     "guide": {
       "describe": "Come lo descrivi",

@@ -304,7 +304,14 @@
       "badRules": "Conditions or effects to fix",
       "emptyChoices": "Choices without text",
       "trashedTarget": "scene in the trash",
-      "choiceIn": "{scene}: “{choice}”"
+      "choiceIn": "{scene}: “{choice}”",
+      "place": {
+        "firstSight": "The first look",
+        "history": "Its history",
+        "inhabitants": "Who lives there",
+        "access": "How to get there",
+        "secrets": "What it hides"
+      }
     },
     "pageNumbers": {
       "missing": "In this browser the pages of the PDF come out without numbers. To have them, open the preview in Chrome or Edge, or export as DOCX.",

@@ -1,4 +1,5 @@
-import { GROUP_KINDS, PROJECT_MODULES } from '#shared/utils/constants'
+import { CHARACTER_CATEGORIES, GAME_GENRES, GROUP_KINDS, OBJECT_CATEGORIES, PLACE_QUESTIONS, PROJECT_MODULES } from '#shared/utils/constants'
+import type { CharacterCategory, GameGenre, ObjectCategory } from '#shared/types/domain'
 import { exportChoices, exportIsEnding, exportLines, exportPlaceOf, exportStartScene, exportTypedValue, type GameChoice } from './game'
 import { exportPlainText, type ExportModel } from './model'
 
@@ -14,6 +15,8 @@ export const DRAMATIS_GAME_VERSION = 1
 
 type Value = boolean | number | string
 
+type PlaceQuestion = (typeof PLACE_QUESTIONS)[number]
+
 export interface DramatisGame {
   format: 'dramatis-game'
   version: 1
@@ -25,13 +28,14 @@ export interface DramatisGame {
     author: string
     language: string
     type: 'novel' | 'game'
+    genre: GameGenre | null
     modules: Record<string, boolean>
     startScene: string | null
   }
   variables: { id: string, name: string, type: 'boolean' | 'number' | 'string', default: Value, description: string }[]
-  characters: { id: string, name: string, aliases: string[], importance: string, role: string | null, playable: boolean, tagline: string, voice: { answers: Record<string, string>, text: string } }[]
-  locations: { id: string, name: string, kind: string, nation: string, region: string, city: string, description: string }[]
-  objects: { id: string, name: string, kind: string, description: string }[]
+  characters: { id: string, name: string, aliases: string[], importance: string, category: CharacterCategory, role: string | null, playable: boolean, tagline: string, voice: { answers: Record<string, string>, text: string } }[]
+  locations: { id: string, name: string, kind: string, nation: string, region: string, city: string, description: string, guide: Record<PlaceQuestion, string> }[]
+  objects: { id: string, name: string, kind: string, category: ObjectCategory, description: string }[]
   groups: { id: string, name: string, kind: string, description: string, members: { type: string, id: string, role: string }[] }[]
   quests: { id: string, name: string, kind: 'quest' | 'side_quest', status: string, giver: string | null, description: string, objectives: { id: string, text: string, optional: boolean, scene: string | null }[], rewards: { id: string, text: string, object: string | null }[] }[]
   scenes: {
@@ -93,6 +97,7 @@ export function gameJson(model: ExportModel): DramatisGame {
       author: model.project.authorName,
       language: model.project.language,
       type: model.project.kind,
+      genre: model.project.kind === 'game' ? model.project.gameGenre || null : null,
       modules: Object.fromEntries(PROJECT_MODULES.map(m => [m, modules[m]])),
       startScene: start?.code ?? null,
     },
@@ -106,6 +111,7 @@ export function gameJson(model: ExportModel): DramatisGame {
         name: c.name,
         aliases: c.aliases,
         importance: c.importance,
+        category: c.category,
         role: c.role || null,
         playable: c.playable,
         tagline: c.tagline,
@@ -115,8 +121,17 @@ export function gameJson(model: ExportModel): DramatisGame {
         },
       }
     }),
-    locations: bundle.locations.map(l => ({ id: l.id, name: l.name, kind: l.kind, nation: l.nation, region: l.region, city: l.city, description: exportPlainText(l.description, names) })),
-    objects: bundle.objects.map(o => ({ id: o.id, name: o.name, kind: o.kind, description: exportPlainText(o.description, names) })),
+    locations: bundle.locations.map(l => ({
+      id: l.id,
+      name: l.name,
+      kind: l.kind,
+      nation: l.nation,
+      region: l.region,
+      city: l.city,
+      description: exportPlainText(l.description, names),
+      guide: Object.fromEntries(PLACE_QUESTIONS.map(q => [q, exportPlainText(l[q], names)])) as Record<PlaceQuestion, string>,
+    })),
+    objects: bundle.objects.map(o => ({ id: o.id, name: o.name, kind: o.kind, category: o.category, description: exportPlainText(o.description, names) })),
     groups: bundle.groups.map(g => ({ id: g.id, name: g.name, kind: g.kind, description: exportPlainText(g.description, names), members: members(g.id) })),
     quests: modules.quests
       ? bundle.strands
@@ -184,6 +199,7 @@ export const DRAMATIS_GAME_SCHEMA = {
       author: text,
       language: { type: 'string', description: 'BCP 47 language of the work.' },
       type: { enum: ['novel', 'game'] },
+      genre: { enum: [...GAME_GENRES, null], description: 'Genre of a game (null for a novel and a game without one).' },
       modules: { type: 'object', additionalProperties: { type: 'boolean' }, description: 'Optional modules of the project; data of a module that is off is left out.' },
       startScene: { type: ['string', 'null'], pattern: '^S\\d{3,}$', description: 'Code of the start scene.' },
     }),
@@ -199,6 +215,7 @@ export const DRAMATIS_GAME_SCHEMA = {
       name: text,
       aliases: list(text),
       importance: { enum: ['main', 'secondary', 'minor'] },
+      category: { enum: [...CHARACTER_CATEGORIES], description: 'A character, an enemy or a boss (only told apart in a game with a bestiary).' },
       role: { type: ['string', 'null'] },
       playable: { type: 'boolean' },
       tagline: text,
@@ -207,8 +224,17 @@ export const DRAMATIS_GAME_SCHEMA = {
         text: { type: 'string', description: 'The section written as free text.' },
       }),
     })),
-    locations: list(object({ id, name: text, kind: text, nation: text, region: text, city: text, description: text })),
-    objects: list(object({ id, name: text, kind: text, description: text })),
+    locations: list(object({
+      id,
+      name: text,
+      kind: text,
+      nation: text,
+      region: text,
+      city: text,
+      description: text,
+      guide: { ...object(Object.fromEntries(PLACE_QUESTIONS.map(q => [q, text]))), description: 'Answers of a place described guided, by question.' },
+    })),
+    objects: list(object({ id, name: text, kind: text, category: { enum: [...OBJECT_CATEGORIES] }, description: text })),
     groups: list(object({
       id,
       name: text,

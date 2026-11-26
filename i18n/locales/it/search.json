@@ -47,7 +47,12 @@
       "objective": "in un obiettivo",
       "reward": "in una ricompensa",
       "purpose": "nello scopo",
-      "date": "nella data"
+      "date": "nella data",
+      "firstSight": "Il primo sguardo",
+      "history": "La sua storia",
+      "inhabitants": "Chi lo abita",
+      "access": "Come ci si arriva",
+      "secrets": "Che cosa nasconde"
     },
     "filters": {
       "title": "Filtri",
