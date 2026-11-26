@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { DropdownMenuItem } from '@nuxt/ui'
 import type { StoryMap } from '#shared/types/entities'
+import { mentionId, parseMentionId } from '#shared/utils/richtext'
 
 /**
  * A map of places (VRS-598, DESIGN.md "Maps of places"): the author's picture with a pin for each
@@ -16,24 +17,27 @@ const store = useProjectStore()
 const { t } = useI18n()
 const toast = useToast()
 
-const PIN = 'location:'
 type At = { x: number, y: number }
+/** A pin's key in the map's nodes, as everywhere: the purge of a place takes its pins off by it. */
+const pinKey = (id: string) => mentionId('location', id)
 
-const pins = computed(() => Object.entries(props.map.nodes)
-  .filter(([key]) => key.startsWith(PIN))
-  .map(([key, at]) => ({ key, id: key.slice(PIN.length), at, place: store.get('locations', key.slice(PIN.length)) }))
-  .filter(pin => !!pin.place))
+const pins = computed(() => Object.entries(props.map.nodes).flatMap(([key, at]) => {
+  const ref = parseMentionId(key)
+  const place = ref?.type === 'location' ? store.get('locations', ref.id) : undefined
+  return place ? [{ id: place.id, at, place }] : []
+}))
 const placed = computed(() => pins.value.map(pin => pin.id))
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value))
 const percent = (value: number) => `${(value * 100).toFixed(3)}%`
 const nodesNow = () => store.get('maps', props.map.id)?.nodes ?? props.map.nodes
+/** The map's nodes with this pin at this spot. */
+const withPin = (id: string, at: At) => ({ nodes: { ...nodesNow(), [pinKey(id)]: at } })
 
 const frame = useTemplateRef<HTMLElement>('frame')
 
-/** The point of the picture under the pointer. */
-function pointOf(event: { clientX: number, clientY: number }): At {
-  const box = frame.value!.getBoundingClientRect()
+/** The point of the picture under the pointer (`box`: measured once for a whole drag). */
+function pointOf(event: { clientX: number, clientY: number }, box = frame.value!.getBoundingClientRect()): At {
   return { x: clamp((event.clientX - box.left) / box.width), y: clamp((event.clientY - box.top) / box.height) }
 }
 
@@ -79,69 +83,62 @@ function onFrameClick(event: MouseEvent) {
   ask(pointOf(event))
 }
 
-watch(picked, async (id) => {
+watch(picked, (id) => {
   if (!id) return
   asking.open = false
-  try {
-    await store.update('maps', props.map.id, { nodes: { ...nodesNow(), [`${PIN}${id}`]: asking.at } })
-  }
-  catch {
-    return
-  }
-  void focusPin(id)
+  void place(id, asking.at, true)
 })
 
 // ---------------------------------------------------------------- moving and removing pins
 
-function place(id: string, at: At) {
-  return store.update('maps', props.map.id, { nodes: { ...nodesNow(), [`${PIN}${id}`]: at } }).catch(() => {})
+/** Puts a pin at a spot (and, with `focus`, the keyboard on it once it is there). */
+function place(id: string, at: At, focus = false) {
+  return store.update('maps', props.map.id, withPin(id, at)).then(() => { if (focus) void focusPin(id) }, () => {})
 }
 
 /** "Sposta il segnaposto": the next click or tap on the picture puts this pin there. */
 const moving = ref<string | null>(null)
 
-/** The pin being dragged and where it is now (saved on release). */
-const dragging = ref<{ id: string, at: At } | null>(null)
-/** Where the drag started, and how far the pointer was from the pin's spot (the pin does not jump to it). */
-let start: { x: number, y: number, offset: At } | null = null
+/**
+ * A drag: the pin, where the pointer went down, how far it was from the pin's spot (the pin does not
+ * jump to it), the picture's box, and where the pin is now once it has moved (saved on release).
+ */
+const drag = ref<{ id: string, from: { x: number, y: number }, offset: At, box: DOMRect, at?: At } | null>(null)
 /** A drag just ended: the click that follows neither opens the place nor asks for a new one. */
 let dragged = false
 
-function onPointerDown(event: PointerEvent, pin: { at: At }) {
+function onPointerDown(event: PointerEvent, pin: { id: string, at: At }) {
   // A finger scrolls the page; touch moves a pin with "Sposta il segnaposto".
   if (event.button !== 0 || event.pointerType === 'touch') return
-  const point = pointOf(event)
-  start = { x: event.clientX, y: event.clientY, offset: { x: point.x - pin.at.x, y: point.y - pin.at.y } }
+  const box = frame.value!.getBoundingClientRect()
+  const point = pointOf(event, box)
+  drag.value = { id: pin.id, from: { x: event.clientX, y: event.clientY }, offset: { x: point.x - pin.at.x, y: point.y - pin.at.y }, box }
   ;(event.currentTarget as HTMLElement).setPointerCapture(event.pointerId)
 }
 
-function onPointerMove(event: PointerEvent, id: string) {
-  if (!start) return
-  if (!dragging.value && Math.hypot(event.clientX - start.x, event.clientY - start.y) < 5) return
-  const point = pointOf(event)
-  dragging.value = { id, at: { x: clamp(point.x - start.offset.x), y: clamp(point.y - start.offset.y) } }
+function onPointerMove(event: PointerEvent) {
+  const d = drag.value
+  if (!d || (!d.at && Math.hypot(event.clientX - d.from.x, event.clientY - d.from.y) < 5)) return
+  const point = pointOf(event, d.box)
+  d.at = { x: clamp(point.x - d.offset.x), y: clamp(point.y - d.offset.y) }
 }
 
-async function onPointerUp(id: string) {
-  start = null
-  const moved = dragging.value
-  dragging.value = null
-  if (!moved) return
+function onPointerUp() {
+  const d = drag.value
+  drag.value = null
+  if (!d?.at) return
   dragged = true
   setTimeout(() => {
     dragged = false
   })
-  await place(id, moved.at)
+  void place(d.id, d.at)
 }
 
-/** The system took the pointer away (a call, a gesture): the pin goes back where it was. */
-function onPointerCancel() {
-  start = null
-  dragging.value = null
-}
-
-function onPinClick(event: MouseEvent) {
-  if (dragged) event.preventDefault()
+/** Caught before the link sees it: the click that ends a drag opens nothing. */
+function onPinClickCapture(event: MouseEvent) {
+  if (!dragged) return
+  event.preventDefault()
+  event.stopPropagation()
 }
 
 const STEP = 0.01
@@ -161,14 +158,12 @@ function onPinKeydown(event: KeyboardEvent, pin: { id: string, at: At }) {
   event.preventDefault()
   const step = event.shiftKey ? LONG_STEP : STEP
   const at = { x: clamp(pin.at.x + direction.x * step), y: clamp(pin.at.y + direction.y * step) }
-  store.patchSoon('maps', props.map.id, { nodes: { ...nodesNow(), [`${PIN}${pin.id}`]: at } })
+  store.patchSoon('maps', props.map.id, withPin(pin.id, at))
 }
 
 async function unpin(id: string) {
-  const key = `${PIN}${id}`
-  const at = nodesNow()[key]
+  const { [pinKey(id)]: at, ...rest } = nodesNow()
   const name = store.get('locations', id)?.name ?? ''
-  const { [key]: _gone, ...rest } = nodesNow()
   try {
     await store.update('maps', props.map.id, { nodes: rest })
   }
@@ -182,12 +177,13 @@ async function unpin(id: string) {
     actions: [{
       label: t('common.actions.undo'),
       onClick: () => {
-        if (at) void store.update('maps', props.map.id, { nodes: { ...nodesNow(), [key]: at } }).then(() => focusPin(id)).catch(() => {})
+        if (at) void place(id, at, true)
       },
     }],
   })
 }
 
+const PIN_MENU = { align: 'start' as const }
 const menuOf = (pin: { id: string }): DropdownMenuItem[][] => [[
   { label: t('locations.map.open'), icon: 'i-lucide-arrow-right', to: store.refPath({ type: 'location', id: pin.id }) },
   { label: t('locations.map.move'), icon: 'i-lucide-move', onSelect: () => { moving.value = pin.id } },
@@ -195,7 +191,7 @@ const menuOf = (pin: { id: string }): DropdownMenuItem[][] => [[
 ]]
 const movingName = computed(() => (moving.value ? store.get('locations', moving.value)?.name ?? '' : ''))
 
-const where = (pin: { id: string, at: At }) => (dragging.value?.id === pin.id ? dragging.value.at : pin.at)
+const where = (pin: { id: string, at: At }) => (drag.value?.id === pin.id && drag.value.at ? drag.value.at : pin.at)
 
 defineExpose({
   /** "Aggiungi un segnaposto": the same question, for the middle of the picture (then the arrow keys). */
@@ -221,12 +217,13 @@ defineExpose({
       tabindex="-1"
       @click="onFrameClick"
     >
-      <img :src="`/api/media/${map.settings.image}`" :alt="map.name" class="block h-auto w-full rounded-[calc(var(--ui-radius)*2)] border border-default bg-muted" draggable="false">
+      <img :src="mediaUrl(map.settings.image)" :alt="map.name" class="block h-auto w-full rounded-[calc(var(--ui-radius)*2)] border border-default bg-muted" draggable="false">
 
       <div
         v-for="pin in pins"
-        :key="pin.key"
+        :key="pin.id"
         :data-pin="pin.id"
+        @click.capture="onPinClickCapture"
         class="group/pin absolute z-10 flex -translate-x-1/2 -translate-y-full flex-col items-center"
         :style="{ left: percent(where(pin).x), top: percent(where(pin).y) }"
       >
@@ -237,20 +234,19 @@ defineExpose({
             draggable="false"
             aria-describedby="place-map-hint"
             @pointerdown="onPointerDown($event, pin)"
-            @pointermove="onPointerMove($event, pin.id)"
-            @pointerup="onPointerUp(pin.id)"
-            @pointercancel="onPointerCancel"
-            @click="onPinClick"
+            @pointermove="onPointerMove"
+            @pointerup="onPointerUp"
+            @pointercancel="drag = null"
             @keydown="onPinKeydown($event, pin)"
-          >{{ pin.place!.name }}</NuxtLink>
-          <UDropdownMenu :items="menuOf(pin)" :content="{ align: 'start' }">
+          >{{ pin.place.name }}</NuxtLink>
+          <UDropdownMenu :items="menuOf(pin)" :content="PIN_MENU">
             <UButton
               icon="i-lucide-ellipsis"
               size="xs"
               color="neutral"
               variant="ghost"
               class="max-lg:size-11 max-lg:justify-center lg:opacity-0 lg:group-hover/pin:opacity-100 lg:focus-visible:opacity-100 lg:data-[state=open]:opacity-100"
-              :aria-label="t('locations.map.pinActions', { name: pin.place!.name })"
+              :aria-label="t('locations.map.pinActions', { name: pin.place.name })"
               @click.stop
             />
           </UDropdownMenu>

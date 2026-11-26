@@ -40,3 +40,8 @@ export function isValidRelation(from: WorldRefType, to: WorldRefType, kind: Rela
 export function isDirectedByDefault(kind: RelationKind): boolean {
   return DIRECTED_KINDS.includes(kind)
 }
+
+/** A map of places (VRS-598): a map with a picture, its nodes pins on it. Without one, a relationship map. */
+export function isPlaceMap(map: { settings?: { image?: string | null } | null }): boolean {
+  return !!map.settings?.image
+}

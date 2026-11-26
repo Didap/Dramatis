@@ -1,3 +1,4 @@
+import { isPlaceMap } from '#shared/utils/relations'
 import { randomUUID } from 'node:crypto'
 import { setImmediate as nextTurn } from 'node:timers/promises'
 import { and, asc, eq, inArray, sql } from 'drizzle-orm'
@@ -131,8 +132,7 @@ export async function buildBackup(projectId: string, ownerId: string): Promise<U
         for (const { projectId: _p, ...row } of rows) {
           if (key === 'images') wanted.add(String(row.mediaId).toLowerCase())
           // A map of places keeps its picture as a bare media id (settings.image).
-          const image = key === 'maps' ? (row.settings as { image?: string } | null)?.image : undefined
-          if (image) wanted.add(image.toLowerCase())
+          if (key === 'maps' && isPlaceMap(row as { settings?: { image?: string } })) wanted.add(String((row.settings as { image: string }).image).toLowerCase())
           await write(`${written++ ? ',' : ''}\n${linked(JSON.stringify(row))}`)
         }
         if (rows.length < size) break
@@ -532,7 +532,7 @@ export async function restoreBackup(userId: string, input: unknown, files: Map<s
 
   rows.images = rows.images.filter(i => isMedia(i.mediaId) && owners[i.ownerType]?.(i.ownerId))
   // A map of places whose picture did not come with the backup has nothing to pin on.
-  rows.maps = rows.maps.filter(m => !(m.settings as Row | null)?.image || isMedia((m.settings as Row).image))
+  rows.maps = rows.maps.filter(m => !isPlaceMap(m as { settings?: { image?: string } }) || isMedia((m.settings as Row).image))
   for (const l of rows.locations) if (!isLocation(l.parentId)) l.parentId = null
   for (const s of rows.strands) {
     if (!isCharacter(s.characterId)) s.characterId = null

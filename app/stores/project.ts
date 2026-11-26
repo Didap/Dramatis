@@ -3,6 +3,7 @@ import type { Collection, EntityRef, RefType, WorldRefType } from '#shared/types
 import { COLLECTIONS, COLLECTION_TO_REF, LONG_TEXT_FIELDS, REF_TO_COLLECTION, WORLD_REF_TYPES } from '#shared/utils/constants'
 import { resolveModules } from '#shared/utils/modules'
 import { parseMentionId } from '#shared/utils/richtext'
+import { isPlaceMap } from '#shared/utils/relations'
 import type {
   Chapter,
   CollectionMap,
@@ -223,9 +224,11 @@ export const useProjectStore = defineStore('project', () => {
   const orderedParts = computed(() => [...rows.parts].sort(byPosition))
 
   /** Maps in their order: the relationship maps, and the maps of places (a picture with pins, VRS-598). */
-  const orderedMaps = computed(() => [...rows.maps].sort((a, b) => a.position - b.position || a.createdAt.localeCompare(b.createdAt)))
-  const relationMaps = computed(() => orderedMaps.value.filter(map => !map.settings.image))
-  const placeMaps = computed(() => orderedMaps.value.filter(map => !!map.settings.image))
+  const orderedMaps = computed(() => [...rows.maps].sort(byPosition))
+  const relationMaps = computed(() => orderedMaps.value.filter(map => !isPlaceMap(map)))
+  const placeMaps = computed(() => orderedMaps.value.filter(isPlaceMap))
+  /** Where a map opens: a map of places on its page of places, a relationship map on its canvas. */
+  const mapPath = (id: string, place: boolean) => (place ? `/p/${projectId.value}/locations?map=${id}` : `/p/${projectId.value}/relations/${id}`)
 
   /** Chapters in reading order: those outside any part first, then part by part. */
   const orderedChapters = computed<Chapter[]>(() => {
@@ -894,6 +897,7 @@ export const useProjectStore = defineStore('project', () => {
     orderedParts,
     relationMaps,
     placeMaps,
+    mapPath,
     orderedChapters,
     orderedScenes,
     scenesByChapter,

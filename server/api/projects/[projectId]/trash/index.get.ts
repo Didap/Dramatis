@@ -1,3 +1,4 @@
+import { isPlaceMap } from '#shared/utils/relations'
 import { and, desc, eq, isNotNull } from 'drizzle-orm'
 import type { Collection } from '../../../../../shared/types/domain'
 import { TRASHABLE_COLLECTIONS } from '#shared/utils/constants'
@@ -60,7 +61,7 @@ export default defineEventHandler(async (event): Promise<TrashItem[]> => {
       const title = collection === 'images' ? row.caption : collection === 'relations' ? row.label : collection === 'links' ? row.label : collection === 'revisions' ? row.label : row[TITLE[collection] ?? 'title'] ?? ''
       stamps.set(`${collection}:${row.id}`, row.deletedAt.getTime())
       const item: TrashItem = { collection, id: row.id, title, deletedAt: row.deletedAt.toISOString() }
-      if (collection === 'maps' && row.settings?.image) item.place = true
+      if (collection === 'maps' && isPlaceMap(row)) item.place = true
       const parent = PARENT[collection]
       if (parent && row[parent.column]) item.parent = { collection: parent.collection, id: row[parent.column], title: '' }
       items.push(item)

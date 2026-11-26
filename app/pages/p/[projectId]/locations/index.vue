@@ -21,15 +21,9 @@ const { upload, uploading } = useMediaUpload()
 
 // ---------------------------------------------------------------- the maps
 
-const mapId = computed({
-  get: () => {
-    const asked = typeof route.query.map === 'string' ? route.query.map : null
-    return store.placeMaps.find(map => map.id === asked)?.id ?? store.placeMaps[0]?.id
-  },
-  set: (id: string | undefined) => void router.replace({ query: { ...route.query, map: id } }),
-})
-const map = computed(() => (mapId.value ? store.get('maps', mapId.value) : undefined))
-const mapItems = computed(() => store.placeMaps.map(m => ({ value: m.id, label: m.name })))
+/** The map on show: the one the address names, else the first. */
+const map = computed(() => store.placeMaps.find(m => m.id === route.query.map) ?? store.placeMaps[0])
+const showMap = (id: string) => void router.replace({ query: { ...route.query, map: id } })
 const placeMap = useTemplateRef<{ addPin: () => void }>('placeMap')
 
 const fileInput = useTemplateRef<HTMLInputElement>('fileInput')
@@ -48,11 +42,10 @@ async function onFile(event: Event) {
   }
   // The first name no map has yet: "Mappa", then "Mappa 2", "Mappa 3"...
   const taken = new Set(store.placeMaps.map(m => m.name))
-  let n = 1
-  while (taken.has(n === 1 ? t('locations.map.firstName') : t('locations.map.nthName', { n }))) n++
-  const name = n === 1 ? t('locations.map.firstName') : t('locations.map.nthName', { n })
+  let name = t('locations.map.firstName')
+  for (let n = 2; taken.has(name); n++) name = t('locations.map.nthName', { n })
   const created = await store.create('maps', { name, nodes: {}, settings: { image } }).catch(() => null)
-  if (created) mapId.value = created.id
+  if (created) showMap(created.id)
 }
 
 const mapMenu = computed<DropdownMenuItem[][]>(() => [[
@@ -85,10 +78,12 @@ const mapMenu = computed<DropdownMenuItem[][]>(() => [[
       <template v-if="map">
         <div class="mb-3 flex flex-wrap items-center gap-2">
           <USelect
-            v-if="mapItems.length > 1"
-            v-model="mapId"
-            :items="mapItems"
-            value-key="value"
+            v-if="store.placeMaps.length > 1"
+            :model-value="map.id"
+            :items="store.placeMaps"
+            value-key="id"
+            label-key="name"
+            @update:model-value="(id: string) => showMap(id)"
             :aria-label="t('locations.map.choose')"
             class="min-w-48 max-lg:min-h-11"
           />

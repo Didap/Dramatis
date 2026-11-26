@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { isPlaceMap } from '#shared/utils/relations'
 import type { MapLineShape, MapNodes, RelationKind } from '#shared/types/domain'
 import type { Relation } from '#shared/types/entities'
 import { RELATION_KINDS } from '#shared/utils/constants'
@@ -24,7 +25,7 @@ const mapId = computed(() => String(route.params.mapId))
 const map = computed(() => store.get('maps', mapId.value))
 // A map of places lives on its own page, with its picture.
 watchEffect(() => {
-  if (map.value?.settings.image) void navigateTo(`/p/${store.projectId}/locations?map=${map.value.id}`, { replace: true })
+  if (map.value && isPlaceMap(map.value)) void navigateTo(store.mapPath(map.value.id, true), { replace: true })
 })
 const relationsPath = computed(() => `/p/${store.projectId}/relations`)
 const mapName = computed(() => map.value?.name || t('common.untitled.map'))
@@ -296,7 +297,7 @@ const legend = ref(false)
     </template>
 
     <h1 v-if="map" class="sr-only">{{ mapName }}</h1>
-    <div v-if="map && !map.settings.image" class="relations-map-page flex h-[calc(100dvh-7rem-env(safe-area-inset-bottom))] lg:h-[calc(100dvh-3.5rem)]">
+    <div v-if="map && !isPlaceMap(map)" class="relations-map-page flex h-[calc(100dvh-7rem-env(safe-area-inset-bottom))] lg:h-[calc(100dvh-3.5rem)]">
       <div class="relative min-w-0 flex-1">
         <RelationsMapCanvas
           :key="map.id"

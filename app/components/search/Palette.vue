@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { isPlaceMap } from '#shared/utils/relations'
 import type { CommandPaletteGroup, CommandPaletteItem } from '@nuxt/ui'
 import type { EntityRef, RefType } from '#shared/types/domain'
 import { docFromParagraphs } from '#shared/utils/richtext'
@@ -146,8 +147,14 @@ function entity(ref: EntityRef): Candidate | null {
 
 const all = (type: RefType, ids: string[]) => ids.map(id => entity({ type, id })).filter((c): c is Candidate => !!c)
 
-const maps = computed<Candidate[]>(() => store.relationMaps.map(m => ({
-  id: m.id, type: 'map', label: m.name, suffix: kind('relationMap'), icon: 'i-lucide-waypoints', to: `${base.value}/relations/${m.id}`, onSelect: close,
+const maps = computed<Candidate[]>(() => [...store.relationMaps, ...store.placeMaps].map(m => ({
+  id: m.id,
+  type: 'map',
+  label: m.name,
+  suffix: isPlaceMap(m) ? term('placesSection') : kind('relationMap'),
+  icon: isPlaceMap(m) ? 'i-lucide-map' : 'i-lucide-waypoints',
+  to: store.mapPath(m.id, isPlaceMap(m)),
+  onSelect: close,
 })))
 const variables = computed<Candidate[]>(() => store.modules.variables
   ? store.rows.variables.map(v => ({ id: v.id, type: 'variable', label: v.name, suffix: kind('variable'), icon: 'i-lucide-variable', mono: true, to: `${base.value}/variables`, onSelect: close }))

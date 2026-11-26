@@ -201,7 +201,7 @@ function pageOf(item: TrashItem): string | null {
   const type = REF_OF[item.collection]
   if (type) return store.get(REF_TO_COLLECTION[type], item.id) ? store.refPath({ type, id: item.id }) : null
   if (item.collection === 'revisions' && item.parent) return store.refPath({ type: 'scene', id: item.parent.id })
-  if (item.collection === 'maps') return item.place ? `/p/${store.projectId}/locations?map=${item.id}` : `/p/${store.projectId}/relations/${item.id}`
+  if (item.collection === 'maps') return store.mapPath(item.id, !!item.place)
   if (item.collection === 'parts') return `/p/${store.projectId}/manuscript`
   if (item.collection === 'variables') return `/p/${store.projectId}/variables`
   if (item.collection === 'codexCategories') return `/p/${store.projectId}/codex?category=${item.id}`
