@@ -18,7 +18,9 @@ const props = withDefaults(defineProps<{
   size?: 'xs' | 'sm' | 'md' | 'lg'
   variant?: 'outline' | 'soft' | 'subtle' | 'ghost' | 'none'
   ariaLabel?: string
-}>(), { multiple: false, placeholder: undefined, creatable: false, exclude: () => [], size: 'md', variant: 'outline', ariaLabel: undefined })
+  /** More fields for an item created on the spot (a collectible is an object of that category). */
+  createWith?: Record<string, unknown>
+}>(), { multiple: false, placeholder: undefined, creatable: false, exclude: () => [], size: 'md', variant: 'outline', ariaLabel: undefined, createWith: undefined })
 
 const emit = defineEmits<{ 'update:modelValue': [value: string[] | string | null] }>()
 
@@ -72,7 +74,7 @@ const COLLECTION: Partial<Record<PickerType, 'characters' | 'groups' | 'location
 async function onCreate(name: string) {
   const collection = COLLECTION[props.type]
   if (!collection || !name.trim()) return
-  const row = await store.create(collection, { name: name.trim() } as never)
+  const row = await store.create(collection, { ...props.createWith, name: name.trim() } as never)
   if (props.multiple) emit('update:modelValue', [...((props.modelValue as string[] | null) ?? []), row.id])
   else emit('update:modelValue', row.id)
 }

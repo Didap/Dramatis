@@ -608,6 +608,79 @@
           "description": "Una missione secondaria facoltativa che rivela ciò che sta accadendo davvero. Spesso è la chiave del finale migliore."
         }
       }
+    },
+    "metroidvania": {
+      "name": "Metroidvania",
+      "description": "Una mappa sola che si apre un'abilità alla volta: ogni porta chiusa è una promessa, ogni potere nuovo riporta indietro. Per i giochi d'esplorazione in cui il mondo è la storia.",
+      "parts": {
+        "awakening": "Primo atto: il risveglio",
+        "exploration": "Secondo atto: l'esplorazione",
+        "the_core": "Terzo atto: il cuore della mappa"
+      },
+      "chapters": {
+        "first_area": {
+          "title": "La prima zona",
+          "reason": "Il giocatore impara a muoversi in uno spazio piccolo e sicuro. Il mondo si presenta con i luoghi, prima che con le parole."
+        },
+        "locked_doors": {
+          "title": "Le porte chiuse",
+          "reason": "Mostra presto i passaggi che non si possono ancora aprire: un muro troppo alto, una porta sigillata. Sono promesse che il giocatore ricorderà."
+        },
+        "first_guardian": {
+          "title": "Il primo guardiano",
+          "reason": "Il primo boss mette alla prova quello che il giocatore ha imparato. Batterlo deve cambiare qualcosa nella storia, non solo nella mappa."
+        },
+        "first_ability": {
+          "title": "La prima abilità",
+          "reason": "Il primo potere nuovo riapre una strada già vista. È il momento in cui il giocatore capisce il patto del genere: tornare indietro vale la pena."
+        },
+        "the_hub": {
+          "title": "Il cuore della mappa",
+          "reason": "Un luogo centrale da cui partono le zone: un rifugio, un mercante, qualcuno con cui parlare. Ci si torna spesso, e ogni volta è un po' cambiato."
+        },
+        "the_way_back": {
+          "title": "Il ritorno",
+          "reason": "Le zone vecchie si riaprono con le abilità nuove e rivelano segreti, scorciatoie e collezionabili. La storia si racconta anche nei luoghi ritrovati."
+        },
+        "revelation": {
+          "title": "La rivelazione",
+          "reason": "A metà del viaggio il giocatore scopre la verità sul mondo o su chi è. Da qui in avanti guarda la mappa con altri occhi."
+        },
+        "world_shift": {
+          "title": "Il mondo cambia",
+          "reason": "La mappa cambia: si allaga, si capovolge, cade nel buio. Luoghi noti diventano nuovi, e il pericolo sale."
+        },
+        "last_key": {
+          "title": "L'ultima chiave",
+          "reason": "L'ultima abilità apre l'ultimo luogo chiuso. Deve sembrare guadagnata, frutto di tutto quello che il giocatore ha esplorato."
+        },
+        "descent": {
+          "title": "La discesa",
+          "reason": "Il percorso verso lo scontro finale: la zona più difficile, dove tutte le abilità servono insieme."
+        },
+        "final_boss": {
+          "title": "Lo scontro finale",
+          "reason": "Il boss finale chiude la storia principale e mette alla prova tutto quello che il giocatore ha sbloccato."
+        },
+        "endings": {
+          "title": "I finali",
+          "reason": "Il finale può cambiare con quanto il giocatore ha esplorato: una mappa completa, i collezionabili trovati, chi ha aiutato. Spesso c'è un finale vero, per chi ha visto tutto."
+        }
+      },
+      "strands": {
+        "main_path": {
+          "name": "La via principale",
+          "description": "La strada dal risveglio allo scontro finale, abilità dopo abilità."
+        },
+        "full_map": {
+          "name": "La mappa completa",
+          "description": "Segreti, collezionabili e stanze nascoste: quello che serve a chi vuole il cento per cento e, magari, il finale vero."
+        },
+        "wanderers": {
+          "name": "Chi si incontra per strada",
+          "description": "I personaggi sparsi per la mappa, ognuno con la sua storia: si ritrovano tornando nei luoghi già visti."
+        }
+      }
     }
   }
 }

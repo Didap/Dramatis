@@ -55,7 +55,41 @@
       "move": "Move the pin",
       "movePrompt": "Tap the spot to move “{name}” to",
       "cancelMove": "Cancel the move",
-      "rename": "Name of the map"
+      "rename": "Name of the map",
+      "uploadHintPlan": "The whole map, as the player will see it once every place is open: a PNG, JPEG or WebP image. Then tap a spot to put a place or a collectible there.",
+      "planIntro": "The game's map with everything open. Each pin leads to a place or a collectible.",
+      "whichPin": "What is here?",
+      "openCollectible": "Open the collectible",
+      "pickCollectible": "A collectible",
+      "pickPlace": "A place"
+    },
+    "guide": {
+      "describe": "How you describe it",
+      "describeFree": "Free",
+      "describeGuided": "Guided",
+      "describeFreeHelp": "One description, written your way.",
+      "describeGuidedHelp": "Question by question: the first look, its history, who lives there, how to get there, what it hides.",
+      "titles": {
+        "firstSight": "The first look",
+        "history": "Its history",
+        "inhabitants": "Who lives there",
+        "access": "How to get there",
+        "secrets": "What it hides"
+      },
+      "novel": {
+        "firstSight": "What does one see, hear, breathe on entering for the first time?",
+        "history": "Who built it, what happened here, what has changed?",
+        "inhabitants": "Who lives here, who passes through, who is in charge?",
+        "access": "How does one get there, and who may enter?",
+        "secrets": "A secret, a memory, a locked room: what will those who stay discover?"
+      },
+      "game": {
+        "firstSight": "What does the player see and hear on first entering? Light, music, mood.",
+        "history": "What happened here before the player arrived?",
+        "inhabitants": "Who lives here: characters, enemies, the boss who guards it?",
+        "access": "Where is the way in, and what does it take to get there: an ability, a key, a boss defeated?",
+        "secrets": "Secrets, shortcuts, collectibles: what does a careful explorer find?"
+      }
     }
   }
 }

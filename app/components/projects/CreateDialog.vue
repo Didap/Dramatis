@@ -1,43 +1,42 @@
 <script setup lang="ts">
 import { UDrawer, UModal } from '#components'
 import { STRUCTURES, type StructureDef } from '#shared/content/structures'
-import type { ProjectKind } from '#shared/types/domain'
+import { GENRES } from '#shared/content/genres'
+import type { GameGenre, ProjectKind } from '#shared/types/domain'
 import type { Project } from '#shared/types/entities'
 
 /**
  * New project (spec 4.1, 5.1): a dialog on desktop, a full-height drawer on a phone. An optional
- * title, the type with one line each, and where to start: blank, a structure of that type with its
- * shape, or the example. One step: the button waits for the server; on failure the dialog stays
- * open with the reason and nothing is created.
+ * title, the type with one line each, a game's genre (VRS-682: its sidebar), and where to start:
+ * blank, a structure with its shape (a novel picks one, a game gets its genre's), or the example.
+ * One step: the button waits for the server; on failure the dialog stays open with the reason and
+ * nothing is created.
  */
 const open = defineModel<boolean>('open', { default: false })
 
 const { t, locale } = useI18n()
-const { label } = useEnums()
+const { label, options } = useEnums()
 const { number, chapters } = useFormat()
 const nuxtApp = useNuxtApp()
 const desktop = useIsDesktop()
 
 type Start = 'blank' | 'structure' | 'demo'
-const form = reactive({ title: '', kind: 'novel' as ProjectKind, start: 'blank' as Start, structure: '' })
+const form = reactive({ title: '', kind: 'novel' as ProjectKind, start: 'blank' as Start, structure: '', genre: undefined as GameGenre | undefined })
 const busy = ref(false)
 const failure = ref('')
 
 watch(open, (value) => {
   if (!value) return
-  Object.assign(form, { title: '', kind: 'novel', start: 'blank', structure: '' })
+  Object.assign(form, { title: '', kind: 'novel', start: 'blank', structure: '', genre: undefined })
   failure.value = ''
 })
 
-// The structures of the type, those made for it first (a game lists the hero's journey last).
-const structures = computed(() => STRUCTURES
-  .filter(s => (s.media as readonly ProjectKind[]).includes(form.kind))
-  .sort((a, b) => Number(b.media[0] === form.kind) - Number(a.media[0] === form.kind)))
+// The structures a novel starts from; a game's comes from its genre.
+const structures = STRUCTURES.filter(s => (s.media as readonly ProjectKind[]).includes('novel'))
 
-// The first structure of the type is chosen when the list opens; changing type swaps the list and
-// keeps the choice when the other type offers it too (the hero's journey).
-watch([() => form.start, () => form.kind], () => {
-  if (form.start === 'structure' && !structures.value.some(s => s.key === form.structure)) form.structure = structures.value[0]?.key ?? ''
+// The first structure is chosen when the list opens.
+watch(() => form.start, () => {
+  if (form.start === 'structure' && !structures.some(s => s.key === form.structure)) form.structure = structures[0]?.key ?? ''
 })
 
 // The list opens below the fold of the dialog: bring it into view.
@@ -80,8 +79,15 @@ const startItems = computed(() => [
   { value: 'demo', label: t('projects.create.starts.demo'), description: t('projects.create.starts.demoHint') },
 ])
 
+/** A game's structure is its genre's. */
+const genreStructure = computed(() => {
+  const key = GENRES.find(g => g.key === form.genre)?.structure
+  return STRUCTURES.find(s => s.key === key)
+})
+const asksGenre = computed(() => form.kind === 'game' && form.start !== 'demo')
+
 // Only the chosen structure shows its description, so the list stays short.
-const structureItems = computed(() => structures.value.map(structure => ({
+const structureItems = computed(() => structures.map(structure => ({
   value: structure.key as string,
   label: t(`structures.${structure.key}.name`),
   shape: shape(structure),
@@ -90,8 +96,12 @@ const structureItems = computed(() => structures.value.map(structure => ({
 
 async function create() {
   if (busy.value) return
-  busy.value = true
   failure.value = ''
+  if (form.kind === 'game' && form.start === 'structure' && !genreStructure.value) {
+    failure.value = t('projects.create.genreNeeded')
+    return
+  }
+  busy.value = true
   try {
     // The example is a fresh copy, which the server titles as one ("Esempio: ...", spec appendix C).
     const project = form.start === 'demo'
@@ -102,7 +112,8 @@ async function create() {
             title: form.title.trim(),
             kind: form.kind,
             language: locale.value,
-            ...(form.start === 'structure' && form.structure ? { structure: form.structure } : {}),
+            ...(form.kind === 'game' && form.genre ? { gameGenre: form.genre } : {}),
+            ...(form.start === 'structure' ? { structure: form.kind === 'game' ? genreStructure.value?.key : form.structure } : {}),
           },
         })
     // In place of /projects?new=1, so Back from the new project does not open an empty dialog again.
@@ -179,6 +190,20 @@ const drawerUi = {
           </template>
         </URadioGroup>
 
+        <UFormField
+          v-if="asksGenre"
+          :label="t('projects.create.genre')"
+          :help="t('projects.create.genreHelp')"
+          :ui="{ container: 'mt-1.5', label: 'text-sm font-medium text-default', help: 'mt-1.5 text-sm text-muted' }"
+        >
+          <USelect
+            v-model="form.genre"
+            :items="options('gameGenre')"
+            :placeholder="t('projects.create.genrePlaceholder')"
+            class="w-full min-h-11 sm:min-h-9"
+          />
+        </UFormField>
+
         <div>
           <URadioGroup
             v-model="form.start"
@@ -188,7 +213,14 @@ const drawerUi = {
             :ui="{ legend: 'mb-1.5 text-sm font-medium text-default', item: 'first-of-type:rounded-t-[calc(var(--ui-radius)*2)] last-of-type:rounded-b-[calc(var(--ui-radius)*2)]', label: 'text-sm', description: 'text-sm' }"
           />
 
-          <div v-if="form.start === 'structure'" ref="structureList" class="mt-5 scroll-mb-4">
+          <div v-if="form.start === 'structure' && form.kind === 'game'" ref="structureList" class="mt-5 scroll-mb-4 text-sm">
+            <template v-if="genreStructure">
+              <p><span class="font-medium text-highlighted">{{ t(`structures.${genreStructure.key}.name`) }}</span><span class="text-muted">, {{ shape(genreStructure) }}</span></p>
+              <p class="mt-1 text-pretty text-muted">{{ t(`structures.${genreStructure.key}.description`) }}</p>
+            </template>
+            <p v-else class="text-muted">{{ t('projects.create.genreFirst') }}</p>
+          </div>
+          <div v-else-if="form.start === 'structure'" ref="structureList" class="mt-5 scroll-mb-4">
             <URadioGroup
               v-model="form.structure"
               :legend="t('projects.create.structure')"

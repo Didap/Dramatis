@@ -1,22 +1,26 @@
 <script setup lang="ts">
-import type { RelationKind } from '#shared/types/domain'
+import type { ObjectCategory, RelationKind } from '#shared/types/domain'
 import type { StoryObject } from '#shared/types/entities'
 import { useJustCreated } from '~/components/world/SheetHeader.vue'
 
 /**
  * Object sheet (an item, in English games; spec 4.4): name, kind, status, colour; description, owners,
  * the scenes where it appears, events, groups, images, notes. From xl the list of objects stays on
- * the left.
+ * the left. In a game with a bestiary (VRS-683) it also has a category, and its list is that category's.
  */
 const route = useRoute()
 const store = useProjectStore()
 const { t } = useI18n()
 const { term } = useTerms()
-const mt = (key: string) => t(`objects.${store.kind}.${key}`)
+const { options } = useEnums()
 
 const objectId = computed(() => String(route.params.objectId))
 const object = computed(() => store.get('objects', objectId.value))
-const listPath = computed(() => `/p/${store.projectId}/objects`)
+/** Its category in a game with a bestiary, which picks its list. */
+const category = computed(() => (store.bestiary ? object.value?.category : undefined))
+const shelf = computed(() => OBJECT_SHELVES[category.value ?? 'object'])
+const mt = (key: string) => t(category.value && category.value !== 'object' ? `objects.shelf.${category.value}.${key}` : `objects.${store.kind}.${key}`)
+const listPath = computed(() => `/p/${store.projectId}/${shelf.value.path}`)
 const header = ref<{ focusName: () => void } | null>(null)
 const leaving = ref(false)
 const uid = useId()
@@ -51,14 +55,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <DPage :title="object?.name ?? term('object')" :back="listPath" :back-label="term('objects')" width="full" bare>
+  <DPage :title="object?.name ?? term('object')" :back="listPath" :back-label="term(shelf.term)" width="full" bare>
     <template v-if="object || leaving" #actions>
       <WorldSheetMenu v-model:leaving="leaving" collection="objects" :id="objectId" :list-path="listPath" />
     </template>
 
-    <WorldSheetLayout :list-label="term('objects')">
+    <WorldSheetLayout :list-label="term(shelf.term)">
       <template #list>
-        <ObjectsList compact :active-id="objectId" />
+        <ObjectsList compact :active-id="objectId" :category="category" />
       </template>
 
       <WorldNotFound v-if="!object && !leaving" :list-path="listPath" />
@@ -69,10 +73,13 @@ onMounted(() => {
           :owner-id="object.id"
           :name="object.name"
           :color="object.color"
-          icon="i-lucide-gem"
+          :icon="shelf.icon"
           @update:name="(name: string) => patch({ name })"
         >
-          <div class="grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-[minmax(0,2fr)_minmax(0,1fr)_minmax(0,1fr)]">
+          <div
+            class="grid grid-cols-2 gap-x-6 gap-y-3"
+            :class="category ? 'sm:grid-cols-[minmax(0,2fr)_repeat(3,minmax(0,1fr))]' : 'sm:grid-cols-[minmax(0,2fr)_minmax(0,1fr)_minmax(0,1fr)]'"
+          >
             <WorldField :label="t('objects.kind')" class="col-span-2 sm:col-span-1">
               <DInlineText
                 :model-value="object.kind"
@@ -88,6 +95,16 @@ onMounted(() => {
               <datalist :id="`${uid}-kind`">
                 <option v-for="value in kinds" :key="value" :value="value" />
               </datalist>
+            </WorldField>
+            <WorldField v-if="category" :label="t('objects.category')">
+              <USelect
+                :model-value="category"
+                :items="options('objectCategory')"
+                color="neutral"
+                variant="ghost"
+                class="-ms-2.5 w-full max-lg:min-h-11"
+                @update:model-value="(value: unknown) => set({ category: value as ObjectCategory })"
+              />
             </WorldField>
             <WorldField :label="t('common.fields.status')">
               <DStatusSelect

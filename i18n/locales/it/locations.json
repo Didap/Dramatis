@@ -55,7 +55,41 @@
       "move": "Sposta il segnaposto",
       "movePrompt": "Tocca il punto dove spostare «{name}»",
       "cancelMove": "Annulla lo spostamento",
-      "rename": "Nome della mappa"
+      "rename": "Nome della mappa",
+      "uploadHintPlan": "La mappa intera, come la vedrà il giocatore quando avrà aperto tutti i luoghi: un'immagine PNG, JPEG o WebP. Poi tocca un punto per metterci un luogo o un collezionabile.",
+      "planIntro": "La mappa del gioco tutta aperta. Ogni segnaposto porta a un luogo o a un collezionabile.",
+      "whichPin": "Che cosa c'è qui?",
+      "openCollectible": "Apri il collezionabile",
+      "pickCollectible": "Un collezionabile",
+      "pickPlace": "Un luogo"
+    },
+    "guide": {
+      "describe": "Come lo descrivi",
+      "describeFree": "Libera",
+      "describeGuided": "Guidata",
+      "describeFreeHelp": "Una descrizione sola, scritta come vuoi.",
+      "describeGuidedHelp": "Domanda per domanda: il primo sguardo, la sua storia, chi lo abita, come ci si arriva, che cosa nasconde.",
+      "titles": {
+        "firstSight": "Il primo sguardo",
+        "history": "La sua storia",
+        "inhabitants": "Chi lo abita",
+        "access": "Come ci si arriva",
+        "secrets": "Che cosa nasconde"
+      },
+      "novel": {
+        "firstSight": "Che cosa si vede, si sente, si respira entrando per la prima volta?",
+        "history": "Chi l'ha costruito, che cosa è successo qui, che cosa è cambiato?",
+        "inhabitants": "Chi ci vive, chi ci passa, chi comanda?",
+        "access": "Come ci si arriva, e chi può entrare?",
+        "secrets": "Un segreto, un ricordo, una stanza chiusa: che cosa scoprirà chi resta?"
+      },
+      "game": {
+        "firstSight": "Che cosa vede e sente il giocatore la prima volta che ci entra? Luce, musica, atmosfera.",
+        "history": "Che cosa è successo qui prima che arrivasse il giocatore?",
+        "inhabitants": "Chi lo abita: personaggi, nemici, il boss che lo custodisce?",
+        "access": "Da dove si entra, e che cosa serve per arrivarci: un'abilità, una chiave, un boss battuto?",
+        "secrets": "Segreti, scorciatoie, collezionabili: che cosa trova chi esplora bene?"
+      }
     }
   }
 }

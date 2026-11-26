@@ -1,6 +1,6 @@
 import { eq } from 'drizzle-orm'
 
-/** Creates a project: blank, or from a structure template. Games get the default codex categories. */
+/** Creates a project: blank, or from a structure template. Games get the default codex categories, and keep their genre (VRS-682). */
 export default defineEventHandler(async (event) => {
   const user = await requireUser(event)
   const body = await parseBody(event, projectCreateSchema)
@@ -14,6 +14,7 @@ export default defineEventHandler(async (event) => {
       .insert(tables.projects)
       .values({
         ...fields,
+        gameGenre: fields.kind === 'game' ? fields.gameGenre ?? '' : '',
         title: fields.title?.trim() || (locale === 'en' ? 'Untitled' : 'Senza titolo'),
         ownerId: user.id,
         language,

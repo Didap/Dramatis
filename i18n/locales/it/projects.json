@@ -90,12 +90,17 @@
         "structure": "Da una struttura",
         "structureHint": {
           "novel": "Parti, capitoli e linee narrative già impostati, da riempire.",
-          "game": "Atti, capitoli e missioni già impostati, da riempire."
+          "game": "Gli atti, i capitoli e le missioni tipici del genere, da riempire."
         },
         "demo": "Progetto di esempio",
         "demoHint": "Una storia breve già scritta, per vedere come si collega tutto."
       },
-      "structure": "Struttura"
+      "structure": "Struttura",
+      "genre": "Genere",
+      "genrePlaceholder": "Scegli un genere",
+      "genreHelp": "Decide le sezioni della barra laterale. Puoi cambiarlo nelle impostazioni.",
+      "genreFirst": "Scegli un genere: la struttura di partenza viene da lì.",
+      "genreNeeded": "Scegli un genere per partire dalla sua struttura."
     },
     "shape": {
       "count": "{n} {term}",

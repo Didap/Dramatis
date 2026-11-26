@@ -14,7 +14,10 @@ import {
   EVENT_KINDS,
   EXPORT_WHATS,
   GROUP_KINDS,
-  RACE_DESCRIPTIONS,
+  DESCRIBE_MODES,
+  CHARACTER_CATEGORIES,
+  OBJECT_CATEGORIES,
+  GAME_GENRES,
   IMAGE_OWNER_TYPES,
   MAX_UPLOAD_BYTES,
   PLANNING_STATUSES,
@@ -225,10 +228,10 @@ const clause = z.object({ variableId: uuid, op: z.enum(CONDITION_OPS), value: z.
 const effect = z.object({ variableId: uuid, op: z.enum(EFFECT_OPS), value: z.string().max(200).optional() })
 
 const ROW_SCHEMAS = {
-  characters: z.object({ id: uuid, name: str(200), aliases: strings(100, 20), importance: oneOf(CHARACTER_IMPORTANCES, 'secondary'), role: z.union([z.enum(CHARACTER_ROLES), z.literal('')]).catch(''), tagline: str(140), color, description: doc, profile: json, traits: json, hasPowers: bool, powers, playable: bool, notes: doc, tags: strings(60, 40), status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
-  groups: z.object({ id: uuid, name: str(200), kind: oneOf(GROUP_KINDS, 'other'), color, description: doc, language: doc, traditions: doc, powers: doc, notes: doc, describe: oneOf(RACE_DESCRIPTIONS, 'free'), subraces: z.array(z.object({ id: z.string().min(1).max(40), name: str(120), description: doc }).nullable().catch(null)).max(100).catch([]).transform(list => list.filter(s => !!s)), status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
-  locations: z.object({ id: uuid, parentId: nullableUuid, name: str(200), kind: str(60), nation: str(120), region: str(120), city: str(120), color, description: doc, notes: doc, status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
-  objects: z.object({ id: uuid, name: str(200), kind: str(60), color, description: doc, notes: doc, status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
+  characters: z.object({ id: uuid, name: str(200), aliases: strings(100, 20), importance: oneOf(CHARACTER_IMPORTANCES, 'secondary'), role: z.union([z.enum(CHARACTER_ROLES), z.literal('')]).catch(''), category: oneOf(CHARACTER_CATEGORIES, 'person'), tagline: str(140), color, description: doc, profile: json, traits: json, hasPowers: bool, powers, playable: bool, notes: doc, tags: strings(60, 40), status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
+  groups: z.object({ id: uuid, name: str(200), kind: oneOf(GROUP_KINDS, 'other'), color, description: doc, language: doc, traditions: doc, powers: doc, notes: doc, describe: oneOf(DESCRIBE_MODES, 'free'), subraces: z.array(z.object({ id: z.string().min(1).max(40), name: str(120), description: doc }).nullable().catch(null)).max(100).catch([]).transform(list => list.filter(s => !!s)), status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
+  locations: z.object({ id: uuid, parentId: nullableUuid, name: str(200), kind: str(60), nation: str(120), region: str(120), city: str(120), color, description: doc, describe: oneOf(DESCRIBE_MODES, 'free'), firstSight: doc, history: doc, inhabitants: doc, access: doc, secrets: doc, notes: doc, status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
+  objects: z.object({ id: uuid, name: str(200), kind: str(60), category: oneOf(OBJECT_CATEGORIES, 'object'), color, description: doc, notes: doc, status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
   images: z.object({ id: uuid, ownerType: z.enum(IMAGE_OWNER_TYPES), ownerId: uuid, mediaId: uuid, caption: str(300), alt: str(300), position: count, ...stamps }),
   strands: z.object({ id: uuid, name: str(200), kind: oneOf(STRAND_KINDS, 'plot'), color, description: doc, characterId: nullableUuid, quest: json.nullable().catch(null), status: oneOf(PLANNING_STATUSES, 'todo'), position: count, versions, meta: json, ...stamps }),
   parts: z.object({ id: uuid, title: str(300), description: doc, position: count, versions, meta: json, ...stamps }),
@@ -305,6 +308,7 @@ const mediaSchema = z.object({
 const projectSchema = z.object({
   id: uuid,
   kind: oneOf(PROJECT_KINDS, 'novel'),
+  gameGenre: z.union([z.enum(GAME_GENRES), z.literal('')]).catch(''),
   title: str(200),
   subtitle: str(300),
   authorName: str(200),

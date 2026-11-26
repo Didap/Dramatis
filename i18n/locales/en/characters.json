@@ -81,7 +81,8 @@
       "subraceOf": "Subrace of {race}",
       "subraceNone": "No subrace",
       "subraceCreate": "Create the subrace “{name}”",
-      "fieldValue": "{field}: {value}"
+      "fieldValue": "{field}: {value}",
+      "category": "Category"
     },
     "description": {
       "title": "Description",
@@ -200,6 +201,18 @@
       "body": "This character is in the trash, perhaps moved there from another device: what you write here is not saved until it comes back.",
       "restore": "Restore",
       "openTrash": "Open the trash"
+    },
+    "enemies": {
+      "intro": "Whoever stands in the player's way. Open an enemy to say where it is met, how it fights and what it leaves behind.",
+      "addEnemy": "Add an enemy",
+      "addBoss": "Add a boss",
+      "enemyPlaceholder": "Enemy name",
+      "bossPlaceholder": "Boss name",
+      "empty": "The bosses that stand guard and the enemies that fill the areas: each one tells something about the world.",
+      "emptyQuestion": "Who will the player come up against?",
+      "bosses": "Bosses",
+      "enemies": "Enemies",
+      "filter": "Search by name"
     }
   }
 }

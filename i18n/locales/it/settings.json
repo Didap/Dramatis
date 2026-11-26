@@ -21,7 +21,10 @@
       "changed": {
         "novel": "Ora è un romanzo.",
         "game": "Ora è un videogioco."
-      }
+      },
+      "genre": "Genere",
+      "genreHelp": "Decide le sezioni della barra laterale. Cambiarlo non cancella niente: una sezione che il genere non usa resta finché contiene qualcosa.",
+      "noGenre": "Nessun genere"
     },
     "modules": {
       "label": "Moduli",

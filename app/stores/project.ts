@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia'
-import type { Collection, EntityRef, RefType, WorldRefType } from '#shared/types/domain'
+import type { Collection, EntityRef, ObjectCategory, RefType, WorldRefType } from '#shared/types/domain'
 import { COLLECTIONS, COLLECTION_TO_REF, LONG_TEXT_FIELDS, REF_TO_COLLECTION, WORLD_REF_TYPES } from '#shared/utils/constants'
 import { resolveModules } from '#shared/utils/modules'
+import { genreOf, hasBestiary } from '#shared/content/genres'
 import { parseMentionId } from '#shared/utils/richtext'
 import { isPlaceMap } from '#shared/utils/relations'
 import type {
@@ -79,6 +80,10 @@ export const useProjectStore = defineStore('project', () => {
   const kind = computed(() => project.value?.kind ?? 'novel')
   const modules = computed(() => resolveModules(kind.value, project.value?.modules))
   const isGame = computed(() => kind.value === 'game')
+  /** The game's genre (VRS-682), null for a novel and a game without one. */
+  const genre = computed(() => genreOf(kind.value, project.value?.gameGenre))
+  /** Characters split into characters, enemies and bosses, objects by category (VRS-683). */
+  const bestiary = computed(() => hasBestiary(genre.value))
   const saving = computed(() => pending.value > 0 || queued.value > 0)
 
   // ---------------------------------------------------------------- loading
@@ -227,6 +232,10 @@ export const useProjectStore = defineStore('project', () => {
   const orderedMaps = computed(() => [...rows.maps].sort(byPosition))
   const relationMaps = computed(() => orderedMaps.value.filter(map => !isPlaceMap(map)))
   const placeMaps = computed(() => orderedMaps.value.filter(isPlaceMap))
+  /** The characters of the characters page: in a game with a bestiary, not its enemies and bosses (VRS-683). */
+  const people = computed(() => bestiary.value ? rows.characters.filter(c => c.category === 'person') : rows.characters)
+  /** The objects of these categories, in a game with a bestiary. */
+  const objectsIn = (categories: readonly ObjectCategory[]) => rows.objects.filter(o => categories.includes(o.category))
   /** Where a map opens: a map of places on its page of places, a relationship map on its canvas. */
   const mapPath = (id: string, place: boolean) => (place ? `/p/${projectId.value}/locations?map=${id}` : `/p/${projectId.value}/relations/${id}`)
 
@@ -876,6 +885,8 @@ export const useProjectStore = defineStore('project', () => {
     projectId,
     kind,
     isGame,
+    genre,
+    bestiary,
     modules,
     // loading
     load,
@@ -897,6 +908,8 @@ export const useProjectStore = defineStore('project', () => {
     orderedParts,
     relationMaps,
     placeMaps,
+    people,
+    objectsIn,
     mapPath,
     orderedChapters,
     orderedScenes,

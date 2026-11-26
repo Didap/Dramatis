@@ -90,12 +90,17 @@
         "structure": "A structure",
         "structureHint": {
           "novel": "Parts, chapters and narrative strands already laid out, ready to fill.",
-          "game": "Acts, chapters and quests already laid out, ready to fill."
+          "game": "The acts, chapters and quests typical of the genre, ready to fill."
         },
         "demo": "Example project",
         "demoHint": "A short story already written, to see how everything connects."
       },
-      "structure": "Structure"
+      "structure": "Structure",
+      "genre": "Genre",
+      "genrePlaceholder": "Pick a genre",
+      "genreHelp": "It decides the sections of the sidebar. You can change it in the settings.",
+      "genreFirst": "Pick a genre: the starting structure comes from it.",
+      "genreNeeded": "Pick a genre to start from its structure."
     },
     "shape": {
       "count": "{n} {term}",

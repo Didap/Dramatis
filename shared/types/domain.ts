@@ -13,10 +13,13 @@ import type {
   EVENT_KINDS,
   FLOW_ROLES,
   GROUP_KINDS,
-  RACE_DESCRIPTIONS,
+  DESCRIBE_MODES,
   PLANNING_STATUSES,
   POINTS_OF_VIEW,
   PROJECT_KINDS,
+  GAME_GENRES,
+  CHARACTER_CATEGORIES,
+  OBJECT_CATEGORIES,
   PROJECT_MODULES,
   REF_TYPES,
   RELATION_KINDS,
@@ -28,6 +31,9 @@ import type {
 } from '../utils/constants'
 
 export type ProjectKind = (typeof PROJECT_KINDS)[number]
+export type GameGenre = (typeof GAME_GENRES)[number]
+export type CharacterCategory = (typeof CHARACTER_CATEGORIES)[number]
+export type ObjectCategory = (typeof OBJECT_CATEGORIES)[number]
 export type SceneStatus = (typeof SCENE_STATUSES)[number]
 export type PlanningStatus = (typeof PLANNING_STATUSES)[number]
 export type CharacterImportance = (typeof CHARACTER_IMPORTANCES)[number]
@@ -36,7 +42,7 @@ export type PointOfView = (typeof POINTS_OF_VIEW)[number]
 export type StrandKind = (typeof STRAND_KINDS)[number]
 export type RelationKind = (typeof RELATION_KINDS)[number]
 export type GroupKind = (typeof GROUP_KINDS)[number]
-export type RaceDescription = (typeof RACE_DESCRIPTIONS)[number]
+export type DescribeMode = (typeof DESCRIBE_MODES)[number]
 export type PageWidth = (typeof PAGE_WIDTHS)[number]
 export type TimelineLayout = (typeof TIMELINE_LAYOUTS)[number]
 export type HighlighterColor = (typeof HIGHLIGHTERS)[number]

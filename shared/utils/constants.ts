@@ -8,6 +8,17 @@ import type { CharacterRole, Collection, EntityColor, RefType, RelationKind, Str
 
 export const PROJECT_KINDS = ['novel', 'game'] as const
 
+/**
+ * The genre of a game (VRS-682): it sets the game's sidebar and its starting structure
+ * (shared/content/genres.ts). A game without one ('') keeps the standard game sidebar.
+ */
+export const GAME_GENRES = ['action', 'adventure', 'rpg', 'metroidvania', 'soulslike', 'shooter', 'strategy', 'platformer', 'fighting', 'puzzle', 'roguelike'] as const
+
+/** What a character is in a game with a bestiary (VRS-683): a character, an enemy or a boss. */
+export const CHARACTER_CATEGORIES = ['person', 'enemy', 'boss'] as const
+/** What an object is in a game with a bestiary (VRS-683): an object, equipment, an unlockable ability, a collectible. */
+export const OBJECT_CATEGORIES = ['object', 'equipment', 'ability', 'collectible'] as const
+
 export const SCENE_STATUSES = ['planned', 'draft', 'revised', 'final'] as const
 
 export const PLANNING_STATUSES = ['todo', 'progress', 'done'] as const
@@ -61,8 +72,10 @@ export const RELATION_KINDS = [
 
 /** `race`: a race or species of the world, listed on its own page when the module races is on. */
 export const GROUP_KINDS = ['family', 'faction', 'organization', 'culture', 'race', 'other'] as const
-/** How a race is described: freely (a text and its subraces) or guided (section by section). */
-export const RACE_DESCRIPTIONS = ['free', 'guided'] as const
+/** How a race or a place is described: freely (one text) or guided (question by question). */
+export const DESCRIBE_MODES = ['free', 'guided'] as const
+/** The questions of a place described guided (VRS-683), in the order the sheet asks them. */
+export const PLACE_QUESTIONS = ['firstSight', 'history', 'inhabitants', 'access', 'secrets'] as const
 
 export const SCENE_KINDS = ['scene', 'cutscene', 'dialogue', 'gameplay', 'exploration', 'combat', 'puzzle'] as const
 
@@ -212,7 +225,7 @@ export const LONG_TEXT_FIELDS: Record<Collection | 'project', readonly string[]>
   project: ['premise', 'fabula', 'setting'],
   characters: ['description', 'notes'],
   groups: ['description', 'language', 'traditions', 'powers', 'notes'],
-  locations: ['description', 'notes'],
+  locations: ['description', 'firstSight', 'history', 'inhabitants', 'access', 'secrets', 'notes'],
   objects: ['description', 'notes'],
   images: [],
   strands: ['description'],

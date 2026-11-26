@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { DropdownMenuItem } from '@nuxt/ui'
+import type { EntityRef } from '#shared/types/domain'
 import type { StoryMap } from '#shared/types/entities'
 import { mentionId, parseMentionId } from '#shared/utils/richtext'
 
@@ -10,29 +11,41 @@ import { mentionId, parseMentionId } from '#shared/utils/richtext'
  * mouse or a pen), with the arrow keys, or with "Sposta il segnaposto" then a tap (on a phone a swipe
  * over a pin scrolls the page), and its menu (or Delete) takes it off. Pins sit at fractions of the
  * picture, so they keep their spot at any width; near an edge they reach past the picture.
+ * In a game with a bestiary (VRS-683) a pin can also be a collectible, with its own icon.
  */
 const props = defineProps<{ map: StoryMap }>()
 
 const store = useProjectStore()
 const { t } = useI18n()
+const { term } = useTerms()
 const toast = useToast()
 
 type At = { x: number, y: number }
-/** A pin's key in the map's nodes, as everywhere: the purge of a place takes its pins off by it. */
-const pinKey = (id: string) => mentionId('location', id)
+/** A pin, keyed in the map's nodes as everywhere ("location:<id>", "object:<id>"): a purge takes its pins off by it. */
+interface Pin { key: string, ref: EntityRef, at: At, name: string }
 
-const pins = computed(() => Object.entries(props.map.nodes).flatMap(([key, at]) => {
+/** The name of what a pin stands for, or null when it is gone (or not a place or an object). */
+function nameOf(ref: EntityRef | null): string | null {
+  if (ref?.type === 'location') return store.get('locations', ref.id)?.name ?? null
+  if (ref?.type === 'object') return store.get('objects', ref.id)?.name ?? null
+  return null
+}
+
+const pins = computed<Pin[]>(() => Object.entries(props.map.nodes).flatMap(([key, at]) => {
   const ref = parseMentionId(key)
-  const place = ref?.type === 'location' ? store.get('locations', ref.id) : undefined
-  return place ? [{ id: place.id, at, place }] : []
+  const name = nameOf(ref)
+  return ref && name !== null ? [{ key, ref, at, name }] : []
 }))
-const placed = computed(() => pins.value.map(pin => pin.id))
+const placedOf = (type: EntityRef['type']) => pins.value.filter(pin => pin.ref.type === type).map(pin => pin.ref.id)
+const placedPlaces = computed(() => placedOf('location'))
+/** The objects the picker leaves out: those on the map and those that are not collectibles. */
+const notOffered = computed(() => [...placedOf('object'), ...store.rows.objects.filter(o => o.category !== 'collectible').map(o => o.id)])
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value))
 const percent = (value: number) => `${(value * 100).toFixed(3)}%`
 const nodesNow = () => store.get('maps', props.map.id)?.nodes ?? props.map.nodes
 /** The map's nodes with this pin at this spot. */
-const withPin = (id: string, at: At) => ({ nodes: { ...nodesNow(), [pinKey(id)]: at } })
+const withPin = (key: string, at: At) => ({ nodes: { ...nodesNow(), [key]: at } })
 
 const frame = useTemplateRef<HTMLElement>('frame')
 
@@ -41,9 +54,9 @@ function pointOf(event: { clientX: number, clientY: number }, box = frame.value!
   return { x: clamp((event.clientX - box.left) / box.width), y: clamp((event.clientY - box.top) / box.height) }
 }
 
-async function focusPin(id: string) {
+async function focusPin(key: string) {
   await nextTick()
-  frame.value?.querySelector<HTMLElement>(`[data-pin="${id}"] a`)?.focus()
+  frame.value?.querySelector<HTMLElement>(`[data-pin="${key}"] a`)?.focus()
 }
 
 // ---------------------------------------------------------------- which place is here
@@ -51,12 +64,14 @@ async function focusPin(id: string) {
 const asking = reactive({ open: false, at: { x: 0.5, y: 0.5 } as At })
 const anchor = useTemplateRef<HTMLElement>('anchor')
 const picked = ref<string | null>(null)
+const pickedCollectible = ref<string | null>(null)
 /** What had the keyboard when the question opened: it gets it back when the question closes unanswered. */
 let opener: HTMLElement | null = null
 
 function ask(at: At) {
   asking.at = at
   picked.value = null
+  pickedCollectible.value = null
   opener = document.activeElement instanceof HTMLElement && document.activeElement !== document.body ? document.activeElement : null
   asking.open = true
 }
@@ -69,7 +84,7 @@ const askContent = {
   // The question hangs from a point of the picture, not from a button: focus goes back by hand.
   onCloseAutoFocus: (event: Event) => {
     event.preventDefault()
-    if (!picked.value) (opener?.isConnected ? opener : frame.value)?.focus()
+    if (!picked.value && !pickedCollectible.value) (opener?.isConnected ? opener : frame.value)?.focus()
   },
 }
 
@@ -86,14 +101,19 @@ function onFrameClick(event: MouseEvent) {
 watch(picked, (id) => {
   if (!id) return
   asking.open = false
-  void place(id, asking.at, true)
+  void place(mentionId('location', id), asking.at, true)
+})
+watch(pickedCollectible, (id) => {
+  if (!id) return
+  asking.open = false
+  void place(mentionId('object', id), asking.at, true)
 })
 
 // ---------------------------------------------------------------- moving and removing pins
 
 /** Puts a pin at a spot (and, with `focus`, the keyboard on it once it is there). */
-function place(id: string, at: At, focus = false) {
-  return store.update('maps', props.map.id, withPin(id, at)).then(() => { if (focus) void focusPin(id) }, () => {})
+function place(key: string, at: At, focus = false) {
+  return store.update('maps', props.map.id, withPin(key, at)).then(() => { if (focus) void focusPin(key) }, () => {})
 }
 
 /** "Sposta il segnaposto": the next click or tap on the picture puts this pin there. */
@@ -103,16 +123,16 @@ const moving = ref<string | null>(null)
  * A drag: the pin, where the pointer went down, how far it was from the pin's spot (the pin does not
  * jump to it), the picture's box, and where the pin is now once it has moved (saved on release).
  */
-const drag = ref<{ id: string, from: { x: number, y: number }, offset: At, box: DOMRect, at?: At } | null>(null)
+const drag = ref<{ key: string, from: { x: number, y: number }, offset: At, box: DOMRect, at?: At } | null>(null)
 /** A drag just ended: the click that follows neither opens the place nor asks for a new one. */
 let dragged = false
 
-function onPointerDown(event: PointerEvent, pin: { id: string, at: At }) {
+function onPointerDown(event: PointerEvent, pin: Pin) {
   // A finger scrolls the page; touch moves a pin with "Sposta il segnaposto".
   if (event.button !== 0 || event.pointerType === 'touch') return
   const box = frame.value!.getBoundingClientRect()
   const point = pointOf(event, box)
-  drag.value = { id: pin.id, from: { x: event.clientX, y: event.clientY }, offset: { x: point.x - pin.at.x, y: point.y - pin.at.y }, box }
+  drag.value = { key: pin.key, from: { x: event.clientX, y: event.clientY }, offset: { x: point.x - pin.at.x, y: point.y - pin.at.y }, box }
   ;(event.currentTarget as HTMLElement).setPointerCapture(event.pointerId)
 }
 
@@ -131,7 +151,7 @@ function onPointerUp() {
   setTimeout(() => {
     dragged = false
   })
-  void place(d.id, d.at)
+  void place(d.key, d.at)
 }
 
 /** Caught before the link sees it: the click that ends a drag opens nothing. */
@@ -145,12 +165,12 @@ const STEP = 0.01
 const LONG_STEP = 0.05
 const KEYS: Record<string, At> = { ArrowLeft: { x: -1, y: 0 }, ArrowRight: { x: 1, y: 0 }, ArrowUp: { x: 0, y: -1 }, ArrowDown: { x: 0, y: 1 } }
 
-function onPinKeydown(event: KeyboardEvent, pin: { id: string, at: At }) {
+function onPinKeydown(event: KeyboardEvent, pin: Pin) {
   // Alt, Ctrl and ⌘ with an arrow are the browser's (back, forward): left alone.
   if (event.altKey || event.ctrlKey || event.metaKey) return
   if (event.key === 'Delete' || event.key === 'Backspace') {
     event.preventDefault()
-    void unpin(pin.id)
+    void unpin(pin)
     return
   }
   const direction = KEYS[event.key]
@@ -158,12 +178,12 @@ function onPinKeydown(event: KeyboardEvent, pin: { id: string, at: At }) {
   event.preventDefault()
   const step = event.shiftKey ? LONG_STEP : STEP
   const at = { x: clamp(pin.at.x + direction.x * step), y: clamp(pin.at.y + direction.y * step) }
-  store.patchSoon('maps', props.map.id, withPin(pin.id, at))
+  store.patchSoon('maps', props.map.id, withPin(pin.key, at))
 }
 
-async function unpin(id: string) {
-  const { [pinKey(id)]: at, ...rest } = nodesNow()
-  const name = store.get('locations', id)?.name ?? ''
+async function unpin(pin: Pin) {
+  const { [pin.key]: at, ...rest } = nodesNow()
+  const name = pin.name
   try {
     await store.update('maps', props.map.id, { nodes: rest })
   }
@@ -177,21 +197,21 @@ async function unpin(id: string) {
     actions: [{
       label: t('common.actions.undo'),
       onClick: () => {
-        if (at) void place(id, at, true)
+        if (at) void place(pin.key, at, true)
       },
     }],
   })
 }
 
 const PIN_MENU = { align: 'start' as const }
-const menuOf = (pin: { id: string }): DropdownMenuItem[][] => [[
-  { label: t('locations.map.open'), icon: 'i-lucide-arrow-right', to: store.refPath({ type: 'location', id: pin.id }) },
-  { label: t('locations.map.move'), icon: 'i-lucide-move', onSelect: () => { moving.value = pin.id } },
-  { label: t('locations.map.unpin'), icon: 'i-lucide-map-pin-off', onSelect: () => void unpin(pin.id) },
+const menuOf = (pin: Pin): DropdownMenuItem[][] => [[
+  { label: t(pin.ref.type === 'object' ? 'locations.map.openCollectible' : 'locations.map.open'), icon: 'i-lucide-arrow-right', to: store.refPath(pin.ref) },
+  { label: t('locations.map.move'), icon: 'i-lucide-move', onSelect: () => { moving.value = pin.key } },
+  { label: t('locations.map.unpin'), icon: 'i-lucide-map-pin-off', onSelect: () => void unpin(pin) },
 ]]
-const movingName = computed(() => (moving.value ? store.get('locations', moving.value)?.name ?? '' : ''))
+const movingName = computed(() => pins.value.find(pin => pin.key === moving.value)?.name ?? '')
 
-const where = (pin: { id: string, at: At }) => (drag.value?.id === pin.id && drag.value.at ? drag.value.at : pin.at)
+const where = (pin: Pin) => (drag.value?.key === pin.key && drag.value.at ? drag.value.at : pin.at)
 
 defineExpose({
   /** "Aggiungi un segnaposto": the same question, for the middle of the picture (then the arrow keys). */
@@ -221,15 +241,15 @@ defineExpose({
 
       <div
         v-for="pin in pins"
-        :key="pin.id"
-        :data-pin="pin.id"
+        :key="pin.key"
+        :data-pin="pin.key"
         @click.capture="onPinClickCapture"
         class="group/pin absolute z-10 flex -translate-x-1/2 -translate-y-full flex-col items-center"
         :style="{ left: percent(where(pin).x), top: percent(where(pin).y) }"
       >
         <span class="flex items-center gap-0.5 rounded-[calc(var(--ui-radius)*1.5)] bg-(--ui-bg-floating) py-0.5 ps-2 pe-0.5 shadow-(--shadow-floating) ring-1 ring-(--ui-border)">
           <NuxtLink
-            :to="store.refPath({ type: 'location', id: pin.id })"
+            :to="store.refPath(pin.ref)"
             class="voice-author inline-flex cursor-grab items-center whitespace-nowrap text-sm font-semibold text-highlighted active:cursor-grabbing max-lg:min-h-11 max-lg:min-w-11"
             draggable="false"
             aria-describedby="place-map-hint"
@@ -238,7 +258,7 @@ defineExpose({
             @pointerup="onPointerUp"
             @pointercancel="drag = null"
             @keydown="onPinKeydown($event, pin)"
-          >{{ pin.place.name }}</NuxtLink>
+          >{{ pin.name }}</NuxtLink>
           <UDropdownMenu :items="menuOf(pin)" :content="PIN_MENU">
             <UButton
               icon="i-lucide-ellipsis"
@@ -246,12 +266,12 @@ defineExpose({
               color="neutral"
               variant="ghost"
               class="max-lg:size-11 max-lg:justify-center lg:opacity-0 lg:group-hover/pin:opacity-100 lg:focus-visible:opacity-100 lg:data-[state=open]:opacity-100"
-              :aria-label="t('locations.map.pinActions', { name: pin.place.name })"
+              :aria-label="t('locations.map.pinActions', { name: pin.name })"
               @click.stop
             />
           </UDropdownMenu>
         </span>
-        <UIcon name="i-lucide-map-pin" class="-mt-0.5 size-6 text-primary drop-shadow-sm" aria-hidden="true" />
+        <UIcon :name="pin.ref.type === 'object' ? OBJECT_SHELVES.collectible.icon : 'i-lucide-map-pin'" class="-mt-0.5 size-6 text-primary drop-shadow-sm" aria-hidden="true" />
       </div>
 
       <!-- Where the question points: the popover hangs from here. -->
@@ -261,14 +281,25 @@ defineExpose({
     <UPopover v-model:open="asking.open" :reference="anchor ?? undefined" :content="askContent">
       <template #content>
         <div class="w-72 max-w-[calc(100vw-2rem)] space-y-2 p-3">
-          <p class="text-sm font-medium text-default">{{ t('locations.map.whichPlace') }}</p>
+          <p class="text-sm font-medium text-default">{{ t(store.bestiary ? 'locations.map.whichPin' : 'locations.map.whichPlace') }}</p>
           <DEntityPicker
             v-model="picked"
             type="location"
             creatable
-            :exclude="placed"
-            :placeholder="t('locations.map.pick')"
-            :aria-label="t('locations.map.whichPlace')"
+            :exclude="placedPlaces"
+            :placeholder="t(store.bestiary ? 'locations.map.pickPlace' : 'locations.map.pick')"
+            :aria-label="store.bestiary ? term('location') : t('locations.map.whichPlace')"
+            class="w-full"
+          />
+          <DEntityPicker
+            v-if="store.bestiary"
+            v-model="pickedCollectible"
+            type="object"
+            creatable
+            :create-with="{ category: 'collectible' }"
+            :exclude="notOffered"
+            :placeholder="t('locations.map.pickCollectible')"
+            :aria-label="t('common.enums.objectCategory.collectible')"
             class="w-full"
           />
         </div>

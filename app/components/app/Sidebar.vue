@@ -15,7 +15,7 @@ function toMenu(group: NavGroup): NavigationMenuItem[] {
     icon: item.icon,
     to: item.to,
     exact: item.exact,
-    active: item.exact ? route.path === item.to : route.path === item.to || route.path.startsWith(`${item.to}/`),
+    active: item.active ?? (item.exact ? route.path === item.to : route.path === item.to || route.path.startsWith(`${item.to}/`)),
     ...(item.badge ? { badge: { label: String(item.badge), color: item.key === 'flow' ? 'warning' as const : 'neutral' as const, variant: 'subtle' as const, 'aria-label': item.badgeLabel } } : {}),
     tooltip: true,
   }))

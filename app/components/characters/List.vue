@@ -66,13 +66,13 @@ const groupsOf = computed(() => {
 const fold = (text: string) => text.normalize('NFD').replace(/\p{M}/gu, '').toLocaleLowerCase()
 const collator = computed(() => new Intl.Collator(locale.value, { sensitivity: 'base', numeric: true }))
 
-const roleOptions = computed(() => CHARACTER_ROLES.filter(role => store.rows.characters.some(c => c.role === role)))
+const roleOptions = computed(() => CHARACTER_ROLES.filter(role => store.people.some(c => c.role === role)))
 const groupOptions = computed(() => {
   const used = new Set([...groupsOf.value.values()].flatMap(set => [...set]))
   return [...store.rows.groups].filter(g => used.has(g.id)).sort((a, b) => a.position - b.position)
 })
 const tagOptions = computed(() =>
-  [...new Set(store.rows.characters.flatMap(c => c.tags))].sort((a, b) => collator.value.compare(a, b)),
+  [...new Set(store.people.flatMap(c => c.tags))].sort((a, b) => collator.value.compare(a, b)),
 )
 
 const filtering = computed(() => !!(state.value.query.trim() || state.value.roles.length || state.value.groups.length || state.value.tags.length))
@@ -88,7 +88,7 @@ const entries = computed<Entry[]>(() => {
   const query = fold(state.value.query.trim())
   const { roles, groups, tags } = state.value
   const out: Entry[] = []
-  for (const character of store.rows.characters) {
+  for (const character of store.people) {
     let alias: string | null = null
     if (query && !fold(character.name).includes(query)) {
       alias = character.aliases.find(a => fold(a).includes(query)) ?? null
@@ -197,7 +197,7 @@ async function move(character: Character, delta: number) {
 async function onDragEnd(importance: CharacterImportance) {
   await nextTick()
   const ids = order[importance].map(e => e.character.id)
-  const stored = store.rows.characters.filter(c => c.importance === importance).sort((a, b) => a.position - b.position).map(c => c.id)
+  const stored = store.people.filter(c => c.importance === importance).sort((a, b) => a.position - b.position).map(c => c.id)
   if (ids.join() !== stored.join()) await store.reorder('characters', ids).catch(() => {})
 }
 
@@ -227,7 +227,7 @@ const creating = ref(false)
 const createImportance = ref<CharacterImportance>('main')
 
 function startCreate(importance?: CharacterImportance) {
-  createImportance.value = importance ?? (store.rows.characters.some(c => c.importance === 'main') ? 'secondary' : 'main')
+  createImportance.value = importance ?? (store.people.some(c => c.importance === 'main') ? 'secondary' : 'main')
   creating.value = true
 }
 
@@ -250,7 +250,7 @@ function hideIntro() {
   catch {}
 }
 
-const total = computed(() => store.rows.characters.length)
+const total = computed(() => store.people.length)
 const empty = computed(() => !total.value)
 </script>
 

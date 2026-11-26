@@ -162,7 +162,9 @@
       "newProject": "Nuovo progetto",
       "account": "Account",
       "flowProblems": "{n} problema nel flusso | {n} problemi nel flusso",
-      "trashCount": "{n} elemento nel cestino | {n} elementi nel cestino"
+      "trashCount": "{n} elemento nel cestino | {n} elementi nel cestino",
+      "bestiary": "Bestiario",
+      "map": "Mappa"
     },
     "enums": {
       "sceneStatus": {
@@ -331,6 +333,30 @@
         "green": "Verde",
         "blue": "Azzurro",
         "pink": "Rosa"
+      },
+      "gameGenre": {
+        "action": "Azione",
+        "adventure": "Avventura",
+        "rpg": "Gioco di ruolo",
+        "metroidvania": "Metroidvania",
+        "soulslike": "Soulslike",
+        "shooter": "Sparatutto",
+        "strategy": "Strategia e gestione",
+        "platformer": "Platform",
+        "fighting": "Picchiaduro",
+        "puzzle": "Rompicapo e puzzle",
+        "roguelike": "Roguelike"
+      },
+      "characterCategory": {
+        "person": "Personaggio",
+        "enemy": "Nemico",
+        "boss": "Boss"
+      },
+      "objectCategory": {
+        "object": "Oggetto",
+        "equipment": "Equipaggiamento",
+        "ability": "Abilità",
+        "collectible": "Collezionabile"
       }
     },
     "image": {
@@ -405,7 +431,13 @@
         "flow": "Flusso",
         "variables": "Variabili di stato",
         "variable": "Variabile | Variabili",
-        "ending": "Finale | Finali"
+        "ending": "Finale | Finali",
+        "enemies": "Boss e nemici",
+        "enemy": "Nemico | Nemici",
+        "equipment": "Equipaggiamento",
+        "abilities": "Abilità sbloccabili",
+        "collectibles": "Collezionabili",
+        "placeMap": "Planimetria"
       },
       "game": {
         "projectType": "Videogioco",
@@ -454,7 +486,17 @@
         "flow": "Flusso",
         "variables": "Variabili di stato",
         "variable": "Variabile | Variabili",
-        "ending": "Finale | Finali"
+        "ending": "Finale | Finali",
+        "enemies": "Boss e nemici",
+        "enemy": "Nemico | Nemici",
+        "equipment": "Equipaggiamento",
+        "abilities": "Abilità sbloccabili",
+        "collectibles": "Collezionabili",
+        "placeMap": "Planimetria"
+      },
+      "metroidvania": {
+        "architecture": "Storia principale",
+        "placesSection": "Luoghi"
       }
     },
     "capture": {

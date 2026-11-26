@@ -14,7 +14,9 @@ const folded = useCharacterListFolded()
 const foldLabel = computed(() => t(folded.value ? 'characters.sheet.showList' : 'characters.sheet.hideList'))
 
 const character = computed(() => store.get('characters', String(route.params.characterId)))
-const listPath = computed(() => `/p/${store.projectId}/characters`)
+/** An enemy or a boss of a game with a bestiary (VRS-683) goes back to its own list. */
+const enemy = computed(() => store.bestiary && (character.value?.category === 'enemy' || character.value?.category === 'boss'))
+const listPath = computed(() => `/p/${store.projectId}/${enemy.value ? 'enemies' : 'characters'}`)
 
 const menu = computed(() => [[
   { label: t('characters.sheet.trash'), icon: 'i-lucide-trash-2', color: 'error' as const, onSelect: trash },
@@ -34,7 +36,7 @@ async function trash() {
     v-if="character"
     :title="character.name"
     :back="wide ? undefined : listPath"
-    :back-label="wide ? undefined : term('characters')"
+    :back-label="wide ? undefined : term(enemy ? 'enemies' : 'characters')"
     :width="wide && folded ? 'default' : 'prose'"
   >
     <template v-if="wide" #leading>

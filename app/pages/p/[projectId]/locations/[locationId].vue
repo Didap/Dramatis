@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import type { StoryLocation } from '#shared/types/entities'
+import { PLACE_QUESTIONS } from '#shared/utils/constants'
 import { useJustCreated } from '~/components/world/SheetHeader.vue'
 
 /**
  * Location sheet (spec 4.4): name, city, region, nation, kind, status, colour; description, the scenes
  * set here, significant events, relationships (who is linked to the place), groups, images, notes.
- * From xl the list of locations stays on the left.
+ * From xl the list of locations stays on the left. The place is described freely (one text) or guided,
+ * question by question, as its author chooses (VRS-683); switching keeps what the other way holds.
  */
 const route = useRoute()
 const store = useProjectStore()
@@ -33,6 +35,12 @@ const suggestions = computed(() => ({
   nation: used('nation'),
 }))
 const PLACE_FIELDS = ['city', 'region', 'nation'] as const
+
+const DESCRIBE = [
+  { value: 'free', icon: 'i-lucide-pen-line' },
+  { value: 'guided', icon: 'i-lucide-list-tree' },
+] as const
+const guided = computed(() => location.value?.describe === 'guided')
 
 function patch(values: Partial<StoryLocation>) {
   store.patchSoon('locations', locationId.value, values)
@@ -122,7 +130,30 @@ onMounted(() => {
           </div>
         </WorldSheetHeader>
 
+        <fieldset class="min-w-0">
+          <legend class="text-lg font-semibold text-highlighted">{{ t('locations.guide.describe') }}</legend>
+          <div class="mt-3 flex flex-wrap gap-1.5">
+            <label v-for="mode in DESCRIBE" :key="mode.value" class="choice-chip" :class="{ 'is-checked': location.describe === mode.value }">
+              <input type="radio" class="sr-only" name="location-describe" :value="mode.value" :checked="location.describe === mode.value" @change="set({ describe: mode.value })">
+              <UIcon :name="mode.icon" class="size-4 shrink-0" aria-hidden="true" />
+              <span>{{ t(mode.value === 'free' ? 'locations.guide.describeFree' : 'locations.guide.describeGuided') }}</span>
+            </label>
+          </div>
+          <p class="mt-2 text-sm text-muted">{{ t(guided ? 'locations.guide.describeGuidedHelp' : 'locations.guide.describeFreeHelp') }}</p>
+        </fieldset>
+
+        <template v-if="guided">
+          <WorldLongText
+            v-for="question in PLACE_QUESTIONS"
+            :key="question"
+            :title="t(`locations.guide.titles.${question}`)"
+            :model-value="location[question]"
+            :placeholder="t(`locations.guide.${store.kind}.${question}`)"
+            @update:model-value="value => patch({ [question]: value } as Partial<StoryLocation>)"
+          />
+        </template>
         <WorldLongText
+          v-else
           :title="t('locations.description')"
           :model-value="location.description"
           :placeholder="t('locations.descriptionPlaceholder')"

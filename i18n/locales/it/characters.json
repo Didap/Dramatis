@@ -81,7 +81,8 @@
       "subraceOf": "Sottorazza di {race}",
       "subraceNone": "Nessuna sottorazza",
       "subraceCreate": "Crea la sottorazza «{name}»",
-      "fieldValue": "{field}: {value}"
+      "fieldValue": "{field}: {value}",
+      "category": "Categoria"
     },
     "description": {
       "title": "Descrizione",
@@ -200,6 +201,18 @@
       "body": "Questo personaggio è nel cestino, forse spostato da un altro dispositivo: quello che scrivi qui non viene salvato finché non torna.",
       "restore": "Ripristina",
       "openTrash": "Apri il cestino"
+    },
+    "enemies": {
+      "intro": "Chi sbarra la strada al giocatore. Apri un nemico per dire dove si incontra, come combatte e che cosa lascia.",
+      "addEnemy": "Aggiungi un nemico",
+      "addBoss": "Aggiungi un boss",
+      "enemyPlaceholder": "Nome del nemico",
+      "bossPlaceholder": "Nome del boss",
+      "empty": "I boss che fanno da guardiani e i nemici che popolano le zone: ognuno racconta qualcosa del mondo.",
+      "emptyQuestion": "Chi si troverà davanti il giocatore?",
+      "bosses": "Boss",
+      "enemies": "Nemici",
+      "filter": "Cerca per nome"
     }
   }
 }

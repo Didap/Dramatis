@@ -21,7 +21,10 @@
       "changed": {
         "novel": "It is a novel now.",
         "game": "It is a video game now."
-      }
+      },
+      "genre": "Genre",
+      "genreHelp": "It decides the sections of the sidebar. Changing it deletes nothing: a section the genre does not use stays while it holds something.",
+      "noGenre": "No genre"
     },
     "modules": {
       "label": "Modules",

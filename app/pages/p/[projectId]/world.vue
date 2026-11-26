@@ -39,7 +39,7 @@ const CAST_SIZE = 6
 
 /** The main characters (or, without any, the first ones), in the order of the characters page. */
 const cast = computed<Character[]>(() => {
-  const ordered = [...store.rows.characters].sort((a, b) =>
+  const ordered = [...store.people].sort((a, b) =>
     CHARACTER_IMPORTANCES.indexOf(a.importance) - CHARACTER_IMPORTANCES.indexOf(b.importance) || a.position - b.position)
   const main = ordered.filter(c => c.importance === 'main')
   return (main.length ? main : ordered).slice(0, CAST_SIZE)
@@ -58,19 +58,38 @@ interface HubSection {
   last?: { name: string, when: string }
 }
 
-function section<T extends { updatedAt: string }>(key: keyof typeof SECTION_ICONS, label: string, rows: readonly T[], nameOf: (row: T) => string): HubSection {
+function section<T extends { updatedAt: string }>(key: keyof typeof SECTION_ICONS, label: string, rows: readonly T[], nameOf: (row: T) => string, path: string = key): HubSection {
   const last = latest(rows)
   return {
     key,
     label,
     icon: SECTION_ICONS[key],
-    to: `${base.value}/${key}`,
+    to: `${base.value}/${path}`,
     count: rows.length,
     last: last ? { name: nameOf(last), when: relative(last.updatedAt) } : undefined,
   }
 }
 
-const sections = computed<HubSection[]>(() => [
+/** A game with a bestiary (VRS-683): its shelves and its map, then what the genre leaves out while it holds something. */
+const bestiarySections = computed<HubSection[]>(() => {
+  const objects = store.objectsIn(['object'])
+  const races = store.rows.groups.filter(g => store.isRace(g.id))
+  const groups = store.rows.groups.filter(g => !store.isRace(g.id))
+  return [
+    section('enemies', term('enemies'), store.rows.characters.filter(c => c.category === 'enemy' || c.category === 'boss'), c => c.name),
+    section('equipment', term('equipment'), store.objectsIn(['equipment']), o => o.name),
+    section('abilities', term('abilities'), store.objectsIn(['ability']), o => o.name),
+    section('collectibles', term('collectibles'), store.objectsIn(['collectible']), o => o.name),
+    section('placeMap', term('placeMap'), store.placeMaps, m => m.name, 'map'),
+    section('locations', term('locations'), store.rows.locations, l => l.name),
+    ...(objects.length ? [section('objects', term('objects'), objects, o => o.name)] : []),
+    ...(store.modules.races && races.length ? [section('races', term('races'), races, g => g.name)] : []),
+    ...(groups.length ? [section('groups', term('groups'), groups, g => g.name)] : []),
+    ...(store.modules.codex && store.rows.codexEntries.length ? [section('codex', term('codex'), store.rows.codexEntries, e => e.title)] : []),
+  ]
+})
+
+const sections = computed<HubSection[]>(() => store.bestiary ? bestiarySections.value : [
   ...(store.modules.races ? [section('races', term('races'), store.rows.groups.filter(g => store.isRace(g.id)), g => g.name)] : []),
   section('groups', term('groups'), store.rows.groups.filter(g => !store.isRace(g.id)), g => g.name),
   section('locations', term('locations'), store.rows.locations, l => l.name),
@@ -87,7 +106,7 @@ const empty = computed(() =>
 
 /** The way to every character, closing the cast (or first among the sections of an empty world). */
 const allCharacters = computed(() =>
-  section('characters', empty.value ? term('characters') : t('world.hub.allCharacters'), store.rows.characters, c => c.name))
+  section('characters', empty.value ? term('characters') : t('world.hub.allCharacters'), store.people, c => c.name))
 </script>
 
 <template>

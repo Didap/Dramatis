@@ -10,7 +10,9 @@ const props = withDefaults(defineProps<{
   scenes: number
   compact?: boolean
   active?: boolean
-}>(), { compact: false, active: false })
+  /** The icon of its list when it has no picture (a bestiary's category). */
+  icon?: string
+}>(), { compact: false, active: false, icon: 'i-lucide-gem' })
 
 const store = useProjectStore()
 const { scenes: scenesText } = useFormat()
@@ -26,7 +28,7 @@ const kind = computed(() => props.object.kind.trim())
         :image-id="store.primaryImage('object', props.object.id)"
         :color="props.object.color || null"
         shape="square"
-        icon="i-lucide-gem"
+        :icon="props.icon"
         size="sm"
         alt=""
       />
@@ -39,7 +41,7 @@ const kind = computed(() => props.object.kind.trim())
         :image-id="store.primaryImage('object', props.object.id)"
         :color="props.object.color || null"
         shape="square"
-        icon="i-lucide-gem"
+        :icon="props.icon"
         size="sm"
         alt=""
       />

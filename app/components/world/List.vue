@@ -20,14 +20,14 @@ import { VueDraggable } from 'vue-draggable-plus'
 import type { WorldAction } from './ActionMenu.vue'
 
 /**
- * An ordered list of world entities (groups, locations, objects). Rows move by dragging the handle,
+ * An ordered list of world entities (groups, locations, objects, a bestiary's enemies). Rows move by dragging the handle,
  * with Alt+Up/Down on a focused row, or from the row menu (up, down, top, bottom), which also moves
  * a row to the trash. The rows may be a filtered part of the collection: moving them never disturbs
  * the others. Every keyboard or menu move is announced to screen readers; the focus stays on the
  * moved row, and goes to the next one when a row leaves.
  */
 const props = withDefaults(defineProps<{
-  collection: 'groups' | 'locations' | 'objects'
+  collection: 'characters' | 'groups' | 'locations' | 'objects'
   /** The rows shown, in display order. */
   items: T[]
   /** Accessible name of the list. */

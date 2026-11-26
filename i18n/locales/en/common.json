@@ -162,7 +162,9 @@
       "newProject": "New project",
       "account": "Account",
       "flowProblems": "{n} problem in the flow | {n} problems in the flow",
-      "trashCount": "{n} item in the trash | {n} items in the trash"
+      "trashCount": "{n} item in the trash | {n} items in the trash",
+      "bestiary": "Bestiary",
+      "map": "Map"
     },
     "enums": {
       "sceneStatus": {
@@ -331,6 +333,30 @@
         "green": "Green",
         "blue": "Blue",
         "pink": "Pink"
+      },
+      "gameGenre": {
+        "action": "Action",
+        "adventure": "Adventure",
+        "rpg": "Role-playing",
+        "metroidvania": "Metroidvania",
+        "soulslike": "Soulslike",
+        "shooter": "Shooter",
+        "strategy": "Strategy and management",
+        "platformer": "Platformer",
+        "fighting": "Fighting",
+        "puzzle": "Puzzle",
+        "roguelike": "Roguelike"
+      },
+      "characterCategory": {
+        "person": "Character",
+        "enemy": "Enemy",
+        "boss": "Boss"
+      },
+      "objectCategory": {
+        "object": "Object",
+        "equipment": "Equipment",
+        "ability": "Ability",
+        "collectible": "Collectible"
       }
     },
     "image": {
@@ -405,7 +431,13 @@
         "flow": "Flow",
         "variables": "State variables",
         "variable": "Variable | Variables",
-        "ending": "Ending | Endings"
+        "ending": "Ending | Endings",
+        "enemies": "Bosses and enemies",
+        "enemy": "Enemy | Enemies",
+        "equipment": "Equipment",
+        "abilities": "Unlockable abilities",
+        "collectibles": "Collectibles",
+        "placeMap": "World map"
       },
       "game": {
         "projectType": "Video game",
@@ -454,7 +486,17 @@
         "flow": "Flow",
         "variables": "State variables",
         "variable": "Variable | Variables",
-        "ending": "Ending | Endings"
+        "ending": "Ending | Endings",
+        "enemies": "Bosses and enemies",
+        "enemy": "Enemy | Enemies",
+        "equipment": "Equipment",
+        "abilities": "Unlockable abilities",
+        "collectibles": "Collectibles",
+        "placeMap": "World map"
+      },
+      "metroidvania": {
+        "architecture": "Main story",
+        "placesSection": "Places"
       }
     },
     "capture": {

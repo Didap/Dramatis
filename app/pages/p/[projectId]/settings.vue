@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ProjectKind, ProjectModule, ProjectSettings } from '#shared/types/domain'
+import type { GameGenre, ProjectKind, ProjectModule, ProjectSettings } from '#shared/types/domain'
 import type { Project } from '#shared/types/entities'
 import { DIALOGUE_STYLES, PROJECT_KINDS, PROJECT_MODULES } from '#shared/utils/constants'
 
@@ -12,7 +12,7 @@ import { DIALOGUE_STYLES, PROJECT_KINDS, PROJECT_MODULES } from '#shared/utils/c
 const store = useProjectStore()
 const { t, locale } = useI18n()
 const { term } = useTerms()
-const { label } = useEnums()
+const { label, options } = useEnums()
 const toast = useToast()
 
 const project = computed(() => store.project!)
@@ -61,6 +61,11 @@ const language = computed({
 })
 
 // ---------------------------------------------------------------- type and modules
+
+/** Reka's select refuses an empty value: "no genre" travels as this key. */
+const NO_GENRE = 'none'
+/** A game's genre (VRS-682): it picks the sidebar; changing it hides nothing that holds something. */
+const genreItems = computed(() => [{ value: NO_GENRE, label: t('settings.type.noGenre') }, ...options('gameGenre')])
 
 const kinds = computed(() => PROJECT_KINDS.map(kind => ({
   value: kind,
@@ -283,6 +288,15 @@ const sections = computed(() => [
             />
             <SettingsKindChange v-if="pendingKind" :target="pendingKind" :busy="kindBusy" @cancel="cancelKind" @confirm="changeKind" />
           </div>
+        </SettingsField>
+        <SettingsField v-if="store.isGame" :label="t('settings.type.genre')" :description="t('settings.type.genreHelp')" for="settings-genre">
+          <USelect
+            id="settings-genre"
+            :model-value="project.gameGenre || NO_GENRE"
+            :items="genreItems"
+            class="w-56 max-w-full max-lg:min-h-11"
+            @update:model-value="(value: unknown) => store.updateProject({ gameGenre: value === NO_GENRE ? '' : value as GameGenre }).catch(() => {})"
+          />
         </SettingsField>
         <div class="pt-4 pb-1">
           <h3 class="text-sm font-medium text-default">{{ t('settings.modules.label') }}</h3>

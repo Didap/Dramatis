@@ -29,6 +29,33 @@
       "empty": "Gli oggetti che contano: una chiave, un'arma, una reliquia da riportare a casa.",
       "emptyQuestion": "Che cosa troverà il giocatore?",
       "kindPlaceholder": "oggetto chiave, arma, documento"
-    }
+    },
+    "shelf": {
+      "equipment": {
+        "add": "Aggiungi un equipaggiamento",
+        "namePlaceholder": "Nome dell'equipaggiamento",
+        "intro": "Armi, armature e strumenti che il giocatore indossa o impugna. Aprine uno per dire dove si trova e che cosa cambia.",
+        "empty": "Quello che il giocatore porta con sé: una spada, un mantello, una lanterna.",
+        "emptyQuestion": "Con che cosa affronterà il mondo?",
+        "kindPlaceholder": "arma, armatura, amuleto"
+      },
+      "ability": {
+        "add": "Aggiungi un'abilità",
+        "namePlaceholder": "Nome dell'abilità",
+        "intro": "I poteri che aprono la mappa. Aprine una per dire dove si ottiene e quali passaggi sblocca.",
+        "empty": "Il doppio salto, lo scatto in aria, il respiro sott'acqua: ogni abilità riapre una parte del mondo.",
+        "emptyQuestion": "Che cosa imparerà il giocatore, e dove gli servirà?",
+        "kindPlaceholder": "movimento, combattimento, magia"
+      },
+      "collectible": {
+        "add": "Aggiungi un collezionabile",
+        "namePlaceholder": "Nome del collezionabile",
+        "intro": "Quello che si trova esplorando. Aprine uno per dire dove si nasconde, e mettilo sulla planimetria.",
+        "empty": "Frammenti di diario, gemme, potenziamenti nascosti: il premio per chi esplora.",
+        "emptyQuestion": "Che cosa troverà chi cerca bene?",
+        "kindPlaceholder": "diario, frammento, potenziamento"
+      }
+    },
+    "category": "Categoria"
   }
 }

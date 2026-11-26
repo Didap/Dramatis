@@ -158,6 +158,21 @@ export const STRUCTURES = [
       { key: 'hidden_truth', kind: 'side_quest' },
     ],
   },
+  {
+    // The Metroidvania genre (VRS-683): one map that opens up ability by ability, and the way back.
+    key: 'metroidvania',
+    media: ['game'],
+    parts: [
+      { key: 'awakening', chapters: ['first_area', 'locked_doors', 'first_guardian', 'first_ability'] },
+      { key: 'exploration', chapters: ['the_hub', 'the_way_back', 'revelation', 'world_shift'] },
+      { key: 'the_core', chapters: ['last_key', 'descent', 'final_boss', 'endings'] },
+    ],
+    strands: [
+      { key: 'main_path', kind: 'quest' },
+      { key: 'full_map', kind: 'side_quest' },
+      { key: 'wanderers', kind: 'side_quest' },
+    ],
+  },
 ] as const satisfies readonly StructureDef[]
 
 export type StructureKey = (typeof STRUCTURES)[number]['key']

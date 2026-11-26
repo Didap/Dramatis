@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { CHARACTER_ROLES, GAME_ONLY_ROLES } from '#shared/utils/constants'
-import type { CharacterImportance, CharacterRole, EntityColor, PlanningStatus } from '#shared/types/domain'
+import type { CharacterCategory, CharacterImportance, CharacterRole, EntityColor, PlanningStatus } from '#shared/types/domain'
 import type { Character, UpdateInput } from '#shared/types/entities'
 import { useCharacterSaves } from './saving'
 
@@ -74,11 +74,13 @@ const chipUi = {
   itemDeleteIcon: 'pointer-coarse:size-4',
 }
 const selectUi = { base: 'pointer-coarse:min-h-11' }
-/** One column per field from sm: importance, role, race (module), status, colour, playable (games). */
+/** One column per field from sm: category (bestiary), importance, role, race (module), status, colour, playable (games). */
 const FIELD_COLUMNS: Record<number, string> = {
   4: 'sm:grid-cols-[repeat(4,minmax(0,auto))]',
   5: 'sm:grid-cols-[repeat(5,minmax(0,auto))]',
   6: 'sm:grid-cols-[repeat(6,minmax(0,auto))]',
+  // Seven (a bestiary's category on top) do not fit one line beside the list: two rows.
+  7: 'sm:grid-cols-4',
 }
 </script>
 
@@ -134,8 +136,19 @@ const FIELD_COLUMNS: Record<number, string> = {
 
     <div
       class="mt-6 grid grid-cols-2 gap-x-4 gap-y-3"
-      :class="FIELD_COLUMNS[4 + (store.isGame ? 1 : 0) + (store.modules.races ? 1 : 0)]"
+      :class="FIELD_COLUMNS[4 + (store.isGame ? 1 : 0) + (store.modules.races ? 1 : 0) + (store.bestiary ? 1 : 0)]"
     >
+      <UFormField v-if="store.bestiary" :label="t('characters.sheet.category')" :ui="fieldUi">
+        <USelect
+          :model-value="character.category"
+          :items="options('characterCategory')"
+          color="neutral"
+          variant="ghost"
+          class="-ms-2.5 w-full"
+          :ui="selectUi"
+          @update:model-value="(value: unknown) => set({ category: value as CharacterCategory })"
+        />
+      </UFormField>
       <UFormField :label="t('characters.sheet.importance')" :ui="fieldUi">
         <USelect
           :model-value="character.importance"

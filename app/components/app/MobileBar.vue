@@ -10,7 +10,7 @@ const { term } = useTerms()
 const { t } = useI18n()
 
 const base = computed(() => `/p/${store.projectId}`)
-const WORLD = ['world', 'characters', 'groups', 'locations', 'objects', 'relations', 'codex']
+const WORLD = ['world', 'characters', 'groups', 'races', 'locations', 'objects', 'relations', 'codex', 'enemies', 'equipment', 'abilities', 'collectibles', 'map']
 const section = computed(() => route.path.slice(base.value.length + 1).split('/')[0] ?? '')
 const isWorld = computed(() => WORLD.includes(section.value))
 </script>

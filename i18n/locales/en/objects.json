@@ -29,6 +29,33 @@
       "empty": "The items that matter: a key, a weapon, a relic to bring home.",
       "emptyQuestion": "What will the player find?",
       "kindPlaceholder": "key item, weapon, document"
-    }
+    },
+    "shelf": {
+      "equipment": {
+        "add": "Add equipment",
+        "namePlaceholder": "Equipment name",
+        "intro": "Weapons, armour and tools the player wears or wields. Open one to say where it is found and what it changes.",
+        "empty": "What the player carries: a sword, a cloak, a lantern.",
+        "emptyQuestion": "What will the player face the world with?",
+        "kindPlaceholder": "weapon, armour, charm"
+      },
+      "ability": {
+        "add": "Add an ability",
+        "namePlaceholder": "Ability name",
+        "intro": "The powers that open the map. Open one to say where it is earned and which passages it unlocks.",
+        "empty": "The double jump, the air dash, breathing underwater: every ability reopens a part of the world.",
+        "emptyQuestion": "What will the player learn, and where will they need it?",
+        "kindPlaceholder": "movement, combat, magic"
+      },
+      "collectible": {
+        "add": "Add a collectible",
+        "namePlaceholder": "Collectible name",
+        "intro": "What exploring turns up. Open one to say where it hides, and put it on the world map.",
+        "empty": "Diary pages, gems, hidden upgrades: the reward for those who explore.",
+        "emptyQuestion": "What will a careful explorer find?",
+        "kindPlaceholder": "diary page, shard, upgrade"
+      }
+    },
+    "category": "Category"
   }
 }

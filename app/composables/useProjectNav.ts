@@ -10,10 +10,12 @@ export interface NavItem {
   badge?: number
   /** Accessible text of the badge ("2 problemi nel flusso"). */
   badgeLabel?: string
+  /** Set when the path alone cannot tell (an enemy's sheet lives under /characters). */
+  active?: boolean
 }
 
 export interface NavGroup {
-  key: 'top' | 'story' | 'world' | 'work' | 'review' | 'footer'
+  key: 'top' | 'story' | 'world' | 'bestiary' | 'map' | 'work' | 'review' | 'footer'
   label?: string
   items: NavItem[]
 }
@@ -31,6 +33,11 @@ export const SECTION_ICONS = {
   races: 'i-lucide-dna',
   locations: 'i-lucide-map-pin',
   objects: 'i-lucide-gem',
+  enemies: 'i-lucide-skull',
+  equipment: 'i-lucide-shield',
+  abilities: 'i-lucide-zap',
+  collectibles: 'i-lucide-star',
+  placeMap: 'i-lucide-map',
   relations: 'i-lucide-network',
   codex: 'i-lucide-library-big',
   manuscript: 'i-lucide-book-open',
@@ -47,12 +54,22 @@ export const SECTION_ICONS = {
   more: 'i-lucide-ellipsis',
 } as const
 
-/** The sections of the open project (spec 1.2 and 1.3): a hidden module removes its entry. */
+/** The sections of the open project (spec 1.2 and 1.3): a hidden module removes its entry, and a game's genre can have its own sidebar (VRS-683). */
 export function useProjectNav() {
   const store = useProjectStore()
   const { term } = useTerms()
   const { t } = useI18n()
+  const route = useRoute()
   const { problems } = useFlow()
+
+  /** In a game with a bestiary, the category of the character or object open, which picks the section to light up. */
+  const openCategory = computed(() => {
+    if (!store.bestiary) return null
+    const { characterId, objectId } = route.params
+    if (characterId) return store.get('characters', String(characterId))?.category ?? null
+    if (objectId) return store.get('objects', String(objectId))?.category ?? null
+    return null
+  })
 
   const groups = computed<NavGroup[]>(() => {
     const base = `/p/${store.projectId}`
@@ -63,9 +80,78 @@ export function useProjectNav() {
       to: path ? `${base}/${path}` : base,
       ...extra,
     })
+    /** A bestiary section: lit on its list and on the sheets of its categories. */
+    const shelf = (key: string, label: TermKey, path: string, sheets: 'characters' | 'objects', categories: readonly string[]): NavItem => {
+      const under = route.path.startsWith(`${base}/${sheets}/`)
+      return item(key, label, path, { active: route.path === `${base}/${path}` || (under && categories.includes(openCategory.value ?? '')) })
+    }
     const flowProblems = problems.value
+    const top: NavGroup = { key: 'top', items: [item('overview', 'overview', '', { exact: true }), item('goals', 'goals', 'goals')] }
+    const work: NavGroup = {
+      key: 'work',
+      label: t('common.nav.work'),
+      items: [
+        { ...item('manuscript', 'manuscript', 'manuscript'), icon: store.isGame ? SECTION_ICONS.script : SECTION_ICONS.manuscript },
+        ...(store.modules.branching
+          ? [item('flow', 'flow', 'flow', flowProblems ? { badge: flowProblems, badgeLabel: t('common.nav.flowProblems', { n: flowProblems }, flowProblems) } : {})]
+          : []),
+        ...(store.modules.variables ? [item('variables', 'variables', 'variables')] : []),
+        item('timeline', 'timeline', 'timeline'),
+      ],
+    }
+    const review: NavGroup = { key: 'review', label: t('common.nav.review'), items: [item('analysis', 'analysis', 'analysis'), item('export', 'export', 'export')] }
+    const footer: NavGroup = {
+      key: 'footer',
+      items: [
+        item('trash', 'trash', 'trash', store.trashCount ? { badge: store.trashCount, badgeLabel: t('common.nav.trashCount', { n: store.trashCount }, store.trashCount) } : {}),
+        item('settings', 'settings', 'settings'),
+      ],
+    }
+
+    if (store.genre?.layout === 'metroidvania') {
+      // The sections the genre leaves out still show while they hold something, so a change of genre hides nothing.
+      const rows = store.rows
+      const races = rows.groups.filter(g => g.kind === 'race').length
+      return [
+        top,
+        {
+          key: 'story',
+          label: t('common.nav.story'),
+          items: [
+            item('architecture', 'architecture', 'architecture'),
+            item('strands', 'strands', 'strands'),
+            item('notes', 'notes', 'notes'),
+            ...(store.modules.codex && rows.codexEntries.length ? [item('codex', 'codex', 'codex')] : []),
+          ],
+        },
+        {
+          key: 'bestiary',
+          label: t('common.nav.bestiary'),
+          items: [
+            shelf('characters', 'characters', 'characters', 'characters', ['person']),
+            shelf('enemies', 'enemies', 'enemies', 'characters', ['enemy', 'boss']),
+            shelf('equipment', 'equipment', 'equipment', 'objects', ['equipment']),
+            shelf('abilities', 'abilities', 'abilities', 'objects', ['ability']),
+            shelf('collectibles', 'collectibles', 'collectibles', 'objects', ['collectible']),
+            ...(rows.objects.some(o => o.category === 'object') ? [shelf('objects', 'objects', 'objects', 'objects', ['object'])] : []),
+            ...(store.modules.races && races ? [item('races', 'races', 'races')] : []),
+            ...(rows.groups.length > races ? [item('groups', 'groups', 'groups')] : []),
+            ...(rows.relations.length ? [item('relations', 'relations', 'relations')] : []),
+          ],
+        },
+        {
+          key: 'map',
+          label: t('common.nav.map'),
+          items: [item('placeMap', 'placeMap', 'map'), item('locations', 'placesSection', 'locations')],
+        },
+        work,
+        review,
+        footer,
+      ]
+    }
+
     return [
-      { key: 'top', items: [item('overview', 'overview', '', { exact: true }), item('goals', 'goals', 'goals')] },
+      top,
       { key: 'story', label: t('common.nav.story'), items: [item('architecture', 'architecture', 'architecture'), item('strands', 'strands', 'strands'), item('notes', 'notes', 'notes')] },
       {
         key: 'world',
@@ -80,26 +166,9 @@ export function useProjectNav() {
           ...(store.modules.codex ? [item('codex', 'codex', 'codex')] : []),
         ],
       },
-      {
-        key: 'work',
-        label: t('common.nav.work'),
-        items: [
-          { ...item('manuscript', 'manuscript', 'manuscript'), icon: store.isGame ? SECTION_ICONS.script : SECTION_ICONS.manuscript },
-          ...(store.modules.branching
-            ? [item('flow', 'flow', 'flow', flowProblems ? { badge: flowProblems, badgeLabel: t('common.nav.flowProblems', { n: flowProblems }, flowProblems) } : {})]
-            : []),
-          ...(store.modules.variables ? [item('variables', 'variables', 'variables')] : []),
-          item('timeline', 'timeline', 'timeline'),
-        ],
-      },
-      { key: 'review', label: t('common.nav.review'), items: [item('analysis', 'analysis', 'analysis'), item('export', 'export', 'export')] },
-      {
-        key: 'footer',
-        items: [
-          item('trash', 'trash', 'trash', store.trashCount ? { badge: store.trashCount, badgeLabel: t('common.nav.trashCount', { n: store.trashCount }, store.trashCount) } : {}),
-          item('settings', 'settings', 'settings'),
-        ],
-      },
+      work,
+      review,
+      footer,
     ]
   })
 

@@ -608,6 +608,79 @@
           "description": "An optional side quest that reveals what's really going on. It's often the key to the best ending."
         }
       }
+    },
+    "metroidvania": {
+      "name": "Metroidvania",
+      "description": "One map that opens up one ability at a time: every locked door is a promise, every new power leads back. For exploration games where the world is the story.",
+      "parts": {
+        "awakening": "Act one: the awakening",
+        "exploration": "Act two: the exploration",
+        "the_core": "Act three: the heart of the map"
+      },
+      "chapters": {
+        "first_area": {
+          "title": "The first area",
+          "reason": "The player learns to move in a small, safe space. The world introduces itself through its places before its words."
+        },
+        "locked_doors": {
+          "title": "The locked doors",
+          "reason": "Show early the passages that cannot be opened yet: a wall too high, a sealed door. They are promises the player will remember."
+        },
+        "first_guardian": {
+          "title": "The first guardian",
+          "reason": "The first boss tests what the player has learned. Beating it should change something in the story, not only on the map."
+        },
+        "first_ability": {
+          "title": "The first ability",
+          "reason": "The first new power reopens a path already seen. This is when the player understands the deal of the genre: going back is worth it."
+        },
+        "the_hub": {
+          "title": "The heart of the map",
+          "reason": "A central place the areas branch from: a refuge, a merchant, someone to talk to. The player returns often, and each time it has changed a little."
+        },
+        "the_way_back": {
+          "title": "The way back",
+          "reason": "Old areas reopen with the new abilities and reveal secrets, shortcuts and collectibles. The story is told in the places found again, too."
+        },
+        "revelation": {
+          "title": "The revelation",
+          "reason": "Halfway through, the player learns the truth about the world or about who they are. From here on, they see the map with other eyes."
+        },
+        "world_shift": {
+          "title": "The world changes",
+          "reason": "The map changes: it floods, turns upside down, falls into darkness. Known places become new, and the danger rises."
+        },
+        "last_key": {
+          "title": "The last key",
+          "reason": "The last ability opens the last closed place. It should feel earned, the fruit of everything the player has explored."
+        },
+        "descent": {
+          "title": "The descent",
+          "reason": "The way to the final fight: the hardest area, where every ability is needed at once."
+        },
+        "final_boss": {
+          "title": "The final fight",
+          "reason": "The final boss closes the main story and tests everything the player has unlocked."
+        },
+        "endings": {
+          "title": "The endings",
+          "reason": "The ending can change with how much the player explored: a complete map, the collectibles found, who they helped. There is often a true ending, for those who saw everything."
+        }
+      },
+      "strands": {
+        "main_path": {
+          "name": "The main path",
+          "description": "The road from the awakening to the final fight, ability after ability."
+        },
+        "full_map": {
+          "name": "The complete map",
+          "description": "Secrets, collectibles and hidden rooms: what it takes for a hundred percent and, perhaps, the true ending."
+        },
+        "wanderers": {
+          "name": "The people on the road",
+          "description": "The characters scattered across the map, each with a story: they are met again by going back to places already seen."
+        }
+      }
     }
   }
 }

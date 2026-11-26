@@ -15,6 +15,7 @@ import {
   uuid,
 } from 'drizzle-orm/pg-core'
 import type {
+  CharacterCategory,
   CharacterImportance,
   CharacterPower,
   CharacterProfile,
@@ -22,6 +23,7 @@ import type {
   DurationUnit,
   EntityRef,
   EventKind,
+  GameGenre,
   ExportWhat,
   FieldVersions,
   GroupKind,
@@ -30,6 +32,7 @@ import type {
   LinkEffect,
   MapNodes,
   MapSettings,
+  ObjectCategory,
   PlanningStatus,
   PointOfView,
   ProjectKind,
@@ -38,7 +41,7 @@ import type {
   QuestDetails,
   RelationKind,
   RelationStep,
-  RaceDescription,
+  DescribeMode,
   Subrace,
   RichDoc,
   SceneKind,
@@ -108,6 +111,8 @@ export const projects = pgTable(
       .notNull()
       .references(() => users.id, { onDelete: 'cascade' }),
     kind: text('kind').$type<ProjectKind>().notNull().default('novel'),
+    /** A game's genre (VRS-682): its sidebar and starting structure; '' is none. */
+    gameGenre: text('game_genre').$type<GameGenre | ''>().notNull().default(''),
     title: text('title').notNull(),
     subtitle: text('subtitle').notNull().default(''),
     /** Author name printed in exports. */
@@ -154,6 +159,8 @@ export const characters = pgTable(
     importance: text('importance').$type<CharacterImportance>().notNull().default('secondary'),
     /** A key of CHARACTER_ROLES, or '' when not set. */
     role: text('role').notNull().default(''),
+    /** In a game with a bestiary (VRS-683): a character, an enemy or a boss. */
+    category: text('category').$type<CharacterCategory>().notNull().default('person'),
     /** One-line description (up to 140 characters). */
     tagline: text('tagline').notNull().default(''),
     color: text('color').notNull().default(''),
@@ -197,7 +204,7 @@ export const groups = pgTable(
     powers: jsonb('powers').$type<RichDoc | null>(),
     notes: jsonb('notes').$type<RichDoc | null>(),
     /** Races: described freely (description and subraces) or guided (language, traditions, powers...). */
-    describe: text('describe').$type<RaceDescription>().notNull().default('free'),
+    describe: text('describe').$type<DescribeMode>().notNull().default('free'),
     /** Races: their branches, each with a name and a description. */
     subraces: jsonb('subraces').$type<Subrace[]>().notNull().default([]),
     status: planning(),
@@ -226,6 +233,13 @@ export const locations = pgTable(
     city: text('city').notNull().default(''),
     color: text('color').notNull().default(''),
     description: jsonb('description').$type<RichDoc | null>(),
+    /** Described freely (the description) or guided (the answers below), as the author chooses (VRS-683). */
+    describe: text('describe').$type<DescribeMode>().notNull().default('free'),
+    firstSight: jsonb('first_sight').$type<RichDoc | null>(),
+    history: jsonb('history').$type<RichDoc | null>(),
+    inhabitants: jsonb('inhabitants').$type<RichDoc | null>(),
+    access: jsonb('access').$type<RichDoc | null>(),
+    secrets: jsonb('secrets').$type<RichDoc | null>(),
     notes: jsonb('notes').$type<RichDoc | null>(),
     status: planning(),
     position: position(),
@@ -246,6 +260,8 @@ export const objects = pgTable(
     name: text('name').notNull(),
     /** Free kind such as letter, weapon, key item. */
     kind: text('kind').notNull().default(''),
+    /** In a game with a bestiary (VRS-683): an object, equipment, an unlockable ability, a collectible. */
+    category: text('category').$type<ObjectCategory>().notNull().default('object'),
     color: text('color').notNull().default(''),
     description: jsonb('description').$type<RichDoc | null>(),
     notes: jsonb('notes').$type<RichDoc | null>(),
