@@ -51,7 +51,11 @@
       "unpin": "Togli il segnaposto",
       "unpinned": "«{name}» non è più sulla mappa",
       "pinActions": "Azioni per «{name}»",
-      "pinHint": "Invio apre il luogo. Le frecce spostano il segnaposto, con Maiuscolo a passi lunghi; Canc lo toglie dalla mappa."
+      "pinHint": "Invio apre il luogo. Le frecce spostano il segnaposto, con Maiuscolo a passi lunghi; Canc lo toglie dalla mappa.",
+      "move": "Sposta il segnaposto",
+      "movePrompt": "Tocca il punto dove spostare «{name}»",
+      "cancelMove": "Annulla lo spostamento",
+      "rename": "Nome della mappa"
     }
   }
 }

@@ -51,7 +51,11 @@
       "unpin": "Remove the pin",
       "unpinned": "“{name}” is no longer on the map",
       "pinActions": "Actions for “{name}”",
-      "pinHint": "Enter opens the place. The arrow keys move the pin, with Shift in long steps; Delete takes it off the map."
+      "pinHint": "Enter opens the place. The arrow keys move the pin, with Shift in long steps; Delete takes it off the map.",
+      "move": "Move the pin",
+      "movePrompt": "Tap the spot to move “{name}” to",
+      "cancelMove": "Cancel the move",
+      "rename": "Name of the map"
     }
   }
 }

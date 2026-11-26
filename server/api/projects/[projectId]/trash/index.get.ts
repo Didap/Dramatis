@@ -11,6 +11,8 @@ export interface TrashItem {
   deletedAt: string
   /** The container the item belongs to (a scene's chapter, a revision's scene...). */
   parent?: { collection: TrashCollection, id: string, title: string }
+  /** A map of places (a picture with pins), not a relationship map. */
+  place?: boolean
   /** true when the item left together with its parent, in the same batch. */
   withParent?: boolean
   /** A readable line for items without a title: "Anna, Marco" (relationship), "Teresa" (image), "Il molo, La barca" (choice). */
@@ -58,6 +60,7 @@ export default defineEventHandler(async (event): Promise<TrashItem[]> => {
       const title = collection === 'images' ? row.caption : collection === 'relations' ? row.label : collection === 'links' ? row.label : collection === 'revisions' ? row.label : row[TITLE[collection] ?? 'title'] ?? ''
       stamps.set(`${collection}:${row.id}`, row.deletedAt.getTime())
       const item: TrashItem = { collection, id: row.id, title, deletedAt: row.deletedAt.toISOString() }
+      if (collection === 'maps' && row.settings?.image) item.place = true
       const parent = PARENT[collection]
       if (parent && row[parent.column]) item.parent = { collection: parent.collection, id: row[parent.column], title: '' }
       items.push(item)

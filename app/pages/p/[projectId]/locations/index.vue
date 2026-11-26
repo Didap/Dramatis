@@ -46,8 +46,11 @@ async function onFile(event: Event) {
   catch {
     return
   }
-  const count = store.placeMaps.length
-  const name = count ? t('locations.map.nthName', { n: count + 1 }) : t('locations.map.firstName')
+  // The first name no map has yet: "Mappa", then "Mappa 2", "Mappa 3"...
+  const taken = new Set(store.placeMaps.map(m => m.name))
+  let n = 1
+  while (taken.has(n === 1 ? t('locations.map.firstName') : t('locations.map.nthName', { n }))) n++
+  const name = n === 1 ? t('locations.map.firstName') : t('locations.map.nthName', { n })
   const created = await store.create('maps', { name, nodes: {}, settings: { image } }).catch(() => null)
   if (created) mapId.value = created.id
 }
@@ -89,7 +92,14 @@ const mapMenu = computed<DropdownMenuItem[][]>(() => [[
             :aria-label="t('locations.map.choose')"
             class="min-w-48 max-lg:min-h-11"
           />
-          <h2 v-else class="voice-author text-lg font-semibold text-highlighted">{{ map.name }}</h2>
+          <DInlineText
+            :model-value="map.name"
+            variant="heading"
+            required
+            :maxlength="120"
+            :aria-label="t('locations.map.rename')"
+            @update:model-value="(value: string) => store.patchSoon('maps', map!.id, { name: value })"
+          />
           <div class="ms-auto flex items-center gap-2">
             <UButton
               icon="i-lucide-map-pin-plus"

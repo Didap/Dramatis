@@ -296,7 +296,7 @@ const legend = ref(false)
     </template>
 
     <h1 v-if="map" class="sr-only">{{ mapName }}</h1>
-    <div v-if="map" class="relations-map-page flex h-[calc(100dvh-7rem-env(safe-area-inset-bottom))] lg:h-[calc(100dvh-3.5rem)]">
+    <div v-if="map && !map.settings.image" class="relations-map-page flex h-[calc(100dvh-7rem-env(safe-area-inset-bottom))] lg:h-[calc(100dvh-3.5rem)]">
       <div class="relative min-w-0 flex-1">
         <RelationsMapCanvas
           :key="map.id"
